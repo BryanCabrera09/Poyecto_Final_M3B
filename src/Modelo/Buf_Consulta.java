@@ -22,6 +22,9 @@ public class Buf_Consulta {
         this.hora = hora;
     }
 
+    public Buf_Consulta() {
+    }
+
     public int getId_consulta() {
         return id_consulta;
     }

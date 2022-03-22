@@ -16,6 +16,9 @@ public class Buf_Caso {
         this.caso = caso;
     }
 
+    public Buf_Caso() {
+    }
+
     public int getId_caso() {
         return id_caso;
     }

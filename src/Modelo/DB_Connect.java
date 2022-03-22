@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  */
 public class DB_Connect {
     
-    public Connection Connect() {
+    public static Connection Connect() {
 
         Connection con = null;
 

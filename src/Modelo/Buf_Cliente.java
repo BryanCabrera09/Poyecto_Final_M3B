@@ -1,7 +1,7 @@
 
 package Modelo;
 
-import java.util.Date;
+import java.sql.Date;
 
 /*
  * @author BRYAN_CABRERA
@@ -17,6 +17,9 @@ public class Buf_Cliente extends Buf_Persona {
         this.id_cliente = id_cliente;
         this.ocupacion = ocupacion;
         this.id_abg = id_abg;
+    }
+
+    public Buf_Cliente() {
     }
 
     public int getId_cliente() {

@@ -36,6 +36,9 @@ public class Buf_Caso_Reporte_Consular {
         this.observacion = observacion;
     }
 
+    public Buf_Caso_Reporte_Consular() {
+    }
+
     public int getId_caso() {
         return id_caso;
     }

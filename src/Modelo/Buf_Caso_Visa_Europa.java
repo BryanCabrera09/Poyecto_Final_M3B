@@ -54,6 +54,9 @@ public class Buf_Caso_Visa_Europa {
         this.observacion = observacion;
     }
 
+    public Buf_Caso_Visa_Europa() {
+    }
+
     public int getId_caso() {
         return id_caso;
     }

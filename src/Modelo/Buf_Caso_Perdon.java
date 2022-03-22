@@ -32,6 +32,9 @@ public class Buf_Caso_Perdon {
         this.observacion = observacion;
     }
 
+    public Buf_Caso_Perdon() {
+    }
+
     public int getId_caso() {
         return id_caso;
     }

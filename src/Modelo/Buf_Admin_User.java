@@ -16,6 +16,9 @@ public class Buf_Admin_User {
         this.contrasenia = contrasenia;
     }
 
+    public Buf_Admin_User() {
+    }
+
     public String getCedula() {
         return cedula;
     }

@@ -24,6 +24,9 @@ public class Buf_Pagos {
         this.saldo = saldo;
     }
 
+    public Buf_Pagos() {
+    }
+
     public int getId_pago() {
         return id_pago;
     }

@@ -1,7 +1,7 @@
 
 package Modelo;
 
-import java.util.Date;
+import java.sql.Date;
 
 /*
  * @author BRYAN_CABRERA
@@ -26,6 +26,9 @@ public class Buf_Persona {
         this.num_celular = num_celular;
         this.estado_civil = estado_civil;
         this.fecha_Nacimiento = fecha_Nacimiento;
+    }
+
+    public Buf_Persona() {
     }
 
     public String getCedula() {

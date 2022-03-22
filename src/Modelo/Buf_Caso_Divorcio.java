@@ -29,6 +29,9 @@ public class Buf_Caso_Divorcio {
         this.observacion = observacion;
     }
 
+    public Buf_Caso_Divorcio() {
+    }
+
     public int getId_caso() {
         return id_caso;
     }

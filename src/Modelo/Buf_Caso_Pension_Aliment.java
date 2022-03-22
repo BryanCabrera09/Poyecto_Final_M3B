@@ -30,6 +30,9 @@ public class Buf_Caso_Pension_Aliment {
         this.observacion = observacion;
     }
 
+    public Buf_Caso_Pension_Aliment() {
+    }
+
     public int getId_caso() {
         return id_caso;
     }

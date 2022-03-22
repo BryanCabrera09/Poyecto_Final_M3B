@@ -18,6 +18,9 @@ public class Buf_Usuario {
         this.contrasenia = contrasenia;
     }
 
+    public Buf_Usuario() {
+    }
+
     public int getId_abg() {
         return id_abg;
     }

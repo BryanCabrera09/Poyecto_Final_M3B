@@ -24,6 +24,9 @@ public class Buf_Cita {
         this.hora = hora;
     }
 
+    public Buf_Cita() {
+    }
+
     public int getId_cita() {
         return id_cita;
     }

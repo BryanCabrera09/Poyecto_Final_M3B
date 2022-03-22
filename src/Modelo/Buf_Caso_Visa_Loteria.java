@@ -38,6 +38,9 @@ public class Buf_Caso_Visa_Loteria {
         this.observacion = observacion;
     }
 
+    public Buf_Caso_Visa_Loteria() {
+    }
+
     public int getId_caso() {
         return id_caso;
     }

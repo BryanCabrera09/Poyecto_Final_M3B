@@ -30,6 +30,9 @@ public class Buf_Caso_Visa_Mexico {
         this.observacion = observacion;
     }
 
+    public Buf_Caso_Visa_Mexico() {
+    }
+
     public int getId_caso() {
         return id_caso;
     }

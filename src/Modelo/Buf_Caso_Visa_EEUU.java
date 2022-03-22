@@ -42,6 +42,9 @@ public class Buf_Caso_Visa_EEUU {
         this.observacion = observacion;
     }
 
+    public Buf_Caso_Visa_EEUU() {
+    }
+
     public int getId_caso() {
         return id_caso;
     }
