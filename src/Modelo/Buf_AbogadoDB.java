@@ -1,6 +1,6 @@
 package Modelo;
 
-import InterfaceDAO.Buf_PersonaDAO;
+import InterfaceDAO.Buf_AbogadoDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,10 +14,10 @@ import java.util.logging.Logger;
 /*
  * @author BRYAN_CABRERA
  */
-public class Buf_PersonaDB implements Buf_PersonaDAO {
+public class Buf_AbogadoDB implements Buf_AbogadoDAO {
 
     @Override
-    public boolean Register(Buf_Persona persona) {
+    public boolean Register(Buf_Abogado abg) {
 
         boolean Register = false;
 
@@ -30,18 +30,16 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Persona VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Abogados VALUES (?, ?, ?, ?, ?, ?);";
 
             pst = con.prepareStatement(sql);
 
-            pst.setString(1, persona.getCedula());
-            pst.setString(2, persona.getNombre());
-            pst.setString(3, persona.getApellido());
-            pst.setString(4, persona.getCorreo());
-            pst.setString(5, persona.getDireccion());
-            pst.setString(6, persona.getNum_celular());
-            pst.setString(7, persona.getEstado_civil());
-            pst.setDate(8, persona.getFecha_Nacimiento());
+            pst.setInt(1, abg.getId_abg());
+            pst.setInt(2, abg.getNum_matricula());
+            pst.setString(3, abg.getCedula());
+            pst.setInt(4, abg.getNum_cuenta());
+            pst.setString(5, abg.getHorario());
+            pst.setBytes(6, abg.getFoto());
 
             pst.executeUpdate();
 
@@ -67,15 +65,15 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
     }
 
     @Override
-    public List<Buf_Persona> Getter() {
+    public List<Buf_Abogado> Getter() {
 
         Statement st = null;
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM Buf_Persona";
+        String sql = "SELECT * FROM Buf_Abogados";
 
-        List<Buf_Persona> Lista_Per = new ArrayList<>();
+        List<Buf_Abogado> Lista_Abg = new ArrayList<>();
 
         try {
 
@@ -85,22 +83,20 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
 
             while (rs.next()) {
 
-                Buf_Persona P = new Buf_Persona();
-                P.setCedula(rs.getString("cedula"));
-                P.setNombre(rs.getString("nombre"));
-                P.setApellido(rs.getString("apellido"));
-                P.setCorreo(rs.getString("correo_electronico"));
-                P.setDireccion(rs.getString("direccion"));
-                P.setNum_celular(rs.getString("celular"));
-                P.setEstado_civil(rs.getString("estado"));
-                P.setFecha_Nacimiento(rs.getDate("fecha_nacimiento"));
+                Buf_Abogado A = new Buf_Abogado();
+                A.setId_abg(rs.getInt("id_abogado"));
+                A.setNum_matricula(rs.getInt("num_matricula"));
+                A.setCedula(rs.getString("ci_abg"));
+                A.setNum_cuenta(rs.getInt("num_cuenta"));
+                A.setHorario(rs.getString("horario"));
+                A.setFoto(rs.getBytes("foto"));
 
-                Lista_Per.add(P);
+                Lista_Abg.add(A);
             }
             st.close();
             con.close();
             rs.close();
-            return Lista_Per;
+            return Lista_Abg;
 
         } catch (SQLException e) {
 
@@ -110,7 +106,7 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
     }
 
     @Override
-    public boolean Update(Buf_Persona persona) {
+    public boolean Update(Buf_Abogado abg) {
 
         boolean Update = false;
 
@@ -126,16 +122,13 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Persona SET nombre=?,apellido=?,correo_electronico=?,direccion=?,celular=?,estado=? WHERE cedula=?";
+            String sql = "UPDATE Buf_Abogados SET num_cuenta=?,horario=?,foto=? WHERE id_abogado=?";
             pst = con.prepareStatement(sql);
 
-            pst.setString(1, persona.getNombre());
-            pst.setString(2, persona.getApellido());
-            pst.setString(3, persona.getCorreo());
-            pst.setString(4, persona.getDireccion());
-            pst.setString(5, persona.getNum_celular());
-            pst.setString(6, persona.getEstado_civil());
-            pst.setString(7, persona.getCedula());
+            pst.setInt(1, abg.getNum_cuenta());
+            pst.setString(2, abg.getHorario());
+            pst.setBytes(3, abg.getFoto());
+            pst.setInt(4, abg.getId_abg());
 
             int act_2 = pst.executeUpdate();
             Update = true;
@@ -160,7 +153,7 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
     }
 
     @Override
-    public boolean Delete(Buf_Persona persona) {
+    public boolean Delete(Buf_Abogado abg) {
 
         boolean Delete = false;
 
@@ -176,10 +169,10 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "DELETE FROM Buf_Persona WHERE cedula=?";
+            String sql = "DELETE FROM Buf_Abogados WHERE id_abogado=?";
 
             pst = con.prepareStatement(sql);
-            pst.setString(1, persona.getCedula());
+            pst.setInt(1, abg.getId_abg());
 
             int elim = pst.executeUpdate();
             Delete = true;
