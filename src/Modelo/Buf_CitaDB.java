@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo;
 
 import InterfaceDAO.Buf_CitaDAO;
@@ -16,9 +12,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Myrian
+/*
+ * @author BRYAN_CABRERA
  */
 public class Buf_CitaDB implements Buf_CitaDAO {
 
@@ -110,9 +105,50 @@ public class Buf_CitaDB implements Buf_CitaDAO {
         }
     }
 
-    @Override//Pendiente
+    @Override
     public boolean Update(Buf_Cita cita) {
+        
          boolean Update = false;
+
+        Connection con = null;
+        PreparedStatement pst = null;
+
+        try {
+
+            Statement st = null;
+            con = DB_Connect.Connect();
+
+            st = con.createStatement();
+
+            con.setAutoCommit(false);
+
+            String sql = "UPDATE Buf_Citas SET num_celular=?,descripcion=?,hora=? WHERE id_cita=?";
+            pst = con.prepareStatement(sql);
+
+            pst.setString(1, cita.getNum_celular());
+            pst.setString(2, cita.getDescripcion());
+            pst.setString(3, cita.getHora());
+            pst.setInt(4, cita.getId_cita());
+
+            int act_2 = pst.executeUpdate();
+            Update = true;
+
+            pst.close();
+            con.commit();
+
+        } catch (SQLException e) {
+
+            System.out.println("Error > " + e.getMessage());
+
+            try {
+
+                con.rollback();
+            } catch (SQLException ex) {
+
+                System.out.println("Error > " + ex.getMessage());
+            }
+        }
+
         return Update;
     }
 

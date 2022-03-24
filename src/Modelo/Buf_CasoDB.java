@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo;
 
-import InterfaceDAO.Buf_AbogadoDAO;
 import InterfaceDAO.Buf_CasoDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,9 +12,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Myrian
+/*
+ * @author BRYAN_CABRERA
  */
 public class Buf_CasoDB implements Buf_CasoDAO {
 
@@ -119,12 +113,11 @@ public class Buf_CasoDB implements Buf_CasoDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Caso SET cedula=?,caso=? WHERE id_caso=?";
+            String sql = "UPDATE Buf_Caso SET caso=? WHERE id_caso=?";
             pst = con.prepareStatement(sql);
-
-            pst.setString(1, caso.getCedula());
-            pst.setString(2, caso.getCaso());
-            pst.setInt(3, caso.getId_caso());
+            
+            pst.setString(1, caso.getCaso());
+            pst.setInt(2, caso.getId_caso());
 
             int act_2 = pst.executeUpdate();
             Update = true;
