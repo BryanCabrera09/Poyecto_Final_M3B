@@ -184,7 +184,7 @@ CREATE TABLE Buf_Caso_Divorcio (
 TABLA CASO_PENSION ALIMENTICIA
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 */
-CREATE TABLE Buf_Caso_Pension_Ali (
+CREATE TABLE Buf_Caso_Pension_Aliment (
     Id_Caso     NUMBER(5),
     Cedula      VARCHAR2(10),
     Req_1       BLOB,
