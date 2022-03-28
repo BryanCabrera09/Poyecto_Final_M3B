@@ -16,9 +16,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Myrian
+/*
+ * @author BRYAN_CABRERA
  */
 public class Buf_SecretariaDB implements Buf_SecretariaDAO {
 
@@ -109,7 +108,7 @@ public class Buf_SecretariaDB implements Buf_SecretariaDAO {
 
     @Override
     public boolean Update(Buf_Secretaria secre) {
-boolean Update = false;
+        boolean Update = false;
 
         Connection con = null;
         PreparedStatement pst = null;
@@ -149,7 +148,8 @@ boolean Update = false;
             }
         }
 
-        return Update;    }
+        return Update;
+    }
 
     @Override
     public boolean Delete(Buf_Secretaria secre) {

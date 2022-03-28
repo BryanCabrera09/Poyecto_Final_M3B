@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
 
-import InterfaceDAO.Buf_PagosDAO;
+import InterfaceDAO.Buf_UsuarioDAO;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,10 +14,11 @@ import java.util.logging.Logger;
 /*
  * @author BRYAN_CABRERA
  */
-public class Buf_PagosDB implements Buf_PagosDAO {
+public class Buf_UsuariosDB implements Buf_UsuarioDAO {
 
     @Override
-    public boolean Register(Buf_Pagos pagos) {
+    public boolean Register(Buf_Usuarios user) {
+
         boolean Register = false;
 
         PreparedStatement pst = null;
@@ -35,18 +30,17 @@ public class Buf_PagosDB implements Buf_PagosDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Pagos VALUES (?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Usuarios VALUES (?, ?, ?, ?);";
 
             pst = con.prepareStatement(sql);
 
-            pst.setInt(1, pagos.getId_pago());
-            pst.setInt(2, pagos.getId_caso());
-            pst.setString(3, pagos.getCedula());
-            pst.setDate(4, (Date) pagos.getFecha_Pago());
-            pst.setDouble(5, pagos.getAbono());
-            pst.setDouble(6, pagos.getSaldo());
+            pst.setInt(1, user.getId_abg());
+            pst.setString(2, user.getCedula());
+            pst.setString(3, user.getUsuario());
+            pst.setString(4, user.getContrasenia());
 
             pst.executeUpdate();
+
             con.commit();
 
             Register = true;
@@ -69,14 +63,15 @@ public class Buf_PagosDB implements Buf_PagosDAO {
     }
 
     @Override
-    public List<Buf_Pagos> Getter() {
+    public List<Buf_Usuarios> Getter() {
+
         Statement st = null;
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM Buf_Pagos";
+        String sql = "SELECT * FROM Buf_Usuarios";
 
-        List<Buf_Pagos> Lista_pagos = new ArrayList<>();
+        List<Buf_Usuarios> Lista_user = new ArrayList<>();
 
         try {
 
@@ -86,20 +81,18 @@ public class Buf_PagosDB implements Buf_PagosDAO {
 
             while (rs.next()) {
 
-                Buf_Pagos A = new Buf_Pagos();
-                A.setId_pago(rs.getInt("id_pago"));
-                A.setId_caso(rs.getInt("id_caso"));
-                A.setCedula(rs.getString("cedula"));
-                A.setFecha_Pago(rs.getDate("fecha_pago"));
-                A.setAbono(rs.getDouble("abono"));
-                A.setSaldo(rs.getDouble("saldo"));
+                Buf_Usuarios A = new Buf_Usuarios();
+                A.setId_abg(rs.getInt("id_abg"));
+                A.setCedula(rs.getString("ci_user"));
+                A.setUsuario(rs.getString("usuario"));
+                A.setContrasenia(rs.getString("Contraseña"));
 
-                Lista_pagos.add(A);
+                Lista_user.add(A);
             }
             st.close();
             con.close();
             rs.close();
-            return Lista_pagos;
+            return Lista_user;
 
         } catch (SQLException e) {
 
@@ -109,7 +102,8 @@ public class Buf_PagosDB implements Buf_PagosDAO {
     }
 
     @Override
-    public boolean Update(Buf_Pagos pagos) {
+    public boolean Update(Buf_Usuarios user) {
+
         boolean Update = false;
 
         Connection con = null;
@@ -124,13 +118,12 @@ public class Buf_PagosDB implements Buf_PagosDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Pagos SET fecha_pago=?,abono=?,saldo=? WHERE id_pago=?";
+            String sql = "UPDATE Buf_Usuarios SET usuario=?,contraseña=? WHERE id_abg=?";
             pst = con.prepareStatement(sql);
 
-            pst.setDate(1, (Date) pagos.getFecha_Pago());
-            pst.setDouble(2, pagos.getAbono());
-            pst.setDouble(3, pagos.getSaldo());
-            pst.setInt(4, pagos.getId_pago());
+            pst.setString(1, user.getUsuario());
+            pst.setString(2, user.getContrasenia());
+            pst.setInt(3, user.getId_abg());
 
             int act_2 = pst.executeUpdate();
             Update = true;
@@ -155,7 +148,8 @@ public class Buf_PagosDB implements Buf_PagosDAO {
     }
 
     @Override
-    public boolean Delete(Buf_Pagos pagos) {
+    public boolean Delete(Buf_Usuarios user) {
+
         boolean Delete = false;
 
         PreparedStatement pst = null;
@@ -170,10 +164,10 @@ public class Buf_PagosDB implements Buf_PagosDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "DELETE FROM Buf_Pagos WHERE id_pago=?";
+            String sql = "DELETE FROM Buf_Usuarios WHERE id_abg=?";
 
             pst = con.prepareStatement(sql);
-            pst.setInt(1, pagos.getId_pago());
+            pst.setInt(1, user.getId_abg());
 
             int elim = pst.executeUpdate();
             Delete = true;

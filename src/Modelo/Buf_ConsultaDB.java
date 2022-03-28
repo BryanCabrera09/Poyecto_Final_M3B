@@ -16,9 +16,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Myrian
+/*
+ * @author BRYAN_CABRERA
  */
 public class Buf_ConsultaDB implements Buf_ConsultaDAO {
 

@@ -4,21 +4,21 @@ package Modelo;
 /*
  * @author BRYAN_CABRERA
  */
-public class Buf_Usuario {
+public class Buf_Usuarios {
     
     private int id_abg;
     private String cedula;
     private String usuario;
     private String contrasenia;
 
-    public Buf_Usuario(int id_abg, String cedula, String usuario, String contrasenia) {
+    public Buf_Usuarios(int id_abg, String cedula, String usuario, String contrasenia) {
         this.id_abg = id_abg;
         this.cedula = cedula;
         this.usuario = usuario;
         this.contrasenia = contrasenia;
     }
 
-    public Buf_Usuario() {
+    public Buf_Usuarios() {
     }
 
     public int getId_abg() {

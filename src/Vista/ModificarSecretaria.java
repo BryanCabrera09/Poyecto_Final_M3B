@@ -5,16 +5,22 @@
  */
 package vista;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /*
  * @author BRYAN_CABRERA
  */
 public class ModificarSecretaria extends javax.swing.JInternalFrame {
 
- 
     /**
      * Creates new form ModificacionSecretaria
      */
-    
     public static String x;
 
     public ModificarSecretaria() {
@@ -25,8 +31,329 @@ public class ModificarSecretaria extends javax.swing.JInternalFrame {
         int a = MenuInicio.escritorio.getWidth() - this.getWidth();
         int b = MenuInicio.escritorio.getHeight() - this.getHeight();
         setLocation(a / 2, b / 5);
-        
+
     }
+
+    public static JButton getBtn_cancelar() {
+        return btn_cancelar;
+    }
+
+    public static void setBtn_cancelar(JButton btn_cancelar) {
+        ModificarSecretaria.btn_cancelar = btn_cancelar;
+    }
+
+    public static JButton getBtn_eliminar() {
+        return btn_eliminar;
+    }
+
+    public static void setBtn_eliminar(JButton btn_eliminar) {
+        ModificarSecretaria.btn_eliminar = btn_eliminar;
+    }
+
+    public static JButton getBtn_guardar() {
+        return btn_guardar;
+    }
+
+    public static void setBtn_guardar(JButton btn_guardar) {
+        ModificarSecretaria.btn_guardar = btn_guardar;
+    }
+
+    public static JButton getBtn_imagen() {
+        return btn_imagen;
+    }
+
+    public static void setBtn_imagen(JButton btn_imagen) {
+        ModificarSecretaria.btn_imagen = btn_imagen;
+    }
+
+    public static JButton getBtn_modificar() {
+        return btn_modificar;
+    }
+
+    public static void setBtn_modificar(JButton btn_modificar) {
+        ModificarSecretaria.btn_modificar = btn_modificar;
+    }
+
+    public static JCheckBox getCb_1() {
+        return cb_1;
+    }
+
+    public static void setCb_1(JCheckBox cb_1) {
+        ModificarSecretaria.cb_1 = cb_1;
+    }
+
+    public static JCheckBox getCb_2() {
+        return cb_2;
+    }
+
+    public static void setCb_2(JCheckBox cb_2) {
+        ModificarSecretaria.cb_2 = cb_2;
+    }
+
+    public static JCheckBox getCb_3() {
+        return cb_3;
+    }
+
+    public static void setCb_3(JCheckBox cb_3) {
+        ModificarSecretaria.cb_3 = cb_3;
+    }
+
+    public static JCheckBox getCb_4() {
+        return cb_4;
+    }
+
+    public static void setCb_4(JCheckBox cb_4) {
+        ModificarSecretaria.cb_4 = cb_4;
+    }
+
+    public static JComboBox<String> getCb_estado() {
+        return cb_estado;
+    }
+
+    public static void setCb_estado(JComboBox<String> cb_estado) {
+        ModificarSecretaria.cb_estado = cb_estado;
+    }
+
+    public static JLabel getCelular() {
+        return celular;
+    }
+
+    public static void setCelular(JLabel celular) {
+        ModificarSecretaria.celular = celular;
+    }
+
+    public static JLabel getCorreo() {
+        return correo;
+    }
+
+    public static void setCorreo(JLabel correo) {
+        ModificarSecretaria.correo = correo;
+    }
+
+    public static JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public static void setjLabel1(JLabel jLabel1) {
+        ModificarSecretaria.jLabel1 = jLabel1;
+    }
+
+    public static JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public static void setjScrollPane1(JScrollPane jScrollPane1) {
+        ModificarSecretaria.jScrollPane1 = jScrollPane1;
+    }
+
+    public static JLabel getLaapellido() {
+        return laapellido;
+    }
+
+    public static void setLaapellido(JLabel laapellido) {
+        ModificarSecretaria.laapellido = laapellido;
+    }
+
+    public static JLabel getLacedula() {
+        return lacedula;
+    }
+
+    public static void setLacedula(JLabel lacedula) {
+        ModificarSecretaria.lacedula = lacedula;
+    }
+
+    public static JLabel getLacelular() {
+        return lacelular;
+    }
+
+    public static void setLacelular(JLabel lacelular) {
+        ModificarSecretaria.lacelular = lacelular;
+    }
+
+    public static JLabel getLacorreo() {
+        return lacorreo;
+    }
+
+    public static void setLacorreo(JLabel lacorreo) {
+        ModificarSecretaria.lacorreo = lacorreo;
+    }
+
+    public static JLabel getLadireccion() {
+        return ladireccion;
+    }
+
+    public static void setLadireccion(JLabel ladireccion) {
+        ModificarSecretaria.ladireccion = ladireccion;
+    }
+
+    public static JLabel getLaestado() {
+        return laestado;
+    }
+
+    public static void setLaestado(JLabel laestado) {
+        ModificarSecretaria.laestado = laestado;
+    }
+
+    public static JLabel getLafecha_nac() {
+        return lafecha_nac;
+    }
+
+    public static void setLafecha_nac(JLabel lafecha_nac) {
+        ModificarSecretaria.lafecha_nac = lafecha_nac;
+    }
+
+    public static JLabel getLahorario() {
+        return lahorario;
+    }
+
+    public static void setLahorario(JLabel lahorario) {
+        ModificarSecretaria.lahorario = lahorario;
+    }
+
+    public static JLabel getLanombre() {
+        return lanombre;
+    }
+
+    public static void setLanombre(JLabel lanombre) {
+        ModificarSecretaria.lanombre = lanombre;
+    }
+
+    public static JLabel getLaregistro() {
+        return laregistro;
+    }
+
+    public static void setLaregistro(JLabel laregistro) {
+        ModificarSecretaria.laregistro = laregistro;
+    }
+
+    public static JLabel getLb_celular() {
+        return lb_celular;
+    }
+
+    public static void setLb_celular(JLabel lb_celular) {
+        ModificarSecretaria.lb_celular = lb_celular;
+    }
+
+    public static JLabel getLb_correo() {
+        return lb_correo;
+    }
+
+    public static void setLb_correo(JLabel lb_correo) {
+        ModificarSecretaria.lb_correo = lb_correo;
+    }
+
+    public static JLabel getLb_direccion() {
+        return lb_direccion;
+    }
+
+    public static void setLb_direccion(JLabel lb_direccion) {
+        ModificarSecretaria.lb_direccion = lb_direccion;
+    }
+
+    public static JLabel getLb_estado() {
+        return lb_estado;
+    }
+
+    public static void setLb_estado(JLabel lb_estado) {
+        ModificarSecretaria.lb_estado = lb_estado;
+    }
+
+    public static JLabel getLb_foto() {
+        return lb_foto;
+    }
+
+    public static void setLb_foto(JLabel lb_foto) {
+        ModificarSecretaria.lb_foto = lb_foto;
+    }
+
+    public static JLabel getLb_horario() {
+        return lb_horario;
+    }
+
+    public static void setLb_horario(JLabel lb_horario) {
+        ModificarSecretaria.lb_horario = lb_horario;
+    }
+
+    public static JLabel getLb_nombre() {
+        return lb_nombre;
+    }
+
+    public static void setLb_nombre(JLabel lb_nombre) {
+        ModificarSecretaria.lb_nombre = lb_nombre;
+    }
+
+    public static JTextField getNacimeinto() {
+        return nacimeinto;
+    }
+
+    public static void setNacimeinto(JTextField nacimeinto) {
+        ModificarSecretaria.nacimeinto = nacimeinto;
+    }
+
+    public static JTable getTablepersona() {
+        return tablepersona;
+    }
+
+    public static void setTablepersona(JTable tablepersona) {
+        ModificarSecretaria.tablepersona = tablepersona;
+    }
+
+    public static JTextField getTxt_apellido() {
+        return txt_apellido;
+    }
+
+    public static void setTxt_apellido(JTextField txt_apellido) {
+        ModificarSecretaria.txt_apellido = txt_apellido;
+    }
+
+    public static JTextField getTxt_buscar() {
+        return txt_buscar;
+    }
+
+    public static void setTxt_buscar(JTextField txt_buscar) {
+        ModificarSecretaria.txt_buscar = txt_buscar;
+    }
+
+    public static JTextField getTxt_cedula() {
+        return txt_cedula;
+    }
+
+    public static void setTxt_cedula(JTextField txt_cedula) {
+        ModificarSecretaria.txt_cedula = txt_cedula;
+    }
+
+    public static JTextField getTxt_celular() {
+        return txt_celular;
+    }
+
+    public static void setTxt_celular(JTextField txt_celular) {
+        ModificarSecretaria.txt_celular = txt_celular;
+    }
+
+    public static JTextField getTxt_correo() {
+        return txt_correo;
+    }
+
+    public static void setTxt_correo(JTextField txt_correo) {
+        ModificarSecretaria.txt_correo = txt_correo;
+    }
+
+    public static JTextField getTxt_direccion() {
+        return txt_direccion;
+    }
+
+    public static void setTxt_direccion(JTextField txt_direccion) {
+        ModificarSecretaria.txt_direccion = txt_direccion;
+    }
+
+    public static JTextField getTxt_nombre() {
+        return txt_nombre;
+    }
+
+    public static void setTxt_nombre(JTextField txt_nombre) {
+        ModificarSecretaria.txt_nombre = txt_nombre;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,37 +374,36 @@ public class ModificarSecretaria extends javax.swing.JInternalFrame {
         lafecha_nac = new javax.swing.JLabel();
         laestado = new javax.swing.JLabel();
         lahorario = new javax.swing.JLabel();
-        txtcelular = new javax.swing.JTextField();
-        txtdireccion = new javax.swing.JTextField();
-        btnguardar = new javax.swing.JButton();
-        cbestado = new javax.swing.JComboBox<>();
-        btnelimina = new javax.swing.JButton();
-        txtnombre = new javax.swing.JTextField();
-        txtapellido = new javax.swing.JTextField();
-        txtcorreo = new javax.swing.JTextField();
-        txtcedula = new javax.swing.JTextField();
-        cb1 = new javax.swing.JCheckBox();
-        cb2 = new javax.swing.JCheckBox();
-        cb3 = new javax.swing.JCheckBox();
-        cb4 = new javax.swing.JCheckBox();
+        txt_celular = new javax.swing.JTextField();
+        txt_direccion = new javax.swing.JTextField();
+        btn_guardar = new javax.swing.JButton();
+        cb_estado = new javax.swing.JComboBox<>();
+        btn_eliminar = new javax.swing.JButton();
+        txt_nombre = new javax.swing.JTextField();
+        txt_apellido = new javax.swing.JTextField();
+        txt_correo = new javax.swing.JTextField();
+        txt_cedula = new javax.swing.JTextField();
+        cb_1 = new javax.swing.JCheckBox();
+        cb_2 = new javax.swing.JCheckBox();
+        cb_3 = new javax.swing.JCheckBox();
+        cb_4 = new javax.swing.JCheckBox();
         nacimeinto = new javax.swing.JTextField();
-        lanombre1 = new javax.swing.JLabel();
-        lacorreo1 = new javax.swing.JLabel();
-        laestado1 = new javax.swing.JLabel();
-        lacelular1 = new javax.swing.JLabel();
-        lahorario1 = new javax.swing.JLabel();
-        ladireccion1 = new javax.swing.JLabel();
+        lb_nombre = new javax.swing.JLabel();
+        lb_correo = new javax.swing.JLabel();
+        lb_estado = new javax.swing.JLabel();
+        lb_celular = new javax.swing.JLabel();
+        lb_horario = new javax.swing.JLabel();
+        lb_direccion = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablepersona = new javax.swing.JTable();
         correo = new javax.swing.JLabel();
         celular = new javax.swing.JLabel();
-        btnimagen = new javax.swing.JButton();
-        lafoto = new javax.swing.JLabel();
-        txtbuscar = new javax.swing.JTextField();
-        btnmodificar = new javax.swing.JButton();
+        btn_imagen = new javax.swing.JButton();
+        lb_foto = new javax.swing.JLabel();
+        txt_buscar = new javax.swing.JTextField();
+        btn_modificar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btncancelar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        btn_cancelar = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -136,65 +462,65 @@ public class ModificarSecretaria extends javax.swing.JInternalFrame {
 
         lahorario.setText("Registro de horario:");
         jPanel1.add(lahorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, -1, 20));
-        jPanel1.add(txtcelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 139, -1));
-        jPanel1.add(txtdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 139, -1));
+        jPanel1.add(txt_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 139, -1));
+        jPanel1.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 139, -1));
 
-        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
-        btnguardar.setText("GUARDAR");
-        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 620, -1, 40));
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setText("GUARDAR");
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 620, 90, 50));
 
-        jPanel1.add(cbestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 140, -1));
+        jPanel1.add(cb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 140, -1));
 
-        btnelimina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar.png"))); // NOI18N
-        btnelimina.setText("ELIMINAR REGISTRO");
-        jPanel1.add(btnelimina, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 620, -1, 40));
-        jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 139, -1));
-        jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 139, -1));
-        jPanel1.add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 140, -1));
-        jPanel1.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 139, -1));
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar.png"))); // NOI18N
+        btn_eliminar.setText("ELIMINAR REGISTRO");
+        jPanel1.add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 620, -1, 50));
+        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 139, -1));
+        jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 139, -1));
+        jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 140, -1));
+        jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 139, -1));
 
-        cb1.setText("9:00-13:00");
-        jPanel1.add(cb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, -1, -1));
+        cb_1.setText("9:00-13:00");
+        jPanel1.add(cb_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, -1, -1));
 
-        cb2.setText("13:00-15:00");
-        jPanel1.add(cb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 160, -1, -1));
+        cb_2.setText("13:00-15:00");
+        jPanel1.add(cb_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 160, -1, -1));
 
-        cb3.setText("15:00-16:30");
-        jPanel1.add(cb3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, -1, -1));
+        cb_3.setText("15:00-16:30");
+        jPanel1.add(cb_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, -1, -1));
 
-        cb4.setText("16:30-18:30");
-        jPanel1.add(cb4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 200, -1, -1));
+        cb_4.setText("16:30-18:30");
+        jPanel1.add(cb_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 200, -1, -1));
         jPanel1.add(nacimeinto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 140, -1));
 
-        lanombre1.setBackground(new java.awt.Color(255, 255, 255));
-        lanombre1.setForeground(new java.awt.Color(255, 0, 0));
-        lanombre1.setText("*Campo Obligatorio");
-        jPanel1.add(lanombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+        lb_nombre.setBackground(new java.awt.Color(255, 255, 255));
+        lb_nombre.setForeground(new java.awt.Color(255, 0, 0));
+        lb_nombre.setText("*Campo Obligatorio");
+        jPanel1.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
 
-        lacorreo1.setBackground(new java.awt.Color(255, 255, 255));
-        lacorreo1.setForeground(new java.awt.Color(255, 0, 0));
-        lacorreo1.setText("*Campo Obligatorio");
-        jPanel1.add(lacorreo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, -1, -1));
+        lb_correo.setBackground(new java.awt.Color(255, 255, 255));
+        lb_correo.setForeground(new java.awt.Color(255, 0, 0));
+        lb_correo.setText("*Campo Obligatorio");
+        jPanel1.add(lb_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, -1, -1));
 
-        laestado1.setBackground(new java.awt.Color(255, 255, 255));
-        laestado1.setForeground(new java.awt.Color(255, 0, 0));
-        laestado1.setText("*Campo Obligatorio");
-        jPanel1.add(laestado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, -1));
+        lb_estado.setBackground(new java.awt.Color(255, 255, 255));
+        lb_estado.setForeground(new java.awt.Color(255, 0, 0));
+        lb_estado.setText("*Campo Obligatorio");
+        jPanel1.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, -1));
 
-        lacelular1.setBackground(new java.awt.Color(255, 255, 255));
-        lacelular1.setForeground(new java.awt.Color(255, 0, 0));
-        lacelular1.setText("*Campo Obligatorio");
-        jPanel1.add(lacelular1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
+        lb_celular.setBackground(new java.awt.Color(255, 255, 255));
+        lb_celular.setForeground(new java.awt.Color(255, 0, 0));
+        lb_celular.setText("*Campo Obligatorio");
+        jPanel1.add(lb_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
 
-        lahorario1.setBackground(new java.awt.Color(255, 255, 255));
-        lahorario1.setForeground(new java.awt.Color(255, 0, 0));
-        lahorario1.setText("*Campo Obligatorio");
-        jPanel1.add(lahorario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, -1, -1));
+        lb_horario.setBackground(new java.awt.Color(255, 255, 255));
+        lb_horario.setForeground(new java.awt.Color(255, 0, 0));
+        lb_horario.setText("*Campo Obligatorio");
+        jPanel1.add(lb_horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, -1, -1));
 
-        ladireccion1.setBackground(new java.awt.Color(255, 255, 255));
-        ladireccion1.setForeground(new java.awt.Color(255, 0, 0));
-        ladireccion1.setText("*Campo Obligatorio");
-        jPanel1.add(ladireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, -1, -1));
+        lb_direccion.setBackground(new java.awt.Color(255, 255, 255));
+        lb_direccion.setForeground(new java.awt.Color(255, 0, 0));
+        lb_direccion.setText("*Campo Obligatorio");
+        jPanel1.add(lb_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, -1, -1));
 
         tablepersona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -217,27 +543,24 @@ public class ModificarSecretaria extends javax.swing.JInternalFrame {
         celular.setText("*Telefono Erroneo");
         jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, -1));
 
-        btnimagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Foto.png"))); // NOI18N
-        btnimagen.setText("FOTO");
-        jPanel1.add(btnimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, -1, -1));
-        jPanel1.add(lafoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 130, 140));
-        jPanel1.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 230, -1));
+        btn_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Foto.png"))); // NOI18N
+        btn_imagen.setText("FOTO");
+        jPanel1.add(btn_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, -1, 40));
+        jPanel1.add(lb_foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 130, 140));
+        jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 230, -1));
 
-        btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
-        btnmodificar.setText("MODIFICAR");
-        jPanel1.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 40));
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        btn_modificar.setText("MODIFICAR");
+        jPanel1.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 50));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("BUSCAR:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 70, 20));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 70, 30));
 
-        btncancelar.setText("CANCELAR");
-        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 620, -1, 40));
+        btn_cancelar.setText("CANCELAR");
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 620, 100, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_pantalla.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 690));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1000, 690));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 690));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -247,49 +570,47 @@ public class ModificarSecretaria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameClosing
 
 
-   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btncancelar;
-    public javax.swing.JButton btnelimina;
-    public javax.swing.JButton btnguardar;
-    public javax.swing.JButton btnimagen;
-    public javax.swing.JButton btnmodificar;
-    public javax.swing.JCheckBox cb1;
-    public javax.swing.JCheckBox cb2;
-    public javax.swing.JCheckBox cb3;
-    public javax.swing.JCheckBox cb4;
-    public javax.swing.JComboBox<String> cbestado;
-    public javax.swing.JLabel celular;
-    public javax.swing.JLabel correo;
-    public javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabel2;
+    public static javax.swing.JButton btn_cancelar;
+    public static javax.swing.JButton btn_eliminar;
+    public static javax.swing.JButton btn_guardar;
+    public static javax.swing.JButton btn_imagen;
+    public static javax.swing.JButton btn_modificar;
+    public static javax.swing.JCheckBox cb_1;
+    public static javax.swing.JCheckBox cb_2;
+    public static javax.swing.JCheckBox cb_3;
+    public static javax.swing.JCheckBox cb_4;
+    public static javax.swing.JComboBox<String> cb_estado;
+    public static javax.swing.JLabel celular;
+    public static javax.swing.JLabel correo;
+    public static javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JLabel laapellido;
-    public javax.swing.JLabel lacedula;
-    public javax.swing.JLabel lacelular;
-    public javax.swing.JLabel lacelular1;
-    public javax.swing.JLabel lacorreo;
-    public javax.swing.JLabel lacorreo1;
-    public javax.swing.JLabel ladireccion;
-    public javax.swing.JLabel ladireccion1;
-    public javax.swing.JLabel laestado;
-    public javax.swing.JLabel laestado1;
-    public javax.swing.JLabel lafecha_nac;
-    public javax.swing.JLabel lafoto;
-    public javax.swing.JLabel lahorario;
-    public javax.swing.JLabel lahorario1;
-    public javax.swing.JLabel lanombre;
-    public javax.swing.JLabel lanombre1;
-    public javax.swing.JLabel laregistro;
-    public javax.swing.JTextField nacimeinto;
-    public javax.swing.JTable tablepersona;
-    public javax.swing.JTextField txtapellido;
-    public javax.swing.JTextField txtbuscar;
-    public javax.swing.JTextField txtcedula;
-    public javax.swing.JTextField txtcelular;
-    public javax.swing.JTextField txtcorreo;
-    public javax.swing.JTextField txtdireccion;
-    public javax.swing.JTextField txtnombre;
+    public static javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JLabel laapellido;
+    public static javax.swing.JLabel lacedula;
+    public static javax.swing.JLabel lacelular;
+    public static javax.swing.JLabel lacorreo;
+    public static javax.swing.JLabel ladireccion;
+    public static javax.swing.JLabel laestado;
+    public static javax.swing.JLabel lafecha_nac;
+    public static javax.swing.JLabel lahorario;
+    public static javax.swing.JLabel lanombre;
+    public static javax.swing.JLabel laregistro;
+    public static javax.swing.JLabel lb_celular;
+    public static javax.swing.JLabel lb_correo;
+    public static javax.swing.JLabel lb_direccion;
+    public static javax.swing.JLabel lb_estado;
+    public static javax.swing.JLabel lb_foto;
+    public static javax.swing.JLabel lb_horario;
+    public static javax.swing.JLabel lb_nombre;
+    public static javax.swing.JTextField nacimeinto;
+    public static javax.swing.JTable tablepersona;
+    public static javax.swing.JTextField txt_apellido;
+    public static javax.swing.JTextField txt_buscar;
+    public static javax.swing.JTextField txt_cedula;
+    public static javax.swing.JTextField txt_celular;
+    public static javax.swing.JTextField txt_correo;
+    public static javax.swing.JTextField txt_direccion;
+    public static javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }

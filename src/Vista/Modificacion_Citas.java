@@ -161,6 +161,15 @@ public class Modificacion_Citas extends javax.swing.JInternalFrame {
         Modificacion_Citas.txt_celular = txtcelular;
     }
 
+    public static JButton getBtn_cancelar() {
+        return btn_cancelar;
+    }
+
+    public static void setBtn_cancelar(JButton btn_cancelar) {
+        Modificacion_Citas.btn_cancelar = btn_cancelar;
+    }
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -187,6 +196,7 @@ public class Modificacion_Citas extends javax.swing.JInternalFrame {
         txt_cedula = new javax.swing.JTextField();
         celular = new javax.swing.JLabel();
         btn_regresar = new javax.swing.JButton();
+        btn_cancelar = new javax.swing.JButton();
 
         setIconifiable(true);
         setMaximizable(true);
@@ -262,6 +272,9 @@ public class Modificacion_Citas extends javax.swing.JInternalFrame {
         btn_regresar.setText("REGRESAR");
         jPanel2.add(btn_regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 110, 60));
 
+        btn_cancelar.setText("CANCELAR CITA");
+        jPanel2.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 150, 60));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -283,6 +296,7 @@ public class Modificacion_Citas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton btn_cancelar;
     public static javax.swing.JButton btn_guardar;
     public static javax.swing.JButton btn_modificar;
     public static javax.swing.JButton btn_regresar;

@@ -1,6 +1,6 @@
 package InterfaceDAO;
 
-import Modelo.Buf_Usuario;
+import Modelo.Buf_Usuarios;
 import java.util.List;
 
 /*
@@ -8,11 +8,11 @@ import java.util.List;
  */
 public interface Buf_UsuarioDAO {
 
-    public boolean Register(Buf_Usuario user);
+    public boolean Register(Buf_Usuarios user);
 
-    public List<Buf_Usuario> Getter();
+    public List<Buf_Usuarios> Getter();
 
-    public boolean Update(Buf_Usuario user);
+    public boolean Update(Buf_Usuarios user);
 
-    public boolean Delete(Buf_Usuario user);
+    public boolean Delete(Buf_Usuarios user);
 }
