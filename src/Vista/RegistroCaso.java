@@ -5,6 +5,11 @@
  */
 package vista;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Usuario
@@ -25,8 +30,45 @@ public class RegistroCaso extends javax.swing.JInternalFrame {
         setLocation(a / 2, b / 5);
     }
 
-   
-    
+    public static JButton getBtn_guardar() {
+        return btn_guardar;
+    }
+
+    public static void setBtn_guardar(JButton btn_guardar) {
+        RegistroCaso.btn_guardar = btn_guardar;
+    }
+
+    public static JComboBox<String> getCb_caso() {
+        return cb_caso;
+    }
+
+    public static void setCb_caso(JComboBox<String> cb_caso) {
+        RegistroCaso.cb_caso = cb_caso;
+    }
+
+    public static JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public static void setjLabel1(JLabel jLabel1) {
+        RegistroCaso.jLabel1 = jLabel1;
+    }
+
+    public static JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public static void setjLabel2(JLabel jLabel2) {
+        RegistroCaso.jLabel2 = jLabel2;
+    }
+
+    public static JTextField getTxt_cedula() {
+        return txt_cedula;
+    }
+
+    public static void setTxt_cedula(JTextField txt_cedula) {
+        RegistroCaso.txt_cedula = txt_cedula;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,12 +79,12 @@ public class RegistroCaso extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txt_cedula = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        comboCaso = new javax.swing.JComboBox<>();
+        cb_caso = new javax.swing.JComboBox<>();
         btn_guardar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -66,23 +108,34 @@ public class RegistroCaso extends javax.swing.JInternalFrame {
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("CEDULA:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 31, -1, -1));
-        getContentPane().add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 28, 187, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 60, 30));
+        jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 187, 30));
 
         jLabel2.setText("CASO:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 86, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 40, 30));
 
-        getContentPane().add(comboCaso, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 82, 187, -1));
+        jPanel1.add(cb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 187, 30));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        getContentPane().add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 90, 50));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_pantalla.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -6, 390, 240));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -93,11 +146,11 @@ public class RegistroCaso extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btn_guardar;
-    public javax.swing.JComboBox<String> comboCaso;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    public javax.swing.JTextField txt_cedula;
+    public static javax.swing.JButton btn_guardar;
+    public static javax.swing.JComboBox<String> cb_caso;
+    public static javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    public static javax.swing.JTextField txt_cedula;
     // End of variables declaration//GEN-END:variables
 }

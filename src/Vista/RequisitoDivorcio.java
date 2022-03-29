@@ -5,6 +5,12 @@
  */
 package vista;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author Usuario
@@ -25,6 +31,126 @@ public class RequisitoDivorcio extends javax.swing.JInternalFrame {
         setLocation(a / 2, b / 5);
     }
 
+    public static JButton getBtn_guardar() {
+        return btn_guardar;
+    }
+
+    public static void setBtn_guardar(JButton btn_guardar) {
+        RequisitoDivorcio.btn_guardar = btn_guardar;
+    }
+
+    public static JButton getBtn_modificar() {
+        return btn_modificar;
+    }
+
+    public static void setBtn_modificar(JButton btn_modificar) {
+        RequisitoDivorcio.btn_modificar = btn_modificar;
+    }
+
+    public static JButton getBtn_pago() {
+        return btn_pago;
+    }
+
+    public static void setBtn_pago(JButton btn_pago) {
+        RequisitoDivorcio.btn_pago = btn_pago;
+    }
+
+    public static JLabel getHonorarios() {
+        return honorarios;
+    }
+
+    public static void setHonorarios(JLabel honorarios) {
+        RequisitoDivorcio.honorarios = honorarios;
+    }
+
+    public static JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public static void setjLabel1(JLabel jLabel1) {
+        RequisitoDivorcio.jLabel1 = jLabel1;
+    }
+
+    public static JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public static void setjLabel3(JLabel jLabel3) {
+        RequisitoDivorcio.jLabel3 = jLabel3;
+    }
+
+    public static JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public static void setjLabel4(JLabel jLabel4) {
+        RequisitoDivorcio.jLabel4 = jLabel4;
+    }
+
+    public static JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public static void setjScrollPane1(JScrollPane jScrollPane1) {
+        RequisitoDivorcio.jScrollPane1 = jScrollPane1;
+    }
+
+    public static JCheckBox getReq_1() {
+        return req_1;
+    }
+
+    public static void setReq_1(JCheckBox req_1) {
+        RequisitoDivorcio.req_1 = req_1;
+    }
+
+    public static JCheckBox getReq_2() {
+        return req_2;
+    }
+
+    public static void setReq_2(JCheckBox req_2) {
+        RequisitoDivorcio.req_2 = req_2;
+    }
+
+    public static JCheckBox getReq_3() {
+        return req_3;
+    }
+
+    public static void setReq_3(JCheckBox req_3) {
+        RequisitoDivorcio.req_3 = req_3;
+    }
+
+    public static JCheckBox getReq_4() {
+        return req_4;
+    }
+
+    public static void setReq_4(JCheckBox req_4) {
+        RequisitoDivorcio.req_4 = req_4;
+    }
+
+    public static JCheckBox getReq_5() {
+        return req_5;
+    }
+
+    public static void setReq_5(JCheckBox req_5) {
+        RequisitoDivorcio.req_5 = req_5;
+    }
+
+    public static JCheckBox getReq_6() {
+        return req_6;
+    }
+
+    public static void setReq_6(JCheckBox req_6) {
+        RequisitoDivorcio.req_6 = req_6;
+    }
+
+    public static JTextArea getTxa_observ() {
+        return txa_observ;
+    }
+
+    public static void setTxa_observ(JTextArea txa_observ) {
+        RequisitoDivorcio.txa_observ = txa_observ;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,21 +162,20 @@ public class RequisitoDivorcio extends javax.swing.JInternalFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        rq1 = new javax.swing.JCheckBox();
-        rq4 = new javax.swing.JCheckBox();
-        rq5 = new javax.swing.JCheckBox();
-        rq3 = new javax.swing.JCheckBox();
-        rq2 = new javax.swing.JCheckBox();
-        rq6 = new javax.swing.JCheckBox();
+        req_1 = new javax.swing.JCheckBox();
+        req_4 = new javax.swing.JCheckBox();
+        req_5 = new javax.swing.JCheckBox();
+        req_3 = new javax.swing.JCheckBox();
+        req_2 = new javax.swing.JCheckBox();
+        req_6 = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        observaciones = new javax.swing.JTextArea();
+        txa_observ = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         honorarios = new javax.swing.JLabel();
-        btnGuardar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
+        btn_guardar = new javax.swing.JButton();
+        btn_modificar = new javax.swing.JButton();
         btn_pago = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -74,68 +199,76 @@ public class RequisitoDivorcio extends javax.swing.JInternalFrame {
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("REQUISITOS DIVORCIO ");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 19, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
 
-        rq1.setText("CEDULA Y PAPEL DE VOTACION");
-        jPanel2.add(rq1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 66, -1, -1));
+        req_1.setText("CEDULA Y PAPEL DE VOTACION");
+        jPanel2.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
-        rq4.setText("CERTIFICADO DE BIENES DENTRO DEL MATRIMONIO");
-        jPanel2.add(rq4, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 189, -1, -1));
+        req_4.setText("CERTIFICADO DE BIENES DENTRO DEL MATRIMONIO");
+        jPanel2.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
-        rq5.setText("UBICACIONES ");
-        jPanel2.add(rq5, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 227, -1, -1));
+        req_5.setText("UBICACIONES ");
+        jPanel2.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
-        rq3.setText("PARTIDAS DE NACIMIENTOS DE HIJOS");
-        jPanel2.add(rq3, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 148, -1, -1));
+        req_3.setText("PARTIDAS DE NACIMIENTOS DE HIJOS");
+        jPanel2.add(req_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
-        rq2.setText("PARTIDA DE MATRIMONIO");
-        jPanel2.add(rq2, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 107, -1, -1));
+        req_2.setText("PARTIDA DE MATRIMONIO");
+        jPanel2.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
-        rq6.setText("TESTIGOS- PARTIDA DE NACIMIENTO DE HIJOS CONCEBIDOS FUERA DEL MATRIMONIO");
-        jPanel2.add(rq6, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 273, -1, -1));
+        req_6.setText("<html>TESTIGOS- PARTIDA DE NACIMIENTO DE HIJOS<p>CONCEBIDOS FUERA DEL MATRIMONIO<html>");
+        jPanel2.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
 
-        observaciones.setColumns(20);
-        observaciones.setRows(5);
-        jScrollPane1.setViewportView(observaciones);
+        txa_observ.setColumns(20);
+        txa_observ.setLineWrap(true);
+        txa_observ.setRows(5);
+        jScrollPane1.setViewportView(txa_observ);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 107, 313, 143));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 360, 143));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("OBSERVACIONES:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 75, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 100, 20));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 0, 0));
         jLabel4.setText("CONTENCIOSO -500");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 363, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 120, 20));
 
         honorarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         honorarios.setForeground(new java.awt.Color(51, 0, 0));
         honorarios.setText("HONORARIOS: CONSENSUAL - 250  ");
-        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 333, -1, -1));
+        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 200, 20));
 
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
-        btnGuardar.setText("GUARDAR");
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 350, -1, -1));
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setText("GUARDAR");
+        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, 90, 40));
 
-        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
-        btnModificar.setText("MODIFICAR");
-        jPanel2.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, -1, -1));
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        btn_modificar.setText("MODIFICAR");
+        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 100, 40));
 
         btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
-        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, -1, -1));
+        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 70, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_pantalla.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, -6, 820, 420));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 0, 820, 420));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -145,22 +278,21 @@ public class RequisitoDivorcio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnGuardar;
-    public javax.swing.JButton btnModificar;
-    public javax.swing.JButton btn_pago;
-    public javax.swing.JLabel honorarios;
-    public javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel3;
-    public javax.swing.JLabel jLabel4;
+    public static javax.swing.JButton btn_guardar;
+    public static javax.swing.JButton btn_modificar;
+    public static javax.swing.JButton btn_pago;
+    public static javax.swing.JLabel honorarios;
+    public static javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
-    public javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTextArea observaciones;
-    public javax.swing.JCheckBox rq1;
-    public javax.swing.JCheckBox rq2;
-    public javax.swing.JCheckBox rq3;
-    public javax.swing.JCheckBox rq4;
-    public javax.swing.JCheckBox rq5;
-    public javax.swing.JCheckBox rq6;
+    public static javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JCheckBox req_1;
+    public static javax.swing.JCheckBox req_2;
+    public static javax.swing.JCheckBox req_3;
+    public static javax.swing.JCheckBox req_4;
+    public static javax.swing.JCheckBox req_5;
+    public static javax.swing.JCheckBox req_6;
+    public static javax.swing.JTextArea txa_observ;
     // End of variables declaration//GEN-END:variables
 }

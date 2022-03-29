@@ -5,6 +5,13 @@
  */
 package vista;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author Usuario
@@ -25,6 +32,158 @@ public class RequisitosPeticion extends javax.swing.JInternalFrame {
         setLocation(a / 2, b / 5);
     }
 
+    public static JButton getBtn_guardar() {
+        return btn_guardar;
+    }
+
+    public static void setBtn_guardar(JButton btn_guardar) {
+        RequisitosPeticion.btn_guardar = btn_guardar;
+    }
+
+    public static JButton getBtn_modificar() {
+        return btn_modificar;
+    }
+
+    public static void setBtn_modificar(JButton btn_modificar) {
+        RequisitosPeticion.btn_modificar = btn_modificar;
+    }
+
+    public static JButton getBtn_pago() {
+        return btn_pago;
+    }
+
+    public static void setBtn_pago(JButton btn_pago) {
+        RequisitosPeticion.btn_pago = btn_pago;
+    }
+
+    public static JComboBox<String> getCb_numper() {
+        return cb_numper;
+    }
+
+    public static void setCb_numper(JComboBox<String> cb_numper) {
+        RequisitosPeticion.cb_numper = cb_numper;
+    }
+
+    public static JLabel getHonorarios() {
+        return honorarios;
+    }
+
+    public static void setHonorarios(JLabel honorarios) {
+        RequisitosPeticion.honorarios = honorarios;
+    }
+
+    public static JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public static void setjLabel1(JLabel jLabel1) {
+        RequisitosPeticion.jLabel1 = jLabel1;
+    }
+
+    public static JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public static void setjLabel2(JLabel jLabel2) {
+        RequisitosPeticion.jLabel2 = jLabel2;
+    }
+
+    public static JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public static void setjLabel3(JLabel jLabel3) {
+        RequisitosPeticion.jLabel3 = jLabel3;
+    }
+
+    public static JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public static void setjScrollPane1(JScrollPane jScrollPane1) {
+        RequisitosPeticion.jScrollPane1 = jScrollPane1;
+    }
+
+    public static JCheckBox getReq_1() {
+        return req_1;
+    }
+
+    public static void setReq_1(JCheckBox req_1) {
+        RequisitosPeticion.req_1 = req_1;
+    }
+
+    public static JCheckBox getReq_2() {
+        return req_2;
+    }
+
+    public static void setReq_2(JCheckBox req_2) {
+        RequisitosPeticion.req_2 = req_2;
+    }
+
+    public static JCheckBox getReq_3() {
+        return req_3;
+    }
+
+    public static void setReq_3(JCheckBox req_3) {
+        RequisitosPeticion.req_3 = req_3;
+    }
+
+    public static JCheckBox getReq_4() {
+        return req_4;
+    }
+
+    public static void setReq_4(JCheckBox req_4) {
+        RequisitosPeticion.req_4 = req_4;
+    }
+
+    public static JCheckBox getReq_5() {
+        return req_5;
+    }
+
+    public static void setReq_5(JCheckBox req_5) {
+        RequisitosPeticion.req_5 = req_5;
+    }
+
+    public static JCheckBox getReq_6() {
+        return req_6;
+    }
+
+    public static void setReq_6(JCheckBox req_6) {
+        RequisitosPeticion.req_6 = req_6;
+    }
+
+    public static JCheckBox getReq_7() {
+        return req_7;
+    }
+
+    public static void setReq_7(JCheckBox req_7) {
+        RequisitosPeticion.req_7 = req_7;
+    }
+
+    public static JCheckBox getReq_8() {
+        return req_8;
+    }
+
+    public static void setReq_8(JCheckBox req_8) {
+        RequisitosPeticion.req_8 = req_8;
+    }
+
+    public static JCheckBox getReq_9() {
+        return req_9;
+    }
+
+    public static void setReq_9(JCheckBox req_9) {
+        RequisitosPeticion.req_9 = req_9;
+    }
+
+    public static JTextArea getTxa_observ() {
+        return txa_observ;
+    }
+
+    public static void setTxa_observ(JTextArea txa_observ) {
+        RequisitosPeticion.txa_observ = txa_observ;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,30 +193,26 @@ public class RequisitosPeticion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBox10 = new javax.swing.JCheckBox();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        rq1 = new javax.swing.JCheckBox();
-        rq2 = new javax.swing.JCheckBox();
-        rq4 = new javax.swing.JCheckBox();
-        rq5 = new javax.swing.JCheckBox();
-        rq3 = new javax.swing.JCheckBox();
-        rq8 = new javax.swing.JCheckBox();
-        rq7 = new javax.swing.JCheckBox();
-        rq9 = new javax.swing.JCheckBox();
-        rq6 = new javax.swing.JCheckBox();
-        comboNum = new javax.swing.JComboBox<>();
+        req_1 = new javax.swing.JCheckBox();
+        req_2 = new javax.swing.JCheckBox();
+        req_4 = new javax.swing.JCheckBox();
+        req_5 = new javax.swing.JCheckBox();
+        req_3 = new javax.swing.JCheckBox();
+        req_8 = new javax.swing.JCheckBox();
+        req_7 = new javax.swing.JCheckBox();
+        req_9 = new javax.swing.JCheckBox();
+        req_6 = new javax.swing.JCheckBox();
+        cb_numper = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        observaciones = new javax.swing.JTextArea();
+        txa_observ = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         honorarios = new javax.swing.JLabel();
-        btnModificar = new javax.swing.JButton();
+        btn_modificar = new javax.swing.JButton();
         btn_guardar = new javax.swing.JButton();
         btn_pago = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-
-        jCheckBox10.setText("COPIA PASAPORTE - BENEFICIARIO");
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -86,79 +241,79 @@ public class RequisitosPeticion extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("REQUISITOS PETICION FAMILIAR ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 19, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        rq1.setText("PASAPORTE");
-        jPanel1.add(rq1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 66, -1, -1));
+        req_1.setText("PASAPORTE");
+        jPanel1.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 110, -1));
 
-        rq2.setText("PARTIDA DE NACIMIENTO - PETICIONARIO");
-        jPanel1.add(rq2, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 107, -1, -1));
+        req_2.setText("PARTIDA DE NACIMIENTO - PETICIONARIO");
+        jPanel1.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 270, -1));
 
-        rq4.setText("PARTIDAS DE MATRIMONIO");
-        jPanel1.add(rq4, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 189, -1, -1));
+        req_4.setText("PARTIDAS DE MATRIMONIO");
+        jPanel1.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 190, -1));
 
-        rq5.setText("FOTOS 5 x 5 - PETICIONARIO");
-        jPanel1.add(rq5, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 230, -1, -1));
+        req_5.setText("FOTOS 5 x 5 - PETICIONARIO");
+        jPanel1.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 200, -1));
 
-        rq3.setText("PARTIDA DE NACIMIENTO - BENEFICIARIO");
-        jPanel1.add(rq3, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 148, -1, -1));
+        req_3.setText("PARTIDA DE NACIMIENTO - BENEFICIARIO");
+        jPanel1.add(req_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 270, -1));
 
-        rq8.setText("SENTENCIA DE DIVORCIO");
-        jPanel1.add(rq8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, 20));
+        req_8.setText("SENTENCIA DE DIVORCIO");
+        jPanel1.add(req_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 180, 20));
 
-        rq7.setText("FOTOS 5 x 5 - BENEFICIARIO");
-        jPanel1.add(rq7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
+        req_7.setText("FOTOS 5x5 - BENEFICIARIO");
+        jPanel1.add(req_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 200, -1));
 
-        rq9.setText("ACTA DE NATURALIZACION");
-        jPanel1.add(rq9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
+        req_9.setText("ACTA DE NATURALIZACION");
+        jPanel1.add(req_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 190, -1));
 
-        rq6.setText("CERTIFICADO DE TRABAJO");
-        jPanel1.add(rq6, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 271, -1, -1));
+        req_6.setText("CERTIFICADO DE TRABAJO");
+        jPanel1.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 190, -1));
 
-        jPanel1.add(comboNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 67, 110, -1));
+        jPanel1.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 110, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("NUMERO DE PERSONAS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, 30));
 
-        observaciones.setColumns(20);
-        observaciones.setRows(5);
-        jScrollPane1.setViewportView(observaciones);
+        txa_observ.setColumns(20);
+        txa_observ.setLineWrap(true);
+        txa_observ.setRows(5);
+        jScrollPane1.setViewportView(txa_observ);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 312, 467, 130));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 530, 130));
 
         jLabel3.setText("OBSERVACIONES:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 312, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 110, 20));
 
         honorarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         honorarios.setForeground(new java.awt.Color(51, 0, 0));
         honorarios.setText("HONORARIOS:2.000 POR PERSONA");
-        jPanel1.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, -1, -1));
+        jPanel1.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 200, 20));
 
-        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
-        btnModificar.setText("MODIFICAR");
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 450, -1, -1));
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        btn_modificar.setText("MODIFICAR");
+        jPanel1.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, 100, 40));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 450, -1, -1));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 570, 90, 40));
 
         btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
-        jPanel1.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, -1, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_pantalla.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 490));
+        jPanel1.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, 70, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
         );
 
         pack();
@@ -169,27 +324,25 @@ public class RequisitosPeticion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnModificar;
-    public javax.swing.JButton btn_guardar;
-    public javax.swing.JButton btn_pago;
-    public javax.swing.JComboBox<String> comboNum;
-    public javax.swing.JLabel honorarios;
-    private javax.swing.JCheckBox jCheckBox10;
-    public javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel3;
-    public javax.swing.JLabel jLabel4;
+    public static javax.swing.JButton btn_guardar;
+    public static javax.swing.JButton btn_modificar;
+    public static javax.swing.JButton btn_pago;
+    public static javax.swing.JComboBox<String> cb_numper;
+    public static javax.swing.JLabel honorarios;
+    public static javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel2;
+    public static javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTextArea observaciones;
-    public javax.swing.JCheckBox rq1;
-    public javax.swing.JCheckBox rq2;
-    public javax.swing.JCheckBox rq3;
-    public javax.swing.JCheckBox rq4;
-    public javax.swing.JCheckBox rq5;
-    public javax.swing.JCheckBox rq6;
-    public javax.swing.JCheckBox rq7;
-    public javax.swing.JCheckBox rq8;
-    public javax.swing.JCheckBox rq9;
+    public static javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JCheckBox req_1;
+    public static javax.swing.JCheckBox req_2;
+    public static javax.swing.JCheckBox req_3;
+    public static javax.swing.JCheckBox req_4;
+    public static javax.swing.JCheckBox req_5;
+    public static javax.swing.JCheckBox req_6;
+    public static javax.swing.JCheckBox req_7;
+    public static javax.swing.JCheckBox req_8;
+    public static javax.swing.JCheckBox req_9;
+    public static javax.swing.JTextArea txa_observ;
     // End of variables declaration//GEN-END:variables
 }
