@@ -43,148 +43,68 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         V_Menu_Inicio.Consultas = Consultas;
     }
 
-    public static JMenu getMAbogado() {
-        return MAbogado;
+    public static JMenuItem getMod_abogado() {
+        return Mod_abogado;
     }
 
-    public static void setMAbogado(JMenu MAbogado) {
-        V_Menu_Inicio.MAbogado = MAbogado;
+    public static void setMod_abogado(JMenuItem Mod_abogado) {
+        V_Menu_Inicio.Mod_abogado = Mod_abogado;
     }
 
-    public static JMenuItem getMCliente() {
-        return MCliente;
+    public static JMenuItem getMod_cliente() {
+        return Mod_cliente;
     }
 
-    public static void setMCliente(JMenuItem MCliente) {
-        V_Menu_Inicio.MCliente = MCliente;
+    public static void setMod_cliente(JMenuItem Mod_cliente) {
+        V_Menu_Inicio.Mod_cliente = Mod_cliente;
     }
 
-    public static JMenuItem getMSecretaria() {
-        return MSecretaria;
+    public static JMenuItem getMod_secretaria() {
+        return Mod_secretaria;
     }
 
-    public static void setMSecretaria(JMenuItem MSecretaria) {
-        V_Menu_Inicio.MSecretaria = MSecretaria;
+    public static void setMod_secretaria(JMenuItem Mod_secretaria) {
+        V_Menu_Inicio.Mod_secretaria = Mod_secretaria;
     }
 
-    public static JMenuItem getMabogado() {
-        return Mabogado;
+    public static JMenu getModifcar() {
+        return Modifcar;
     }
 
-    public static void setMabogado(JMenuItem Mabogado) {
-        V_Menu_Inicio.Mabogado = Mabogado;
+    public static void setModifcar(JMenu Modifcar) {
+        V_Menu_Inicio.Modifcar = Modifcar;
     }
 
-    public static JMenuItem getRAbogado() {
-        return RAbogado;
+    public static JMenuItem getReg_abogado() {
+        return Reg_abogado;
     }
 
-    public static void setRAbogado(JMenuItem RAbogado) {
-        V_Menu_Inicio.RAbogado = RAbogado;
+    public static void setReg_abogado(JMenuItem Reg_abogado) {
+        V_Menu_Inicio.Reg_abogado = Reg_abogado;
     }
 
-    public static JMenuItem getRCliente() {
-        return RCliente;
+    public static JMenuItem getReg_cliente() {
+        return Reg_cliente;
     }
 
-    public static void setRCliente(JMenuItem RCliente) {
-        V_Menu_Inicio.RCliente = RCliente;
+    public static void setReg_cliente(JMenuItem Reg_cliente) {
+        V_Menu_Inicio.Reg_cliente = Reg_cliente;
     }
 
-    public JMenuItem getRD() {
-        return RD;
+    public static JMenuItem getReg_secretaria() {
+        return Reg_secretaria;
     }
 
-    public void setRD(JMenuItem RD) {
-        this.RD = RD;
+    public static void setReg_secretaria(JMenuItem Reg_secretaria) {
+        V_Menu_Inicio.Reg_secretaria = Reg_secretaria;
     }
 
-    public JMenuItem getREeuu() {
-        return REeuu;
+    public static JMenuItem getReg_usuario() {
+        return Reg_usuario;
     }
 
-    public void setREeuu(JMenuItem REeuu) {
-        this.REeuu = REeuu;
-    }
-
-    public JMenuItem getRLoteriaE() {
-        return RLoteriaE;
-    }
-
-    public void setRLoteriaE(JMenuItem RLoteriaE) {
-        this.RLoteriaE = RLoteriaE;
-    }
-
-    public JMenuItem getRMexico() {
-        return RMexico;
-    }
-
-    public void setRMexico(JMenuItem RMexico) {
-        this.RMexico = RMexico;
-    }
-
-    public JMenuItem getRPA() {
-        return RPA;
-    }
-
-    public void setRPA(JMenuItem RPA) {
-        this.RPA = RPA;
-    }
-
-    public JMenuItem getRPasaporte() {
-        return RPasaporte;
-    }
-
-    public void setRPasaporte(JMenuItem RPasaporte) {
-        this.RPasaporte = RPasaporte;
-    }
-
-    public JMenuItem getRPerdon1() {
-        return RPerdon1;
-    }
-
-    public void setRPerdon1(JMenuItem RPerdon1) {
-        this.RPerdon1 = RPerdon1;
-    }
-
-    public JMenuItem getRReporte() {
-        return RReporte;
-    }
-
-    public void setRReporte(JMenuItem RReporte) {
-        this.RReporte = RReporte;
-    }
-
-    public JMenuItem getRRetornante() {
-        return RRetornante;
-    }
-
-    public void setRRetornante(JMenuItem RRetornante) {
-        this.RRetornante = RRetornante;
-    }
-
-    public static JMenuItem getRSecretaria() {
-        return RSecretaria;
-    }
-
-    public static void setRSecretaria(JMenuItem RSecretaria) {
-        V_Menu_Inicio.RSecretaria = RSecretaria;
-    }
-
-    public static JMenuItem getRUsuario() {
-        return RUsuario;
-    }
-
-    public static void setRUsuario(JMenuItem RUsuario) {
-        V_Menu_Inicio.RUsuario = RUsuario;
-    }
-
-    public JMenuItem getRVEuropa() {
-        return RVEuropa;
-    }
-
-    public void setRVEuropa(JMenuItem RVEuropa) {
-        this.RVEuropa = RVEuropa;
+    public static void setReg_usuario(JMenuItem Reg_usuario) {
+        V_Menu_Inicio.Reg_usuario = Reg_usuario;
     }
 
     public static JMenu getRegistro() {
@@ -195,6 +115,94 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         V_Menu_Inicio.Registro = Registro;
     }
 
+    public JMenuItem getReq_Perdon() {
+        return Req_Perdon;
+    }
+
+    public void setReq_Perdon(JMenuItem Req_Perdon) {
+        this.Req_Perdon = Req_Perdon;
+    }
+
+    public JMenuItem getReq_Renovacion_Pasaporte() {
+        return Req_Renovacion_Pasaporte;
+    }
+
+    public void setReq_Renovacion_Pasaporte(JMenuItem Req_Renovacion_Pasaporte) {
+        this.Req_Renovacion_Pasaporte = Req_Renovacion_Pasaporte;
+    }
+
+    public JMenuItem getReq_Reporte_Consular() {
+        return Req_Reporte_Consular;
+    }
+
+    public void setReq_Reporte_Consular(JMenuItem Req_Reporte_Consular) {
+        this.Req_Reporte_Consular = Req_Reporte_Consular;
+    }
+
+    public JMenuItem getReq_RetornanteInmigrante() {
+        return Req_RetornanteInmigrante;
+    }
+
+    public void setReq_RetornanteInmigrante(JMenuItem Req_RetornanteInmigrante) {
+        this.Req_RetornanteInmigrante = Req_RetornanteInmigrante;
+    }
+
+    public JMenuItem getReq_Visa_Eeuu() {
+        return Req_Visa_Eeuu;
+    }
+
+    public void setReq_Visa_Eeuu(JMenuItem Req_Visa_Eeuu) {
+        this.Req_Visa_Eeuu = Req_Visa_Eeuu;
+    }
+
+    public JMenuItem getReq_divorcio() {
+        return Req_divorcio;
+    }
+
+    public void setReq_divorcio(JMenuItem Req_divorcio) {
+        this.Req_divorcio = Req_divorcio;
+    }
+
+    public JMenuItem getReq_pensionesali() {
+        return Req_pensionesali;
+    }
+
+    public void setReq_pensionesali(JMenuItem Req_pensionesali) {
+        this.Req_pensionesali = Req_pensionesali;
+    }
+
+    public JMenuItem getReq_peticionfamiliar() {
+        return Req_peticionfamiliar;
+    }
+
+    public void setReq_peticionfamiliar(JMenuItem Req_peticionfamiliar) {
+        this.Req_peticionfamiliar = Req_peticionfamiliar;
+    }
+
+    public JMenuItem getReq_visa_europa() {
+        return Req_visa_europa;
+    }
+
+    public void setReq_visa_europa(JMenuItem Req_visa_europa) {
+        this.Req_visa_europa = Req_visa_europa;
+    }
+
+    public JMenuItem getReq_visa_loteria() {
+        return Req_visa_loteria;
+    }
+
+    public void setReq_visa_loteria(JMenuItem Req_visa_loteria) {
+        this.Req_visa_loteria = Req_visa_loteria;
+    }
+
+    public JMenuItem getReq_visa_mexico() {
+        return Req_visa_mexico;
+    }
+
+    public void setReq_visa_mexico(JMenuItem Req_visa_mexico) {
+        this.Req_visa_mexico = Req_visa_mexico;
+    }
+
     public static JMenu getRequisit() {
         return Requisit;
     }
@@ -203,52 +211,52 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         V_Menu_Inicio.Requisit = Requisit;
     }
 
-    public static JButton getBtnCitas() {
-        return btn_citas;
-    }
-
-    public static void setBtnCitas(JButton btnCitas) {
-        V_Menu_Inicio.btn_citas = btnCitas;
-    }
-
-    public static JButton getBtnHorario() {
-        return btn_horario;
-    }
-
-    public static void setBtnHorario(JButton btnHorario) {
-        V_Menu_Inicio.btn_horario = btnHorario;
-    }
-
-    public static JButton getBtnInicio() {
+    public static JButton getBtn_Inicio() {
         return btn_Inicio;
     }
 
-    public static void setBtnInicio(JButton btnInicio) {
-        V_Menu_Inicio.btn_Inicio = btnInicio;
+    public static void setBtn_Inicio(JButton btn_Inicio) {
+        V_Menu_Inicio.btn_Inicio = btn_Inicio;
     }
 
-    public static JButton getBtnRegistroClienteCaso() {
+    public static JButton getBtn_RegistroClienteCaso() {
         return btn_RegistroClienteCaso;
     }
 
-    public static void setBtnRegistroClienteCaso(JButton btnRegistroClienteCaso) {
-        V_Menu_Inicio.btn_RegistroClienteCaso = btnRegistroClienteCaso;
+    public static void setBtn_RegistroClienteCaso(JButton btn_RegistroClienteCaso) {
+        V_Menu_Inicio.btn_RegistroClienteCaso = btn_RegistroClienteCaso;
     }
 
-    public static JButton getBtnVisualizacion() {
-        return btn_visualizacion;
-    }
-
-    public static void setBtnVisualizacion(JButton btnVisualizacion) {
-        V_Menu_Inicio.btn_visualizacion = btnVisualizacion;
-    }
-
-    public static JButton getBtnVisualizarCaso() {
+    public static JButton getBtn_VisualizarCaso() {
         return btn_VisualizarCaso;
     }
 
-    public static void setBtnVisualizarCaso(JButton btnVisualizarCaso) {
-        V_Menu_Inicio.btn_VisualizarCaso = btnVisualizarCaso;
+    public static void setBtn_VisualizarCaso(JButton btn_VisualizarCaso) {
+        V_Menu_Inicio.btn_VisualizarCaso = btn_VisualizarCaso;
+    }
+
+    public static JButton getBtn_citas() {
+        return btn_citas;
+    }
+
+    public static void setBtn_citas(JButton btn_citas) {
+        V_Menu_Inicio.btn_citas = btn_citas;
+    }
+
+    public static JButton getBtn_horario() {
+        return btn_horario;
+    }
+
+    public static void setBtn_horario(JButton btn_horario) {
+        V_Menu_Inicio.btn_horario = btn_horario;
+    }
+
+    public static JButton getBtn_visualizacion() {
+        return btn_visualizacion;
+    }
+
+    public static void setBtn_visualizacion(JButton btn_visualizacion) {
+        V_Menu_Inicio.btn_visualizacion = btn_visualizacion;
     }
 
     public static JMenu getCasosJudiciales() {
@@ -299,14 +307,6 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         V_Menu_Inicio.peticionFamiliar = peticionFamiliar;
     }
 
-    public JMenuItem getPeticionFamily() {
-        return peticionFamily;
-    }
-
-    public void setPeticionFamily(JMenuItem peticionFamily) {
-        this.peticionFamily = peticionFamily;
-    }
-
     public static JMenu getProcesosMigratorios() {
         return procesosMigratorios;
     }
@@ -330,7 +330,7 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
     public static void setWaiver(JMenu waiver) {
         V_Menu_Inicio.waiver = waiver;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -350,31 +350,31 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         Registro = new javax.swing.JMenu();
-        RAbogado = new javax.swing.JMenuItem();
-        RSecretaria = new javax.swing.JMenuItem();
-        RCliente = new javax.swing.JMenuItem();
-        RUsuario = new javax.swing.JMenuItem();
-        MAbogado = new javax.swing.JMenu();
-        Mabogado = new javax.swing.JMenuItem();
-        MSecretaria = new javax.swing.JMenuItem();
-        MCliente = new javax.swing.JMenuItem();
+        Reg_abogado = new javax.swing.JMenuItem();
+        Reg_secretaria = new javax.swing.JMenuItem();
+        Reg_cliente = new javax.swing.JMenuItem();
+        Reg_usuario = new javax.swing.JMenuItem();
+        Modifcar = new javax.swing.JMenu();
+        Mod_abogado = new javax.swing.JMenuItem();
+        Mod_secretaria = new javax.swing.JMenuItem();
+        Mod_cliente = new javax.swing.JMenuItem();
         Requisit = new javax.swing.JMenu();
         casosJudiciales = new javax.swing.JMenu();
-        RD = new javax.swing.JMenuItem();
-        RPA = new javax.swing.JMenuItem();
+        Req_divorcio = new javax.swing.JMenuItem();
+        Req_pensionesali = new javax.swing.JMenuItem();
         tramitesVisa = new javax.swing.JMenu();
-        REeuu = new javax.swing.JMenuItem();
-        RVEuropa = new javax.swing.JMenuItem();
-        RLoteriaE = new javax.swing.JMenuItem();
-        RMexico = new javax.swing.JMenuItem();
+        Req_Visa_Eeuu = new javax.swing.JMenuItem();
+        Req_visa_europa = new javax.swing.JMenuItem();
+        Req_visa_loteria = new javax.swing.JMenuItem();
+        Req_visa_mexico = new javax.swing.JMenuItem();
         waiver = new javax.swing.JMenu();
-        RPerdon1 = new javax.swing.JMenuItem();
+        Req_Perdon = new javax.swing.JMenuItem();
         peticionFamiliar = new javax.swing.JMenu();
-        peticionFamily = new javax.swing.JMenuItem();
+        Req_peticionfamiliar = new javax.swing.JMenuItem();
         procesosMigratorios = new javax.swing.JMenu();
-        RPasaporte = new javax.swing.JMenuItem();
-        RRetornante = new javax.swing.JMenuItem();
-        RReporte = new javax.swing.JMenuItem();
+        Req_Renovacion_Pasaporte = new javax.swing.JMenuItem();
+        Req_RetornanteInmigrante = new javax.swing.JMenuItem();
+        Req_Reporte_Consular = new javax.swing.JMenuItem();
         citasConsultas = new javax.swing.JMenu();
         Citas = new javax.swing.JMenuItem();
         Consultas = new javax.swing.JMenuItem();
@@ -424,126 +424,126 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
 
         Registro.setText("Registro");
 
-        RAbogado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        RAbogado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Abogada.png"))); // NOI18N
-        RAbogado.setText("Abogado");
-        Registro.add(RAbogado);
+        Reg_abogado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        Reg_abogado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Abogada.png"))); // NOI18N
+        Reg_abogado.setText("Abogado");
+        Registro.add(Reg_abogado);
 
-        RSecretaria.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        RSecretaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Secretaria.png"))); // NOI18N
-        RSecretaria.setText("Secretaria");
-        Registro.add(RSecretaria);
+        Reg_secretaria.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        Reg_secretaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Secretaria.png"))); // NOI18N
+        Reg_secretaria.setText("Secretaria");
+        Registro.add(Reg_secretaria);
 
-        RCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        RCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cliente.png"))); // NOI18N
-        RCliente.setText("Cliente");
-        Registro.add(RCliente);
+        Reg_cliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        Reg_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cliente.png"))); // NOI18N
+        Reg_cliente.setText("Cliente");
+        Registro.add(Reg_cliente);
 
-        RUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        RUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario.png"))); // NOI18N
-        RUsuario.setText("Usuario");
-        Registro.add(RUsuario);
+        Reg_usuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        Reg_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario.png"))); // NOI18N
+        Reg_usuario.setText("Usuario");
+        Registro.add(Reg_usuario);
 
         jMenuBar1.add(Registro);
 
-        MAbogado.setText("Modificar");
+        Modifcar.setText("Modificar");
 
-        Mabogado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
-        Mabogado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Abogada.png"))); // NOI18N
-        Mabogado.setText("Abogado");
-        MAbogado.add(Mabogado);
+        Mod_abogado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
+        Mod_abogado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Abogada.png"))); // NOI18N
+        Mod_abogado.setText("Abogado");
+        Modifcar.add(Mod_abogado);
 
-        MSecretaria.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        MSecretaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Secretaria.png"))); // NOI18N
-        MSecretaria.setText("Secretaria");
-        MAbogado.add(MSecretaria);
+        Mod_secretaria.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        Mod_secretaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Secretaria.png"))); // NOI18N
+        Mod_secretaria.setText("Secretaria");
+        Modifcar.add(Mod_secretaria);
 
-        MCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        MCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cliente.png"))); // NOI18N
-        MCliente.setText("Cliente");
-        MAbogado.add(MCliente);
+        Mod_cliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        Mod_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cliente.png"))); // NOI18N
+        Mod_cliente.setText("Cliente");
+        Modifcar.add(Mod_cliente);
 
-        jMenuBar1.add(MAbogado);
+        jMenuBar1.add(Modifcar);
 
         Requisit.setText("Requisitos");
 
         casosJudiciales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Casos Judiciales.png"))); // NOI18N
         casosJudiciales.setText("Casos Judiciales");
 
-        RD.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_MASK));
-        RD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Divorcio.png"))); // NOI18N
-        RD.setText("Divorcio");
-        casosJudiciales.add(RD);
+        Req_divorcio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_MASK));
+        Req_divorcio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Divorcio.png"))); // NOI18N
+        Req_divorcio.setText("Divorcio");
+        casosJudiciales.add(Req_divorcio);
 
-        RPA.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_MASK));
-        RPA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pensiones Alimenticias.png"))); // NOI18N
-        RPA.setText("Pensiones Alimenticias");
-        casosJudiciales.add(RPA);
+        Req_pensionesali.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_MASK));
+        Req_pensionesali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pensiones Alimenticias.png"))); // NOI18N
+        Req_pensionesali.setText("Pensiones Alimenticias");
+        casosJudiciales.add(Req_pensionesali);
 
         Requisit.add(casosJudiciales);
 
         tramitesVisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Visa.png"))); // NOI18N
         tramitesVisa.setText("Tramites de Visa");
 
-        REeuu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_MASK));
-        REeuu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B EEUU.png"))); // NOI18N
-        REeuu.setText("EEUU");
-        tramitesVisa.add(REeuu);
+        Req_Visa_Eeuu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_MASK));
+        Req_Visa_Eeuu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B EEUU.png"))); // NOI18N
+        Req_Visa_Eeuu.setText("EEUU");
+        tramitesVisa.add(Req_Visa_Eeuu);
 
-        RVEuropa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_MASK));
-        RVEuropa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B Europa.png"))); // NOI18N
-        RVEuropa.setText("Europa");
-        tramitesVisa.add(RVEuropa);
+        Req_visa_europa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_MASK));
+        Req_visa_europa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B Europa.png"))); // NOI18N
+        Req_visa_europa.setText("Europa");
+        tramitesVisa.add(Req_visa_europa);
 
-        RLoteriaE.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.CTRL_MASK));
-        RLoteriaE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B EEUU.png"))); // NOI18N
-        RLoteriaE.setText("Loteria-EEUU");
-        tramitesVisa.add(RLoteriaE);
+        Req_visa_loteria.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.CTRL_MASK));
+        Req_visa_loteria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B EEUU.png"))); // NOI18N
+        Req_visa_loteria.setText("Loteria-EEUU");
+        tramitesVisa.add(Req_visa_loteria);
 
-        RMexico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.CTRL_MASK));
-        RMexico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B Mexico.png"))); // NOI18N
-        RMexico.setText("Mexico");
-        tramitesVisa.add(RMexico);
+        Req_visa_mexico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.CTRL_MASK));
+        Req_visa_mexico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B Mexico.png"))); // NOI18N
+        Req_visa_mexico.setText("Mexico");
+        tramitesVisa.add(Req_visa_mexico);
 
         Requisit.add(tramitesVisa);
 
         waiver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Waiver.png"))); // NOI18N
         waiver.setText("Waiver");
 
-        RPerdon1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_8, java.awt.event.InputEvent.CTRL_MASK));
-        RPerdon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Perdon.png"))); // NOI18N
-        RPerdon1.setText("Perdon");
-        waiver.add(RPerdon1);
+        Req_Perdon.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_8, java.awt.event.InputEvent.CTRL_MASK));
+        Req_Perdon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Perdon.png"))); // NOI18N
+        Req_Perdon.setText("Perdon");
+        waiver.add(Req_Perdon);
 
         Requisit.add(waiver);
 
         peticionFamiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Peticion.png"))); // NOI18N
         peticionFamiliar.setText("Peticion Familiar");
 
-        peticionFamily.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, java.awt.event.InputEvent.CTRL_MASK));
-        peticionFamily.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Familiar.png"))); // NOI18N
-        peticionFamily.setText("Peticion Familiar");
-        peticionFamiliar.add(peticionFamily);
+        Req_peticionfamiliar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, java.awt.event.InputEvent.CTRL_MASK));
+        Req_peticionfamiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Familiar.png"))); // NOI18N
+        Req_peticionfamiliar.setText("Peticion Familiar");
+        peticionFamiliar.add(Req_peticionfamiliar);
 
         Requisit.add(peticionFamiliar);
 
         procesosMigratorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Procesos migratorios.png"))); // NOI18N
         procesosMigratorios.setText("Procesos Migratorios");
 
-        RPasaporte.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_9, java.awt.event.InputEvent.CTRL_MASK));
-        RPasaporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Renovacion.png"))); // NOI18N
-        RPasaporte.setText("Renovacion Pasaporte EEUU");
-        procesosMigratorios.add(RPasaporte);
+        Req_Renovacion_Pasaporte.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_9, java.awt.event.InputEvent.CTRL_MASK));
+        Req_Renovacion_Pasaporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Renovacion.png"))); // NOI18N
+        Req_Renovacion_Pasaporte.setText("Renovacion Pasaporte EEUU");
+        procesosMigratorios.add(Req_Renovacion_Pasaporte);
 
-        RRetornante.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_0, java.awt.event.InputEvent.CTRL_MASK));
-        RRetornante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Retornante Inmigrante.png"))); // NOI18N
-        RRetornante.setText("Retornante Inmigrante");
-        procesosMigratorios.add(RRetornante);
+        Req_RetornanteInmigrante.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_0, java.awt.event.InputEvent.CTRL_MASK));
+        Req_RetornanteInmigrante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Retornante Inmigrante.png"))); // NOI18N
+        Req_RetornanteInmigrante.setText("Retornante Inmigrante");
+        procesosMigratorios.add(Req_RetornanteInmigrante);
 
-        RReporte.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_BACK_SPACE, java.awt.event.InputEvent.CTRL_MASK));
-        RReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Reporte Consular.png"))); // NOI18N
-        RReporte.setText("Reporte Consular");
-        procesosMigratorios.add(RReporte);
+        Req_Reporte_Consular.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_BACK_SPACE, java.awt.event.InputEvent.CTRL_MASK));
+        Req_Reporte_Consular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Reporte Consular.png"))); // NOI18N
+        Req_Reporte_Consular.setText("Reporte Consular");
+        procesosMigratorios.add(Req_Reporte_Consular);
 
         Requisit.add(procesosMigratorios);
 
@@ -583,63 +583,30 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(V_Menu_Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(V_Menu_Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(V_Menu_Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(V_Menu_Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new V_Menu_Inicio().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JMenuItem Citas;
     public static javax.swing.JMenuItem Consultas;
-    public static javax.swing.JMenu MAbogado;
-    public static javax.swing.JMenuItem MCliente;
-    public static javax.swing.JMenuItem MSecretaria;
-    public static javax.swing.JMenuItem Mabogado;
-    public static javax.swing.JMenuItem RAbogado;
-    public static javax.swing.JMenuItem RCliente;
-    public javax.swing.JMenuItem RD;
-    public javax.swing.JMenuItem REeuu;
-    public javax.swing.JMenuItem RLoteriaE;
-    public javax.swing.JMenuItem RMexico;
-    public javax.swing.JMenuItem RPA;
-    public javax.swing.JMenuItem RPasaporte;
-    public javax.swing.JMenuItem RPerdon1;
-    public javax.swing.JMenuItem RReporte;
-    public javax.swing.JMenuItem RRetornante;
-    public static javax.swing.JMenuItem RSecretaria;
-    public static javax.swing.JMenuItem RUsuario;
-    public javax.swing.JMenuItem RVEuropa;
+    public static javax.swing.JMenuItem Mod_abogado;
+    public static javax.swing.JMenuItem Mod_cliente;
+    public static javax.swing.JMenuItem Mod_secretaria;
+    public static javax.swing.JMenu Modifcar;
+    public static javax.swing.JMenuItem Reg_abogado;
+    public static javax.swing.JMenuItem Reg_cliente;
+    public static javax.swing.JMenuItem Reg_secretaria;
+    public static javax.swing.JMenuItem Reg_usuario;
     public static javax.swing.JMenu Registro;
+    public javax.swing.JMenuItem Req_Perdon;
+    public javax.swing.JMenuItem Req_Renovacion_Pasaporte;
+    public javax.swing.JMenuItem Req_Reporte_Consular;
+    public javax.swing.JMenuItem Req_RetornanteInmigrante;
+    public javax.swing.JMenuItem Req_Visa_Eeuu;
+    public javax.swing.JMenuItem Req_divorcio;
+    public javax.swing.JMenuItem Req_pensionesali;
+    public javax.swing.JMenuItem Req_peticionfamiliar;
+    public javax.swing.JMenuItem Req_visa_europa;
+    public javax.swing.JMenuItem Req_visa_loteria;
+    public javax.swing.JMenuItem Req_visa_mexico;
     public static javax.swing.JMenu Requisit;
     public static javax.swing.JButton btn_Inicio;
     public static javax.swing.JButton btn_RegistroClienteCaso;
@@ -653,7 +620,6 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
     public static javax.swing.JMenuBar jMenuBar1;
     public static javax.swing.JPanel jPanel1;
     public static javax.swing.JMenu peticionFamiliar;
-    public javax.swing.JMenuItem peticionFamily;
     public static javax.swing.JMenu procesosMigratorios;
     public static javax.swing.JMenu tramitesVisa;
     public static javax.swing.JMenu waiver;

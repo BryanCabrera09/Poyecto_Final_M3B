@@ -34,12 +34,12 @@ public class V_Horario extends javax.swing.JInternalFrame {
 
     }
 
-    public static JButton getBtnbuscar() {
+    public static JButton getBtn_buscar() {
         return btn_buscar;
     }
 
-    public static void setBtnbuscar(JButton btnbuscar) {
-        V_Horario.btn_buscar = btnbuscar;
+    public static void setBtn_buscar(JButton btn_buscar) {
+        V_Horario.btn_buscar = btn_buscar;
     }
 
     public static JLabel getjLabel2() {
@@ -74,14 +74,14 @@ public class V_Horario extends javax.swing.JInternalFrame {
         V_Horario.tableabogados = tableabogados;
     }
 
-    public static JTextField getTxtbuscar() {
+    public static JTextField getTxt_buscar() {
         return txt_buscar;
     }
 
-    public static void setTxtbuscar(JTextField txtbuscar) {
-        V_Horario.txt_buscar = txtbuscar;
+    public static void setTxt_buscar(JTextField txt_buscar) {
+        V_Horario.txt_buscar = txt_buscar;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -37,12 +37,12 @@ public class V_Caso extends javax.swing.JInternalFrame {
         V_Caso.btn_buscar = btn_buscar;
     }
 
-    public static JComboBox<String> getComboCaso() {
+    public static JComboBox<String> getCb_caso() {
         return cb_caso;
     }
 
-    public static void setComboCaso(JComboBox<String> comboCaso) {
-        V_Caso.cb_caso = comboCaso;
+    public static void setCb_caso(JComboBox<String> cb_caso) {
+        V_Caso.cb_caso = cb_caso;
     }
 
     public static JLabel getjLabel1() {
@@ -53,22 +53,13 @@ public class V_Caso extends javax.swing.JInternalFrame {
         V_Caso.jLabel1 = jLabel1;
     }
 
-    public JPanel getjPanel1() {
-        return jPanel1;
-    }
-
-    public void setjPanel1(JPanel jPanel1) {
-        this.jPanel1 = jPanel1;
-    }
-
-    public static JTextField getTxtCedula() {
+    public static JTextField getTxt_cedula() {
         return txt_cedula;
     }
 
-    public static void setTxtCedula(JTextField txtCedula) {
-        V_Caso.txt_cedula = txtCedula;
+    public static void setTxt_cedula(JTextField txt_cedula) {
+        V_Caso.txt_cedula = txt_cedula;
     }
-
     
     /**
      * This method is called from within the constructor to initialize the form.

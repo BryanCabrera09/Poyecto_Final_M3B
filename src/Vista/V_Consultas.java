@@ -43,36 +43,36 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         V_Consultas.apellidos = apellidos;
     }
 
-    public static JButton getBtncancelar() {
+    public static JButton getBtn_cancelar() {
         return btn_cancelar;
     }
 
-    public static void setBtncancelar(JButton btncancelar) {
-        V_Consultas.btn_cancelar = btncancelar;
+    public static void setBtn_cancelar(JButton btn_cancelar) {
+        V_Consultas.btn_cancelar = btn_cancelar;
     }
 
-    public static JButton getBtnguardar() {
+    public static JButton getBtn_guardar() {
         return btn_guardar;
     }
 
-    public static void setBtnguardar(JButton btnguardar) {
-        V_Consultas.btn_guardar = btnguardar;
+    public static void setBtn_guardar(JButton btn_guardar) {
+        V_Consultas.btn_guardar = btn_guardar;
     }
 
-    public static JButton getBtnnuevo() {
+    public static JButton getBtn_nuevo() {
         return btn_nuevo;
     }
 
-    public static void setBtnnuevo(JButton btnnuevo) {
-        V_Consultas.btn_nuevo = btnnuevo;
+    public static void setBtn_nuevo(JButton btn_nuevo) {
+        V_Consultas.btn_nuevo = btn_nuevo;
     }
 
-    public static JComboBox<String> getCbcaso() {
+    public static JComboBox<String> getCb_caso() {
         return cb_caso;
     }
 
-    public static void setCbcaso(JComboBox<String> cbcaso) {
-        V_Consultas.cb_caso = cbcaso;
+    public static void setCb_caso(JComboBox<String> cb_caso) {
+        V_Consultas.cb_caso = cb_caso;
     }
 
     public static JLabel getjLabel1() {
@@ -131,12 +131,12 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         V_Consultas.jScrollPane1 = jScrollPane1;
     }
 
-    public static JSpinner getjSpinner1() {
+    public static JSpinner getJs_hora() {
         return js_hora;
     }
 
-    public static void setjSpinner1(JSpinner jSpinner1) {
-        V_Consultas.js_hora = jSpinner1;
+    public static void setJs_hora(JSpinner js_hora) {
+        V_Consultas.js_hora = js_hora;
     }
 
     public static JLabel getLacaso1() {
@@ -155,28 +155,28 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         V_Consultas.nombres = nombres;
     }
 
-    public JTextArea getTxdescripcion() {
+    public JTextArea getTxa_descripcion() {
         return txa_descripcion;
     }
 
-    public void setTxdescripcion(JTextArea txdescripcion) {
-        this.txa_descripcion = txdescripcion;
+    public void setTxa_descripcion(JTextArea txa_descripcion) {
+        this.txa_descripcion = txa_descripcion;
     }
 
-    public static JTextField getTxtapellidos() {
+    public static JTextField getTxt_apellidos() {
         return txt_apellidos;
     }
 
-    public static void setTxtapellidos(JTextField txtapellidos) {
-        V_Consultas.txt_apellidos = txtapellidos;
+    public static void setTxt_apellidos(JTextField txt_apellidos) {
+        V_Consultas.txt_apellidos = txt_apellidos;
     }
 
-    public static JTextField getTxtnombres() {
+    public static JTextField getTxt_nombres() {
         return txt_nombres;
     }
 
-    public static void setTxtnombres(JTextField txtnombres) {
-        V_Consultas.txt_nombres = txtnombres;
+    public static void setTxt_nombres(JTextField txt_nombres) {
+        V_Consultas.txt_nombres = txt_nombres;
     }
 
     /**

@@ -33,36 +33,44 @@ public class V_Modificacion_Citas extends javax.swing.JInternalFrame {
         lb_celular.setVisible(false);
     }
 
-    public static JButton getBtnguardar() {
+    public static JButton getBtn_cancelar() {
+        return btn_cancelar;
+    }
+
+    public static void setBtn_cancelar(JButton btn_cancelar) {
+        V_Modificacion_Citas.btn_cancelar = btn_cancelar;
+    }
+
+    public static JButton getBtn_guardar() {
         return btn_guardar;
     }
 
-    public static void setBtnguardar(JButton btnguardar) {
-        V_Modificacion_Citas.btn_guardar = btnguardar;
+    public static void setBtn_guardar(JButton btn_guardar) {
+        V_Modificacion_Citas.btn_guardar = btn_guardar;
     }
 
-    public static JButton getBtnmodificar() {
+    public static JButton getBtn_modificar() {
         return btn_modificar;
     }
 
-    public static void setBtnmodificar(JButton btnmodificar) {
-        V_Modificacion_Citas.btn_modificar = btnmodificar;
+    public static void setBtn_modificar(JButton btn_modificar) {
+        V_Modificacion_Citas.btn_modificar = btn_modificar;
     }
 
-    public static JButton getBtnregresar() {
+    public static JButton getBtn_regresar() {
         return btn_regresar;
     }
 
-    public static void setBtnregresar(JButton btnregresar) {
-        V_Modificacion_Citas.btn_regresar = btnregresar;
+    public static void setBtn_regresar(JButton btn_regresar) {
+        V_Modificacion_Citas.btn_regresar = btn_regresar;
     }
 
-    public static JComboBox<String> getCbcaso() {
+    public static JComboBox<String> getCb_caso() {
         return cb_caso;
     }
 
-    public static void setCbcaso(JComboBox<String> cbcaso) {
-        V_Modificacion_Citas.cb_caso = cbcaso;
+    public static void setCb_caso(JComboBox<String> cb_caso) {
+        V_Modificacion_Citas.cb_caso = cb_caso;
     }
 
     public static JLabel getCelular() {
@@ -121,55 +129,46 @@ public class V_Modificacion_Citas extends javax.swing.JInternalFrame {
         V_Modificacion_Citas.jScrollPane1 = jScrollPane1;
     }
 
-    public static JSpinner getJhora() {
+    public static JSpinner getJs_hora() {
         return js_hora;
     }
 
-    public static void setJhora(JSpinner jhora) {
-        V_Modificacion_Citas.js_hora = jhora;
+    public static void setJs_hora(JSpinner js_hora) {
+        V_Modificacion_Citas.js_hora = js_hora;
     }
 
-    public static JLabel getLacelular() {
+    public static JLabel getLb_celular() {
         return lb_celular;
     }
 
-    public static void setLacelular(JLabel lacelular) {
-        V_Modificacion_Citas.lb_celular = lacelular;
+    public static void setLb_celular(JLabel lb_celular) {
+        V_Modificacion_Citas.lb_celular = lb_celular;
     }
 
-    public static JTextArea getTxdescripcion() {
+    public static JTextArea getTxa_descripcion() {
         return txa_descripcion;
     }
 
-    public static void setTxdescripcion(JTextArea txdescripcion) {
-        V_Modificacion_Citas.txa_descripcion = txdescripcion;
+    public static void setTxa_descripcion(JTextArea txa_descripcion) {
+        V_Modificacion_Citas.txa_descripcion = txa_descripcion;
     }
 
-    public static JTextField getTxtcedula() {
+    public static JTextField getTxt_cedula() {
         return txt_cedula;
     }
 
-    public static void setTxtcedula(JTextField txtcedula) {
-        V_Modificacion_Citas.txt_cedula = txtcedula;
+    public static void setTxt_cedula(JTextField txt_cedula) {
+        V_Modificacion_Citas.txt_cedula = txt_cedula;
     }
 
-    public static JTextField getTxtcelular() {
+    public static JTextField getTxt_celular() {
         return txt_celular;
     }
 
-    public static void setTxtcelular(JTextField txtcelular) {
-        V_Modificacion_Citas.txt_celular = txtcelular;
-    }
-
-    public static JButton getBtn_cancelar() {
-        return btn_cancelar;
-    }
-
-    public static void setBtn_cancelar(JButton btn_cancelar) {
-        V_Modificacion_Citas.btn_cancelar = btn_cancelar;
+    public static void setTxt_celular(JTextField txt_celular) {
+        V_Modificacion_Citas.txt_celular = txt_celular;
     }
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

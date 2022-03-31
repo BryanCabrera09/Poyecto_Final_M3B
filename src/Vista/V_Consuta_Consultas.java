@@ -57,12 +57,12 @@ public class V_Consuta_Consultas extends javax.swing.JInternalFrame {
         V_Consuta_Consultas.table = table;
     }
 
-    public static JTextField getTxtapellido() {
+    public static JTextField getTxt_apellido() {
         return txt_apellido;
     }
 
-    public static void setTxtapellido(JTextField txtapellido) {
-        V_Consuta_Consultas.txt_apellido = txtapellido;
+    public static void setTxt_apellido(JTextField txt_apellido) {
+        V_Consuta_Consultas.txt_apellido = txt_apellido;
     }
 
     /**

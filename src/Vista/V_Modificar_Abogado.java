@@ -33,84 +33,84 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         setLocation(a / 2, b / 5);
     }
 
-    public static JButton getBtncancelar() {
+    public static JButton getBtn_cancelar() {
         return btn_cancelar;
     }
 
-    public static void setBtncancelar(JButton btncancelar) {
-        V_Modificar_Abogado.btn_cancelar = btncancelar;
+    public static void setBtn_cancelar(JButton btn_cancelar) {
+        V_Modificar_Abogado.btn_cancelar = btn_cancelar;
     }
 
-    public static JButton getBtnelimina() {
+    public static JButton getBtn_elimina() {
         return btn_elimina;
     }
 
-    public static void setBtnelimina(JButton btnelimina) {
-        V_Modificar_Abogado.btn_elimina = btnelimina;
+    public static void setBtn_elimina(JButton btn_elimina) {
+        V_Modificar_Abogado.btn_elimina = btn_elimina;
     }
 
-    public static JButton getBtnguardar() {
+    public static JButton getBtn_guardar() {
         return btn_guardar;
     }
 
-    public static void setBtnguardar(JButton btnguardar) {
-        V_Modificar_Abogado.btn_guardar = btnguardar;
+    public static void setBtn_guardar(JButton btn_guardar) {
+        V_Modificar_Abogado.btn_guardar = btn_guardar;
     }
 
-    public static JButton getBtnimagen() {
+    public static JButton getBtn_imagen() {
         return btn_imagen;
     }
 
-    public static void setBtnimagen(JButton btnimagen) {
-        V_Modificar_Abogado.btn_imagen = btnimagen;
+    public static void setBtn_imagen(JButton btn_imagen) {
+        V_Modificar_Abogado.btn_imagen = btn_imagen;
     }
 
-    public static JButton getBtnmodificar() {
+    public static JButton getBtn_modificar() {
         return btn_modificar;
     }
 
-    public static void setBtnmodificar(JButton btnmodificar) {
-        V_Modificar_Abogado.btn_modificar = btnmodificar;
+    public static void setBtn_modificar(JButton btn_modificar) {
+        V_Modificar_Abogado.btn_modificar = btn_modificar;
     }
 
-    public static JCheckBox getCb1() {
+    public static JCheckBox getCb_1() {
         return cb_1;
     }
 
-    public static void setCb1(JCheckBox cb1) {
-        V_Modificar_Abogado.cb_1 = cb1;
+    public static void setCb_1(JCheckBox cb_1) {
+        V_Modificar_Abogado.cb_1 = cb_1;
     }
 
-    public static JCheckBox getCb2() {
+    public static JCheckBox getCb_2() {
         return cb_2;
     }
 
-    public static void setCb2(JCheckBox cb2) {
-        V_Modificar_Abogado.cb_2 = cb2;
+    public static void setCb_2(JCheckBox cb_2) {
+        V_Modificar_Abogado.cb_2 = cb_2;
     }
 
-    public static JCheckBox getCb3() {
+    public static JCheckBox getCb_3() {
         return cb_3;
     }
 
-    public static void setCb3(JCheckBox cb3) {
-        V_Modificar_Abogado.cb_3 = cb3;
+    public static void setCb_3(JCheckBox cb_3) {
+        V_Modificar_Abogado.cb_3 = cb_3;
     }
 
-    public static JCheckBox getCb4() {
+    public static JCheckBox getCb_4() {
         return cb_4;
     }
 
-    public static void setCb4(JCheckBox cb4) {
-        V_Modificar_Abogado.cb_4 = cb4;
+    public static void setCb_4(JCheckBox cb_4) {
+        V_Modificar_Abogado.cb_4 = cb_4;
     }
 
-    public static JComboBox<String> getCbestado() {
+    public static JComboBox<String> getCb_estado() {
         return cb_estado;
     }
 
-    public static void setCbestado(JComboBox<String> cbestado) {
-        V_Modificar_Abogado.cb_estado = cbestado;
+    public static void setCb_estado(JComboBox<String> cb_estado) {
+        V_Modificar_Abogado.cb_estado = cb_estado;
     }
 
     public static JLabel getCelular() {
@@ -145,6 +145,14 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         V_Modificar_Abogado.jScrollPane1 = jScrollPane1;
     }
 
+    public static JLabel getLa_foto() {
+        return la_foto;
+    }
+
+    public static void setLa_foto(JLabel la_foto) {
+        V_Modificar_Abogado.la_foto = la_foto;
+    }
+
     public static JLabel getLaapellido() {
         return laapellido;
     }
@@ -169,36 +177,12 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         V_Modificar_Abogado.lacelular = lacelular;
     }
 
-    public static JLabel getLacelular1() {
-        return lb_celular;
-    }
-
-    public static void setLacelular1(JLabel lacelular1) {
-        V_Modificar_Abogado.lb_celular = lacelular1;
-    }
-
     public static JLabel getLacorreo() {
         return lacorreo;
     }
 
     public static void setLacorreo(JLabel lacorreo) {
         V_Modificar_Abogado.lacorreo = lacorreo;
-    }
-
-    public static JLabel getLacorreo1() {
-        return lb_correo;
-    }
-
-    public static void setLacorreo1(JLabel lacorreo1) {
-        V_Modificar_Abogado.lb_correo = lacorreo1;
-    }
-
-    public static JLabel getLacuenta() {
-        return lb_cuenta;
-    }
-
-    public static void setLacuenta(JLabel lacuenta) {
-        V_Modificar_Abogado.lb_cuenta = lacuenta;
     }
 
     public static JLabel getLadireccion() {
@@ -209,28 +193,12 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         V_Modificar_Abogado.ladireccion = ladireccion;
     }
 
-    public static JLabel getLadireccion1() {
-        return lb_direccion;
-    }
-
-    public static void setLadireccion1(JLabel ladireccion1) {
-        V_Modificar_Abogado.lb_direccion = ladireccion1;
-    }
-
     public static JLabel getLaestado() {
         return laestado;
     }
 
     public static void setLaestado(JLabel laestado) {
         V_Modificar_Abogado.laestado = laestado;
-    }
-
-    public static JLabel getLaestado1() {
-        return lb_estado;
-    }
-
-    public static void setLaestado1(JLabel laestado1) {
-        V_Modificar_Abogado.lb_estado = laestado1;
     }
 
     public static JLabel getLafecha_nac() {
@@ -241,14 +209,6 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         V_Modificar_Abogado.lafecha_nac = lafecha_nac;
     }
 
-    public static JLabel getLafoto() {
-        return la_foto;
-    }
-
-    public static void setLafoto(JLabel lafoto) {
-        V_Modificar_Abogado.la_foto = lafoto;
-    }
-
     public static JLabel getLahorario() {
         return lahorario;
     }
@@ -257,28 +217,12 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         V_Modificar_Abogado.lahorario = lahorario;
     }
 
-    public static JLabel getLahorario1() {
-        return lb_horario;
-    }
-
-    public static void setLahorario1(JLabel lahorario1) {
-        V_Modificar_Abogado.lb_horario = lahorario1;
-    }
-
     public static JLabel getLanombre() {
         return lanombre;
     }
 
     public static void setLanombre(JLabel lanombre) {
         V_Modificar_Abogado.lanombre = lanombre;
-    }
-
-    public static JLabel getLanombre1() {
-        return lb_nombre;
-    }
-
-    public static void setLanombre1(JLabel lanombre1) {
-        V_Modificar_Abogado.lb_nombre = lanombre1;
     }
 
     public static JLabel getLanum_cuenta() {
@@ -305,6 +249,62 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         V_Modificar_Abogado.laregistro = laregistro;
     }
 
+    public static JLabel getLb_celular() {
+        return lb_celular;
+    }
+
+    public static void setLb_celular(JLabel lb_celular) {
+        V_Modificar_Abogado.lb_celular = lb_celular;
+    }
+
+    public static JLabel getLb_correo() {
+        return lb_correo;
+    }
+
+    public static void setLb_correo(JLabel lb_correo) {
+        V_Modificar_Abogado.lb_correo = lb_correo;
+    }
+
+    public static JLabel getLb_cuenta() {
+        return lb_cuenta;
+    }
+
+    public static void setLb_cuenta(JLabel lb_cuenta) {
+        V_Modificar_Abogado.lb_cuenta = lb_cuenta;
+    }
+
+    public static JLabel getLb_direccion() {
+        return lb_direccion;
+    }
+
+    public static void setLb_direccion(JLabel lb_direccion) {
+        V_Modificar_Abogado.lb_direccion = lb_direccion;
+    }
+
+    public static JLabel getLb_estado() {
+        return lb_estado;
+    }
+
+    public static void setLb_estado(JLabel lb_estado) {
+        V_Modificar_Abogado.lb_estado = lb_estado;
+    }
+
+    public static JLabel getLb_horario() {
+        return lb_horario;
+    }
+
+    public static void setLb_horario(JLabel lb_horario) {
+        V_Modificar_Abogado.lb_horario = lb_horario;
+    }
+
+    public static JLabel getLb_nombre() {
+        return lb_nombre;
+    }
+
+    public static void setLb_nombre(JLabel lb_nombre) {
+        V_Modificar_Abogado.lb_nombre = lb_nombre;
+    }
+
     public static JTextField getNacimeinto() {
         return nacimeinto;
     }
@@ -321,76 +321,76 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         V_Modificar_Abogado.tablepersona = tablepersona;
     }
 
-    public static JTextField getTxtapellido() {
+    public static JTextField getTxt_apellido() {
         return txt_apellido;
     }
 
-    public static void setTxtapellido(JTextField txtapellido) {
-        V_Modificar_Abogado.txt_apellido = txtapellido;
+    public static void setTxt_apellido(JTextField txt_apellido) {
+        V_Modificar_Abogado.txt_apellido = txt_apellido;
     }
 
-    public static JTextField getTxtbuscar() {
+    public static JTextField getTxt_buscar() {
         return txt_buscar;
     }
 
-    public static void setTxtbuscar(JTextField txtbuscar) {
-        V_Modificar_Abogado.txt_buscar = txtbuscar;
+    public static void setTxt_buscar(JTextField txt_buscar) {
+        V_Modificar_Abogado.txt_buscar = txt_buscar;
     }
 
-    public static JTextField getTxtcedula() {
+    public static JTextField getTxt_cedula() {
         return txt_cedula;
     }
 
-    public static void setTxtcedula(JTextField txtcedula) {
-        V_Modificar_Abogado.txt_cedula = txtcedula;
+    public static void setTxt_cedula(JTextField txt_cedula) {
+        V_Modificar_Abogado.txt_cedula = txt_cedula;
     }
 
-    public static JTextField getTxtcelular() {
+    public static JTextField getTxt_celular() {
         return txt_celular;
     }
 
-    public static void setTxtcelular(JTextField txtcelular) {
-        V_Modificar_Abogado.txt_celular = txtcelular;
+    public static void setTxt_celular(JTextField txt_celular) {
+        V_Modificar_Abogado.txt_celular = txt_celular;
     }
 
-    public static JTextField getTxtcorreo() {
+    public static JTextField getTxt_correo() {
         return txt_correo;
     }
 
-    public static void setTxtcorreo(JTextField txtcorreo) {
-        V_Modificar_Abogado.txt_correo = txtcorreo;
+    public static void setTxt_correo(JTextField txt_correo) {
+        V_Modificar_Abogado.txt_correo = txt_correo;
     }
 
-    public static JTextField getTxtcuenta() {
+    public static JTextField getTxt_cuenta() {
         return txt_cuenta;
     }
 
-    public static void setTxtcuenta(JTextField txtcuenta) {
-        V_Modificar_Abogado.txt_cuenta = txtcuenta;
+    public static void setTxt_cuenta(JTextField txt_cuenta) {
+        V_Modificar_Abogado.txt_cuenta = txt_cuenta;
     }
 
-    public static JTextField getTxtdireccion() {
+    public static JTextField getTxt_direccion() {
         return txt_direccion;
     }
 
-    public static void setTxtdireccion(JTextField txtdireccion) {
-        V_Modificar_Abogado.txt_direccion = txtdireccion;
+    public static void setTxt_direccion(JTextField txt_direccion) {
+        V_Modificar_Abogado.txt_direccion = txt_direccion;
     }
 
-    public static JTextField getTxtmatricula() {
+    public static JTextField getTxt_matricula() {
         return txt_matricula;
     }
 
-    public static void setTxtmatricula(JTextField txtmatricula) {
-        V_Modificar_Abogado.txt_matricula = txtmatricula;
+    public static void setTxt_matricula(JTextField txt_matricula) {
+        V_Modificar_Abogado.txt_matricula = txt_matricula;
     }
 
-    public static JTextField getTxtnombre() {
+    public static JTextField getTxt_nombre() {
         return txt_nombre;
     }
 
-    public static void setTxtnombre(JTextField txtnombre) {
-        V_Modificar_Abogado.txt_nombre = txtnombre;
+    public static void setTxt_nombre(JTextField txt_nombre) {
+        V_Modificar_Abogado.txt_nombre = txt_nombre;
     }
 
     /**

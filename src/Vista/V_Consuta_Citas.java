@@ -66,12 +66,12 @@ public class V_Consuta_Citas extends javax.swing.JInternalFrame {
         V_Consuta_Citas.table = table;
     }
 
-    public static JTextField getTxtcedula() {
+    public static JTextField getTxt_cedula() {
         return txt_cedula;
     }
 
-    public static void setTxtcedula(JTextField txtcedula) {
-        V_Consuta_Citas.txt_cedula = txtcedula;
+    public static void setTxt_cedula(JTextField txt_cedula) {
+        V_Consuta_Citas.txt_cedula = txt_cedula;
     }
 
     /**
