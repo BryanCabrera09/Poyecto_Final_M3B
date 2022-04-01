@@ -5,25 +5,35 @@
  */
 package vista;
 
+import static com.sun.javafx.tk.Toolkit.getToolkit;
 import com.toedter.calendar.JDateChooser;
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author BRYAN_CABRERA
  */
 public class V_Registro_Abogado extends javax.swing.JInternalFrame {
-    
+
     public static String x;
 
+    protected static File ruta;
+    protected static Image img;
+    
+    String rutas;
+    
     /**
      * Creates new form Abogados
      */
-
     public V_Registro_Abogado() {
         initComponents();
         x = "x";
@@ -56,12 +66,12 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
         V_Registro_Abogado.btn_imagen = btn_imagen;
     }
 
-    public static JButton getBtnnuevo() {
-        return btnnuevo;
+    public static JButton getBtn_nuevo() {
+        return btn_nuevo;
     }
 
-    public static void setBtnnuevo(JButton btnnuevo) {
-        V_Registro_Abogado.btnnuevo = btnnuevo;
+    public static void setBtn_nuevo(JButton btnnuevo) {
+        V_Registro_Abogado.btn_nuevo = btnnuevo;
     }
 
     public static JDateChooser getCalendar() {
@@ -462,7 +472,7 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
         cb_2 = new javax.swing.JCheckBox();
         cb_3 = new javax.swing.JCheckBox();
         cb_4 = new javax.swing.JCheckBox();
-        btnnuevo = new javax.swing.JButton();
+        btn_nuevo = new javax.swing.JButton();
         lb_nombre = new javax.swing.JLabel();
         lb_apellido = new javax.swing.JLabel();
         lb_cedula = new javax.swing.JLabel();
@@ -556,7 +566,7 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cancelar.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, 130, 50));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 130, 50));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
@@ -577,9 +587,9 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
         cb_4.setText("16:30-18:30");
         jPanel1.add(cb_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 200, -1, -1));
 
-        btnnuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Nuevo.png"))); // NOI18N
-        btnnuevo.setText("NUEVO");
-        jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, 40));
+        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Nuevo.png"))); // NOI18N
+        btn_nuevo.setText("NUEVO");
+        jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, 40));
 
         lb_nombre.setBackground(new java.awt.Color(255, 255, 255));
         lb_nombre.setForeground(new java.awt.Color(255, 0, 0));
@@ -688,18 +698,34 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         x = null;
     }//GEN-LAST:event_formInternalFrameClosing
 
+    public void Cargar_Imagen() {
 
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        j.setFileFilter(fil);
+
+        File ruta_carpeta = new File("");
+        j.setCurrentDirectory(ruta_carpeta);
+
+        int s = j.showOpenDialog(j);
+        if (s == JFileChooser.APPROVE_OPTION) {
+            ruta = j.getSelectedFile();
+            rutas = String.valueOf(ruta);
+            img = getToolkit().getImage(String.valueOf(rutas));
+            img = img.getScaledInstance(getLb_foto().getWidth(), getLb_foto().getHeight(), img.SCALE_DEFAULT);
+            getLb_foto().setIcon(new ImageIcon(img));
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btn_cancelar;
     public static javax.swing.JButton btn_guardar;
     public static javax.swing.JButton btn_imagen;
-    public static javax.swing.JButton btnnuevo;
+    public static javax.swing.JButton btn_nuevo;
     public static com.toedter.calendar.JDateChooser calendar;
     public static javax.swing.JCheckBox cb_1;
     public static javax.swing.JCheckBox cb_2;

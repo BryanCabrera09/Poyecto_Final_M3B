@@ -12,7 +12,6 @@ import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 import vista.V_Caso;
 import vista.V_Menu_Inicio;
-import static vista.V_Registro_Caso.Lista_ClienteCaso;
 import vista.RequisitoDivorcio;
 import vista.RequisitosEstadosUnidos;
 import vista.RequisitosEuropa;

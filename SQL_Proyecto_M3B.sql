@@ -93,7 +93,7 @@ CREATE TABLE Buf_Clientes (
     Id_Cliente NUMBER(8),
     Ci         VARCHAR2(10),
     Id_Abg     NUMBER(8),
-    Ocuapcion  VARCHAR2(50),
+    Ocupacion  VARCHAR2(50),
     CONSTRAINT Fk_Pers_Cliente FOREIGN KEY ( Ci )
         REFERENCES Buf_Persona ( Ci ),
     CONSTRAINT Fk_Abg_User FOREIGN KEY ( Id_Abg )

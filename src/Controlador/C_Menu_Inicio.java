@@ -102,16 +102,16 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.btnInicio) {
-            Inicio_Sesion cs = new Inicio_Sesion();
+        if (e.getSource() == Inicio.getBtn_Inicio()) {
+            V_Inicio_Sesion cs = new V_Inicio_Sesion();
             cs.setVisible(true);
             Inicio.dispose();
         }
-        if (e.getSource() == Inicio.btnRegistroClienteCaso) {
-            String x = RegistroCaso.x;
+        if (e.getSource() == Inicio.getBtn_RegistroClienteCaso()) {
+            String x = V_Registro_Caso.x;
             try {
                 if (x == null) {
-                    RegistroCaso rca = new RegistroCaso();
+                    V_Registro_Caso rca = new V_Registro_Caso();
                     C_Registro_Caso registroCaso = new C_Registro_Caso(rca);
                     Inicio.escritorio.add(rca);
                     rca.show();
@@ -122,11 +122,11 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.btnVisualizacion) {
-            String x = Consultas.x;
+        if (e.getSource() == Inicio.getBtn_visualizacion()) {
+            String x = V_Consultas.x;
             try {
                 if (x == null) {
-                    Consultas con1 = new Consultas();
+                    V_Consultas con1 = new V_Consultas();
                     C_Consultas consultas = new C_Consultas(con1);
                     Inicio.escritorio.add(con1);
                     con1.show();
@@ -137,11 +137,11 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.btnVisualizarCaso) {
-            String x = Caso.x;
+        if (e.getSource() == Inicio.getBtn_VisualizarCaso()) {
+            String x = V_Caso.x;
             try {
                 if (x == null) {
-                    Caso c1 = new Caso();
+                    V_Caso c1 = new V_Caso();
                     C_Caso caso = new C_Caso(c1);
                     Inicio.escritorio.add(c1);
                     c1.show();
@@ -153,13 +153,12 @@ public class C_Menu_Inicio implements ActionListener {
             }
 
         }
-
-        //subs
-        if (e.getSource() == Inicio.Citas) {
-            String x = Consuta_Citas.x;
+        //ABRIR OPCIONES PRESENTADAS EN EL MENU
+        if (e.getSource() == Inicio.getCitas()) {
+            String x = V_Consuta_Citas.x;
             try {
                 if (x == null) {
-                    Consuta_Citas CI = new Consuta_Citas();
+                    V_Consuta_Citas CI = new V_Consuta_Citas();
                     C_Consulta_Citas consulta_Citas = new C_Consulta_Citas(CI);
                     Inicio.escritorio.add(CI);
                     CI.show();
@@ -170,11 +169,11 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.Consultas) {
-            String x = Consuta_Consultas.x;
+        if (e.getSource() == Inicio.getConsultas()) {
+            String x = V_Consuta_Consultas.x;
             try {
                 if (x == null) {
-                    Consuta_Consultas C = new Consuta_Consultas();
+                    V_Consuta_Consultas C = new V_Consuta_Consultas();
                     C_Consultas_Consultas consultas_Consultas = new C_Consultas_Consultas(C);
                     Inicio.escritorio.add(C);
                     C.show();
@@ -185,11 +184,11 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.Mod_cliente) {
-            String x = ModificarCliente.x;
+        if (e.getSource() == Inicio.getMod_cliente()) {
+            String x = V_Modificar_Cliente.x;
             try {
                 if (x == null) {
-                    ModificarCliente C = new ModificarCliente();
+                    V_Modificar_Cliente C = new V_Modificar_Cliente();
                     C_Modificar_Cliente modificarCliente = new C_Modificar_Cliente(C);
                     Inicio.escritorio.add(C);
                     C.show();
@@ -200,11 +199,11 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.Mod_secretaria) {
-            String x = ModificarSecretaria.x;
+        if (e.getSource() == Inicio.getMod_secretaria()) {
+            String x = V_Modificar_Secretaria.x;
             try {
                 if (x == null) {
-                    ModificarSecretaria S = new ModificarSecretaria();
+                    V_Modificar_Secretaria S = new V_Modificar_Secretaria();
                     C_Modificar_Secretaria modificarSecretaria = new C_Modificar_Secretaria(S);
                     Inicio.escritorio.add(S);
                     S.show();
@@ -215,11 +214,11 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.Mod_abogado) {
-            String x = ModificarAbogado.x;
+        if (e.getSource() == Inicio.getMod_abogado()) {
+            String x = V_Modificar_Abogado.x;
             try {
                 if (x == null) {
-                    ModificarAbogado A = new ModificarAbogado();
+                    V_Modificar_Abogado A = new V_Modificar_Abogado();
                     C_Modificar_Abogado modificarAbogado = new C_Modificar_Abogado(A);
                     Inicio.escritorio.add(A);
                     A.show();
@@ -230,11 +229,11 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.Reg_abogado) {
-            String x = RegistroAbogado.x;
+        if (e.getSource() == Inicio.getReg_abogado()) {
+            String x = V_Registro_Abogado.x;
             try {
                 if (x == null) {
-                    RegistroAbogado ra = new RegistroAbogado();
+                    V_Registro_Abogado ra = new V_Registro_Abogado();
                     C_Registro_Abogado registroAbogado = new C_Registro_Abogado(ra);
                     Inicio.escritorio.add(ra);
                     ra.show();
@@ -245,11 +244,11 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.Reg_cliente) {
-            String x = RegistroCliente.x;
+        if (e.getSource() == Inicio.getReg_cliente()) {
+            String x = V_Registro_Cliente.x;
             try {
                 if (x == null) {
-                    RegistroCliente rc = new RegistroCliente();
+                    V_Registro_Cliente rc = new V_Registro_Cliente();
                     C_Registro_Cliente registroCliente = new C_Registro_Cliente(rc);
                     Inicio.escritorio.add(rc);
                     rc.show();
@@ -260,137 +259,11 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.Req_divorcio) {
-            String x = RDivorcio.x;
+        if (e.getSource() == Inicio.getReg_secretaria()) {
+            String x = V_Registro_Secretaria.x;
             try {
                 if (x == null) {
-                    RDivorcio rq = new RDivorcio();
-                    Inicio.escritorio.add(rq);
-                    rq.show();
-                } else {
-                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (e.getSource() == Inicio.Req_Visa_Eeuu) {
-            String x = REstadosUnidos.x;
-            try {
-                if (x == null) {
-                    REstadosUnidos rqe = new REstadosUnidos();
-                    Inicio.escritorio.add(rqe);
-                    rqe.show();
-                } else {
-                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (e.getSource() == Inicio.Req_visa_loteria) {
-            String x = RLoteria.x;
-            try {
-                if (x == null) {
-                    RLoteria rql = new RLoteria();
-                    Inicio.escritorio.add(rql);
-                    rql.show();
-                } else {
-                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (e.getSource() == Inicio.Req_visa_mexico) {
-            String x = RVisaMexico.x;
-            try {
-                if (x == null) {
-                    RVisaMexico rqm = new RVisaMexico();
-                    Inicio.escritorio.add(rqm);
-                    rqm.show();
-                } else {
-                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (e.getSource() == Inicio.Req_pensionesali) {
-            String x = RPensionesAlimenticias.x;
-            try {
-                if (x == null) {
-                    RPensionesAlimenticias rqp = new RPensionesAlimenticias();
-                    Inicio.escritorio.add(rqp);
-                    rqp.show();
-                } else {
-                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (e.getSource() == Inicio.Req_Renovacion_Pasaporte) {
-            String x = RRenovacionPasaporte.x;
-            try {
-                if (x == null) {
-                    RRenovacionPasaporte rqrp = new RRenovacionPasaporte();
-                    Inicio.escritorio.add(rqrp);
-                    rqrp.show();
-                } else {
-                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (e.getSource() == Inicio.Req_Perdon) {
-            String x = RPerdon.x;
-            try {
-                if (x == null) {
-                    RPerdon rqpe = new RPerdon();
-                    Inicio.escritorio.add(rqpe);
-                    rqpe.show();
-                } else {
-                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (e.getSource() == Inicio.Req_Reporte_Consular) {
-            String x = RReporteConsular.x;
-            try {
-                if (x == null) {
-                    RReporteConsular rqrc = new RReporteConsular();
-                    Inicio.escritorio.add(rqrc);
-                    rqrc.show();
-                } else {
-                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (e.getSource() == Inicio.Req_RetornanteInmigrante) {
-            String x = RRetornanteInmigrante.x;
-            try {
-                if (x == null) {
-                    RRetornanteInmigrante rqri = new RRetornanteInmigrante();
-                    Inicio.escritorio.add(rqri);
-                    rqri.show();
-                } else {
-                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (e.getSource() == Inicio.Reg_secretaria) {
-            String x = RegistroSecretaria.x;
-            try {
-                if (x == null) {
-                    RegistroSecretaria rs = new RegistroSecretaria();
+                    V_Registro_Secretaria rs = new V_Registro_Secretaria();
                     C_Registro_Secretaria secretaria = new C_Registro_Secretaria(rs);
                     Inicio.escritorio.add(rs);
                     rs.show();
@@ -401,11 +274,11 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.Reg_usuario) {
-            String x = RegistroUsuario.x;
+        if (e.getSource() == Inicio.getReg_usuario()) {
+            String x = V_Registro_Usuario.x;
             try {
                 if (x == null) {
-                    RegistroUsuario ru = new RegistroUsuario();
+                    V_Registro_Usuario ru = new V_Registro_Usuario();
                     C_Registro_Usuario registroUsuario = new C_Registro_Usuario(ru);
                     Inicio.escritorio.add(ru);
                     ru.show();
@@ -416,11 +289,137 @@ public class C_Menu_Inicio implements ActionListener {
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == Inicio.Req_visa_europa) {
-            String x = REuropa.x;
+        if (e.getSource() == Inicio.getReq_divorcio()) {
+            String x = V_Info_Req_Divorcio.x;
             try {
                 if (x == null) {
-                    REuropa rqeu = new REuropa();
+                    V_Info_Req_Divorcio rq = new V_Info_Req_Divorcio();
+                    Inicio.escritorio.add(rq);
+                    rq.show();
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == Inicio.getReq_Visa_Eeuu()) {
+            String x = V_Info_Req_Visa_EEUU.x;
+            try {
+                if (x == null) {
+                    V_Info_Req_Visa_EEUU rqe = new V_Info_Req_Visa_EEUU();
+                    Inicio.escritorio.add(rqe);
+                    rqe.show();
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == Inicio.getReq_visa_loteria()) {
+            String x = V_Info_Req_Visa_Loteria.x;
+            try {
+                if (x == null) {
+                    V_Info_Req_Visa_Loteria rql = new V_Info_Req_Visa_Loteria();
+                    Inicio.escritorio.add(rql);
+                    rql.show();
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == Inicio.getReq_visa_mexico()) {
+            String x = V_Info_Req_Visa_Mexico.x;
+            try {
+                if (x == null) {
+                    V_Info_Req_Visa_Mexico rqm = new V_Info_Req_Visa_Mexico();
+                    Inicio.escritorio.add(rqm);
+                    rqm.show();
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == Inicio.getReq_pensionesali()) {
+            String x = V_Info_Req_PensionesAlimenticias.x;
+            try {
+                if (x == null) {
+                    V_Info_Req_PensionesAlimenticias rqp = new V_Info_Req_PensionesAlimenticias();
+                    Inicio.escritorio.add(rqp);
+                    rqp.show();
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == Inicio.getReq_Renovacion_Pasaporte()) {
+            String x = V_Info_Req_RenovacionPasaporte.x;
+            try {
+                if (x == null) {
+                    V_Info_Req_RenovacionPasaporte rqrp = new V_Info_Req_RenovacionPasaporte();
+                    Inicio.escritorio.add(rqrp);
+                    rqrp.show();
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == Inicio.getReq_Perdon()) {
+            String x = V_Info_Req_Perdon.x;
+            try {
+                if (x == null) {
+                    V_Info_Req_Perdon rqpe = new V_Info_Req_Perdon();
+                    Inicio.escritorio.add(rqpe);
+                    rqpe.show();
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == Inicio.getReq_Reporte_Consular()) {
+            String x = V_Info_Req_ReporteConsular.x;
+            try {
+                if (x == null) {
+                    V_Info_Req_ReporteConsular rqrc = new V_Info_Req_ReporteConsular();
+                    Inicio.escritorio.add(rqrc);
+                    rqrc.show();
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == Inicio.getReq_RetornanteInmigrante()) {
+            String x = V_Info_Req_RetornanteInmigrante.x;
+            try {
+                if (x == null) {
+                    V_Info_Req_RetornanteInmigrante rqri = new V_Info_Req_RetornanteInmigrante();
+                    Inicio.escritorio.add(rqri);
+                    rqri.show();
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == Inicio.getReq_visa_europa()) {
+            String x = V_Info_Req_Visa_Europa.x;
+            try {
+                if (x == null) {
+                    V_Info_Req_Visa_Europa rqeu = new V_Info_Req_Visa_Europa();
                     Inicio.escritorio.add(rqeu);
                     rqeu.show();
                 } else {
@@ -431,11 +430,11 @@ public class C_Menu_Inicio implements ActionListener {
             }
         }
 
-        if (e.getSource() == Inicio.Req_peticionfamiliar) {
-            String x = RPeticion.x;
+        if (e.getSource() == Inicio.getReq_peticionfamiliar()) {
+            String x = V_Info_Req_Peticion.x;
             try {
                 if (x == null) {
-                    RPeticion rqp = new RPeticion();
+                    V_Info_Req_Peticion rqp = new V_Info_Req_Peticion();
                     Inicio.escritorio.add(rqp);
                     rqp.show();
                 } else {
@@ -448,7 +447,7 @@ public class C_Menu_Inicio implements ActionListener {
 
     }
 
-    public void iniciar() {
+    public void Iniciar() {
         Inicio.setVisible(true);
         Inicio.setLocationRelativeTo(null);
     }

@@ -88,6 +88,22 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
         V_Inicio_Sesion.txt_usuario = txt_usuario;
     }
 
+    public static JLabel getLb_contra() {
+        return lb_contra;
+    }
+
+    public static void setLb_contra(JLabel lb_contra) {
+        V_Inicio_Sesion.lb_contra = lb_contra;
+    }
+
+    public static JLabel getLb_usuario() {
+        return lb_usuario;
+    }
+
+    public static void setLb_usuario(JLabel lb_usuario) {
+        V_Inicio_Sesion.lb_usuario = lb_usuario;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,6 +122,8 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
         btn_ingresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_cancelar = new javax.swing.JButton();
+        lb_contra = new javax.swing.JLabel();
+        lb_usuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,6 +155,16 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
 
         btn_cancelar.setText("CANCELAR");
         jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 100, 50));
+
+        lb_contra.setBackground(new java.awt.Color(255, 255, 255));
+        lb_contra.setForeground(new java.awt.Color(255, 0, 0));
+        lb_contra.setText("*Campo Obligatorio");
+        jPanel1.add(lb_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
+
+        lb_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        lb_usuario.setForeground(new java.awt.Color(255, 0, 0));
+        lb_usuario.setText("*Campo Obligatorio");
+        jPanel1.add(lb_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,6 +221,8 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
     public static javax.swing.JButton btn_ingresar;
     public static javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    public static javax.swing.JLabel lb_contra;
+    public static javax.swing.JLabel lb_usuario;
     public static javax.swing.JLabel lbl_bienvenido;
     public static javax.swing.JLabel lbl_contraseña;
     public static javax.swing.JLabel lbl_usuario;

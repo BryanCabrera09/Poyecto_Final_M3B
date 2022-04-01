@@ -126,6 +126,22 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         V_Registro_Usuario.txt_usuario = txt_usuario;
     }
 
+    public static JLabel getLb_contracorta() {
+        return lb_contracorta;
+    }
+
+    public static void setLb_contracorta(JLabel lb_contracorta) {
+        V_Registro_Usuario.lb_contracorta = lb_contracorta;
+    }
+
+    public static JLabel getLb_existente() {
+        return lb_existente;
+    }
+
+    public static void setLb_existente(JLabel lb_existente) {
+        V_Registro_Usuario.lb_existente = lb_existente;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -144,6 +160,8 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         btn_nuevo = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
         txt_cedula = new javax.swing.JTextField();
+        lb_existente = new javax.swing.JLabel();
+        lb_contracorta = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -218,6 +236,16 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 130, 50));
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 180, 30));
 
+        lb_existente.setBackground(new java.awt.Color(255, 255, 255));
+        lb_existente.setForeground(new java.awt.Color(255, 0, 0));
+        lb_existente.setText("*Usuario ya registrado");
+        jPanel1.add(lb_existente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, -1, -1));
+
+        lb_contracorta.setBackground(new java.awt.Color(255, 255, 255));
+        lb_contracorta.setForeground(new java.awt.Color(255, 0, 0));
+        lb_contracorta.setText("*Minimo 6 Caractéres");
+        jPanel1.add(lb_contracorta, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -245,7 +273,9 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
     public static javax.swing.JButton btn_registar;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JLabel lb_cedula;
+    public static javax.swing.JLabel lb_contracorta;
     public static javax.swing.JLabel lb_contraseña;
+    public static javax.swing.JLabel lb_existente;
     public static javax.swing.JLabel lb_usuario;
     public static javax.swing.JLabel lbl_cedula;
     public static javax.swing.JLabel lbl_contraseña;

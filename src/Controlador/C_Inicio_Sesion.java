@@ -5,57 +5,53 @@
  */
 package controlador;
 
+import Metodos.Validar_InicioSesion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vista.Inicio_Sesion;
-import vista.MenuInicio;
-import static vista.RegistroUsuario.listausuario;
+import javax.swing.JOptionPane;
+import vista.V_Inicio_Sesion;
+import vista.V_Menu_Inicio;
 
 /*
  * @author BRYAN_CABRERA
  */
-public class C_Inicio_Sesion implements ActionListener{
-    Inicio_Sesion sesion;
+public class C_Inicio_Sesion implements ActionListener {
 
-    public C_Inicio_Sesion(Inicio_Sesion sesion) {
+    V_Inicio_Sesion sesion;
+    Validar_InicioSesion V;
+
+    public C_Inicio_Sesion(V_Inicio_Sesion sesion) {
+
         this.sesion = sesion;
-        this.sesion.btnIngresar.addActionListener(this);
+        this.sesion.getBtn_ingresar().addActionListener(this);
     }
-    
-    
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==sesion.btnIngresar) {
+
+        if (e.getSource() == sesion.getBtn_ingresar()) {
+
             validarDatos();
         }
     }
-    public void validarDatos(){
-        int con = 0;
-        for (int i = 0; i < listausuario.size(); i++) {
-            System.out.println(listausuario.get(i).getCedula() + "" + listausuario.get(i).getUsuario() + "" + listausuario.get(i).getContraseña());
-            if (listausuario.get(i).getUsuario().equals(sesion.txt_usuario.getText()) && listausuario.get(i).getContraseña().equals(sesion.psw_contraseña.getText())) {
-                MenuInicio menu = new MenuInicio();
+
+    public void validarDatos() {
+
+        if (V.Validar_Campos() == true) {
+
+            if ((V.Validar_Usuario() == true) && (V.Validar_Contraseña() == true)) {
+
+                V_Menu_Inicio menu = new V_Menu_Inicio();
                 menu.setVisible(true);
                 sesion.setVisible(false);
-                con = 1;
-            }
-//            } else {
-//                txt_usuario.setText("");
-//                psw_contraseña.setText("");
-////                JOptionPane.showMessageDialog(null, "DATOS INCORRECTOS", "", 0);
-//            }
-        }
-        if (con != 1) {
-            if (sesion.txt_usuario.getText().equals("Admin") && sesion.psw_contraseña.getText().equals("1234")) {
-                MenuInicio menu = new MenuInicio();
-                menu.setVisible(true);
-                sesion.setVisible(false);
+
             } else {
-                sesion.txt_usuario.setText("");
-                sesion.psw_contraseña.setText("");
+
+                JOptionPane.showMessageDialog(null, "Usuario o Contraseña Incorrectos", "Error Datos", JOptionPane.ERROR_MESSAGE);
             }
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Llene Todos Los Campos", "Compos Vacios", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
-
