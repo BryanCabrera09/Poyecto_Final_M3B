@@ -31,7 +31,7 @@ public class Buf_Caso_Visa_LoteriaDB implements Buf_Caso_Visa_LoteriaDAO{
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso_Visa_Loteria VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso_Visa_Loteria VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

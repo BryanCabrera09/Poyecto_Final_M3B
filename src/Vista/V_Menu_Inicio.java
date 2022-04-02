@@ -383,31 +383,27 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_horario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Calendario.png"))); // NOI18N
         btn_horario.setToolTipText("Horario");
-        jPanel1.add(btn_horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 60));
+        jPanel1.add(btn_horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 80, 60));
 
-        btn_citas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cita.png"))); // NOI18N
+        btn_citas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cita.png"))); // NOI18N
         btn_citas.setToolTipText("Cita");
-        jPanel1.add(btn_citas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 80, 60));
+        jPanel1.add(btn_citas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 80, 60));
 
-        btn_visualizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Consulta.png"))); // NOI18N
         btn_visualizacion.setToolTipText("Consulta");
-        jPanel1.add(btn_visualizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 80, 60));
+        jPanel1.add(btn_visualizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 80, 60));
 
-        btn_VisualizarCaso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ver Caso.png"))); // NOI18N
         btn_VisualizarCaso.setToolTipText("Ver Caso");
-        jPanel1.add(btn_VisualizarCaso, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 80, 60));
+        jPanel1.add(btn_VisualizarCaso, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 80, 60));
 
-        btn_RegistroClienteCaso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Registro Casos.png"))); // NOI18N
         btn_RegistroClienteCaso.setToolTipText("Registro Cliente-Caso");
-        jPanel1.add(btn_RegistroClienteCaso, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 80, 60));
+        jPanel1.add(btn_RegistroClienteCaso, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 80, 60));
 
         btn_Inicio.setText("INICIO");
         btn_Inicio.setMaximumSize(new java.awt.Dimension(30, 16));
         btn_Inicio.setMinimumSize(new java.awt.Dimension(30, 16));
         btn_Inicio.setPreferredSize(new java.awt.Dimension(60, 16));
-        jPanel1.add(btn_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 90, 60));
+        jPanel1.add(btn_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 90, 60));
 
         escritorio.setBackground(new java.awt.Color(153, 0, 51));
 
@@ -415,7 +411,7 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1318, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,22 +421,22 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         Registro.setText("Registro");
 
         Reg_abogado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        Reg_abogado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Abogada.png"))); // NOI18N
+        Reg_abogado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Abogada.png"))); // NOI18N
         Reg_abogado.setText("Abogado");
         Registro.add(Reg_abogado);
 
         Reg_secretaria.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        Reg_secretaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Secretaria.png"))); // NOI18N
+        Reg_secretaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Secretaria.png"))); // NOI18N
         Reg_secretaria.setText("Secretaria");
         Registro.add(Reg_secretaria);
 
         Reg_cliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        Reg_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cliente.png"))); // NOI18N
+        Reg_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cliente.png"))); // NOI18N
         Reg_cliente.setText("Cliente");
         Registro.add(Reg_cliente);
 
         Reg_usuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        Reg_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario.png"))); // NOI18N
+        Reg_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Usuario.png"))); // NOI18N
         Reg_usuario.setText("Usuario");
         Registro.add(Reg_usuario);
 
@@ -449,17 +445,17 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         Modifcar.setText("Modificar");
 
         Mod_abogado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
-        Mod_abogado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Abogada.png"))); // NOI18N
+        Mod_abogado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Abogada.png"))); // NOI18N
         Mod_abogado.setText("Abogado");
         Modifcar.add(Mod_abogado);
 
         Mod_secretaria.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        Mod_secretaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Secretaria.png"))); // NOI18N
+        Mod_secretaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Secretaria.png"))); // NOI18N
         Mod_secretaria.setText("Secretaria");
         Modifcar.add(Mod_secretaria);
 
         Mod_cliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        Mod_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cliente.png"))); // NOI18N
+        Mod_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cliente.png"))); // NOI18N
         Mod_cliente.setText("Cliente");
         Modifcar.add(Mod_cliente);
 
@@ -467,81 +463,81 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
 
         Requisit.setText("Requisitos");
 
-        casosJudiciales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Casos Judiciales.png"))); // NOI18N
+        casosJudiciales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Casos Judiciales.png"))); // NOI18N
         casosJudiciales.setText("Casos Judiciales");
 
         Req_divorcio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_MASK));
-        Req_divorcio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Divorcio.png"))); // NOI18N
+        Req_divorcio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Divorcio.png"))); // NOI18N
         Req_divorcio.setText("Divorcio");
         casosJudiciales.add(Req_divorcio);
 
         Req_pensionesali.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_MASK));
-        Req_pensionesali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pensiones Alimenticias.png"))); // NOI18N
+        Req_pensionesali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Pensiones Alimenticias.png"))); // NOI18N
         Req_pensionesali.setText("Pensiones Alimenticias");
         casosJudiciales.add(Req_pensionesali);
 
         Requisit.add(casosJudiciales);
 
-        tramitesVisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Visa.png"))); // NOI18N
+        tramitesVisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Visa.png"))); // NOI18N
         tramitesVisa.setText("Tramites de Visa");
 
         Req_Visa_Eeuu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_MASK));
-        Req_Visa_Eeuu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B EEUU.png"))); // NOI18N
+        Req_Visa_Eeuu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/B EEUU.png"))); // NOI18N
         Req_Visa_Eeuu.setText("EEUU");
         tramitesVisa.add(Req_Visa_Eeuu);
 
         Req_visa_europa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_MASK));
-        Req_visa_europa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B Europa.png"))); // NOI18N
+        Req_visa_europa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/B Europa.png"))); // NOI18N
         Req_visa_europa.setText("Europa");
         tramitesVisa.add(Req_visa_europa);
 
         Req_visa_loteria.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.CTRL_MASK));
-        Req_visa_loteria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B EEUU.png"))); // NOI18N
+        Req_visa_loteria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/B EEUU.png"))); // NOI18N
         Req_visa_loteria.setText("Loteria-EEUU");
         tramitesVisa.add(Req_visa_loteria);
 
         Req_visa_mexico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.CTRL_MASK));
-        Req_visa_mexico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/B Mexico.png"))); // NOI18N
+        Req_visa_mexico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/B Mexico.png"))); // NOI18N
         Req_visa_mexico.setText("Mexico");
         tramitesVisa.add(Req_visa_mexico);
 
         Requisit.add(tramitesVisa);
 
-        waiver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Waiver.png"))); // NOI18N
+        waiver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Waiver.png"))); // NOI18N
         waiver.setText("Waiver");
 
         Req_Perdon.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_8, java.awt.event.InputEvent.CTRL_MASK));
-        Req_Perdon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Perdon.png"))); // NOI18N
+        Req_Perdon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Perdon.png"))); // NOI18N
         Req_Perdon.setText("Perdon");
         waiver.add(Req_Perdon);
 
         Requisit.add(waiver);
 
-        peticionFamiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Peticion.png"))); // NOI18N
+        peticionFamiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Peticion.png"))); // NOI18N
         peticionFamiliar.setText("Peticion Familiar");
 
         Req_peticionfamiliar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, java.awt.event.InputEvent.CTRL_MASK));
-        Req_peticionfamiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Familiar.png"))); // NOI18N
+        Req_peticionfamiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Familiar.png"))); // NOI18N
         Req_peticionfamiliar.setText("Peticion Familiar");
         peticionFamiliar.add(Req_peticionfamiliar);
 
         Requisit.add(peticionFamiliar);
 
-        procesosMigratorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Procesos migratorios.png"))); // NOI18N
+        procesosMigratorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Procesos migratorios.png"))); // NOI18N
         procesosMigratorios.setText("Procesos Migratorios");
 
         Req_Renovacion_Pasaporte.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_9, java.awt.event.InputEvent.CTRL_MASK));
-        Req_Renovacion_Pasaporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Renovacion.png"))); // NOI18N
+        Req_Renovacion_Pasaporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Renovacion.png"))); // NOI18N
         Req_Renovacion_Pasaporte.setText("Renovacion Pasaporte EEUU");
         procesosMigratorios.add(Req_Renovacion_Pasaporte);
 
         Req_RetornanteInmigrante.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_0, java.awt.event.InputEvent.CTRL_MASK));
-        Req_RetornanteInmigrante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Retornante Inmigrante.png"))); // NOI18N
+        Req_RetornanteInmigrante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Retornante Inmigrante.png"))); // NOI18N
         Req_RetornanteInmigrante.setText("Retornante Inmigrante");
         procesosMigratorios.add(Req_RetornanteInmigrante);
 
         Req_Reporte_Consular.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_BACK_SPACE, java.awt.event.InputEvent.CTRL_MASK));
-        Req_Reporte_Consular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Reporte Consular.png"))); // NOI18N
+        Req_Reporte_Consular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Reporte Consular.png"))); // NOI18N
         Req_Reporte_Consular.setText("Reporte Consular");
         procesosMigratorios.add(Req_Reporte_Consular);
 
@@ -552,12 +548,12 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         citasConsultas.setText("Citas_Consutas");
 
         Citas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
-        Citas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cita 2.png"))); // NOI18N
+        Citas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cita 2.png"))); // NOI18N
         Citas.setText("Citas");
         citasConsultas.add(Citas);
 
         Consultas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
-        Consultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Consulta 2.png"))); // NOI18N
+        Consultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Consulta 2.png"))); // NOI18N
         Consultas.setText("Consultas");
         citasConsultas.add(Consultas);
 
@@ -569,13 +565,13 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1318, Short.MAX_VALUE)
             .addComponent(escritorio)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(escritorio))
         );

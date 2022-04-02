@@ -1,6 +1,12 @@
-
 package controlador;
 
+import Metodos.Validar_Abogados;
+import Modelo.Buf_Abogado;
+import Modelo.Buf_AbogadoDB;
+import Modelo.Buf_ClienteDB;
+import Modelo.Buf_Persona;
+import Modelo.Buf_PersonaDB;
+import Modelo.Buf_SecretariaDB;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -36,6 +42,15 @@ import vista.V_Registro_Usuario;
  * @author BRYAN_CABRERA
  */
 public class C_Menu_Inicio implements ActionListener {
+    
+    Buf_Abogado A = new Buf_Abogado();
+    Buf_Persona P = new Buf_Persona();
+    V_Registro_Abogado registro = new V_Registro_Abogado();
+    Buf_AbogadoDB A_DB = new Buf_AbogadoDB();
+    Buf_PersonaDB P_DB = new Buf_PersonaDB();
+    Buf_SecretariaDB S_DB = new Buf_SecretariaDB();
+    Buf_ClienteDB C_DB = new Buf_ClienteDB();
+    Validar_Abogados V = new Validar_Abogados();
 
     private V_Menu_Inicio Inicio;
 
@@ -232,9 +247,9 @@ public class C_Menu_Inicio implements ActionListener {
         if (e.getSource() == Inicio.getReg_abogado()) {
             String x = V_Registro_Abogado.x;
             try {
-                if (x == null) {
+                if (x != null) {
                     V_Registro_Abogado ra = new V_Registro_Abogado();
-                    C_Registro_Abogado registroAbogado = new C_Registro_Abogado(ra);
+                    C_Registro_Abogado registroAbogado = new C_Registro_Abogado(A,P,registro,A_DB,P_DB,S_DB,C_DB,V);
                     Inicio.escritorio.add(ra);
                     ra.show();
                 } else {

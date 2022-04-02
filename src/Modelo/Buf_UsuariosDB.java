@@ -30,7 +30,7 @@ public class Buf_UsuariosDB implements Buf_UsuarioDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Usuarios VALUES (?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Usuarios VALUES (?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

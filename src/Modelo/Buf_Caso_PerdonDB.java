@@ -31,7 +31,7 @@ public class Buf_Caso_PerdonDB implements  Buf_Caso_PerdonDAO{
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso_Perdon VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso_Perdon VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

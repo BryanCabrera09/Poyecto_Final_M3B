@@ -34,7 +34,7 @@ public class Buf_ConsultaDB implements Buf_ConsultaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Consultas VALUES (?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Consultas VALUES (?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

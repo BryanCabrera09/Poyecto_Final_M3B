@@ -30,7 +30,7 @@ public class Buf_Caso_Visa_EEUUDB implements Buf_Caso_Visa_EEUUDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso_Visa_Eeuu VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso_Visa_Eeuu VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

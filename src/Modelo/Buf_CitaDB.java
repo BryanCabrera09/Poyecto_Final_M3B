@@ -30,7 +30,7 @@ public class Buf_CitaDB implements Buf_CitaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Citas VALUES (?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Citas VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

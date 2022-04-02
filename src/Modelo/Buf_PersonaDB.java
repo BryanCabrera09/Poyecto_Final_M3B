@@ -30,7 +30,7 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Persona VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Persona VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 
@@ -41,7 +41,7 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
             pst.setString(5, persona.getDireccion());
             pst.setString(6, persona.getNum_celular());
             pst.setString(7, persona.getEstado_civil());
-            pst.setDate(8, persona.getFecha_Nacimiento());
+            pst.setString(8, persona.getFecha_Nacimiento());
 
             pst.executeUpdate();
 
@@ -93,7 +93,7 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
                 P.setDireccion(rs.getString("direccion"));
                 P.setNum_celular(rs.getString("celular"));
                 P.setEstado_civil(rs.getString("estado"));
-                P.setFecha_Nacimiento(rs.getDate("fecha_nacimiento"));
+                P.setFecha_Nacimiento(rs.getString("fecha_nacimiento"));
 
                 Lista_Per.add(P);
             }

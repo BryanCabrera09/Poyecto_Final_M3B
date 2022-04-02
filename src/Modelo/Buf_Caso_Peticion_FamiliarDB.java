@@ -30,7 +30,7 @@ public class Buf_Caso_Peticion_FamiliarDB implements Buf_Caso_Peticion_FamiliarD
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso_Peticion_Familiar VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso_Peticion_Familiar VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

@@ -30,7 +30,7 @@ public class Buf_Caso_Retornante_InmigranteDB implements Buf_Caso_Retornante_Inm
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso_Retornante_Inmigrante VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso_Retornante_Inmigrante VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

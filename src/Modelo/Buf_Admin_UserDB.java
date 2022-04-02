@@ -31,7 +31,7 @@ public class Buf_Admin_UserDB implements Buf_Admin_UserDAO{
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Admin_User VALUES (?, ?, ?);";
+            String sql = "INSERT INTO Buf_Admin_User VALUES (?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

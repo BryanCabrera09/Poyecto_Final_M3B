@@ -34,7 +34,7 @@ public class Buf_SecretariaDB implements Buf_SecretariaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Secretarias VALUES (?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Secretarias VALUES (?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

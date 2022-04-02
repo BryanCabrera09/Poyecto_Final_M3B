@@ -18,12 +18,18 @@ import vista.V_Registro_Abogado;
  */
 public class Validar_Abogados {
 
-    V_Registro_Abogado registro;
-    Buf_AbogadoDB A_DB;
-    Buf_PersonaDB P_DB;
-    Buf_SecretariaDB S_DB;
-    Buf_ClienteDB C_DB;
+//    V_Registro_Abogado registro;
+//    Buf_AbogadoDB A_DB;
+//    Buf_PersonaDB P_DB;
+//    Buf_SecretariaDB S_DB;
+//    Buf_ClienteDB C_DB;
 
+    V_Registro_Abogado registro = new V_Registro_Abogado();
+    Buf_AbogadoDB A_DB = new Buf_AbogadoDB();
+    Buf_PersonaDB P_DB = new Buf_PersonaDB();
+    Buf_SecretariaDB S_DB = new Buf_SecretariaDB();
+    Buf_ClienteDB C_DB = new Buf_ClienteDB();
+    
     public void Nuevo() {
         registro.getBtn_guardar().setEnabled(false);
         registro.getBtn_imagen().setEnabled(false);
@@ -278,7 +284,7 @@ public class Validar_Abogados {
         registro.getCb_estado().addItem("Casado");
         registro.getCb_estado().addItem("Divorciado");
     }
-    
+
     public void Campos() {
 
         registro.cedula.setVisible(false);
@@ -340,6 +346,40 @@ public class Validar_Abogados {
         return true;
     }
 
+    public int Id_Generator() {
+
+        List<Buf_Abogado> List_abg = A_DB.Getter();
+        List<Buf_Secretaria> List_secre = S_DB.Getter();
+        List<Buf_Cliente> List_cliente = C_DB.Getter();
+
+        int id_abg = (int) Math.floor(Math.random() * (99999999 - 11111111 + 1) + 11111111);
+
+        int a = 0;
+        do {
+
+            for (int i = 0; i < List_abg.size(); i++) {
+                if (List_abg.get(i).getId_abg() == id_abg) {
+                    a = 1;
+                }
+            }
+
+            for (int i = 0; i < List_secre.size(); i++) {
+                if ((List_secre.get(i).getId_secretaria() == id_abg) || (List_abg.get(i).getId_abg() == id_abg)) {
+                    a = 1;
+                }
+            }
+
+            for (int i = 0; i < List_cliente.size(); i++) {
+                if ((List_cliente.get(i).getId_cliente() == id_abg) || (List_abg.get(i).getId_abg() == id_abg)) {
+                    a = 1;
+                }
+            }
+        } while (a == 1);
+        
+        return id_abg;
+    }
+
+    
     public boolean Validar_Matricula() {
 
         List<Buf_Abogado> List_abg = A_DB.Getter();
@@ -347,7 +387,7 @@ public class Validar_Abogados {
         int matricula = Integer.parseInt(registro.getTxt_matricula().getText());
 
         for (int i = 0; i < List_abg.size(); i++) {
-            if (List_abg.get(i).getNum_matricula() == matricula) {
+            if (List_abg.get(i).getNum_matricula() == Integer.parseInt(registro.getTxt_matricula().getText())) {
                 return false;
             }
         }

@@ -1,32 +1,26 @@
 package controlador;
 
 import Metodos.Validar_Abogados;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import Modelo.Buf_Abogado;
 import Modelo.Buf_AbogadoDB;
+import Modelo.Buf_Cliente;
+import Modelo.Buf_ClienteDB;
 import Modelo.Buf_Persona;
 import Modelo.Buf_PersonaDB;
+import Modelo.Buf_Secretaria;
+import Modelo.Buf_SecretariaDB;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import vista.V_Registro_Abogado;
 
 /*
@@ -34,21 +28,24 @@ import vista.V_Registro_Abogado;
  */
 public class C_Registro_Abogado implements ActionListener, KeyListener {
 
+    V_Registro_Abogado registro;
     Buf_Abogado A;
     Buf_Persona P;
-    V_Registro_Abogado registro;
     Buf_AbogadoDB A_DB;
     Buf_PersonaDB P_DB;
+    Buf_SecretariaDB S_DB;
+    Buf_ClienteDB C_DB;
     Validar_Abogados V;
 
-    public C_Registro_Abogado(Buf_Abogado A, Buf_Persona P, V_Registro_Abogado registro, Buf_AbogadoDB A_DB, Buf_PersonaDB P_DB) {
+    public C_Registro_Abogado(Buf_Abogado A, Buf_Persona P, V_Registro_Abogado registro, Buf_AbogadoDB A_DB, Buf_PersonaDB P_DB, Buf_SecretariaDB S_DB, Buf_ClienteDB C_DB, Validar_Abogados V) {
         this.A = A;
         this.P = P;
         this.registro = registro;
         this.A_DB = A_DB;
         this.P_DB = P_DB;
-
-        this.registro = registro;
+        this.S_DB = S_DB;
+        this.C_DB = C_DB;
+        this.V = V;
         this.registro.getBtn_cancelar().addActionListener(this);
         this.registro.getBtn_guardar().addActionListener(this);
         this.registro.getBtn_imagen().addActionListener(this);
@@ -66,10 +63,11 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
         this.registro.getTxt_cuenta().addKeyListener(this);
         this.registro.getTxt_matricula().addKeyListener(this);
         this.registro.getTxt_direccion().addKeyListener(this);
+        this.registro.getTxt_cuenta().addKeyListener(this);
         this.registro.getCalendar().addKeyListener(this);
 
+        registro.setTitle("ABOGADOS");
         V.Estado_Civil();
-        this.registro.setTitle("ABOGADOS");
         V.Nuevo();
         V.Campos();
     }
@@ -123,56 +121,18 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
         }
         if (evt.getSource() == registro.getBtn_guardar()) {
 
-            if (!(registro.getLb_foto().getIcon() == null)) {
-                try {
+            List<Buf_Abogado> List_abg = A_DB.Getter();
+            List<Buf_Secretaria> List_secre = S_DB.Getter();
+            List<Buf_Cliente> List_cliente = C_DB.Getter();
 
-                    Path Destino = Paths.get(Dest);
-                    Path Origen = Paths.get(Orig);
-                    Files.copy(Origen, Destino, StandardCopyOption.REPLACE_EXISTING);
-
-                } catch (IOException e) {
-                    Logger.getLogger(V_Registro_Abogado.class.getName()).log(Level.SEVERE, null, e);
-                }
-            }
-
-            String horario = "";
-            if (registro.getCb_1().isSelected() == true) {
-
-                horario = horario + registro.getCb_1().getText();
-            }
-            if (registro.getCb_2().isSelected() == true) {
-
-                horario = horario + registro.getCb_2().getText();
-            }
-            if (registro.getCb_3().isSelected() == true) {
-
-                horario = horario + registro.getCb_3().getText();
-            }
-            if (registro.getCb_4().isSelected() == true) {
-
-                horario = horario + registro.getCb_4().getText();
-            }
-
-            String estado = (String) registro.getCb_estado().getSelectedItem();
-            String fechas = "";
-            if (!(registro.getCalendar().getDate() == null)) {
-                Date fecha = registro.getCalendar().getDate();
-                DateFormat Formato = new SimpleDateFormat("dd/MM/yyyy");
-                fechas = Formato.format(fecha);
-            }
-
-            if (!registro.getTxt_cedula().getText().equals("") && !registro.getTxt_nombre().getText().equals("") && !registro.getTxt_apellido().getText().equals("") && !(registro.getLb_foto().getIcon() == null) && !(registro.getCalendar().getDate() == null) && !registro.getTxt_celular().getText().equals("") && !registro.getTxt_cuenta().getText().equals("") && !registro.getTxt_correo().getText().equals("") && !registro.getTxt_direccion().getText().equals("") && !estado.equals("Seleccionar") && !registro.getTxt_matricula().getText().equals("") && (registro.getCb_1().isSelected() || registro.getCb_2().isSelected() || registro.getCb_3().isSelected() || registro.getCb_4().isSelected())) {
-                if (!Lista_Secretaria.isEmpty() && !Lista_abogado.isEmpty() && !Lista_cliente.isEmpty()) {
+            if (V.Validar_Datos() == true) {
+                if (!List_secre.isEmpty() && !List_abg.isEmpty() && !List_cliente.isEmpty()) {
                     if (V.Validar_Cedula() == true && V.Validar_Correo() == true && V.Validar_Matricula() == true) {
                         if (V.Validar_Correo(registro.getTxt_correo().getText()) && V.Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
                             int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
                             switch (resp) {
                                 case 0:
-                                    V.Nuevo();
-                                    Lista_abogado.add(AB);
-                                    V.Campos();
-                                    registro.getBtn_cancelar().setEnabled(false);
-                                    registro.getBtn_nuevo().setEnabled(true);
+                                    Subir_Datos();
                                     break;
                                 case 1:
                                     V.Campo_Vacio();
@@ -195,16 +155,12 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
                 JOptionPane.showMessageDialog(null, "LLENE TODOS LOS CAMPOS");
             }
 
-            if (Lista_abogado.size() <= 0 && Lista_Secretaria.size() <= 0 && Lista_cliente.size() <= 0 && !registro.getTxt_cedula().getText().equals("") && !registro.getTxt_nombre().getText().equals("") && !(registro.getLb_foto().getIcon() == null) && !registro.getTxt_apellido().getText().equals("") && !(registro.getCalendar().getDate() == null) && !registro.getTxt_celular().getText().equals("") && !registro.getTxt_cuenta().getText().equals("") && !registro.getTxt_correo().getText().equals("") && !registro.getTxt_direccion().getText().equals("") && !estado.equals("Seleccionar") && !registro.getTxt_matricula().getText().equals("") && (registro.getCb_1().isSelected() || registro.getCb_2().isSelected() || registro.getCb_3().isSelected() || registro.getCb_4().isSelected())) {
+            if (List_abg.size() <= 0 && List_secre.size() <= 0 && List_cliente.size() <= 0 && V.Validar_Datos() == true) {
                 if (V.Validar_Correo(registro.getTxt_correo().getText()) && V.Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
                     int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
                     switch (resp) {
                         case 0:
-                            V.Nuevo();
-                            Lista_abogado.add(AB);
-                            V.Campos();
-                            registro.getBtn_cancelar().setEnabled(false);
-                            registro.getBtn_nuevo().setEnabled(true);
+                            Subir_Datos();
                             break;
                         case 1:
                             V.Campo_Vacio();
@@ -216,17 +172,13 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
                     V.Campo_Vacio();
                     JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
-            } else if (!(Lista_abogado.size() <= 0) && Lista_Secretaria.size() <= 0 && Lista_cliente.size() <= 0 && !registro.getTxt_cedula().getText().equals("") && !(registro.getLb_foto().getIcon() == null) && !registro.getTxt_nombre().getText().equals("") && !registro.getTxt_apellido().getText().equals("") && !(registro.getCalendar().getDate() == null) && !registro.getTxt_celular().getText().equals("") && !registro.getTxt_cuenta().getText().equals("") && !registro.getTxt_correo().getText().equals("") && !registro.getTxt_direccion().getText().equals("") && !estado.equals("Seleccionar") && !registro.getTxt_matricula().getText().equals("") && (registro.getCb_1().isSelected() || registro.getCb_2().isSelected() || registro.getCb_3().isSelected() || registro.getCb_4().isSelected())) {
+            } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && List_cliente.size() <= 0 && (V.Validar_Datos() == true)) {
                 if (V.Validar_Cedula() == true && V.Validar_Correo() == true && V.Validar_Matricula() == true) {
                     if (V.Validar_Correo(registro.getTxt_correo().getText()) && V.Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
-                                V.Nuevo();
-                                Lista_abogado.add(AB);
-                                V.Campos();
-                                registro.getBtn_cancelar().setEnabled(false);
-                                registro.getBtn_nuevo().setEnabled(true);
+                                Subir_Datos();
                                 break;
                             case 1:
                                 V.Campo_Vacio();
@@ -244,17 +196,13 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
 
-            } else if (!(Lista_abogado.size() <= 0) && !(Lista_Secretaria.size() <= 0) && Lista_cliente.size() <= 0 && !registro.getTxt_cedula().getText().equals("") && !(registro.getLb_foto().getIcon() == null) && !registro.getTxt_nombre().getText().equals("") && !registro.getTxt_apellido().getText().equals("") && !(registro.getCalendar().getDate() == null) && !registro.getTxt_celular().getText().equals("") && !registro.getTxt_cuenta().getText().equals("") && !registro.getTxt_correo().getText().equals("") && !registro.getTxt_direccion().getText().equals("") && !estado.equals("Seleccionar") && !registro.getTxt_matricula().getText().equals("") && (registro.getCb_1().isSelected() || registro.getCb_2().isSelected() || registro.getCb_3().isSelected() || registro.getCb_4().isSelected())) {
+            } else if (!(List_abg.size() <= 0) && !(List_secre.size() <= 0) && List_cliente.size() <= 0 && (V.Validar_Datos() == true)) {
                 if (V.Validar_Cedula() == true && V.Validar_Correo() == true && V.Validar_Matricula() == true) {
                     if (V.Validar_Correo(registro.getTxt_correo().getText()) && V.Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
-                                V.Nuevo();
-                                Lista_abogado.add(AB);
-                                V.Campos();
-                                registro.getBtn_cancelar().setEnabled(false);
-                                registro.getBtn_nuevo().setEnabled(true);
+                                Subir_Datos();
                                 break;
                             case 1:
                                 V.Campo_Vacio();
@@ -272,17 +220,13 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
 
-            } else if (!(Lista_abogado.size() <= 0) && Lista_Secretaria.size() <= 0 && !(Lista_cliente.size() <= 0) && !registro.getTxt_cedula().getText().equals("") && !(registro.getLb_foto().getIcon() == null) && !registro.getTxt_nombre().getText().equals("") && !registro.getTxt_apellido().getText().equals("") && !(registro.getCalendar().getDate() == null) && !registro.getTxt_celular().getText().equals("") && !registro.getTxt_cuenta().getText().equals("") && !registro.getTxt_correo().getText().equals("") && !registro.getTxt_direccion().getText().equals("") && !estado.equals("Seleccionar") && !registro.getTxt_matricula().getText().equals("") && (registro.getCb_1().isSelected() || registro.getCb_2().isSelected() || registro.getCb_3().isSelected() || registro.getCb_4().isSelected())) {
+            } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && !(List_cliente.size() <= 0) && (V.Validar_Datos() == true)) {
                 if (V.Validar_Cedula() == true && V.Validar_Correo() == true && V.Validar_Matricula() == true) {
                     if (V.Validar_Correo(registro.getTxt_correo().getText()) && V.Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
-                                V.Nuevo();
-                                Lista_abogado.add(AB);
-                                V.Campos();
-                                registro.getBtn_cancelar().setEnabled(false);
-                                registro.getBtn_nuevo().setEnabled(true);
+                                Subir_Datos();
                                 break;
                             case 1:
                                 V.Campo_Vacio();
@@ -299,17 +243,13 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
                     V.Campo_Vacio();
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
-            } else if (Lista_abogado.size() <= 0 && !(Lista_Secretaria.size() <= 0) && !(Lista_cliente.size() <= 0) && !registro.getTxt_cedula().getText().equals("") && !(registro.getLb_foto().getIcon() == null) && !registro.getTxt_nombre().getText().equals("") && !registro.getTxt_apellido().getText().equals("") && !(registro.getCalendar().getDate() == null) && !registro.getTxt_celular().getText().equals("") && !registro.getTxt_cuenta().getText().equals("") && !registro.getTxt_correo().getText().equals("") && !registro.getTxt_direccion().getText().equals("") && !estado.equals("Seleccionar") && !registro.getTxt_matricula().getText().equals("") && (registro.getCb_1().isSelected() || registro.getCb_2().isSelected() || registro.getCb_3().isSelected() || registro.getCb_4().isSelected())) {
+            } else if (List_abg.size() <= 0 && !(List_secre.size() <= 0) && !(List_cliente.size() <= 0) && (V.Validar_Datos() == true)) {
                 if (V.Validar_Cedula() == true && V.Validar_Correo() == true && V.Validar_Matricula() == true) {
                     if (V.Validar_Correo(registro.getTxt_correo().getText()) && V.Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
-                                V.Nuevo();
-                                Lista_abogado.add(AB);
-                                V.Campos();
-                                registro.getBtn_cancelar().setEnabled(false);
-                                registro.getBtn_nuevo().setEnabled(true);
+                                Subir_Datos();
                                 break;
                             case 1:
                                 V.Campo_Vacio();
@@ -326,17 +266,13 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
                     V.Campo_Vacio();
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
-            } else if (Lista_abogado.isEmpty() && Lista_Secretaria.isEmpty() && !(Lista_cliente.size() <= 0) && !registro.getTxt_cedula().getText().equals("") && !(registro.getLb_foto().getIcon() == null) && !registro.getTxt_nombre().getText().equals("") && !registro.getTxt_apellido().getText().equals("") && !(registro.getCalendar().getDate() == null) && !registro.getTxt_celular().getText().equals("") && !registro.getTxt_cuenta().getText().equals("") && !registro.getTxt_correo().getText().equals("") && !registro.getTxt_direccion().getText().equals("") && !estado.equals("Seleccionar") && !registro.getTxt_matricula().getText().equals("") && (registro.getCb_1().isSelected() || registro.getCb_2().isSelected() || registro.getCb_3().isSelected() || registro.getCb_4().isSelected())) {
+            } else if (List_abg.isEmpty() && List_secre.isEmpty() && !(List_cliente.size() <= 0) && (V.Validar_Datos() == true)) {
                 if (V.Validar_Cedula() == true && V.Validar_Correo() == true && V.Validar_Matricula() == true) {
                     if (V.Validar_Correo(registro.getTxt_correo().getText()) && V.Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
-                                V.Nuevo();
-                                Lista_abogado.add(AB);
-                                V.Campos();
-                                registro.getBtn_cancelar().setEnabled(false);
-                                registro.getBtn_nuevo().setEnabled(true);
+                                Subir_Datos();
                                 break;
                             case 1:
                                 V.Campo_Vacio();
@@ -353,17 +289,13 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
                     V.Campo_Vacio();
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
-            } else if (Lista_abogado.isEmpty() && !Lista_Secretaria.isEmpty() && Lista_cliente.isEmpty() && !registro.getTxt_cedula().getText().equals("") && !registro.getTxt_nombre().getText().equals("") && !(registro.getLb_foto().getIcon() == null) && !registro.getTxt_apellido().getText().equals("") && !(registro.getCalendar().getDate() == null) && !registro.getTxt_celular().getText().equals("") && !registro.getTxt_cuenta().getText().equals("") && !registro.getTxt_correo().getText().equals("") && !registro.getTxt_direccion().getText().equals("") && !estado.equals("Seleccionar") && !registro.getTxt_matricula().getText().equals("") && (registro.getCb_1().isSelected() || registro.getCb_2().isSelected() || registro.getCb_3().isSelected() || registro.getCb_4().isSelected())) {
+            } else if (List_abg.isEmpty() && !List_secre.isEmpty() && List_cliente.isEmpty() && (V.Validar_Datos() == true)) {
                 if (V.Validar_Cedula() == true && V.Validar_Correo() == true && V.Validar_Matricula() == true) {
                     if (V.Validar_Correo(registro.getTxt_correo().getText()) && V.Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
-                                V.Nuevo();
-                                Lista_abogado.add(AB);
-                                V.Campos();
-                                registro.getBtn_cancelar().setEnabled(false);
-                                registro.getBtn_nuevo().setEnabled(true);
+                                Subir_Datos();
                                 break;
                             case 1:
                                 V.Campo_Vacio();
@@ -381,6 +313,78 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
             }
+        }
+    }
+
+    public void Subir_Datos() {
+
+        String horario = " | ";
+        if (registro.getCb_1().isSelected() == true) {
+
+            horario = horario + registro.getCb_1().getText();
+        }
+        if (registro.getCb_2().isSelected() == true) {
+
+            horario = horario + registro.getCb_2().getText();
+        }
+        if (registro.getCb_3().isSelected() == true) {
+
+            horario = horario + registro.getCb_3().getText();
+        }
+        if (registro.getCb_4().isSelected() == true) {
+
+            horario = horario + registro.getCb_4().getText();
+        }
+
+        String estado = (String) registro.getCb_estado().getSelectedItem();
+
+        String fechas = "";
+        if (registro.getCalendar().getDate() != null) {
+            Date fecha = registro.getCalendar().getDate();
+            DateFormat Formato = new SimpleDateFormat("dd-MM-yyyy");
+            fechas = Formato.format(fecha);
+        }
+
+        P.setCedula(registro.getTxt_cedula().getText());
+        P.setNombre(registro.getTxt_nombre().getText());
+        P.setApellido(registro.getTxt_apellido().getText());
+        P.setCorreo(registro.getTxt_correo().getText());
+        P.setDireccion(registro.getTxt_direccion().getText());
+        P.setNum_celular(registro.getTxt_celular().getText());
+        P.setEstado_civil(estado);
+        P.setFecha_Nacimiento(fechas);
+
+        A.setId_abg(V.Id_Generator());
+        A.setNum_matricula(Integer.parseInt(registro.getTxt_matricula().getText()));
+        A.setCedula(registro.getTxt_cedula().getText());
+        A.setNum_cuenta(Integer.parseInt(registro.getTxt_cuenta().getText()));
+        A.setHorario(horario);
+        File ruta = new File(registro.rutas);
+
+        try {
+            byte[] icono = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(icono);
+            A.setFoto(icono);
+        } catch (Exception ex) {
+            A.setFoto(null);
+        }
+        
+        if (P_DB.Register(P)) {
+            
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (A_DB.Register(A)) {
+
+            JOptionPane.showMessageDialog(null, "Registro Guardado");
+            V.Nuevo();
+            V.Campos();
+            registro.getBtn_cancelar().setEnabled(false);
+            registro.getBtn_nuevo().setEnabled(true);
         }
     }
 
@@ -407,7 +411,9 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
         if (evt.getSource() == registro.getTxt_cuenta()) {
             char c = evt.getKeyChar();
 
-            if (c < '0' || c > '9') {
+            if (c >= '0' && c <= '9' && registro.getTxt_cuenta().getText().length() <= 9) {
+
+            } else {
                 evt.consume();
             }
         }
@@ -439,7 +445,7 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
         if (evt.getSource() == registro.getTxt_matricula()) {
             char c = evt.getKeyChar();
 
-            if (c >= '0' && c <= '9' && registro.getTxt_matricula().getText().length() <= 9) {
+            if (c >= '0' && c <= '9' && registro.getTxt_matricula().getText().length() <= 7) {
 
             } else {
                 evt.consume();

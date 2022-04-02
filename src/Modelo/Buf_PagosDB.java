@@ -35,7 +35,7 @@ public class Buf_PagosDB implements Buf_PagosDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Pagos VALUES (?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Pagos VALUES (?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

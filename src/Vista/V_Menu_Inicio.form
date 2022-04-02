@@ -21,7 +21,7 @@
                   <KeyStroke key="Ctrl+A"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Abogada.png"/>
+                  <Image iconType="3" name="/Iconos/Abogada.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Abogado"/>
               </Properties>
@@ -35,7 +35,7 @@
                   <KeyStroke key="Ctrl+S"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Secretaria.png"/>
+                  <Image iconType="3" name="/Iconos/Secretaria.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Secretaria"/>
               </Properties>
@@ -49,7 +49,7 @@
                   <KeyStroke key="Ctrl+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Cliente.png"/>
+                  <Image iconType="3" name="/Iconos/Cliente.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cliente"/>
               </Properties>
@@ -63,7 +63,7 @@
                   <KeyStroke key="Ctrl+U"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Usuario.png"/>
+                  <Image iconType="3" name="/Iconos/Usuario.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Usuario"/>
               </Properties>
@@ -87,7 +87,7 @@
                   <KeyStroke key="Ctrl+M"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Abogada.png"/>
+                  <Image iconType="3" name="/Iconos/Abogada.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Abogado"/>
               </Properties>
@@ -101,7 +101,7 @@
                   <KeyStroke key="Ctrl+N"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Secretaria.png"/>
+                  <Image iconType="3" name="/Iconos/Secretaria.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Secretaria"/>
               </Properties>
@@ -115,7 +115,7 @@
                   <KeyStroke key="Ctrl+P"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Cliente.png"/>
+                  <Image iconType="3" name="/Iconos/Cliente.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cliente"/>
               </Properties>
@@ -136,7 +136,7 @@
             <Menu class="javax.swing.JMenu" name="casosJudiciales">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Casos Judiciales.png"/>
+                  <Image iconType="3" name="/Iconos/Casos Judiciales.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Casos Judiciales"/>
               </Properties>
@@ -150,7 +150,7 @@
                       <KeyStroke key="Ctrl+1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/Divorcio.png"/>
+                      <Image iconType="3" name="/Iconos/Divorcio.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Divorcio"/>
                   </Properties>
@@ -164,7 +164,7 @@
                       <KeyStroke key="Ctrl+2"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/Pensiones Alimenticias.png"/>
+                      <Image iconType="3" name="/Iconos/Pensiones Alimenticias.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Pensiones Alimenticias"/>
                   </Properties>
@@ -177,7 +177,7 @@
             <Menu class="javax.swing.JMenu" name="tramitesVisa">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Visa.png"/>
+                  <Image iconType="3" name="/Iconos/Visa.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tramites de Visa"/>
               </Properties>
@@ -191,7 +191,7 @@
                       <KeyStroke key="Ctrl+3"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/B EEUU.png"/>
+                      <Image iconType="3" name="/Iconos/B EEUU.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="EEUU"/>
                   </Properties>
@@ -205,7 +205,7 @@
                       <KeyStroke key="Ctrl+4"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/B Europa.png"/>
+                      <Image iconType="3" name="/Iconos/B Europa.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Europa"/>
                   </Properties>
@@ -219,7 +219,7 @@
                       <KeyStroke key="Ctrl+5"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/B EEUU.png"/>
+                      <Image iconType="3" name="/Iconos/B EEUU.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Loteria-EEUU"/>
                   </Properties>
@@ -233,7 +233,7 @@
                       <KeyStroke key="Ctrl+6"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/B Mexico.png"/>
+                      <Image iconType="3" name="/Iconos/B Mexico.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Mexico"/>
                   </Properties>
@@ -246,7 +246,7 @@
             <Menu class="javax.swing.JMenu" name="waiver">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Waiver.png"/>
+                  <Image iconType="3" name="/Iconos/Waiver.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Waiver"/>
               </Properties>
@@ -260,7 +260,7 @@
                       <KeyStroke key="Ctrl+8"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/Perdon.png"/>
+                      <Image iconType="3" name="/Iconos/Perdon.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Perdon"/>
                   </Properties>
@@ -273,7 +273,7 @@
             <Menu class="javax.swing.JMenu" name="peticionFamiliar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Peticion.png"/>
+                  <Image iconType="3" name="/Iconos/Peticion.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Peticion Familiar"/>
               </Properties>
@@ -287,7 +287,7 @@
                       <KeyStroke key="Ctrl+7"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/Familiar.png"/>
+                      <Image iconType="3" name="/Iconos/Familiar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Peticion Familiar"/>
                   </Properties>
@@ -300,7 +300,7 @@
             <Menu class="javax.swing.JMenu" name="procesosMigratorios">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Procesos migratorios.png"/>
+                  <Image iconType="3" name="/Iconos/Procesos migratorios.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Procesos Migratorios"/>
               </Properties>
@@ -314,7 +314,7 @@
                       <KeyStroke key="Ctrl+9"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/Renovacion.png"/>
+                      <Image iconType="3" name="/Iconos/Renovacion.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Renovacion Pasaporte EEUU"/>
                   </Properties>
@@ -328,7 +328,7 @@
                       <KeyStroke key="Ctrl+0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/Retornante Inmigrante.png"/>
+                      <Image iconType="3" name="/Iconos/Retornante Inmigrante.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Retornante Inmigrante"/>
                   </Properties>
@@ -342,7 +342,7 @@
                       <KeyStroke key="Ctrl+BACK_SPACE"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imagenes/Reporte Consular.png"/>
+                      <Image iconType="3" name="/Iconos/Reporte Consular.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Reporte Consular"/>
                   </Properties>
@@ -368,7 +368,7 @@
                   <KeyStroke key="Alt+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Cita 2.png"/>
+                  <Image iconType="3" name="/Iconos/Cita 2.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Citas"/>
               </Properties>
@@ -382,7 +382,7 @@
                   <KeyStroke key="Shift+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/Consulta 2.png"/>
+                  <Image iconType="3" name="/Iconos/Consulta 2.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Consultas"/>
               </Properties>
@@ -418,14 +418,14 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" pref="1318" max="32767" attributes="0"/>
           <Component id="escritorio" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="escritorio" max="32767" attributes="0"/>
           </Group>
@@ -444,9 +444,6 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btn_horario">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Calendario.png"/>
-            </Property>
             <Property name="toolTipText" type="java.lang.String" value="Horario"/>
           </Properties>
           <AuxValues>
@@ -454,14 +451,14 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="80" height="60"/>
+              <AbsoluteConstraints x="10" y="0" width="80" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="btn_citas">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Cita.png"/>
+              <Image iconType="3" name="/Iconos/Cita.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Cita"/>
           </Properties>
@@ -470,15 +467,12 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="80" y="0" width="80" height="60"/>
+              <AbsoluteConstraints x="100" y="0" width="80" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="btn_visualizacion">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Consulta.png"/>
-            </Property>
             <Property name="toolTipText" type="java.lang.String" value="Consulta"/>
           </Properties>
           <AuxValues>
@@ -486,15 +480,12 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="160" y="0" width="80" height="60"/>
+              <AbsoluteConstraints x="190" y="0" width="80" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="btn_VisualizarCaso">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Ver Caso.png"/>
-            </Property>
             <Property name="toolTipText" type="java.lang.String" value="Ver Caso"/>
           </Properties>
           <AuxValues>
@@ -502,15 +493,12 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="240" y="0" width="80" height="60"/>
+              <AbsoluteConstraints x="280" y="0" width="80" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="btn_RegistroClienteCaso">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Registro Casos.png"/>
-            </Property>
             <Property name="toolTipText" type="java.lang.String" value="Registro Cliente-Caso"/>
           </Properties>
           <AuxValues>
@@ -518,7 +506,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="320" y="0" width="80" height="60"/>
+              <AbsoluteConstraints x="370" y="0" width="80" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -540,7 +528,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="400" y="0" width="90" height="60"/>
+              <AbsoluteConstraints x="460" y="0" width="90" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -559,7 +547,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="1318" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">

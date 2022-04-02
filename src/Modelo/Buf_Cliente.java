@@ -1,8 +1,6 @@
 
 package Modelo;
 
-import java.sql.Date;
-
 /*
  * @author BRYAN_CABRERA
  */
@@ -12,7 +10,7 @@ public class Buf_Cliente extends Buf_Persona {
     private String ocupacion;
     private int id_abg;
 
-    public Buf_Cliente(String cedula, String nombre, String apellido, String correo, String direccion, String num_celular, String estado_civil, Date fecha_Nacimiento, int id_cliente, String ocupacion, int id_abg) {
+    public Buf_Cliente(String cedula, String nombre, String apellido, String correo, String direccion, String num_celular, String estado_civil, String fecha_Nacimiento, int id_cliente, String ocupacion, int id_abg) {
         super(cedula, nombre, apellido, correo, direccion, num_celular, estado_civil, fecha_Nacimiento);
         this.id_cliente = id_cliente;
         this.ocupacion = ocupacion;

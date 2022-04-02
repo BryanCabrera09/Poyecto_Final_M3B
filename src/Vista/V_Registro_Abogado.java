@@ -5,7 +5,6 @@
  */
 package vista;
 
-import static com.sun.javafx.tk.Toolkit.getToolkit;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Image;
 import java.io.File;
@@ -29,7 +28,7 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
     protected static File ruta;
     protected static Image img;
     
-    String rutas;
+    public String rutas;
     
     /**
      * Creates new form Abogados
@@ -564,11 +563,11 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 150, -1));
         jPanel1.add(txt_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 160, -1));
 
-        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cancelar.png"))); // NOI18N
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
         jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 130, 50));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
         jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 120, 50));
         jPanel1.add(calendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 160, -1));
@@ -587,7 +586,7 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
         cb_4.setText("16:30-18:30");
         jPanel1.add(cb_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 200, -1, -1));
 
-        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Nuevo.png"))); // NOI18N
+        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N
         btn_nuevo.setText("NUEVO");
         jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, 40));
 
@@ -660,7 +659,7 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
         jPanel1.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 100, -1));
         jPanel1.add(lb_foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 160, 170));
 
-        btn_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Foto.png"))); // NOI18N
+        btn_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Foto.png"))); // NOI18N
         btn_imagen.setText("FOTO");
         jPanel1.add(btn_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, -1, 40));
 

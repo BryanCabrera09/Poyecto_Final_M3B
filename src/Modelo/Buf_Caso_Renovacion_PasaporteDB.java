@@ -31,7 +31,7 @@ public class Buf_Caso_Renovacion_PasaporteDB implements Buf_Caso_Renovacion_Pasa
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso_Renovacion_Pasaporte VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso_Renovacion_Pasaporte VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

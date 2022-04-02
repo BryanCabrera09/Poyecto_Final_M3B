@@ -24,10 +24,13 @@ CREATE TABLE Buf_Persona (
     Direccion        VARCHAR2(40),
     Num_Celular      VARCHAR2(10),
     Estado           VARCHAR2(20),
-    Fecha_Nacimiento DATE,
+    Fecha_Nacimiento VARCHAR2(20),
     PRIMARY KEY ( Ci )
 );
-
+drop table buf_clientes;
+drop table buf_secretarias;
+drop table buf_abogados;
+drop table buf_persona;
 
 /*
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -38,7 +41,7 @@ CREATE TABLE Buf_Abogados (
     Id_Abogado    NUMBER(8),
     Num_Matricula NUMBER(8),
     Ci_Abg        VARCHAR2(10),
-    Num_Cuenta    NUMBER,
+    Num_Cuenta    NUMBER(10),
     Horario       VARCHAR2(50),
     Foto          BLOB,
     CONSTRAINT Fk_Pers_Abg FOREIGN KEY ( Ci_Abg )
@@ -60,7 +63,7 @@ CREATE TABLE Buf_Secretarias (
     Foto          BLOB,
     CONSTRAINT Fk_Pers_Secre FOREIGN KEY ( Ci_Secre )
         REFERENCES Buf_Persona ( Ci ),
-    CONSTRAINT Fk_Pers_Abg FOREIGN KEY ( Id_Abg )
+    CONSTRAINT Fk_Abg_Secre FOREIGN KEY ( Id_Abg )
         REFERENCES Buf_Abogados ( Id_Abogado ),
     PRIMARY KEY ( Id_Secretaria )
 );
@@ -94,9 +97,9 @@ CREATE TABLE Buf_Clientes (
     Ci         VARCHAR2(10),
     Id_Abg     NUMBER(8),
     Ocupacion  VARCHAR2(50),
-    CONSTRAINT Fk_Pers_Cliente FOREIGN KEY ( Ci )
+    CONSTRAINT Fk_Pers_Clientes FOREIGN KEY ( Ci )
         REFERENCES Buf_Persona ( Ci ),
-    CONSTRAINT Fk_Abg_User FOREIGN KEY ( Id_Abg )
+    CONSTRAINT Fk_Abg_Clientes FOREIGN KEY ( Id_Abg )
         REFERENCES Buf_Abogados ( Id_Abogado ),
     PRIMARY KEY ( Id_Cliente )
 );

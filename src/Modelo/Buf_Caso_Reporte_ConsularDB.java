@@ -30,7 +30,7 @@ public class Buf_Caso_Reporte_ConsularDB implements Buf_Caso_Reporte_ConsularDAO
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso_Reporte_Consular VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso_Reporte_Consular VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

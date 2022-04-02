@@ -31,7 +31,7 @@ public class Buf_Caso_Visa_MexicoDB implements Buf_Caso_Visa_MexicoDAO{
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso_Visa_Mexico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso_Visa_Mexico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

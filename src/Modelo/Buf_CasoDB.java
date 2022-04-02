@@ -30,7 +30,7 @@ public class Buf_CasoDB implements Buf_CasoDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso VALUES (?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso VALUES (?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

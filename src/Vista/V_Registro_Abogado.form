@@ -290,7 +290,7 @@
         <Component class="javax.swing.JButton" name="btn_cancelar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Cancelar.png"/>
+              <Image iconType="3" name="/Iconos/Cancelar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CANCELAR"/>
           </Properties>
@@ -306,7 +306,7 @@
         <Component class="javax.swing.JButton" name="btn_guardar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Guardar.png"/>
+              <Image iconType="3" name="/Iconos/Guardar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="GUARDAR"/>
           </Properties>
@@ -400,7 +400,7 @@
         <Component class="javax.swing.JButton" name="btn_nuevo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Nuevo.png"/>
+              <Image iconType="3" name="/Iconos/Nuevo.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="NUEVO"/>
           </Properties>
@@ -686,7 +686,7 @@
         <Component class="javax.swing.JButton" name="btn_imagen">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Foto.png"/>
+              <Image iconType="3" name="/Iconos/Foto.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="FOTO"/>
           </Properties>

@@ -31,7 +31,7 @@ public class Buf_Caso_Pension_AlimentDB implements Buf_Caso_Pension_AlimentDAO{
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso_Pension_Aliment VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso_Pension_Aliment VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

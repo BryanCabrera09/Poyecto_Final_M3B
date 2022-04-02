@@ -1,8 +1,6 @@
 
 package Modelo;
 
-import java.sql.Date;
-
 /*
  * @author BRYAN_CABRERA
  */
@@ -15,9 +13,9 @@ public class Buf_Persona {
     private String direccion;
     private String num_celular;
     private String estado_civil;
-    private Date fecha_Nacimiento;
+    private String fecha_Nacimiento;
 
-    public Buf_Persona(String cedula, String nombre, String apellido, String correo, String direccion, String num_celular, String estado_civil, Date fecha_Nacimiento) {
+    public Buf_Persona(String cedula, String nombre, String apellido, String correo, String direccion, String num_celular, String estado_civil, String fecha_Nacimiento) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -87,11 +85,11 @@ public class Buf_Persona {
         this.estado_civil = estado_civil;
     }
 
-    public Date getFecha_Nacimiento() {
+    public String getFecha_Nacimiento() {
         return fecha_Nacimiento;
     }
 
-    public void setFecha_Nacimiento(Date fecha_Nacimiento) {
+    public void setFecha_Nacimiento(String fecha_Nacimiento) {
         this.fecha_Nacimiento = fecha_Nacimiento;
     }
     

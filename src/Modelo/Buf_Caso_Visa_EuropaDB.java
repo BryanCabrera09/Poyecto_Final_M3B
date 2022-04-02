@@ -30,7 +30,7 @@ public class Buf_Caso_Visa_EuropaDB implements Buf_Caso_Visa_EuropaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso_Visa_Europa VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso_Visa_Europa VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

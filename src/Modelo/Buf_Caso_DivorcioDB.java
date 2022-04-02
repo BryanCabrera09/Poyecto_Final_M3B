@@ -30,7 +30,7 @@ public class Buf_Caso_DivorcioDB implements Buf_Caso_DivorcioDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Caso_Divorcio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Caso_Divorcio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 

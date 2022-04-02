@@ -30,7 +30,7 @@ public class Buf_AbogadoDB implements Buf_AbogadoDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Abogados VALUES (?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO Buf_Abogados VALUES (?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 
@@ -48,7 +48,6 @@ public class Buf_AbogadoDB implements Buf_AbogadoDAO {
             Register = true;
             pst.close();
             con.close();
-
         } catch (SQLException e) {
 
             System.out.println("Error > " + e.getMessage());

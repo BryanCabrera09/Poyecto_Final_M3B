@@ -35,7 +35,7 @@ public class Buf_ClienteDB implements Buf_ClienteDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Clientes VALUES (?, ?, ?);";
+            String sql = "INSERT INTO Buf_Clientes VALUES (?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 
