@@ -176,7 +176,7 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "DELETE FROM Buf_Persona WHERE cedula=?";
+            String sql = "DELETE FROM Buf_Persona WHERE ci=?";
 
             pst = con.prepareStatement(sql);
             pst.setString(1, persona.getCedula());
@@ -208,7 +208,7 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM Buf_Persona WHERE ci LIKE '%" + Identificador + "'";
+        String sql = "SELECT * FROM Buf_Persona WHERE ci LIKE '%" + Identificador + "%'";
 
         List<Buf_Persona> Lista_Per = new ArrayList<>();
 

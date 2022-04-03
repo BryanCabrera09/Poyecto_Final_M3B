@@ -95,8 +95,6 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
 
     }
 
-    C_Registro_Abogado R;
-    
     public void Datos_Table() {
 
         modificar.getTablepersona().getTableHeader().setResizingAllowed(false);
@@ -126,12 +124,11 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
         List<Buf_Abogado> List_abg = A_DB.Getter();
         List<Buf_Persona> List_per = P_DB.Getter();
 
-        for (Buf_Persona persona : List_per) {
-
-            for (Buf_Abogado abogado : List_abg) {
+        for (Buf_Abogado abogado : List_abg) {
+            for (Buf_Persona persona : List_per) {
 
                 Object[] fila = new Object[8];
-                fila[0] = persona.getCedula();
+                fila[0] = abogado.getCedula();
                 fila[1] = persona.getNombre();
                 fila[2] = persona.getApellido();
                 fila[3] = persona.getCorreo();
@@ -195,7 +192,7 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
             V.Cancelar_Modificar();
         }
         if (evt.getSource() == modificar.getBtn_elimina()) {
-            
+
             List<Buf_Abogado> List_abg = A_DB.Getter();
             List<Buf_Usuarios> List_user = U_DB.Getter();
             List<Buf_Persona> List_per = P_DB.Getter();
@@ -214,6 +211,33 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
                                 modificar.getTxt_buscar().setEditable(true);
                                 modificar.getBtn_modificar().setEnabled(false);
                                 modificar.getBtn_elimina().setEnabled(false);
+                                for (int u = 0; u < List_user.size(); u++) {
+                                    if (List_user.get(u).getCedula().equalsIgnoreCase(modificar.getTxt_cedula().getText())) {
+
+                                        U.setCedula(modificar.getTxt_cedula().getText());
+
+                                        if (U_DB.Delete(U)) {
+
+                                        } else {
+
+                                            JOptionPane.showConfirmDialog(null, "Proceso de Eliminacion Cancelado");
+                                        }
+                                    }
+                                }
+
+                                for (int p = 0; p < List_per.size(); p++) {
+                                    if (List_per.get(p).getCedula().equalsIgnoreCase(modificar.getTxt_cedula().getText())) {
+
+                                        P.setCedula(modificar.getTxt_cedula().getText());
+
+                                        if (P_DB.Delete(P)) {
+
+                                        } else {
+
+                                            JOptionPane.showConfirmDialog(null, "Proceso de Eliminacion Cancelado");
+                                        }
+                                    }
+                                }
                                 Limpiar_Tabla();
                                 Actualizar_Tabla();
                             } else {
@@ -227,35 +251,8 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
                     }
                 }
             }
-
-            for (int i = 0; i < List_user.size(); i++) {
-                if (List_user.get(i).getCedula().equalsIgnoreCase(modificar.getTxt_cedula().getText())) {
-
-                    U.setCedula(modificar.getTxt_cedula().getText());
-
-                    if (U_DB.Delete(U)) {
-
-                    } else {
-
-                        JOptionPane.showConfirmDialog(null, "Proceso de Eliminacion Cancelado");
-                    }
-                }
-            }
-            
-            for (int i = 0; i < List_per.size(); i++) {
-                if (List_per.get(i).getCedula().equalsIgnoreCase(modificar.getTxt_cedula().getText())) {
-
-                    P.setCedula(modificar.getTxt_cedula().getText());
-
-                    if (P_DB.Delete(P)) {
-
-                    } else {
-
-                        JOptionPane.showConfirmDialog(null, "Proceso de Eliminacion Cancelado");
-                    }
-                }
-            }
         }
+
         if (evt.getSource() == modificar.getBtn_guardar()) {
 
             List<Buf_Abogado> List_abg = A_DB.Getter();
