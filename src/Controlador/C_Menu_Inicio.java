@@ -7,6 +7,8 @@ import Modelo.Buf_ClienteDB;
 import Modelo.Buf_Persona;
 import Modelo.Buf_PersonaDB;
 import Modelo.Buf_SecretariaDB;
+import Modelo.Buf_Usuarios;
+import Modelo.Buf_UsuariosDB;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -43,6 +45,7 @@ import vista.V_Registro_Usuario;
  */
 public class C_Menu_Inicio implements ActionListener {
     
+    //******************************************************
     Buf_Abogado A = new Buf_Abogado();
     Buf_Persona P = new Buf_Persona();
     V_Registro_Abogado registro = new V_Registro_Abogado();
@@ -51,6 +54,10 @@ public class C_Menu_Inicio implements ActionListener {
     Buf_SecretariaDB S_DB = new Buf_SecretariaDB();
     Buf_ClienteDB C_DB = new Buf_ClienteDB();
     Validar_Abogados V = new Validar_Abogados();
+    
+    V_Modificar_Abogado modificar = new V_Modificar_Abogado();
+    Buf_Usuarios U = new Buf_Usuarios();
+    Buf_UsuariosDB U_DB = new Buf_UsuariosDB();
 
     private V_Menu_Inicio Inicio;
 
@@ -232,11 +239,11 @@ public class C_Menu_Inicio implements ActionListener {
         if (e.getSource() == Inicio.getMod_abogado()) {
             String x = V_Modificar_Abogado.x;
             try {
-                if (x == null) {
-                    V_Modificar_Abogado A = new V_Modificar_Abogado();
-                    C_Modificar_Abogado modificarAbogado = new C_Modificar_Abogado(A);
-                    Inicio.escritorio.add(A);
-                    A.show();
+                if (x != null) {
+                    V_Modificar_Abogado RA = new V_Modificar_Abogado();
+                    C_Modificar_Abogado modificarAbogado = new C_Modificar_Abogado(A,P,U,modificar,A_DB,P_DB,S_DB,C_DB,U_DB,V);
+                    Inicio.escritorio.add(RA);
+                    RA.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }

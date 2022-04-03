@@ -67,9 +67,9 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
         this.registro.getCalendar().addKeyListener(this);
 
         registro.setTitle("ABOGADOS");
-        V.Estado_Civil();
-        V.Nuevo();
-        V.Campos();
+        this.V.Estado_Civil();
+        this.V.Nuevo();
+        this.V.Campos();
     }
 
     @Override

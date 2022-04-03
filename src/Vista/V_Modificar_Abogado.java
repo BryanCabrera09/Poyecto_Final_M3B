@@ -5,13 +5,18 @@
  */
 package vista;
 
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 /*
@@ -21,11 +26,14 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
 
     public static String x;
 
+    protected static File ruta;
+    protected static Image img;
+
+    public String rutas;
+
     public V_Modificar_Abogado() {
 
         initComponents();
-        tablepersona.getTableHeader().setResizingAllowed(false);
-        tablepersona.getTableHeader().setReorderingAllowed(false);
 
         x = "x";
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
@@ -393,6 +401,33 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         V_Modificar_Abogado.txt_nombre = txt_nombre;
     }
 
+    public static JLabel getLb_apellido() {
+        return lb_apellido;
+    }
+
+    public static void setLb_apellido(JLabel lb_apellido) {
+        V_Modificar_Abogado.lb_apellido = lb_apellido;
+    }
+    
+    public void Cargar_Imagen() {
+
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        j.setFileFilter(fil);
+
+        File ruta_carpeta = new File("");
+        j.setCurrentDirectory(ruta_carpeta);
+
+        int s = j.showOpenDialog(j);
+        if (s == JFileChooser.APPROVE_OPTION) {
+            ruta = j.getSelectedFile();
+            rutas = String.valueOf(ruta);
+            img = getToolkit().getImage(String.valueOf(rutas));
+            img = img.getScaledInstance(getLa_foto().getWidth(), getLa_foto().getHeight(), img.SCALE_DEFAULT);
+            getLa_foto().setIcon(new ImageIcon(img));
+        }
+    }
+
     /**
      * Creates new form Modificacion
      */
@@ -451,6 +486,7 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         btn_modificar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
+        lb_apellido = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -519,13 +555,13 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         jPanel1.add(txt_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 160, 20));
         jPanel1.add(txt_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 160, 20));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
         jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 690, -1, 40));
 
         jPanel1.add(cb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 160, 20));
 
-        btn_elimina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar.png"))); // NOI18N
+        btn_elimina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Eliminar.png"))); // NOI18N
         btn_elimina.setText("ELIMINAR REGISTRO");
         jPanel1.add(btn_elimina, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 690, -1, 40));
         jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 139, -1));
@@ -602,7 +638,7 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         celular.setText("*Telefono Erroneo");
         jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 110, -1));
 
-        btn_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Foto.png"))); // NOI18N
+        btn_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Foto.png"))); // NOI18N
         btn_imagen.setText("FOTO");
         jPanel1.add(btn_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 400, -1, -1));
         jPanel1.add(la_foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 260, 150, 170));
@@ -612,12 +648,17 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
         jLabel2.setText("BUSCAR:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 60, 30));
 
-        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
         jPanel1.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 50));
 
         btn_cancelar.setText("CANCELAR");
         jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 690, -1, 40));
+
+        lb_apellido.setBackground(new java.awt.Color(255, 255, 255));
+        lb_apellido.setForeground(new java.awt.Color(255, 0, 0));
+        lb_apellido.setText("*Campo Obligatorio");
+        jPanel1.add(lb_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 760));
 
@@ -659,6 +700,7 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
     public static javax.swing.JLabel lanum_cuenta;
     public static javax.swing.JLabel lanum_matri;
     public static javax.swing.JLabel laregistro;
+    public static javax.swing.JLabel lb_apellido;
     public static javax.swing.JLabel lb_celular;
     public static javax.swing.JLabel lb_correo;
     public static javax.swing.JLabel lb_cuenta;

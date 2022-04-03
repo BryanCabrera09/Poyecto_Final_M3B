@@ -86,12 +86,12 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
             while (rs.next()) {
 
                 Buf_Persona P = new Buf_Persona();
-                P.setCedula(rs.getString("cedula"));
+                P.setCedula(rs.getString("ci"));
                 P.setNombre(rs.getString("nombre"));
                 P.setApellido(rs.getString("apellido"));
-                P.setCorreo(rs.getString("correo_electronico"));
+                P.setCorreo(rs.getString("correo"));
                 P.setDireccion(rs.getString("direccion"));
-                P.setNum_celular(rs.getString("celular"));
+                P.setNum_celular(rs.getString("Num_Celular"));
                 P.setEstado_civil(rs.getString("estado"));
                 P.setFecha_Nacimiento(rs.getString("fecha_nacimiento"));
 
@@ -199,6 +199,49 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
             }
         }
         return Delete;
+    }
+
+    @Override
+    public List<Buf_Persona> Search(String Identificador) {
+        
+        Statement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM Buf_Persona WHERE cedula LIKE '%" + Identificador + "'";
+
+        List<Buf_Persona> Lista_Per = new ArrayList<>();
+
+        try {
+
+            con = DB_Connect.Connect();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                Buf_Persona P = new Buf_Persona();
+                P.setCedula(rs.getString("ci"));
+                P.setNombre(rs.getString("nombre"));
+                P.setApellido(rs.getString("apellido"));
+                P.setCorreo(rs.getString("correo"));
+                P.setDireccion(rs.getString("direccion"));
+                P.setNum_celular(rs.getString("Num_Celular"));
+                P.setEstado_civil(rs.getString("estado"));
+                P.setFecha_Nacimiento(rs.getString("fecha_nacimiento"));
+
+                Lista_Per.add(P);
+            }
+            st.close();
+            con.close();
+            rs.close();
+            return Lista_Per;
+
+        } catch (SQLException e) {
+
+            Logger.getLogger(Buf_PersonaDB.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
     }
 
 }

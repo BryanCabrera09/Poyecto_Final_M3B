@@ -15,4 +15,6 @@ public interface Buf_AbogadoDAO {
     public boolean Update(Buf_Abogado abg);
 
     public boolean Delete(Buf_Abogado abg);
+
+    public List<Buf_Abogado> Search(String abg);
 }

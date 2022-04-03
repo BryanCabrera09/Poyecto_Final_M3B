@@ -11,6 +11,7 @@ import Modelo.Buf_SecretariaDB;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import vista.V_Modificar_Abogado;
 import vista.V_Registro_Abogado;
 
 /*
@@ -18,18 +19,13 @@ import vista.V_Registro_Abogado;
  */
 public class Validar_Abogados {
 
-//    V_Registro_Abogado registro;
-//    Buf_AbogadoDB A_DB;
-//    Buf_PersonaDB P_DB;
-//    Buf_SecretariaDB S_DB;
-//    Buf_ClienteDB C_DB;
-
     V_Registro_Abogado registro = new V_Registro_Abogado();
     Buf_AbogadoDB A_DB = new Buf_AbogadoDB();
     Buf_PersonaDB P_DB = new Buf_PersonaDB();
     Buf_SecretariaDB S_DB = new Buf_SecretariaDB();
     Buf_ClienteDB C_DB = new Buf_ClienteDB();
-    
+    V_Modificar_Abogado modificar = new V_Modificar_Abogado();
+
     public void Nuevo() {
         registro.getBtn_guardar().setEnabled(false);
         registro.getBtn_imagen().setEnabled(false);
@@ -264,6 +260,19 @@ public class Validar_Abogados {
         }
     }
 
+    public boolean Valdar_Datos_Modificar() {
+
+        String estado = (String) registro.getCb_estado().getSelectedItem();
+
+        if (!modificar.getTxt_nombre().getText().isEmpty() && !modificar.getTxt_correo().getText().isEmpty() && !modificar.getTxt_direccion().getText().isEmpty() && !modificar.getTxt_celular().getText().isEmpty() && !modificar.getTxt_cuenta().getText().isEmpty() && !estado.equals("Seleccionar") && (modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
+            return true;
+        } else {
+
+            return false;
+        }
+
+    }
+
     public boolean Validar_Cancelar() {
 
         String estado = (String) registro.getCb_estado().getSelectedItem();
@@ -375,11 +384,43 @@ public class Validar_Abogados {
                 }
             }
         } while (a == 1);
-        
+
         return id_abg;
     }
 
-    
+    public int Id_Generator_Modificar() {
+
+        List<Buf_Abogado> List_abg = A_DB.Getter();
+        List<Buf_Secretaria> List_secre = S_DB.Getter();
+        List<Buf_Cliente> List_cliente = C_DB.Getter();
+
+        int id_abg = (int) Math.floor(Math.random() * (99999999 - 11111111 + 1) + 11111111);
+
+        int a = 0;
+        do {
+
+            for (int i = 0; i < List_abg.size(); i++) {
+                if (List_abg.get(i).getId_abg() == id_abg) {
+                    a = 1;
+                }
+            }
+
+            for (int i = 0; i < List_secre.size(); i++) {
+                if ((List_secre.get(i).getId_secretaria() != id_abg) && (List_abg.get(i).getId_abg() == id_abg)) {
+                    a = 1;
+                }
+            }
+
+            for (int i = 0; i < List_cliente.size(); i++) {
+                if ((List_cliente.get(i).getId_cliente() != id_abg) && (List_abg.get(i).getId_abg() == id_abg)) {
+                    a = 1;
+                }
+            }
+        } while (a == 0);
+
+        return id_abg;
+    }
+
     public boolean Validar_Matricula() {
 
         List<Buf_Abogado> List_abg = A_DB.Getter();
@@ -432,5 +473,185 @@ public class Validar_Abogados {
         Matcher valida = patron.matcher(correo);
 
         return valida.find();
+    }
+
+    public void Campo_Vacio_Modificar() {
+        String estado = (String) modificar.getCb_estado().getSelectedItem();
+        if (modificar.getTxt_nombre().getText().isEmpty()) {
+            modificar.getLb_nombre().setVisible(true);
+        }
+
+        if (modificar.getTxt_celular().getText().isEmpty()) {
+            modificar.getLb_celular().setVisible(true);
+        }
+
+        if (modificar.getTxt_correo().getText().isEmpty()) {
+            modificar.getLb_correo().setVisible(true);
+        }
+
+        if (modificar.getTxt_cuenta().getText().isEmpty()) {
+            modificar.getLb_cuenta().setVisible(true);
+        }
+
+        if (modificar.getTxt_direccion().getText().isEmpty()) {
+            modificar.getLb_direccion().setVisible(true);
+        }
+
+        if (estado.equals("Seleccionar")) {
+            modificar.getLb_estado().setVisible(true);
+        }
+
+        if (modificar.getTxt_apellido().getText().isEmpty()) {
+            modificar.getLb_apellido().setVisible(true);
+        }
+
+        if (!(modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
+            modificar.getLb_horario().setVisible(true);
+        }
+
+        //CUANDO EL CAMPO ESTA LLENO
+        if (!modificar.getTxt_nombre().getText().isEmpty()) {
+            modificar.getLb_nombre().setVisible(false);
+        }
+
+        if (!modificar.getTxt_celular().getText().isEmpty()) {
+            modificar.getLb_celular().setVisible(false);
+        }
+
+        if (!modificar.getTxt_correo().getText().isEmpty()) {
+            modificar.getLb_correo().setVisible(false);
+        }
+
+        if (!modificar.getTxt_cuenta().getText().isEmpty()) {
+            modificar.getLb_cuenta().setVisible(false);
+        }
+
+        if (!modificar.getTxt_direccion().getText().isEmpty()) {
+            modificar.getLb_direccion().setVisible(false);
+        }
+
+        if (!modificar.getTxt_apellido().getText().isEmpty()) {
+            modificar.getLb_apellido().setVisible(false);
+        }
+
+        if (!estado.equals("Seleccionar")) {
+            modificar.getLb_estado().setVisible(false);
+        }
+
+        if ((modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
+            modificar.getLb_horario().setVisible(false);
+        }
+
+        if (modificar.getLb_celular().isShowing() == true) {
+            modificar.celular.setVisible(false);
+        } else if (!Verificar_Cedula(modificar.getTxt_cedula().getText())) {
+            modificar.celular.setVisible(true);
+        } else if (Verificar_Cedula(modificar.getTxt_cedula().getText())) {
+            modificar.celular.setVisible(false);
+        }
+
+        if (!modificar.getTxt_nombre().getText().isEmpty() && !modificar.getTxt_correo().getText().isEmpty() && !modificar.getTxt_direccion().getText().isEmpty() && !(modificar.getLa_foto().getIcon() == null) && !modificar.getTxt_celular().getText().isEmpty() && !modificar.getTxt_cuenta().getText().isEmpty() && !estado.equals("Seleccionar") && (modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
+            modificar.getBtn_guardar().setEnabled(true);
+        } else {
+            modificar.getBtn_guardar().setEnabled(false);
+        }
+    }
+
+    public void Campos_Modificar() {
+
+        modificar.celular.setVisible(false);
+        modificar.getLb_nombre().setVisible(false);
+        modificar.getLb_correo().setVisible(false);
+        modificar.getLb_celular().setVisible(false);
+        modificar.getLb_cuenta().setVisible(false);
+        modificar.getLb_horario().setVisible(false);
+        modificar.getLb_estado().setVisible(false);
+        modificar.getLb_direccion().setVisible(false);
+        modificar.correo.setVisible(false);
+        modificar.getBtn_guardar().setEnabled(false);
+        modificar.getBtn_imagen().setEnabled(false);
+        modificar.getBtn_cancelar().setEnabled(false);
+        modificar.getBtn_modificar().setEnabled(false);
+    }
+
+    public void Nuevo_Modificar() {
+        modificar.getBtn_guardar().setEnabled(false);
+        modificar.getBtn_elimina().setEnabled(false);
+        modificar.getTxt_nombre().setEditable(false);
+        modificar.getTxt_cedula().setEditable(false);
+        modificar.getTxt_apellido().setEditable(false);
+        modificar.getCb_estado().setEnabled(false);
+        modificar.getTxt_celular().setEditable(false);
+        modificar.getTxt_cuenta().setEditable(false);
+        modificar.getTxt_direccion().setEditable(false);
+        modificar.getTxt_matricula().setEditable(false);
+        modificar.getTxt_correo().setEditable(false);
+        modificar.getCb_1().setEnabled(false);
+        modificar.getCb_2().setEnabled(false);
+        modificar.getCb_3().setEnabled(false);
+        modificar.getCb_4().setEnabled(false);
+        modificar.nacimeinto.setEditable(false);
+        modificar.getTxt_cedula().setText("");
+        modificar.getTxt_nombre().setText("");
+        modificar.getCb_estado().setSelectedIndex(0);
+        modificar.getTxt_apellido().setText("");
+        modificar.getTxt_celular().setText("");
+        modificar.getTxt_cuenta().setText("");
+        modificar.getTxt_direccion().setText("");
+        modificar.getTxt_matricula().setText("");
+        modificar.getTxt_correo().setText("");
+        modificar.getCb_1().setSelected(false);
+        modificar.getCb_2().setSelected(false);
+        modificar.getCb_3().setSelected(false);
+        modificar.getCb_4().setSelected(false);
+        modificar.nacimeinto.setText("");
+        modificar.getLa_foto().setIcon(null);
+    }
+
+    public void Modificar() {
+
+        modificar.getTxt_nombre().setEditable(true);
+        modificar.getTxt_apellido().setEditable(false);
+        modificar.getTxt_cedula().setEditable(false);
+        modificar.getTxt_correo().setEditable(true);
+        modificar.getTxt_celular().setEditable(true);
+        modificar.getTxt_cuenta().setEditable(true);
+        modificar.getTxt_direccion().setEditable(true);
+        modificar.getCb_estado().setEnabled(true);
+        modificar.getCb_1().setEnabled(true);
+        modificar.getCb_2().setEnabled(true);
+        modificar.getCb_3().setEnabled(true);
+        modificar.getCb_4().setEnabled(true);
+        modificar.getTxt_matricula().setEditable(false);
+        modificar.nacimeinto.setEditable(false);
+        modificar.getBtn_imagen().setEnabled(true);
+        modificar.getBtn_elimina().setEnabled(false);
+        modificar.getTxt_buscar().setEditable(false);
+        modificar.getBtn_cancelar().setEnabled(true);
+        modificar.getBtn_modificar().setEnabled(false);
+    }
+
+    public void Cancelar_Modificar() {
+
+        modificar.getTxt_nombre().setEditable(false);
+        modificar.getTxt_apellido().setEditable(false);
+        modificar.getTxt_cedula().setEditable(false);
+        modificar.getTxt_correo().setEditable(false);
+        modificar.getTxt_celular().setEditable(false);
+        modificar.getTxt_cuenta().setEditable(false);
+        modificar.getTxt_direccion().setEditable(false);
+        modificar.getCb_estado().setEnabled(false);
+        modificar.getCb_1().setEnabled(false);
+        modificar.getCb_2().setEnabled(false);
+        modificar.getCb_3().setEnabled(false);
+        modificar.getCb_4().setEnabled(false);
+        modificar.getTxt_matricula().setEditable(false);
+        modificar.nacimeinto.setEditable(false);
+        modificar.getBtn_imagen().setEnabled(false);
+        modificar.getTxt_buscar().setEditable(true);
+        modificar.getBtn_guardar().setEnabled(false);
+        modificar.getBtn_cancelar().setEnabled(false);
+        modificar.getBtn_elimina().setEnabled(true);
+        modificar.getBtn_modificar().setEnabled(true);
     }
 }

@@ -248,7 +248,7 @@
         <Component class="javax.swing.JButton" name="btn_guardar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Guardar.png"/>
+              <Image iconType="3" name="/Iconos/Guardar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="GUARDAR"/>
           </Properties>
@@ -280,7 +280,7 @@
         <Component class="javax.swing.JButton" name="btn_elimina">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Eliminar.png"/>
+              <Image iconType="3" name="/Iconos/Eliminar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ELIMINAR REGISTRO"/>
           </Properties>
@@ -597,7 +597,7 @@
         <Component class="javax.swing.JButton" name="btn_imagen">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Foto.png"/>
+              <Image iconType="3" name="/Iconos/Foto.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="FOTO"/>
           </Properties>
@@ -649,7 +649,7 @@
         <Component class="javax.swing.JButton" name="btn_modificar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Modificar.png"/>
+              <Image iconType="3" name="/Iconos/Modificar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="MODIFICAR"/>
           </Properties>
@@ -672,6 +672,25 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="160" y="690" width="-1" height="40"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_apellido">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="*Campo Obligatorio"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="130" y="160" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

@@ -193,4 +193,45 @@ public class Buf_AbogadoDB implements Buf_AbogadoDAO {
         return Delete;
     }
 
+    @Override
+    public List<Buf_Abogado> Search(String Identificador) {
+       
+        Statement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM Buf_Abogados WHERE ci_abg LIKE '%" + Identificador + "'";
+
+        List<Buf_Abogado> Lista_Abg = new ArrayList<>();
+
+        try {
+
+            con = DB_Connect.Connect();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                Buf_Abogado A = new Buf_Abogado();
+                A.setId_abg(rs.getInt("id_abogado"));
+                A.setNum_matricula(rs.getInt("num_matricula"));
+                A.setCedula(rs.getString("ci_abg"));
+                A.setNum_cuenta(rs.getInt("num_cuenta"));
+                A.setHorario(rs.getString("horario"));
+                A.setFoto(rs.getBytes("foto"));
+
+                Lista_Abg.add(A);
+            }
+            st.close();
+            con.close();
+            rs.close();
+            return Lista_Abg;
+
+        } catch (SQLException e) {
+
+            Logger.getLogger(Buf_PersonaDB.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+    }
+
 }

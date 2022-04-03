@@ -15,4 +15,6 @@ public interface Buf_PersonaDAO {
     public boolean Update(Buf_Persona persona);
 
     public boolean Delete(Buf_Persona persona);
+    
+    public List<Buf_Persona> Search(String per);
 }

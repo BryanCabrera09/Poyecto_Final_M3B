@@ -27,6 +27,7 @@ CREATE TABLE Buf_Persona (
     Fecha_Nacimiento VARCHAR2(20),
     PRIMARY KEY ( Ci )
 );
+drop table buf_usuarios;
 drop table buf_clientes;
 drop table buf_secretarias;
 drop table buf_abogados;
@@ -42,7 +43,7 @@ CREATE TABLE Buf_Abogados (
     Num_Matricula NUMBER(8),
     Ci_Abg        VARCHAR2(10),
     Num_Cuenta    NUMBER(10),
-    Horario       VARCHAR2(50),
+    Horario       VARCHAR2(70),
     Foto          BLOB,
     CONSTRAINT Fk_Pers_Abg FOREIGN KEY ( Ci_Abg )
         REFERENCES Buf_Persona ( Ci ),

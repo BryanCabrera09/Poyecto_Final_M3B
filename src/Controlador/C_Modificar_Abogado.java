@@ -5,6 +5,17 @@
  */
 package controlador;
 
+import Metodos.Validar_Abogados;
+import Modelo.Buf_Abogado;
+import Modelo.Buf_AbogadoDB;
+import Modelo.Buf_Cliente;
+import Modelo.Buf_ClienteDB;
+import Modelo.Buf_Persona;
+import Modelo.Buf_PersonaDB;
+import Modelo.Buf_Secretaria;
+import Modelo.Buf_SecretariaDB;
+import Modelo.Buf_Usuarios;
+import Modelo.Buf_UsuariosDB;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,197 +23,82 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.List;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
-import modelo.Abogado;
-import vista.MenuInicio;
-import vista.ModificarAbogado;
-import static vista.ModificarAbogado.x;
-import static vista.RegistroAbogado.Lista_abogado;
-import static vista.RegistroCliente.Lista_cliente;
-import static vista.RegistroSecretaria.Lista_Secretaria;
-import static vista.RegistroUsuario.listausuario;
+import vista.V_Modificar_Abogado;
 
 /*
  * @author BRYAN_CABRERA
  */
 public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseListener {
 
-    ModificarAbogado modificarAbogado;
-    TableRowSorter<DefaultTableModel> sorter;
-    protected static String Imagen, Dest, Orig;
+    V_Modificar_Abogado modificar;
+    Buf_Abogado A;
+    Buf_Persona P;
+    Buf_Usuarios U;
+    Buf_AbogadoDB A_DB;
+    Buf_PersonaDB P_DB;
+    Buf_SecretariaDB S_DB;
+    Buf_ClienteDB C_DB;
+    Buf_UsuariosDB U_DB;
+    Validar_Abogados V;
+
+    Image img;
     private DefaultTableModel modelo;
-    String cedula = "";
 
-    public C_Modificar_Abogado(ModificarAbogado modificarAbogado) {
-        this.modificarAbogado = modificarAbogado;
-        this.modificarAbogado.btncancelar.addActionListener(this);
-        this.modificarAbogado.btnelimina.addActionListener(this);
-        this.modificarAbogado.btnguardar.addActionListener(this);
-        this.modificarAbogado.btnimagen.addActionListener(this);
-        this.modificarAbogado.btnmodificar.addActionListener(this);
-        this.modificarAbogado.cbestado.addActionListener(this);
-        this.modificarAbogado.cb1.addActionListener(this);
-        this.modificarAbogado.cb2.addActionListener(this);
-        this.modificarAbogado.cb3.addActionListener(this);
-        this.modificarAbogado.cb4.addActionListener(this);
+    public C_Modificar_Abogado(Buf_Abogado A, Buf_Persona P, Buf_Usuarios U, V_Modificar_Abogado modificar, Buf_AbogadoDB A_DB, Buf_PersonaDB P_DB, Buf_SecretariaDB S_DB, Buf_ClienteDB C_DB, Buf_UsuariosDB U_DB, Validar_Abogados V) {
+        this.A = A;
+        this.P = P;
+        this.U = U;
+        this.modificar = modificar;
+        this.A_DB = A_DB;
+        this.P_DB = P_DB;
+        this.S_DB = S_DB;
+        this.C_DB = C_DB;
+        this.U_DB = U_DB;
+        this.V = V;
+        
+        this.modificar.getBtn_cancelar().addActionListener(this);
+        this.modificar.getBtn_elimina().addActionListener(this);
+        this.modificar.getBtn_guardar().addActionListener(this);
+        this.modificar.getBtn_imagen().addActionListener(this);
+        this.modificar.getBtn_modificar().addActionListener(this);
+        this.modificar.getCb_estado().addActionListener(this);
+        this.modificar.getCb_1().addActionListener(this);
+        this.modificar.getCb_2().addActionListener(this);
+        this.modificar.getCb_3().addActionListener(this);
+        this.modificar.getCb_4().addActionListener(this);
 
-        this.modificarAbogado.tablepersona.addMouseListener(this);
+        this.modificar.getTablepersona().addMouseListener(this);
 
-        this.modificarAbogado.txtapellido.addKeyListener(this);
-        this.modificarAbogado.txtcuenta.addKeyListener(this);
-        this.modificarAbogado.txtbuscar.addKeyListener(this);
-        this.modificarAbogado.txtcedula.addKeyListener(this);
-        this.modificarAbogado.txtcelular.addKeyListener(this);
-        this.modificarAbogado.txtcorreo.addKeyListener(this);
-        this.modificarAbogado.txtdireccion.addKeyListener(this);
-        this.modificarAbogado.txtmatricula.addKeyListener(this);
-        this.modificarAbogado.txtnombre.addKeyListener(this);
+        this.modificar.getTxt_apellido().addKeyListener(this);
+        this.modificar.getTxt_cuenta().addKeyListener(this);
+        this.modificar.getTxt_buscar().addKeyListener(this);
+        this.modificar.getTxt_celular().addKeyListener(this);
+        this.modificar.getTxt_correo().addKeyListener(this);
+        this.modificar.getTxt_direccion().addKeyListener(this);
+        this.modificar.getTxt_nombre().addKeyListener(this);
 
-        estado_civil();
-        Campos();
-        cargarDatos();
+        this.V.Estado_Civil();
+        this.V.Campos_Modificar();
+        Datos_Table();
+
     }
 
-    public void estado_civil() {
-        modificarAbogado.cbestado.addItem("Seleccionar");
-        modificarAbogado.cbestado.addItem("Soltero");
-        modificarAbogado.cbestado.addItem("Casado");
-        modificarAbogado.cbestado.addItem("Divorciado");
-    }
+    public void Datos_Table() {
 
-    public void Campo_Vacio() {
-        String estado = (String) modificarAbogado.cbestado.getSelectedItem();
-        if (modificarAbogado.txtnombre.getText().isEmpty()) {
-            modificarAbogado.lanombre1.setVisible(true);
-        }
+        modificar.getTablepersona().getTableHeader().setResizingAllowed(false);
+        modificar.getTablepersona().getTableHeader().setReorderingAllowed(false);
 
-        if (modificarAbogado.txtcelular.getText().isEmpty()) {
-            modificarAbogado.lacelular1.setVisible(true);
-        }
-
-        if (modificarAbogado.txtcorreo.getText().isEmpty()) {
-            modificarAbogado.lacorreo1.setVisible(true);
-        }
-
-        if (modificarAbogado.txtcuenta.getText().isEmpty()) {
-            modificarAbogado.lacuenta.setVisible(true);
-        }
-
-        if (modificarAbogado.txtdireccion.getText().isEmpty()) {
-            modificarAbogado.ladireccion1.setVisible(true);
-        }
-
-        if (estado.equals("Seleccionar")) {
-            modificarAbogado.laestado1.setVisible(true);
-        }
-
-        if (!(modificarAbogado.cb1.isSelected() || modificarAbogado.cb2.isSelected() || modificarAbogado.cb3.isSelected() || modificarAbogado.cb4.isSelected())) {
-            modificarAbogado.lahorario1.setVisible(true);
-        }
-
-        //CUANDO EL CAMPO ESTA LLENO
-        if (!modificarAbogado.txtnombre.getText().isEmpty()) {
-            modificarAbogado.lanombre1.setVisible(false);
-        }
-
-        if (!modificarAbogado.txtcelular.getText().isEmpty()) {
-            modificarAbogado.lacelular1.setVisible(false);
-        }
-
-        if (!modificarAbogado.txtcorreo.getText().isEmpty()) {
-            modificarAbogado.lacorreo1.setVisible(false);
-        }
-
-        if (!modificarAbogado.txtcuenta.getText().isEmpty()) {
-            modificarAbogado.lacuenta.setVisible(false);
-        }
-
-        if (!modificarAbogado.txtdireccion.getText().isEmpty()) {
-            modificarAbogado.ladireccion1.setVisible(false);
-        }
-
-        if (!estado.equals("Seleccionar")) {
-            modificarAbogado.laestado1.setVisible(false);
-        }
-
-        if ((modificarAbogado.cb1.isSelected() || modificarAbogado.cb2.isSelected() || modificarAbogado.cb3.isSelected() || modificarAbogado.cb4.isSelected())) {
-            modificarAbogado.lahorario1.setVisible(false);
-        }
-
-        if (modificarAbogado.lacelular1.isShowing() == true) {
-            modificarAbogado.celular.setVisible(false);
-        } else if (!verificarCedula(modificarAbogado.txtcedula.getText())) {
-            modificarAbogado.celular.setVisible(true);
-        } else if (verificarCedula(modificarAbogado.txtcedula.getText())) {
-            modificarAbogado.celular.setVisible(false);
-        }
-
-        if (!modificarAbogado.txtnombre.getText().isEmpty() && !modificarAbogado.txtcorreo.getText().isEmpty() && !modificarAbogado.txtdireccion.getText().isEmpty() && !(modificarAbogado.lafoto.getIcon() == null) && !modificarAbogado.txtcelular.getText().isEmpty() && !modificarAbogado.txtcuenta.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarAbogado.cb1.isSelected() || modificarAbogado.cb2.isSelected() || modificarAbogado.cb3.isSelected() || modificarAbogado.cb4.isSelected())) {
-            modificarAbogado.btnguardar.setEnabled(true);
-        } else {
-            modificarAbogado.btnguardar.setEnabled(false);
-        }
-    }
-
-    public boolean verificarCedula(String cedula) {
-        int total = 0;
-        int tamanoLongitudCedula = 10;
-        int[] coeficientes = {2, 1, 2, 1, 2, 1, 2, 1, 2};
-        int numeroProviancias = 24;
-        int tercerdigito = 6;
-        if (cedula.matches("[0-9]*") && cedula.length() == tamanoLongitudCedula) {
-            int provincia = Integer.parseInt(cedula.charAt(0) + "" + cedula.charAt(1));
-            int digitoTres = Integer.parseInt(cedula.charAt(2) + "");
-            if ((provincia > 0 && provincia <= numeroProviancias) && digitoTres < tercerdigito) {
-                int digitoVerificadorRecibido = Integer.parseInt(cedula.charAt(9) + "");
-                for (int i = 0; i < coeficientes.length; i++) {
-                    int valor = Integer.parseInt(coeficientes[i] + "") * Integer.parseInt(cedula.charAt(i) + "");
-                    total = valor >= 10 ? total + (valor - 9) : total + valor;
-                }
-                int digitoVerificadorObtenido = total >= 10 ? (total % 10) != 0 ? 10 - (total % 10) : (total % 10) : total;
-                if (digitoVerificadorObtenido == digitoVerificadorRecibido) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return false;
-    }
-
-    public void Campos() {
-
-        modificarAbogado.celular.setVisible(false);
-        modificarAbogado.lanombre1.setVisible(false);
-        modificarAbogado.lacorreo1.setVisible(false);
-        modificarAbogado.lacelular1.setVisible(false);
-        modificarAbogado.lacuenta.setVisible(false);
-        modificarAbogado.lahorario1.setVisible(false);
-        modificarAbogado.laestado1.setVisible(false);
-        modificarAbogado.ladireccion1.setVisible(false);
-        modificarAbogado.correo.setVisible(false);
-        modificarAbogado.btnguardar.setEnabled(false);
-        modificarAbogado.btnimagen.setEnabled(false);
-        modificarAbogado.btncancelar.setEnabled(false);
-        modificarAbogado.btnmodificar.setEnabled(false);
-    }
-
-    public void cargarDatos() {
-        modificarAbogado.tablepersona.setDefaultEditor(Object.class, null);
+        modificar.getTablepersona().setDefaultEditor(Object.class, null);
         modelo = new DefaultTableModel() {
             //CARGAR CAMPOS EN LA TABLA
             public boolean iscelleditable(int filas, int columnas) {
@@ -222,144 +118,103 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
         modelo.addColumn("CELULAR");
         modelo.addColumn("DIRECCION");
         modelo.addColumn("MATRICULA");
-        for (Abogado persona : Lista_abogado) {
 
-            Object[] fila = new Object[8];
-            fila[0] = persona.getCedula();
-            fila[1] = persona.getNombre();
-            fila[2] = persona.getApellidos();
-            fila[3] = persona.getCorreo();
-            fila[4] = persona.getNacimiento();
-            fila[5] = persona.getCelular();
-            fila[6] = persona.getDireccion();
-            fila[7] = persona.getNum_matricula();
-            modelo.addRow(fila);
+        List<Buf_Abogado> List_abg = A_DB.Getter();
+        List<Buf_Persona> List_per = P_DB.Getter();
+
+        for (Buf_Persona persona : List_per) {
+
+            for (Buf_Abogado abogado : List_abg) {
+
+                Object[] fila = new Object[8];
+                fila[0] = persona.getCedula();
+                fila[1] = persona.getNombre();
+                fila[2] = persona.getApellido();
+                fila[3] = persona.getCorreo();
+                fila[4] = persona.getFecha_Nacimiento();
+                fila[5] = persona.getNum_celular();
+                fila[6] = persona.getDireccion();
+                fila[7] = abogado.getNum_matricula();
+                modelo.addRow(fila);
+            }
         }
-        modificarAbogado.tablepersona.setModel(modelo);
-        modificarAbogado.tablepersona.setAutoCreateRowSorter(true);
-        sorter = new TableRowSorter<>(modelo);
-        modificarAbogado.tablepersona.setRowSorter(sorter);
-        Nuevo();
-    }
-
-    public void Nuevo() {
-        modificarAbogado.btnguardar.setEnabled(false);
-        modificarAbogado.btnelimina.setEnabled(false);
-        modificarAbogado.txtnombre.setEditable(false);
-        modificarAbogado.txtcedula.setEditable(false);
-        modificarAbogado.txtapellido.setEditable(false);
-        modificarAbogado.cbestado.setEnabled(false);
-        modificarAbogado.txtcelular.setEditable(false);
-        modificarAbogado.txtcuenta.setEditable(false);
-        modificarAbogado.txtdireccion.setEditable(false);
-        modificarAbogado.txtmatricula.setEditable(false);
-        modificarAbogado.txtcorreo.setEditable(false);
-        modificarAbogado.cb1.setEnabled(false);
-        modificarAbogado.cb2.setEnabled(false);
-        modificarAbogado.cb3.setEnabled(false);
-        modificarAbogado.cb4.setEnabled(false);
-        modificarAbogado.nacimeinto.setEditable(false);
-        modificarAbogado.txtcedula.setText("");
-        modificarAbogado.txtnombre.setText("");
-        modificarAbogado.cbestado.setSelectedIndex(0);
-        modificarAbogado.txtapellido.setText("");
-        modificarAbogado.txtcelular.setText("");
-        modificarAbogado.txtcuenta.setText("");
-        modificarAbogado.txtdireccion.setText("");
-        modificarAbogado.txtmatricula.setText("");
-        modificarAbogado.txtcorreo.setText("");
-        modificarAbogado.cb1.setSelected(false);
-        modificarAbogado.cb2.setSelected(false);
-        modificarAbogado.cb3.setSelected(false);
-        modificarAbogado.cb4.setSelected(false);
-        modificarAbogado.nacimeinto.setText("");
-        modificarAbogado.lafoto.setIcon(null);
+        modificar.getTablepersona().setModel(modelo);
     }
 
     public void Actualizar_Tabla() {
 
-        for (Abogado persona : Lista_abogado) {
+        List<Buf_Abogado> List_abg = A_DB.Getter();
+        List<Buf_Persona> List_per = P_DB.Getter();
 
-            Object[] fila = new Object[8];
-            fila[0] = persona.getCedula();
-            fila[1] = persona.getNombre();
-            fila[2] = persona.getApellidos();
-            fila[3] = persona.getCorreo();
-            fila[4] = persona.getNacimiento();
-            fila[5] = persona.getCelular();
-            fila[6] = persona.getDireccion();
-            fila[7] = persona.getNum_matricula();
-            modelo.addRow(fila);
+        for (Buf_Persona persona : List_per) {
+
+            for (Buf_Abogado abogado : List_abg) {
+
+                Object[] fila = new Object[8];
+                fila[0] = persona.getCedula();
+                fila[1] = persona.getNombre();
+                fila[2] = persona.getApellido();
+                fila[3] = persona.getCorreo();
+                fila[4] = persona.getFecha_Nacimiento();
+                fila[5] = persona.getNum_celular();
+                fila[6] = persona.getDireccion();
+                fila[7] = abogado.getNum_matricula();
+                modelo.addRow(fila);
+            }
         }
-        modificarAbogado.tablepersona.setModel(modelo);
+        modificar.getTablepersona().setModel(modelo);
     }
 
     public void Limpiar_Tabla() {
 
         modelo.setRowCount(0);
-        modificarAbogado.txtcedula.setText("");
-        modificarAbogado.txtnombre.setText("");
-        modificarAbogado.cbestado.setSelectedIndex(0);
-        modificarAbogado.txtapellido.setText("");
-        modificarAbogado.txtcelular.setText("");
-        modificarAbogado.txtcuenta.setText("");
-        modificarAbogado.txtdireccion.setText("");
-        modificarAbogado.txtmatricula.setText("");
-        modificarAbogado.txtcorreo.setText("");
-        modificarAbogado.cb1.setSelected(false);
-        modificarAbogado.cb2.setSelected(false);
-        modificarAbogado.cb3.setSelected(false);
-        modificarAbogado.cb4.setSelected(false);
-        modificarAbogado.nacimeinto.setText("");
-    }
-
-    private void Datos() {
-
-        try {
-            sorter.setRowFilter(RowFilter.regexFilter(modificarAbogado.txtbuscar.getText(), 0));
-
-        } catch (Exception e) {
-
-        }
+        modificar.getTxt_cedula().setText("");
+        modificar.getTxt_nombre().setText("");
+        modificar.getCb_estado().setSelectedIndex(0);
+        modificar.getTxt_apellido().setText("");
+        modificar.getTxt_celular().setText("");
+        modificar.getTxt_cuenta().setText("");
+        modificar.getTxt_direccion().setText("");
+        modificar.getTxt_matricula().setText("");
+        modificar.getTxt_correo().setText("");
+        modificar.getCb_1().setSelected(false);
+        modificar.getCb_2().setSelected(false);
+        modificar.getCb_3().setSelected(false);
+        modificar.getCb_4().setSelected(false);
+        modificar.nacimeinto.setText("");
     }
 
     @Override
     public void actionPerformed(ActionEvent evt) {
-        if (evt.getSource() == modificarAbogado.btncancelar) {
-            modificarAbogado.txtnombre.setEditable(false);
-            modificarAbogado.txtapellido.setEditable(false);
-            modificarAbogado.txtcedula.setEditable(false);
-            modificarAbogado.txtcorreo.setEditable(false);
-            modificarAbogado.txtcelular.setEditable(false);
-            modificarAbogado.txtcuenta.setEditable(false);
-            modificarAbogado.txtdireccion.setEditable(false);
-            modificarAbogado.cbestado.setEnabled(false);
-            modificarAbogado.cb1.setEnabled(false);
-            modificarAbogado.cb2.setEnabled(false);
-            modificarAbogado.cb3.setEnabled(false);
-            modificarAbogado.cb4.setEnabled(false);
-            modificarAbogado.txtmatricula.setEditable(false);
-            modificarAbogado.nacimeinto.setEditable(false);
-            modificarAbogado.btnimagen.setEnabled(false);
-            modificarAbogado.txtbuscar.setEditable(true);
-            modificarAbogado.btnguardar.setEnabled(false);
-            modificarAbogado.btncancelar.setEnabled(false);
-            modificarAbogado.btnelimina.setEnabled(true);
-            modificarAbogado.btnmodificar.setEnabled(true);
+        if (evt.getSource() == modificar.getBtn_cancelar()) {
+
+            V.Cancelar_Modificar();
         }
-        if (evt.getSource() == modificarAbogado.btnelimina) {
-            for (int i = 0; i < Lista_abogado.size(); i++) {
-                if (Lista_abogado.get(i).getCedula().equals(modificarAbogado.txtcedula.getText())) {
+        if (evt.getSource() == modificar.getBtn_elimina()) {
+
+            List<Buf_Abogado> List_abg = A_DB.Getter();
+            List<Buf_Usuarios> List_user = U_DB.Getter();
+
+            for (int i = 0; i < List_abg.size(); i++) {
+                if (List_abg.get(i).getId_abg() == V.Id_Generator_Modificar()) {
                     int elimina = JOptionPane.showConfirmDialog(null, "ELIMINAR REGISTRO", "AVISO", JOptionPane.YES_NO_OPTION);
                     switch (elimina) {
                         case 0:
-                            Lista_abogado.remove(i);
-                            Nuevo();
-                            modificarAbogado.txtbuscar.setEditable(true);
-                            modificarAbogado.btnmodificar.setEnabled(false);
-                            modificarAbogado.btnelimina.setEnabled(false);
-                            Limpiar_Tabla();
-                            Actualizar_Tabla();
+
+                            A.setId_abg(V.Id_Generator_Modificar());
+
+                            if (A_DB.Delete(A)) {
+
+                                V.Nuevo_Modificar();
+                                modificar.getTxt_buscar().setEditable(true);
+                                modificar.getBtn_modificar().setEnabled(false);
+                                modificar.getBtn_elimina().setEnabled(false);
+                                Limpiar_Tabla();
+                                Actualizar_Tabla();
+                            } else {
+
+                                JOptionPane.showConfirmDialog(null, "Proceso de Eliminacion Cancelado");
+                            }
                             break;
                         case 1:
                             JOptionPane.showMessageDialog(null, "ELIMINACION CANCELADA");
@@ -368,67 +223,35 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
                 }
             }
 
-            for (int i = 0; i < listausuario.size(); i++) {
-                if (listausuario.get(i).getCedula().equals(cedula)) {
-                    listausuario.remove(i);
-                }
-            }
-        }
-        if (evt.getSource() == modificarAbogado.btnguardar) {
-            if (Imagen.isEmpty()) {
-                if (!(modificarAbogado.lafoto.getIcon() == null)) {
-                    try {
+            for (int i = 0; i < List_user.size(); i++) {
+                if (List_user.get(i).getId_abg() == V.Id_Generator_Modificar()) {
 
-                        Path Destino = Paths.get(Dest);
-                        Path Origen = Paths.get(Orig);
-                        Files.copy(Origen, Destino, StandardCopyOption.REPLACE_EXISTING);
+                    A.setId_abg(V.Id_Generator_Modificar());
 
-                    } catch (IOException e) {
-                        Logger.getLogger(ModificarAbogado.class.getName()).log(Level.SEVERE, null, e);
+                    if (U_DB.Delete(U)) {
+
+                    } else {
+
+                        JOptionPane.showConfirmDialog(null, "Proceso de Eliminacion Cancelado");
                     }
                 }
             }
-            String estado = (String) modificarAbogado.cbestado.getSelectedItem();
-            String horario = "";
-            if (modificarAbogado.cb1.isSelected() == true) {
+        }
+        if (evt.getSource() == modificar.getBtn_guardar()) {
 
-                horario = horario + modificarAbogado.cb1.getText();
-            }
-            if (modificarAbogado.cb2.isSelected() == true) {
+            List<Buf_Abogado> List_abg = A_DB.Getter();
+            List<Buf_Secretaria> List_secre = S_DB.Getter();
+            List<Buf_Cliente> List_cliente = C_DB.Getter();
 
-                horario = horario + modificarAbogado.cb2.getText();
-            }
-            if (modificarAbogado.cb3.isSelected() == true) {
-
-                horario = horario + modificarAbogado.cb3.getText();
-            }
-            if (modificarAbogado.cb4.isSelected() == true) {
-
-                horario = horario + modificarAbogado.cb4.getText();
-            }
-
-            if (!modificarAbogado.txtnombre.getText().isEmpty() && !modificarAbogado.txtcorreo.getText().isEmpty() && !modificarAbogado.txtdireccion.getText().isEmpty() && !modificarAbogado.txtcelular.getText().isEmpty() && !modificarAbogado.txtcuenta.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarAbogado.cb1.isSelected() || modificarAbogado.cb2.isSelected() || modificarAbogado.cb3.isSelected() || modificarAbogado.cb4.isSelected())) {
-                if (!Lista_Secretaria.isEmpty() && !Lista_abogado.isEmpty() && !Lista_cliente.isEmpty()) {
-                    if (Validar_Correo() == true) {
-                        if (Validar_Correo(modificarAbogado.txtcorreo.getText()) && modificarAbogado.txtcelular.getText().length() == 10) {
+            if (V.Valdar_Datos_Modificar() == true) {
+                if (!List_secre.isEmpty() && !List_abg.isEmpty() && !List_cliente.isEmpty()) {
+                    if (V.Validar_Correo() == true) {
+                        if (V.Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                             int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
                             switch (resp) {
                                 case 0:
 
-                                    int select = modificarAbogado.tablepersona.getSelectedRow();
-
-                                    Lista_abogado.get(select).setNombre(modificarAbogado.txtnombre.getText());
-                                    Lista_abogado.get(select).setCorreo(modificarAbogado.txtcorreo.getText());
-                                    Lista_abogado.get(select).setDireccion(modificarAbogado.txtdireccion.getText());
-                                    Lista_abogado.get(select).setCelular(modificarAbogado.txtcelular.getText());
-                                    Lista_abogado.get(select).setNum_cuenta(modificarAbogado.txtcuenta.getText());
-                                    Lista_abogado.get(select).setRegistro_horario(horario);
-                                    Lista_abogado.get(select).setEstado(estado);
-                                    Lista_abogado.get(select).setImagen(Imagen);
-                                    Campos();
-                                    Limpiar_Tabla();
-                                    Actualizar_Tabla();
-                                    Nuevo();
+                                    Subir_Datos();
                                     break;
                                 case 1:
                                     JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
@@ -436,40 +259,27 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
                             }
                         } else {
 
-                            Campo_Vacio();
+                            V.Campo_Vacio_Modificar();
                             JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                         }
                     } else {
 
-                        Campo_Vacio();
+                        V.Campo_Vacio_Modificar();
                         JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                     }
                 }
             } else {
-                Campo_Vacio();
+                V.Campo_Vacio_Modificar();
                 JOptionPane.showMessageDialog(null, "LLENE TODOS LOS CAMPOS");
             }
 
-            if (Lista_abogado.size() <= 0 && Lista_Secretaria.size() <= 0 && Lista_cliente.size() <= 0 && !modificarAbogado.txtnombre.getText().isEmpty() && !modificarAbogado.txtcorreo.getText().isEmpty() && !modificarAbogado.txtdireccion.getText().isEmpty() && !modificarAbogado.txtcelular.getText().isEmpty() && !modificarAbogado.txtcuenta.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarAbogado.cb1.isSelected() || modificarAbogado.cb2.isSelected() || modificarAbogado.cb3.isSelected() || modificarAbogado.cb4.isSelected())) {
-                if (Validar_Correo(modificarAbogado.txtcorreo.getText()) && modificarAbogado.txtcelular.getText().length() == 10) {
+            if (List_abg.size() <= 0 && List_secre.size() <= 0 && List_cliente.size() <= 0 && V.Valdar_Datos_Modificar() == true) {
+                if (V.Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                     int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
                     switch (resp) {
                         case 0:
 
-                            int select = modificarAbogado.tablepersona.getSelectedRow();
-
-                            Lista_abogado.get(select).setNombre(modificarAbogado.txtnombre.getText());
-                            Lista_abogado.get(select).setCorreo(modificarAbogado.txtcorreo.getText());
-                            Lista_abogado.get(select).setDireccion(modificarAbogado.txtdireccion.getText());
-                            Lista_abogado.get(select).setCelular(modificarAbogado.txtcelular.getText());
-                            Lista_abogado.get(select).setNum_cuenta(modificarAbogado.txtcuenta.getText());
-                            Lista_abogado.get(select).setRegistro_horario(horario);
-                            Lista_abogado.get(select).setEstado(estado);
-                            Lista_abogado.get(select).setImagen(Imagen);
-                            Campos();
-                            Limpiar_Tabla();
-                            Actualizar_Tabla();
-                            Nuevo();
+                            Subir_Datos();
 
                             break;
                         case 1:
@@ -478,30 +288,17 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
                     }
                 } else {
 
-                    Campo_Vacio();
+                    V.Campo_Vacio_Modificar();
                     JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
-            } else if (!(Lista_abogado.size() <= 0) && Lista_Secretaria.size() <= 0 && Lista_cliente.size() <= 0 && !modificarAbogado.txtnombre.getText().isEmpty() && !modificarAbogado.txtcorreo.getText().isEmpty() && !modificarAbogado.txtdireccion.getText().isEmpty() && !modificarAbogado.txtcelular.getText().isEmpty() && !modificarAbogado.txtcuenta.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarAbogado.cb1.isSelected() || modificarAbogado.cb2.isSelected() || modificarAbogado.cb3.isSelected() || modificarAbogado.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarAbogado.txtcorreo.getText()) && modificarAbogado.txtcelular.getText().length() == 10) {
+            } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && List_cliente.size() <= 0 && V.Valdar_Datos_Modificar() == true) {
+                if (V.Validar_Correo() == true) {
+                    if (V.Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
 
-                                int select = modificarAbogado.tablepersona.getSelectedRow();
-
-                                Lista_abogado.get(select).setNombre(modificarAbogado.txtnombre.getText());
-                                Lista_abogado.get(select).setCorreo(modificarAbogado.txtcorreo.getText());
-                                Lista_abogado.get(select).setDireccion(modificarAbogado.txtdireccion.getText());
-                                Lista_abogado.get(select).setCelular(modificarAbogado.txtcelular.getText());
-                                Lista_abogado.get(select).setNum_cuenta(modificarAbogado.txtcuenta.getText());
-                                Lista_abogado.get(select).setRegistro_horario(horario);
-                                Lista_abogado.get(select).setEstado(estado);
-                                Lista_abogado.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
+                                Subir_Datos();
                                 break;
                             case 1:
                                 JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
@@ -509,36 +306,23 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
                         }
                     } else {
 
-                        Campo_Vacio();
+                        V.Campo_Vacio_Modificar();
                         JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
 
-                    Campo_Vacio();
+                    V.Campo_Vacio_Modificar();
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
 
-            } else if (!(Lista_abogado.size() <= 0) && !(Lista_Secretaria.size() <= 0) && Lista_cliente.size() <= 0 && !modificarAbogado.txtnombre.getText().isEmpty() && !modificarAbogado.txtcorreo.getText().isEmpty() && !modificarAbogado.txtdireccion.getText().isEmpty() && !modificarAbogado.txtcelular.getText().isEmpty() && !modificarAbogado.txtcuenta.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarAbogado.cb1.isSelected() || modificarAbogado.cb2.isSelected() || modificarAbogado.cb3.isSelected() || modificarAbogado.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarAbogado.txtcorreo.getText()) && modificarAbogado.txtcelular.getText().length() == 10) {
+            } else if (!(List_abg.size() <= 0) && !(List_secre.size() <= 0) && List_cliente.size() <= 0 && V.Valdar_Datos_Modificar() == true) {
+                if (V.Validar_Correo() == true) {
+                    if (V.Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
 
-                                int select = modificarAbogado.tablepersona.getSelectedRow();
-
-                                Lista_abogado.get(select).setNombre(modificarAbogado.txtnombre.getText());
-                                Lista_abogado.get(select).setCorreo(modificarAbogado.txtcorreo.getText());
-                                Lista_abogado.get(select).setDireccion(modificarAbogado.txtdireccion.getText());
-                                Lista_abogado.get(select).setCelular(modificarAbogado.txtcelular.getText());
-                                Lista_abogado.get(select).setNum_cuenta(modificarAbogado.txtcuenta.getText());
-                                Lista_abogado.get(select).setRegistro_horario(horario);
-                                Lista_abogado.get(select).setEstado(estado);
-                                Lista_abogado.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
+                                Subir_Datos();
                                 break;
                             case 1:
                                 JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
@@ -546,36 +330,23 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
                         }
                     } else {
 
-                        Campo_Vacio();
+                        V.Campo_Vacio_Modificar();
                         JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
 
-                    Campo_Vacio();
+                    V.Campo_Vacio_Modificar();
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
 
-            } else if (!(Lista_abogado.size() <= 0) && Lista_Secretaria.size() <= 0 && !(Lista_cliente.size() <= 0) && !modificarAbogado.txtnombre.getText().isEmpty() && !modificarAbogado.txtcorreo.getText().isEmpty() && !modificarAbogado.txtdireccion.getText().isEmpty() && !modificarAbogado.txtcelular.getText().isEmpty() && !modificarAbogado.txtcuenta.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarAbogado.cb1.isSelected() || modificarAbogado.cb2.isSelected() || modificarAbogado.cb3.isSelected() || modificarAbogado.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarAbogado.txtcorreo.getText()) && modificarAbogado.txtcelular.getText().length() == 10) {
+            } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && !(List_cliente.size() <= 0) && V.Valdar_Datos_Modificar() == true) {
+                if (V.Validar_Correo() == true) {
+                    if (V.Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
 
-                                int select = modificarAbogado.tablepersona.getSelectedRow();
-
-                                Lista_abogado.get(select).setNombre(modificarAbogado.txtnombre.getText());
-                                Lista_abogado.get(select).setCorreo(modificarAbogado.txtcorreo.getText());
-                                Lista_abogado.get(select).setDireccion(modificarAbogado.txtdireccion.getText());
-                                Lista_abogado.get(select).setCelular(modificarAbogado.txtcelular.getText());
-                                Lista_abogado.get(select).setNum_cuenta(modificarAbogado.txtcuenta.getText());
-                                Lista_abogado.get(select).setRegistro_horario(horario);
-                                Lista_abogado.get(select).setEstado(estado);
-                                Lista_abogado.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
+                                Subir_Datos();
                                 break;
                             case 1:
                                 JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
@@ -583,36 +354,23 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
                         }
                     } else {
 
-                        Campo_Vacio();
+                        V.Campo_Vacio_Modificar();
                         JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
 
-                    Campo_Vacio();
+                    V.Campo_Vacio_Modificar();
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
 
-            } else if (Lista_abogado.size() <= 0 && !(Lista_Secretaria.size() <= 0) && !(Lista_cliente.size() <= 0) && !modificarAbogado.txtnombre.getText().isEmpty() && !modificarAbogado.txtcorreo.getText().isEmpty() && !modificarAbogado.txtdireccion.getText().isEmpty() && !modificarAbogado.txtcelular.getText().isEmpty() && !modificarAbogado.txtcuenta.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarAbogado.cb1.isSelected() || modificarAbogado.cb2.isSelected() || modificarAbogado.cb3.isSelected() || modificarAbogado.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarAbogado.txtcorreo.getText()) && modificarAbogado.txtcelular.getText().length() == 10) {
+            } else if (List_abg.size() <= 0 && !(List_secre.size() <= 0) && !(List_cliente.size() <= 0) && V.Valdar_Datos_Modificar() == true) {
+                if (V.Validar_Correo() == true) {
+                    if (V.Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
 
-                                int select = modificarAbogado.tablepersona.getSelectedRow();
-
-                                Lista_abogado.get(select).setNombre(modificarAbogado.txtnombre.getText());
-                                Lista_abogado.get(select).setCorreo(modificarAbogado.txtcorreo.getText());
-                                Lista_abogado.get(select).setDireccion(modificarAbogado.txtdireccion.getText());
-                                Lista_abogado.get(select).setCelular(modificarAbogado.txtcelular.getText());
-                                Lista_abogado.get(select).setNum_cuenta(modificarAbogado.txtcuenta.getText());
-                                Lista_abogado.get(select).setRegistro_horario(horario);
-                                Lista_abogado.get(select).setEstado(estado);
-                                Lista_abogado.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
+                                Subir_Datos();
                                 break;
                             case 1:
                                 JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
@@ -620,35 +378,22 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
                         }
                     } else {
 
-                        Campo_Vacio();
+                        V.Campo_Vacio_Modificar();
                         JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
 
-                    Campo_Vacio();
+                    V.Campo_Vacio_Modificar();
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
-            } else if (Lista_abogado.isEmpty() && Lista_Secretaria.isEmpty() && !(Lista_cliente.size() <= 0) && !modificarAbogado.txtnombre.getText().isEmpty() && !modificarAbogado.txtcorreo.getText().isEmpty() && !modificarAbogado.txtdireccion.getText().isEmpty() && !modificarAbogado.txtcelular.getText().isEmpty() && !modificarAbogado.txtcuenta.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarAbogado.cb1.isSelected() || modificarAbogado.cb2.isSelected() || modificarAbogado.cb3.isSelected() || modificarAbogado.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarAbogado.txtcorreo.getText()) && modificarAbogado.txtcelular.getText().length() == 10) {
+            } else if (List_abg.isEmpty() && List_secre.isEmpty() && !(List_cliente.size() <= 0) && V.Valdar_Datos_Modificar() == true) {
+                if (V.Validar_Correo() == true) {
+                    if (V.Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
 
-                                int select = modificarAbogado.tablepersona.getSelectedRow();
-
-                                Lista_abogado.get(select).setNombre(modificarAbogado.txtnombre.getText());
-                                Lista_abogado.get(select).setCorreo(modificarAbogado.txtcorreo.getText());
-                                Lista_abogado.get(select).setDireccion(modificarAbogado.txtdireccion.getText());
-                                Lista_abogado.get(select).setCelular(modificarAbogado.txtcelular.getText());
-                                Lista_abogado.get(select).setNum_cuenta(modificarAbogado.txtcuenta.getText());
-                                Lista_abogado.get(select).setRegistro_horario(horario);
-                                Lista_abogado.get(select).setEstado(estado);
-                                Lista_abogado.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
+                                Subir_Datos();
                                 break;
                             case 1:
                                 JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
@@ -656,35 +401,22 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
                         }
                     } else {
 
-                        Campo_Vacio();
+                        V.Campo_Vacio_Modificar();
                         JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
 
-                    Campo_Vacio();
+                    V.Campo_Vacio_Modificar();
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
-            } else if (Lista_abogado.isEmpty() && !Lista_Secretaria.isEmpty() && Lista_cliente.isEmpty() && !modificarAbogado.txtnombre.getText().isEmpty() && !modificarAbogado.txtcorreo.getText().isEmpty() && !modificarAbogado.txtdireccion.getText().isEmpty() && !modificarAbogado.txtcelular.getText().isEmpty() && !modificarAbogado.txtcuenta.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarAbogado.cb1.isSelected() || modificarAbogado.cb2.isSelected() || modificarAbogado.cb3.isSelected() || modificarAbogado.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarAbogado.txtcorreo.getText()) && modificarAbogado.txtcelular.getText().length() == 10) {
+            } else if (List_abg.isEmpty() && !List_secre.isEmpty() && List_cliente.isEmpty() && V.Valdar_Datos_Modificar() == true) {
+                if (V.Validar_Correo() == true) {
+                    if (V.Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                         int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
                         switch (resp) {
                             case 0:
 
-                                int select = modificarAbogado.tablepersona.getSelectedRow();
-
-                                Lista_abogado.get(select).setNombre(modificarAbogado.txtnombre.getText());
-                                Lista_abogado.get(select).setCorreo(modificarAbogado.txtcorreo.getText());
-                                Lista_abogado.get(select).setDireccion(modificarAbogado.txtdireccion.getText());
-                                Lista_abogado.get(select).setCelular(modificarAbogado.txtcelular.getText());
-                                Lista_abogado.get(select).setNum_cuenta(modificarAbogado.txtcuenta.getText());
-                                Lista_abogado.get(select).setRegistro_horario(horario);
-                                Lista_abogado.get(select).setEstado(estado);
-                                Lista_abogado.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
+                                Subir_Datos();
                                 break;
                             case 1:
                                 JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
@@ -692,111 +424,167 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
                         }
                     } else {
 
-                        Campo_Vacio();
+                        V.Campo_Vacio_Modificar();
                         JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
 
-                    Campo_Vacio();
+                    V.Campo_Vacio_Modificar();
                     JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
-        if (evt.getSource() == modificarAbogado.btnimagen) {
-            JFileChooser file = new JFileChooser();
-            file.setCurrentDirectory(new File("C:\\Users\\ACER\\OneDrive\\Escritorio\\ACTIVIDAD_PRODUCTOS\\REGISTRO_PRODUCTOS"));
-            file.showOpenDialog(modificarAbogado);
-            File archivo = file.getSelectedFile();
-            Dest = "src\\Imagenes_Abogados\\" + archivo.getName();
-            Orig = archivo.getPath();
-            Imagen = archivo.getName();
+        if (evt.getSource() == modificar.getBtn_imagen()) {
 
-            ImageIcon icon = new ImageIcon(Orig);
-            ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(modificarAbogado.lafoto.getWidth(), modificarAbogado.lafoto.getHeight(), Image.SCALE_DEFAULT));
-            modificarAbogado.lafoto.setText(null);
-            modificarAbogado.lafoto.setIcon(icono);
+            modificar.Cargar_Imagen();
 
-            Campo_Vacio();
+            V.Campo_Vacio_Modificar();
         }
-        if (evt.getSource() == modificarAbogado.btnmodificar) {
-            modificarAbogado.txtnombre.setEditable(true);
-            modificarAbogado.txtapellido.setEditable(false);
-            modificarAbogado.txtcedula.setEditable(false);
-            modificarAbogado.txtcorreo.setEditable(true);
-            modificarAbogado.txtcelular.setEditable(true);
-            modificarAbogado.txtcuenta.setEditable(true);
-            modificarAbogado.txtdireccion.setEditable(true);
-            modificarAbogado.cbestado.setEnabled(true);
-            modificarAbogado.cb1.setEnabled(true);
-            modificarAbogado.cb2.setEnabled(true);
-            modificarAbogado.cb3.setEnabled(true);
-            modificarAbogado.cb4.setEnabled(true);
-            modificarAbogado.txtmatricula.setEditable(false);
-            modificarAbogado.nacimeinto.setEditable(false);
-            modificarAbogado.btnimagen.setEnabled(true);
-            modificarAbogado.btnelimina.setEnabled(false);
-            modificarAbogado.txtbuscar.setEditable(false);
-            modificarAbogado.btncancelar.setEnabled(true);
-            modificarAbogado.btnmodificar.setEnabled(false);
+        if (evt.getSource() == modificar.getBtn_modificar()) {
+
+            V.Modificar();
         }
-        if (evt.getSource() == modificarAbogado.cbestado) {
-            if (modificarAbogado.cbestado.isEditable() == true) {
-                Campo_Vacio();
+        if (evt.getSource() == modificar.getCb_estado()) {
+            if (modificar.getCb_estado().isEditable() == true) {
+                V.Campo_Vacio_Modificar();
             }
         }
-        if (evt.getSource() == modificarAbogado.cb1) {
-            if (modificarAbogado.cb1.isEnabled() == true) {
-                Campo_Vacio();
+        if (evt.getSource() == modificar.getCb_1()) {
+            if (modificar.getCb_1().isEnabled() == true) {
+                V.Campo_Vacio_Modificar();
             }
         }
-        if (evt.getSource() == modificarAbogado.cb2) {
-            if (modificarAbogado.cb2.isEnabled() == true) {
-                Campo_Vacio();
+        if (evt.getSource() == modificar.getCb_2()) {
+            if (modificar.getCb_2().isEnabled() == true) {
+                V.Campo_Vacio_Modificar();
             }
         }
-        if (evt.getSource() == modificarAbogado.cb3) {
-            if (modificarAbogado.cb3.isEnabled() == true) {
-                Campo_Vacio();
+        if (evt.getSource() == modificar.getCb_3()) {
+            if (modificar.getCb_3().isEnabled() == true) {
+                V.Campo_Vacio_Modificar();
             }
         }
-        if (evt.getSource() == modificarAbogado.cb4) {
-            if (modificarAbogado.cb4.isEnabled() == true) {
-                Campo_Vacio();
+        if (evt.getSource() == modificar.getCb_4()) {
+            if (modificar.getCb_4().isEnabled() == true) {
+                V.Campo_Vacio_Modificar();
             }
+        }
+    }
+
+    public void Subir_Datos() {
+
+        int select = modificar.getTablepersona().getSelectedRow();
+
+        String horario = " | ";
+        if (modificar.getCb_1().isSelected() == true) {
+
+            horario = horario + modificar.getCb_1().getText();
+        }
+        if (modificar.getCb_2().isSelected() == true) {
+
+            horario = horario + modificar.getCb_2().getText();
+        }
+        if (modificar.getCb_3().isSelected() == true) {
+
+            horario = horario + modificar.getCb_3().getText();
+        }
+        if (modificar.getCb_4().isSelected() == true) {
+
+            horario = horario + modificar.getCb_4().getText();
+        }
+
+        String estado = (String) modificar.getCb_estado().getSelectedItem();
+
+        P.setNombre(modificar.getTxt_nombre().getText());
+        P.setApellido(modificar.getTxt_apellido().getText());
+        P.setCorreo(modificar.getTxt_correo().getText());
+        P.setDireccion(modificar.getTxt_direccion().getText());
+        P.setNum_celular(modificar.getTxt_celular().getText());
+        P.setEstado_civil(estado);
+        P.setCedula(modificar.getTxt_cedula().getText());
+
+        A.setNum_cuenta(Integer.parseInt(modificar.getTxt_cuenta().getText()));
+        A.setHorario(horario);
+        File ruta = new File(modificar.rutas);
+
+        try {
+            byte[] icono = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(icono);
+            A.setFoto(icono);
+        } catch (Exception ex) {
+            A.setFoto(null);
+        }
+        A.setId_abg(V.Id_Generator_Modificar());
+
+        if (P_DB.Update(P)) {
+
+            if (A_DB.Update(A)) {
+
+                JOptionPane.showMessageDialog(null, "Registro Guardado");
+                V.Campos_Modificar();
+                Limpiar_Tabla();
+                Actualizar_Tabla();
+                V.Nuevo_Modificar();
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     @Override
     public void keyTyped(KeyEvent evt) {
-        if (evt.getSource() == modificarAbogado.txtcuenta) {
+        if (evt.getSource() == modificar.getTxt_cuenta()) {
             char c = evt.getKeyChar();
 
-            if (c < '0' || c > '9') {
-                evt.consume();
-            }
-        }
-        if (evt.getSource() == modificarAbogado.txtcelular) {
-            char c = evt.getKeyChar();
-
-            if (c >= '0' && c <= '9' && modificarAbogado.txtcelular.getText().length() <= 9) {
+            if (c >= '0' && c <= '9' && modificar.getTxt_cuenta().getText().length() <= 9) {
 
             } else {
                 evt.consume();
             }
         }
-        if (evt.getSource() == modificarAbogado.txtnombre) {
+        if (evt.getSource() == modificar.getTxt_celular()) {
+            char c = evt.getKeyChar();
+
+            if (c >= '0' && c <= '9' && modificar.getTxt_celular().getText().length() <= 9) {
+
+            } else {
+                evt.consume();
+            }
+        }
+        if (evt.getSource() == modificar.getTxt_nombre()) {
             char c = evt.getKeyChar();
 
             if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
                 evt.consume();
             }
         }
-        if (evt.getSource() == modificarAbogado.txtbuscar) {
+        if (evt.getSource() == modificar.getTxt_buscar()) {
             char c = evt.getKeyChar();
 
-            if (c >= '0' && c <= '9' && modificarAbogado.txtbuscar.getText().length() <= 9) {
+            if (c >= '0' && c <= '9' && modificar.getTxt_buscar().getText().length() <= 9) {
 
             } else {
+                evt.consume();
+            }
+        }
+        if (evt.getSource() == modificar.getTxt_apellido()) {
+            int key = evt.getKeyChar();
+
+            if (modificar.getTxt_apellido().getText().length() <= 20) {
+                boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
+
+                if (!letra) {
+
+                    evt.consume();
+                }
+
+            } else {
+
                 evt.consume();
             }
         }
@@ -807,47 +595,78 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
 
     }
 
+    public void Buscar() {
+
+        if (modificar.getTxt_buscar().getText().isEmpty()) {
+
+            Limpiar_Tabla();
+            Actualizar_Tabla();
+        }
+
+        modelo.setRowCount(0);
+        List<Buf_Abogado> List_abg = A_DB.Search(modificar.getTxt_buscar().getText());
+        List<Buf_Persona> List_per = P_DB.Search(modificar.getTxt_buscar().getText());
+
+        for (Buf_Persona persona : List_per) {
+
+            for (Buf_Abogado abogado : List_abg) {
+
+                Object[] fila = new Object[8];
+                fila[0] = persona.getCedula();
+                fila[1] = persona.getNombre();
+                fila[2] = persona.getApellido();
+                fila[3] = persona.getCorreo();
+                fila[4] = persona.getFecha_Nacimiento();
+                fila[5] = persona.getNum_celular();
+                fila[6] = persona.getDireccion();
+                fila[7] = abogado.getNum_matricula();
+                modelo.addRow(fila);
+            }
+        }
+        modificar.getTablepersona().setModel(modelo);
+    }
+
     @Override
     public void keyReleased(KeyEvent evt) {
-        if (evt.getSource() == modificarAbogado.txtbuscar) {
-            Datos();
+        if (evt.getSource() == modificar.getTxt_buscar()) {
+            Buscar();
         }
-        if (evt.getSource() == modificarAbogado.txtcuenta) {
-            if (modificarAbogado.txtcuenta.isEditable() == true) {
-                Campo_Vacio();
+        if (evt.getSource() == modificar.getTxt_cuenta()) {
+            if (modificar.getTxt_cuenta().isEditable() == true) {
+                V.Campo_Vacio_Modificar();
             }
         }
-        if (evt.getSource() == modificarAbogado.txtdireccion) {
-            if (modificarAbogado.txtdireccion.isEditable() == true) {
-                Campo_Vacio();
+        if (evt.getSource() == modificar.getTxt_direccion()) {
+            if (modificar.getTxt_direccion().isEditable() == true) {
+                V.Campo_Vacio_Modificar();
             }
         }
-        if (evt.getSource() == modificarAbogado.txtcelular) {
-            if (modificarAbogado.txtcelular.isEditable() == true) {
-                Campo_Vacio();
+        if (evt.getSource() == modificar.getTxt_celular()) {
+            if (modificar.getTxt_celular().isEditable() == true) {
+                V.Campo_Vacio_Modificar();
             }
         }
-        if (evt.getSource() == modificarAbogado.txtcorreo) {
-            if (modificarAbogado.txtcorreo.isEditable() == true) {
-                Campo_Vacio();
+        if (evt.getSource() == modificar.getTxt_correo()) {
+            if (modificar.getTxt_correo().isEditable() == true) {
+                V.Campo_Vacio_Modificar();
             }
 
-            if (Validar_Correo(modificarAbogado.txtcorreo.getText())) {
+            if (V.Validar_Correo(modificar.getTxt_correo().getText())) {
 
-                modificarAbogado.correo.setVisible(false);
+                modificar.correo.setVisible(false);
             } else {
 
-                if (modificarAbogado.lacorreo1.isShowing() == true) {
+                if (modificar.getLb_correo().isShowing() == true) {
 
-                    modificarAbogado.correo.setVisible(false);
+                    modificar.correo.setVisible(false);
                 } else {
-                    modificarAbogado.correo.setVisible(true);
+                    modificar.correo.setVisible(true);
                 }
             }
         }
-        if (evt.getSource() == modificarAbogado.txtnombre) {
-            if (modificarAbogado.txtnombre.isEditable() == true) {
-                Campo_Vacio();
+        if (evt.getSource() == modificar.getTxt_nombre()) {
+            if (modificar.getTxt_nombre().isEditable() == true) {
+                V.Campo_Vacio_Modificar();
             }
 
         }
@@ -859,100 +678,118 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
 
     }
 
+    public void Cargar_Table() {
+
+        List<Buf_Abogado> List_abg = A_DB.Getter();
+        List<Buf_Persona> List_per = P_DB.Getter();
+
+        int select = modificar.getTablepersona().getSelectedRow();
+
+        if (select != -1) {
+
+            modificar.getCb_1().setSelected(false);
+            modificar.getCb_2().setSelected(false);
+            modificar.getCb_3().setSelected(false);
+            modificar.getCb_4().setSelected(false);
+
+            modificar.getTxt_cedula().setText(List_per.get(select).getCedula());
+            modificar.getTxt_nombre().setText(List_per.get(select).getNombre());
+            modificar.getTxt_apellido().setText(List_per.get(select).getApellido());
+            modificar.getTxt_correo().setText(List_abg.get(select).getCorreo());
+            modificar.getTxt_direccion().setText(List_abg.get(select).getDireccion());
+            modificar.getTxt_celular().setText(List_abg.get(select).getNum_celular());
+            modificar.getCb_estado().setSelectedItem(List_abg.get(select).getEstado_civil());
+            modificar.nacimeinto.setText(List_abg.get(select).getFecha_Nacimiento());
+
+            modificar.getTxt_matricula().setText(String.valueOf(List_abg.get(select).getNum_matricula()));
+            modificar.getTxt_cuenta().setText(String.valueOf(List_abg.get(select).getNum_cuenta()));
+
+            if (List_abg.get(select).getHorario().equals("9:00-13:00")) {
+                modificar.getCb_1().setSelected(true);
+            }
+            if (List_abg.get(select).getHorario().equals("13:00-15:00")) {
+                modificar.getCb_2().setSelected(true);
+            }
+            if (List_abg.get(select).getHorario().equals("15:00-16:30")) {
+                modificar.getCb_3().setSelected(true);
+            }
+            if (List_abg.get(select).getHorario().equals("16:30-18:30")) {
+                modificar.getCb_4().setSelected(true);
+            }
+
+            //MAS DE DOS OPCIONES
+            if (List_abg.get(select).getHorario().equals("9:00-13:00 | 13:00-15:00")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_2().setSelected(true);
+            }
+            if (List_abg.get(select).getHorario().equals("9:00-13:00 | 15:00-16:30")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_3().setSelected(true);
+            }
+            if (List_abg.get(select).getHorario().equals("9:00-13:00 | 16:30-18:30")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+
+            if (List_abg.get(select).getHorario().equals("13:00-15:00 | 15:00-16:30")) {
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_3().setSelected(true);
+            }
+            if (List_abg.get(select).getHorario().equals("15:00-16:30 | 16:30-18:30")) {
+                modificar.getCb_3().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+            if (List_abg.get(select).getHorario().equals("13:00-15:00 | 16:30-18:30")) {
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+
+            if (List_abg.get(select).getHorario().equals("9:00-13:00 | 13:00-15:00 | 15:00-16:30")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_3().setSelected(true);
+            }
+            if (List_abg.get(select).getHorario().equals("9:00-13:00 | 13:00-15:00 | 16:30-18:30")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+            if (List_abg.get(select).getHorario().equals("13:00-15:00 | 15:00-16:30 | 16:30-18:30")) {
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_3().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+            if (List_abg.get(select).getHorario().equals("9:00-13:00 | 13:00-15:00 | 15:00-16:30 | 16:30-18:30")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_3().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+
+            try {
+                byte[] bi = List_abg.get(select).getFoto();
+                BufferedImage image = null;
+                InputStream in = new ByteArrayInputStream(bi);
+                image = ImageIO.read(in);
+                ImageIcon imgi = new ImageIcon(image.getScaledInstance(modificar.getLa_foto().getWidth(), modificar.getLa_foto().getHeight(), img.SCALE_DEFAULT));
+                modificar.getLa_foto().setIcon(imgi);
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+            modificar.getBtn_elimina().setEnabled(true);
+            modificar.getBtn_modificar().setEnabled(true);
+            modificar.getBtn_imagen().setEnabled(false);
+            modificar.getTxt_buscar().setEditable(true);
+        }
+    }
+
     @Override
     public void mousePressed(MouseEvent evt) {
-        if (evt.getSource() == modificarAbogado.tablepersona) {
-            int select = modificarAbogado.tablepersona.getSelectedRow();
+        if (evt.getSource() == modificar.getTablepersona()) {
 
-            if (select != -1) {
-
-                modificarAbogado.cb1.setSelected(false);
-                modificarAbogado.cb2.setSelected(false);
-                modificarAbogado.cb3.setSelected(false);
-                modificarAbogado.cb4.setSelected(false);
-                modificarAbogado.txtnombre.setText(Lista_abogado.get(select).getNombre());
-                modificarAbogado.txtapellido.setText(Lista_abogado.get(select).getApellidos());
-                modificarAbogado.txtcedula.setText(Lista_abogado.get(select).getCedula());
-                cedula = Lista_abogado.get(select).getCedula();
-                modificarAbogado.txtcorreo.setText(Lista_abogado.get(select).getCorreo());
-                modificarAbogado.txtcelular.setText(Lista_abogado.get(select).getCelular());
-                modificarAbogado.txtcuenta.setText(Lista_abogado.get(select).getNum_cuenta());
-                modificarAbogado.txtdireccion.setText(Lista_abogado.get(select).getDireccion());
-                modificarAbogado.cbestado.setSelectedItem(Lista_abogado.get(select).getEstado());
-                if (Lista_abogado.get(select).getRegistro_horario().equals("9:00-13:00")) {
-                    modificarAbogado.cb1.setSelected(true);
-                }
-                if (Lista_abogado.get(select).getRegistro_horario().equals("13:00-15:00")) {
-                    modificarAbogado.cb2.setSelected(true);
-                }
-                if (Lista_abogado.get(select).getRegistro_horario().equals("15:00-16:30")) {
-                    modificarAbogado.cb3.setSelected(true);
-                }
-                if (Lista_abogado.get(select).getRegistro_horario().equals("16:30-18:30")) {
-                    modificarAbogado.cb4.setSelected(true);
-                }
-
-                //MAS DE DOS OPCIONES
-                if (Lista_abogado.get(select).getRegistro_horario().equals("9:00-13:0013:00-15:00")) {
-                    modificarAbogado.cb1.setSelected(true);
-                    modificarAbogado.cb2.setSelected(true);
-                }
-                if (Lista_abogado.get(select).getRegistro_horario().equals("9:00-13:0015:00-16:30")) {
-                    modificarAbogado.cb1.setSelected(true);
-                    modificarAbogado.cb3.setSelected(true);
-                }
-                if (Lista_abogado.get(select).getRegistro_horario().equals("9:00-13:0016:30-18:30")) {
-                    modificarAbogado.cb1.setSelected(true);
-                    modificarAbogado.cb4.setSelected(true);
-                }
-
-                if (Lista_abogado.get(select).getRegistro_horario().equals("13:00-15:0015:00-16:30")) {
-                    modificarAbogado.cb2.setSelected(true);
-                    modificarAbogado.cb3.setSelected(true);
-                }
-                if (Lista_abogado.get(select).getRegistro_horario().equals("15:00-16:3016:30-18:30")) {
-                    modificarAbogado.cb3.setSelected(true);
-                    modificarAbogado.cb4.setSelected(true);
-                }
-                if (Lista_abogado.get(select).getRegistro_horario().equals("13:00-15:0016:30-18:30")) {
-                    modificarAbogado.cb2.setSelected(true);
-                    modificarAbogado.cb4.setSelected(true);
-                }
-
-                if (Lista_abogado.get(select).getRegistro_horario().equals("9:00-13:0013:00-15:0015:00-16:30")) {
-                    modificarAbogado.cb1.setSelected(true);
-                    modificarAbogado.cb2.setSelected(true);
-                    modificarAbogado.cb3.setSelected(true);
-                }
-                if (Lista_abogado.get(select).getRegistro_horario().equals("9:00-13:0013:00-15:0016:30-18:30")) {
-                    modificarAbogado.cb1.setSelected(true);
-                    modificarAbogado.cb2.setSelected(true);
-                    modificarAbogado.cb4.setSelected(true);
-                }
-                if (Lista_abogado.get(select).getRegistro_horario().equals("13:00-15:0015:00-16:3016:30-18:30")) {
-                    modificarAbogado.cb2.setSelected(true);
-                    modificarAbogado.cb3.setSelected(true);
-                    modificarAbogado.cb4.setSelected(true);
-                }
-                if (Lista_abogado.get(select).getRegistro_horario().equals("9:00-13:0013:00-15:0015:00-16:3016:30-18:30")) {
-                    modificarAbogado.cb1.setSelected(true);
-                    modificarAbogado.cb2.setSelected(true);
-                    modificarAbogado.cb3.setSelected(true);
-                    modificarAbogado.cb4.setSelected(true);
-                }
-                modificarAbogado.txtmatricula.setText(Lista_abogado.get(select).getNum_matricula());
-                modificarAbogado.nacimeinto.setText(Lista_abogado.get(select).getNacimiento());
-                Imagen = Lista_abogado.get(select).getImagen();
-                Orig = "src/Imagenes_Abogados/" + Imagen;
-                ImageIcon icon = new ImageIcon(Orig);
-                ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(modificarAbogado.lafoto.getWidth(), modificarAbogado.lafoto.getHeight(), Image.SCALE_DEFAULT));
-                modificarAbogado.lafoto.setText(null);
-                modificarAbogado.lafoto.setIcon(icono);
-                modificarAbogado.btnelimina.setEnabled(true);
-                modificarAbogado.btnmodificar.setEnabled(true);
-                modificarAbogado.btnimagen.setEnabled(false);
-                modificarAbogado.txtbuscar.setEditable(true);
-            }
+            Cargar_Table();
         }
     }
 
@@ -970,36 +807,4 @@ public class C_Modificar_Abogado implements ActionListener, KeyListener, MouseLi
     public void mouseExited(MouseEvent evt) {
 
     }
-
-    public boolean Validar_Correo(String correo) {
-
-        Pattern patron = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-
-        Matcher valida = patron.matcher(correo);
-
-        return valida.find();
-    }
-
-    public boolean Validar_Correo() {
-
-        for (int i = 0; i < Lista_abogado.size(); i++) {
-            if (Lista_abogado.get(i).getCorreo().equalsIgnoreCase(modificarAbogado.txtcorreo.getText())) {
-                return false;
-            }
-        }
-
-        for (int i = 0; i < Lista_Secretaria.size(); i++) {
-            if (Lista_Secretaria.get(i).getCorreo().equalsIgnoreCase(modificarAbogado.txtcorreo.getText())) {
-                return false;
-            }
-        }
-
-        for (int i = 0; i < Lista_cliente.size(); i++) {
-            if (Lista_cliente.get(i).getCorreo().equalsIgnoreCase(modificarAbogado.txtcorreo.getText())) {
-                return false;
-            }
-        }
-        return true;
-    }
-
 }
