@@ -241,7 +241,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x != null) {
                     V_Modificar_Abogado RA = new V_Modificar_Abogado();
-                    C_Modificar_Abogado modificarAbogado = new C_Modificar_Abogado(A,P,U,modificar,A_DB,P_DB,S_DB,C_DB,U_DB,V);
+                    C_Modificar_Abogado modificarAbogado = new C_Modificar_Abogado(modificar,A,P,U,A_DB,P_DB,S_DB,C_DB,U_DB,V);
                     Inicio.escritorio.add(RA);
                     RA.show();
                 } else {
@@ -256,7 +256,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x != null) {
                     V_Registro_Abogado ra = new V_Registro_Abogado();
-                    C_Registro_Abogado registroAbogado = new C_Registro_Abogado(A,P,registro,A_DB,P_DB,S_DB,C_DB,V);
+                    C_Registro_Abogado registroAbogado = new C_Registro_Abogado(registro,A,P,A_DB,P_DB,S_DB,C_DB,V);
                     Inicio.escritorio.add(ra);
                     ra.show();
                 } else {

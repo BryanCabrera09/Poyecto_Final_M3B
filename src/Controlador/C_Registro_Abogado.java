@@ -37,10 +37,10 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
     Buf_ClienteDB C_DB;
     Validar_Abogados V;
 
-    public C_Registro_Abogado(Buf_Abogado A, Buf_Persona P, V_Registro_Abogado registro, Buf_AbogadoDB A_DB, Buf_PersonaDB P_DB, Buf_SecretariaDB S_DB, Buf_ClienteDB C_DB, Validar_Abogados V) {
+    public C_Registro_Abogado(V_Registro_Abogado registro, Buf_Abogado A, Buf_Persona P, Buf_AbogadoDB A_DB, Buf_PersonaDB P_DB, Buf_SecretariaDB S_DB, Buf_ClienteDB C_DB, Validar_Abogados V) {
+        this.registro = registro;
         this.A = A;
         this.P = P;
-        this.registro = registro;
         this.A_DB = A_DB;
         this.P_DB = P_DB;
         this.S_DB = S_DB;
@@ -318,22 +318,22 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
 
     public void Subir_Datos() {
 
-        String horario = " | ";
+        String horario = "";
         if (registro.getCb_1().isSelected() == true) {
 
-            horario = horario + registro.getCb_1().getText();
+            horario = horario + " | " + registro.getCb_1().getText() + " | ";
         }
         if (registro.getCb_2().isSelected() == true) {
 
-            horario = horario + registro.getCb_2().getText();
+            horario = horario + " | " + registro.getCb_2().getText() + " | ";
         }
         if (registro.getCb_3().isSelected() == true) {
 
-            horario = horario + registro.getCb_3().getText();
+            horario = horario + " | " + registro.getCb_3().getText() + " | ";
         }
         if (registro.getCb_4().isSelected() == true) {
 
-            horario = horario + registro.getCb_4().getText();
+            horario = horario + " | " + registro.getCb_4().getText() + " | ";
         }
 
         String estado = (String) registro.getCb_estado().getSelectedItem();
@@ -369,9 +369,8 @@ public class C_Registro_Abogado implements ActionListener, KeyListener {
         } catch (Exception ex) {
             A.setFoto(null);
         }
-        
+
         if (P_DB.Register(P)) {
-            
 
         } else {
 

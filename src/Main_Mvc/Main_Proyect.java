@@ -9,11 +9,10 @@ import controlador.C_Menu_Inicio;
 import vista.V_Inicio_Sesion;
 import vista.V_Menu_Inicio;
 
-/**
- *
- * @author Andy
+/*
+ * @author BRYAN_CABRERA
  */
-public class Main {
+public class Main_Proyect {
 
     public static void main(String[] args) {
 

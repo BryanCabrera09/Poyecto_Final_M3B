@@ -118,7 +118,7 @@ public class Buf_UsuariosDB implements Buf_UsuarioDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Usuarios SET usuario=?,contraseña=? WHERE id_abg=?";
+            String sql = "UPDATE Buf_Usuarios SET usuario=?,contraseña=? WHERE ci_user=?";
             pst = con.prepareStatement(sql);
 
             pst.setString(1, user.getUsuario());
@@ -164,7 +164,7 @@ public class Buf_UsuariosDB implements Buf_UsuarioDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "DELETE FROM Buf_Usuarios WHERE id_abg=?";
+            String sql = "DELETE FROM Buf_Usuarios WHERE ci_user=?";
 
             pst = con.prepareStatement(sql);
             pst.setInt(1, user.getId_abg());

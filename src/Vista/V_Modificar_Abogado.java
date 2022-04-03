@@ -408,7 +408,7 @@ public class V_Modificar_Abogado extends javax.swing.JInternalFrame {
     public static void setLb_apellido(JLabel lb_apellido) {
         V_Modificar_Abogado.lb_apellido = lb_apellido;
     }
-    
+
     public void Cargar_Imagen() {
 
         JFileChooser j = new JFileChooser();

@@ -251,7 +251,7 @@ public class Validar_Abogados {
 
         String estado = (String) registro.getCb_estado().getSelectedItem();
 
-        if (!registro.getTxt_cedula().getText().equals("") && !registro.getTxt_nombre().getText().equals("") && !registro.getTxt_apellido().getText().equals("") && !(registro.getLb_foto().getIcon() == null) && !(registro.getCalendar().getDate() == null) && !registro.getTxt_celular().getText().equals("") && !registro.getTxt_cuenta().getText().equals("") && !registro.getTxt_correo().getText().equals("") && !registro.getTxt_direccion().getText().equals("") && !estado.equals("Seleccionar") && !registro.getTxt_matricula().getText().equals("") && (registro.getCb_1().isSelected() || registro.getCb_2().isSelected() || registro.getCb_3().isSelected() || registro.getCb_4().isSelected())) {
+        if (!(registro.getTxt_cedula().getText().equals("")) && !(registro.getTxt_nombre().getText().equals("")) && !(registro.getTxt_apellido().getText().equals("")) && !(registro.getLb_foto().getIcon() == null) && !(registro.getCalendar().getDate() == null) && !registro.getTxt_celular().getText().equals("") && !registro.getTxt_cuenta().getText().equals("") && !registro.getTxt_correo().getText().equals("") && !registro.getTxt_direccion().getText().equals("") && !estado.equals("Seleccionar") && !registro.getTxt_matricula().getText().equals("") && (registro.getCb_1().isSelected() || registro.getCb_2().isSelected() || registro.getCb_3().isSelected() || registro.getCb_4().isSelected())) {
 
             return true;
         } else {
@@ -262,9 +262,9 @@ public class Validar_Abogados {
 
     public boolean Valdar_Datos_Modificar() {
 
-        String estado = (String) registro.getCb_estado().getSelectedItem();
+        String estado = (String) modificar.getCb_estado().getSelectedItem();
 
-        if (!modificar.getTxt_nombre().getText().isEmpty() && !modificar.getTxt_correo().getText().isEmpty() && !modificar.getTxt_direccion().getText().isEmpty() && !modificar.getTxt_celular().getText().isEmpty() && !modificar.getTxt_cuenta().getText().isEmpty() && !estado.equals("Seleccionar") && (modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
+        if (!modificar.getTxt_nombre().getText().equals("") && !modificar.getTxt_correo().getText().equals("") && !modificar.getTxt_direccion().getText().equals("") && !modificar.getTxt_celular().getText().equals("") && !modificar.getTxt_cuenta().getText().equals("") && !estado.equals("Seleccionar") && (modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
             return true;
         } else {
 
@@ -292,6 +292,14 @@ public class Validar_Abogados {
         registro.getCb_estado().addItem("Soltero");
         registro.getCb_estado().addItem("Casado");
         registro.getCb_estado().addItem("Divorciado");
+    }
+    
+    public void Estado_Civil_Modificar() {
+
+        modificar.getCb_estado().addItem("Seleccionar");
+        modificar.getCb_estado().addItem("Soltero");
+        modificar.getCb_estado().addItem("Casado");
+        modificar.getCb_estado().addItem("Divorciado");
     }
 
     public void Campos() {
@@ -323,7 +331,7 @@ public class Validar_Abogados {
 
         for (int i = 0; i < List_pers.size(); i++) {
             if (List_pers.get(i).getCedula().equals(registro.getTxt_cedula().getText())) {
-                return true;
+                return false;
             }
         }
         return true;
@@ -331,30 +339,28 @@ public class Validar_Abogados {
 
     public boolean Validar_Correo() {
 
-        List<Buf_Abogado> List_abg = A_DB.Getter();
-        List<Buf_Secretaria> List_secre = S_DB.Getter();
-        List<Buf_Cliente> List_cliente = C_DB.Getter();
+        List<Buf_Persona> List_pers = P_DB.Getter();
 
-        for (int i = 0; i < List_abg.size(); i++) {
-            if (List_abg.get(i).getCorreo().equalsIgnoreCase(registro.getTxt_correo().getText())) {
-                return false;
-            }
-        }
-
-        for (int i = 0; i < List_secre.size(); i++) {
-            if (List_secre.get(i).getCorreo().equalsIgnoreCase(registro.getTxt_correo().getText())) {
-                return false;
-            }
-        }
-
-        for (int i = 0; i < List_cliente.size(); i++) {
-            if (List_cliente.get(i).getCorreo().equalsIgnoreCase(registro.getTxt_correo().getText())) {
+        for (int i = 0; i < List_pers.size(); i++) {
+            if (List_pers.get(i).getCorreo().equalsIgnoreCase(registro.getTxt_correo().getText())) {
                 return false;
             }
         }
         return true;
     }
 
+    public boolean Validar_Correo_Modificar() {
+
+        List<Buf_Persona> List_pers = P_DB.Getter();
+
+        for (int i = 0; i < List_pers.size(); i++) {
+            if (List_pers.get(i).getCorreo().equalsIgnoreCase(modificar.getTxt_correo().getText())) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public int Id_Generator() {
 
         List<Buf_Abogado> List_abg = A_DB.Getter();
@@ -387,45 +393,10 @@ public class Validar_Abogados {
 
         return id_abg;
     }
-
-    public int Id_Generator_Modificar() {
-
-        List<Buf_Abogado> List_abg = A_DB.Getter();
-        List<Buf_Secretaria> List_secre = S_DB.Getter();
-        List<Buf_Cliente> List_cliente = C_DB.Getter();
-
-        int id_abg = (int) Math.floor(Math.random() * (99999999 - 11111111 + 1) + 11111111);
-
-        int a = 0;
-        do {
-
-            for (int i = 0; i < List_abg.size(); i++) {
-                if (List_abg.get(i).getId_abg() == id_abg) {
-                    a = 1;
-                }
-            }
-
-            for (int i = 0; i < List_secre.size(); i++) {
-                if ((List_secre.get(i).getId_secretaria() != id_abg) && (List_abg.get(i).getId_abg() == id_abg)) {
-                    a = 1;
-                }
-            }
-
-            for (int i = 0; i < List_cliente.size(); i++) {
-                if ((List_cliente.get(i).getId_cliente() != id_abg) && (List_abg.get(i).getId_abg() == id_abg)) {
-                    a = 1;
-                }
-            }
-        } while (a == 0);
-
-        return id_abg;
-    }
-
+    
     public boolean Validar_Matricula() {
 
         List<Buf_Abogado> List_abg = A_DB.Getter();
-
-        int matricula = Integer.parseInt(registro.getTxt_matricula().getText());
 
         for (int i = 0; i < List_abg.size(); i++) {
             if (List_abg.get(i).getNum_matricula() == Integer.parseInt(registro.getTxt_matricula().getText())) {
@@ -567,6 +538,7 @@ public class Validar_Abogados {
         modificar.getLb_horario().setVisible(false);
         modificar.getLb_estado().setVisible(false);
         modificar.getLb_direccion().setVisible(false);
+        modificar.getLb_apellido().setVisible(false);
         modificar.correo.setVisible(false);
         modificar.getBtn_guardar().setEnabled(false);
         modificar.getBtn_imagen().setEnabled(false);
@@ -611,7 +583,7 @@ public class Validar_Abogados {
     public void Modificar() {
 
         modificar.getTxt_nombre().setEditable(true);
-        modificar.getTxt_apellido().setEditable(false);
+        modificar.getTxt_apellido().setEditable(true);
         modificar.getTxt_cedula().setEditable(false);
         modificar.getTxt_correo().setEditable(true);
         modificar.getTxt_celular().setEditable(true);
