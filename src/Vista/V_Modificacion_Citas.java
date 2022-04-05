@@ -29,146 +29,144 @@ public class V_Modificacion_Citas extends javax.swing.JInternalFrame {
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
         setLocation(a / 2, b / 5);
-
-        lb_celular.setVisible(false);
     }
 
-    public static JButton getBtn_cancelar() {
+    public JButton getBtn_cancelar() {
         return btn_cancelar;
     }
 
-    public static void setBtn_cancelar(JButton btn_cancelar) {
-        V_Modificacion_Citas.btn_cancelar = btn_cancelar;
+    public void setBtn_cancelar(JButton btn_cancelar) {
+        this.btn_cancelar = btn_cancelar;
     }
 
-    public static JButton getBtn_guardar() {
+    public JButton getBtn_guardar() {
         return btn_guardar;
     }
 
-    public static void setBtn_guardar(JButton btn_guardar) {
-        V_Modificacion_Citas.btn_guardar = btn_guardar;
+    public void setBtn_guardar(JButton btn_guardar) {
+        this.btn_guardar = btn_guardar;
     }
 
-    public static JButton getBtn_modificar() {
+    public JButton getBtn_modificar() {
         return btn_modificar;
     }
 
-    public static void setBtn_modificar(JButton btn_modificar) {
-        V_Modificacion_Citas.btn_modificar = btn_modificar;
+    public void setBtn_modificar(JButton btn_modificar) {
+        this.btn_modificar = btn_modificar;
     }
 
-    public static JButton getBtn_regresar() {
+    public JButton getBtn_regresar() {
         return btn_regresar;
     }
 
-    public static void setBtn_regresar(JButton btn_regresar) {
-        V_Modificacion_Citas.btn_regresar = btn_regresar;
+    public void setBtn_regresar(JButton btn_regresar) {
+        this.btn_regresar = btn_regresar;
     }
 
-    public static JComboBox<String> getCb_caso() {
+    public JComboBox<String> getCb_caso() {
         return cb_caso;
     }
 
-    public static void setCb_caso(JComboBox<String> cb_caso) {
-        V_Modificacion_Citas.cb_caso = cb_caso;
+    public void setCb_caso(JComboBox<String> cb_caso) {
+        this.cb_caso = cb_caso;
     }
 
-    public static JLabel getCelular() {
+    public JLabel getCelular() {
         return celular;
     }
 
-    public static void setCelular(JLabel celular) {
-        V_Modificacion_Citas.celular = celular;
+    public void setCelular(JLabel celular) {
+        this.celular = celular;
     }
 
-    public static JLabel getjLabel1() {
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Modificacion_Citas.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JLabel getjLabel2() {
+    public JLabel getjLabel2() {
         return jLabel2;
     }
 
-    public static void setjLabel2(JLabel jLabel2) {
-        V_Modificacion_Citas.jLabel2 = jLabel2;
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
     }
 
-    public static JLabel getjLabel3() {
+    public JLabel getjLabel3() {
         return jLabel3;
     }
 
-    public static void setjLabel3(JLabel jLabel3) {
-        V_Modificacion_Citas.jLabel3 = jLabel3;
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
     }
 
-    public static JLabel getjLabel4() {
+    public JLabel getjLabel4() {
         return jLabel4;
     }
 
-    public static void setjLabel4(JLabel jLabel4) {
-        V_Modificacion_Citas.jLabel4 = jLabel4;
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
     }
 
-    public static JLabel getjLabel5() {
+    public JLabel getjLabel5() {
         return jLabel5;
     }
 
-    public static void setjLabel5(JLabel jLabel5) {
-        V_Modificacion_Citas.jLabel5 = jLabel5;
+    public void setjLabel5(JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
     }
 
-    public static JScrollPane getjScrollPane1() {
+    public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
 
-    public static void setjScrollPane1(JScrollPane jScrollPane1) {
-        V_Modificacion_Citas.jScrollPane1 = jScrollPane1;
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
     }
 
-    public static JSpinner getJs_hora() {
+    public JSpinner getJs_hora() {
         return js_hora;
     }
 
-    public static void setJs_hora(JSpinner js_hora) {
-        V_Modificacion_Citas.js_hora = js_hora;
+    public void setJs_hora(JSpinner js_hora) {
+        this.js_hora = js_hora;
     }
 
-    public static JLabel getLb_celular() {
+    public JLabel getLb_celular() {
         return lb_celular;
     }
 
-    public static void setLb_celular(JLabel lb_celular) {
-        V_Modificacion_Citas.lb_celular = lb_celular;
+    public void setLb_celular(JLabel lb_celular) {
+        this.lb_celular = lb_celular;
     }
 
-    public static JTextArea getTxa_descripcion() {
+    public JTextArea getTxa_descripcion() {
         return txa_descripcion;
     }
 
-    public static void setTxa_descripcion(JTextArea txa_descripcion) {
-        V_Modificacion_Citas.txa_descripcion = txa_descripcion;
+    public void setTxa_descripcion(JTextArea txa_descripcion) {
+        this.txa_descripcion = txa_descripcion;
     }
 
-    public static JTextField getTxt_cedula() {
+    public JTextField getTxt_cedula() {
         return txt_cedula;
     }
 
-    public static void setTxt_cedula(JTextField txt_cedula) {
-        V_Modificacion_Citas.txt_cedula = txt_cedula;
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
     }
 
-    public static JTextField getTxt_celular() {
+    public JTextField getTxt_celular() {
         return txt_celular;
     }
 
-    public static void setTxt_celular(JTextField txt_celular) {
-        V_Modificacion_Citas.txt_celular = txt_celular;
+    public void setTxt_celular(JTextField txt_celular) {
+        this.txt_celular = txt_celular;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -295,23 +293,23 @@ public class V_Modificacion_Citas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btn_cancelar;
-    public static javax.swing.JButton btn_guardar;
-    public static javax.swing.JButton btn_modificar;
-    public static javax.swing.JButton btn_regresar;
-    public static javax.swing.JComboBox<String> cb_caso;
-    public static javax.swing.JLabel celular;
-    public static javax.swing.JLabel jLabel1;
-    public static javax.swing.JLabel jLabel2;
-    public static javax.swing.JLabel jLabel3;
-    public static javax.swing.JLabel jLabel4;
-    public static javax.swing.JLabel jLabel5;
+    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_modificar;
+    private javax.swing.JButton btn_regresar;
+    private javax.swing.JComboBox<String> cb_caso;
+    private javax.swing.JLabel celular;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
-    public static javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JSpinner js_hora;
-    public static javax.swing.JLabel lb_celular;
-    public static javax.swing.JTextArea txa_descripcion;
-    public static javax.swing.JTextField txt_cedula;
-    public static javax.swing.JTextField txt_celular;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner js_hora;
+    private javax.swing.JLabel lb_celular;
+    private javax.swing.JTextArea txa_descripcion;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_celular;
     // End of variables declaration//GEN-END:variables
 }

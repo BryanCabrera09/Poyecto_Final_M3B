@@ -34,12 +34,12 @@ public class V_Modificar_Consulta extends javax.swing.JInternalFrame {
         lb_nombre.setVisible(false);
     }
 
-    public static JButton getBtn_cancelar() {
+    public JButton getBtn_cancelar() {
         return btn_cancelar;
     }
 
-    public static void setBtn_cancelar(JButton btn_cancelar) {
-        V_Modificar_Consulta.btn_cancelar = btn_cancelar;
+    public void setBtn_cancelar(JButton btn_cancelar) {
+        this.btn_cancelar = btn_cancelar;
     }
 
     public JButton getBtn_guardar() {
@@ -66,12 +66,12 @@ public class V_Modificar_Consulta extends javax.swing.JInternalFrame {
         this.btn_regresar = btn_regresar;
     }
 
-    public static JComboBox<String> getCb_caso() {
+    public JComboBox<String> getCb_caso() {
         return cb_caso;
     }
 
-    public static void setCb_caso(JComboBox<String> cb_caso) {
-        V_Modificar_Consulta.cb_caso = cb_caso;
+    public void setCb_caso(JComboBox<String> cb_caso) {
+        this.cb_caso = cb_caso;
     }
 
     public JLabel getjLabel1() {
@@ -122,44 +122,44 @@ public class V_Modificar_Consulta extends javax.swing.JInternalFrame {
         this.jScrollPane1 = jScrollPane1;
     }
 
-    public static JSpinner getJs_hora() {
+    public JSpinner getJs_hora() {
         return js_hora;
     }
 
-    public static void setJs_hora(JSpinner js_hora) {
-        V_Modificar_Consulta.js_hora = js_hora;
+    public void setJs_hora(JSpinner js_hora) {
+        this.js_hora = js_hora;
     }
 
-    public static JLabel getLb_nombre() {
+    public JLabel getLb_nombre() {
         return lb_nombre;
     }
 
-    public static void setLb_nombre(JLabel lb_nombre) {
-        V_Modificar_Consulta.lb_nombre = lb_nombre;
+    public void setLb_nombre(JLabel lb_nombre) {
+        this.lb_nombre = lb_nombre;
     }
 
-    public static JTextArea getTxa_descripcion() {
+    public JTextArea getTxa_descripcion() {
         return txa_descripcion;
     }
 
-    public static void setTxa_descripcion(JTextArea txa_descripcion) {
-        V_Modificar_Consulta.txa_descripcion = txa_descripcion;
+    public void setTxa_descripcion(JTextArea txa_descripcion) {
+        this.txa_descripcion = txa_descripcion;
     }
 
-    public static JTextField getTxt_apellidos() {
+    public JTextField getTxt_apellidos() {
         return txt_apellidos;
     }
 
-    public static void setTxt_apellidos(JTextField txt_apellidos) {
-        V_Modificar_Consulta.txt_apellidos = txt_apellidos;
+    public void setTxt_apellidos(JTextField txt_apellidos) {
+        this.txt_apellidos = txt_apellidos;
     }
 
-    public static JTextField getTxt_nombres() {
+    public JTextField getTxt_nombres() {
         return txt_nombres;
     }
 
-    public static void setTxt_nombres(JTextField txt_nombres) {
-        V_Modificar_Consulta.txt_nombres = txt_nombres;
+    public void setTxt_nombres(JTextField txt_nombres) {
+        this.txt_nombres = txt_nombres;
     }
 
     /**
@@ -284,22 +284,22 @@ public class V_Modificar_Consulta extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btn_cancelar;
-    public javax.swing.JButton btn_guardar;
-    public javax.swing.JButton btn_modificar;
-    public javax.swing.JButton btn_regresar;
-    public static javax.swing.JComboBox<String> cb_caso;
-    public javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel3;
-    public javax.swing.JLabel jLabel4;
-    public javax.swing.JLabel jLabel5;
+    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_modificar;
+    private javax.swing.JButton btn_regresar;
+    private javax.swing.JComboBox<String> cb_caso;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
-    public javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JSpinner js_hora;
-    public static javax.swing.JLabel lb_nombre;
-    public static javax.swing.JTextArea txa_descripcion;
-    public static javax.swing.JTextField txt_apellidos;
-    public static javax.swing.JTextField txt_nombres;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner js_hora;
+    private javax.swing.JLabel lb_nombre;
+    private javax.swing.JTextArea txa_descripcion;
+    private javax.swing.JTextField txt_apellidos;
+    private javax.swing.JTextField txt_nombres;
     // End of variables declaration//GEN-END:variables
 }

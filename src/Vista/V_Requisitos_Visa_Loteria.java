@@ -28,158 +28,158 @@ public class V_Requisitos_Visa_Loteria extends javax.swing.JInternalFrame {
         setLocation(a / 2, b / 5);
     }
 
-    public static JButton getBtn_guardar() {
+    public JButton getBtn_guardar() {
         return btn_guardar;
     }
 
-    public static void setBtn_guardar(JButton btn_guardar) {
-        V_Requisitos_Visa_Loteria.btn_guardar = btn_guardar;
+    public void setBtn_guardar(JButton btn_guardar) {
+        this.btn_guardar = btn_guardar;
     }
 
-    public static JButton getBtn_modificar() {
+    public JButton getBtn_modificar() {
         return btn_modificar;
     }
 
-    public static void setBtn_modificar(JButton btn_modificar) {
-        V_Requisitos_Visa_Loteria.btn_modificar = btn_modificar;
+    public void setBtn_modificar(JButton btn_modificar) {
+        this.btn_modificar = btn_modificar;
     }
 
-    public static JButton getBtn_pago() {
+    public JButton getBtn_pago() {
         return btn_pago;
     }
 
-    public static void setBtn_pago(JButton btn_pago) {
-        V_Requisitos_Visa_Loteria.btn_pago = btn_pago;
+    public void setBtn_pago(JButton btn_pago) {
+        this.btn_pago = btn_pago;
     }
 
-    public static JComboBox<String> getCb_numper() {
+    public JComboBox<String> getCb_numper() {
         return cb_numper;
     }
 
-    public static void setCb_numper(JComboBox<String> cb_numper) {
-        V_Requisitos_Visa_Loteria.cb_numper = cb_numper;
+    public void setCb_numper(JComboBox<String> cb_numper) {
+        this.cb_numper = cb_numper;
     }
 
-    public static JLabel getHonorarios() {
+    public JLabel getHonorarios() {
         return honorarios;
     }
 
-    public static void setHonorarios(JLabel honorarios) {
-        V_Requisitos_Visa_Loteria.honorarios = honorarios;
+    public void setHonorarios(JLabel honorarios) {
+        this.honorarios = honorarios;
     }
 
-    public static JLabel getjLabel1() {
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Requisitos_Visa_Loteria.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JLabel getjLabel3() {
+    public JLabel getjLabel3() {
         return jLabel3;
     }
 
-    public static void setjLabel3(JLabel jLabel3) {
-        V_Requisitos_Visa_Loteria.jLabel3 = jLabel3;
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
     }
 
-    public static JLabel getjLabel4() {
+    public JLabel getjLabel4() {
         return jLabel4;
     }
 
-    public static void setjLabel4(JLabel jLabel4) {
-        V_Requisitos_Visa_Loteria.jLabel4 = jLabel4;
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
     }
 
-    public static JScrollPane getjScrollPane2() {
+    public JScrollPane getjScrollPane2() {
         return jScrollPane2;
     }
 
-    public static void setjScrollPane2(JScrollPane jScrollPane2) {
-        V_Requisitos_Visa_Loteria.jScrollPane2 = jScrollPane2;
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
     }
 
-    public static JCheckBox getReq_1() {
+    public JCheckBox getReq_1() {
         return req_1;
     }
 
-    public static void setReq_1(JCheckBox req_1) {
-        V_Requisitos_Visa_Loteria.req_1 = req_1;
+    public void setReq_1(JCheckBox req_1) {
+        this.req_1 = req_1;
     }
 
-    public static JCheckBox getReq_2() {
+    public JCheckBox getReq_2() {
         return req_2;
     }
 
-    public static void setReq_2(JCheckBox req_2) {
-        V_Requisitos_Visa_Loteria.req_2 = req_2;
+    public void setReq_2(JCheckBox req_2) {
+        this.req_2 = req_2;
     }
 
-    public static JCheckBox getReq_3() {
+    public JCheckBox getReq_3() {
         return req_3;
     }
 
-    public static void setReq_3(JCheckBox req_3) {
-        V_Requisitos_Visa_Loteria.req_3 = req_3;
+    public void setReq_3(JCheckBox req_3) {
+        this.req_3 = req_3;
     }
 
-    public static JCheckBox getReq_4() {
+    public JCheckBox getReq_4() {
         return req_4;
     }
 
-    public static void setReq_4(JCheckBox req_4) {
-        V_Requisitos_Visa_Loteria.req_4 = req_4;
+    public void setReq_4(JCheckBox req_4) {
+        this.req_4 = req_4;
     }
 
-    public static JCheckBox getReq_5() {
+    public JCheckBox getReq_5() {
         return req_5;
     }
 
-    public static void setReq_5(JCheckBox req_5) {
-        V_Requisitos_Visa_Loteria.req_5 = req_5;
+    public void setReq_5(JCheckBox req_5) {
+        this.req_5 = req_5;
     }
 
-    public static JCheckBox getReq_6() {
+    public JCheckBox getReq_6() {
         return req_6;
     }
 
-    public static void setReq_6(JCheckBox req_6) {
-        V_Requisitos_Visa_Loteria.req_6 = req_6;
+    public void setReq_6(JCheckBox req_6) {
+        this.req_6 = req_6;
     }
 
-    public static JCheckBox getReq_7() {
+    public JCheckBox getReq_7() {
         return req_7;
     }
 
-    public static void setReq_7(JCheckBox req_7) {
-        V_Requisitos_Visa_Loteria.req_7 = req_7;
+    public void setReq_7(JCheckBox req_7) {
+        this.req_7 = req_7;
     }
 
-    public static JCheckBox getReq_8() {
+    public JCheckBox getReq_8() {
         return req_8;
     }
 
-    public static void setReq_8(JCheckBox req_8) {
-        V_Requisitos_Visa_Loteria.req_8 = req_8;
+    public void setReq_8(JCheckBox req_8) {
+        this.req_8 = req_8;
     }
 
-    public static JCheckBox getReq_9() {
+    public JCheckBox getReq_9() {
         return req_9;
     }
 
-    public static void setReq_9(JCheckBox req_9) {
-        V_Requisitos_Visa_Loteria.req_9 = req_9;
+    public void setReq_9(JCheckBox req_9) {
+        this.req_9 = req_9;
     }
 
-    public static JTextArea getTxa_observ() {
+    public JTextArea getTxa_observ() {
         return txa_observ;
     }
 
-    public static void setTxa_observ(JTextArea txa_observ) {
-        V_Requisitos_Visa_Loteria.txa_observ = txa_observ;
+    public void setTxa_observ(JTextArea txa_observ) {
+        this.txa_observ = txa_observ;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -319,25 +319,25 @@ public class V_Requisitos_Visa_Loteria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btn_guardar;
-    public static javax.swing.JButton btn_modificar;
-    public static javax.swing.JButton btn_pago;
-    public static javax.swing.JComboBox<String> cb_numper;
-    public static javax.swing.JLabel honorarios;
-    public static javax.swing.JLabel jLabel1;
-    public static javax.swing.JLabel jLabel3;
-    public static javax.swing.JLabel jLabel4;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_modificar;
+    private javax.swing.JButton btn_pago;
+    private javax.swing.JComboBox<String> cb_numper;
+    private javax.swing.JLabel honorarios;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JScrollPane jScrollPane2;
-    public static javax.swing.JCheckBox req_1;
-    public static javax.swing.JCheckBox req_2;
-    public static javax.swing.JCheckBox req_3;
-    public static javax.swing.JCheckBox req_4;
-    public static javax.swing.JCheckBox req_5;
-    public static javax.swing.JCheckBox req_6;
-    public static javax.swing.JCheckBox req_7;
-    public static javax.swing.JCheckBox req_8;
-    public static javax.swing.JCheckBox req_9;
-    public static javax.swing.JTextArea txa_observ;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JCheckBox req_1;
+    private javax.swing.JCheckBox req_2;
+    private javax.swing.JCheckBox req_3;
+    private javax.swing.JCheckBox req_4;
+    private javax.swing.JCheckBox req_5;
+    private javax.swing.JCheckBox req_6;
+    private javax.swing.JCheckBox req_7;
+    private javax.swing.JCheckBox req_8;
+    private javax.swing.JCheckBox req_9;
+    private javax.swing.JTextArea txa_observ;
     // End of variables declaration//GEN-END:variables
 }

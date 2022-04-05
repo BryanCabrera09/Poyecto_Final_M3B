@@ -23,7 +23,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,12,0,0,3,-56"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,51,0,0,3,-56"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -38,7 +38,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="970" height="760"/>
+          <AbsoluteConstraints x="0" y="0" width="970" height="800"/>
         </Constraint>
       </Constraints>
 
@@ -53,12 +53,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modificar Informacion"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="250" y="20" width="-1" height="-1"/>
+              <AbsoluteConstraints x="250" y="60" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -66,12 +63,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cedula:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="260" width="50" height="20"/>
+              <AbsoluteConstraints x="60" y="300" width="50" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -79,12 +73,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Celular:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="340" width="50" height="20"/>
+              <AbsoluteConstraints x="60" y="380" width="50" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -92,12 +83,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Nombre:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="100" width="50" height="20"/>
+              <AbsoluteConstraints x="60" y="140" width="50" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -105,12 +93,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Correo Electronico:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="320" y="100" width="110" height="20"/>
+              <AbsoluteConstraints x="320" y="140" width="110" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -118,12 +103,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Apellido:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="180" width="50" height="20"/>
+              <AbsoluteConstraints x="60" y="220" width="50" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -131,12 +113,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Direccion:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="420" width="60" height="20"/>
+              <AbsoluteConstraints x="60" y="460" width="60" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -144,12 +123,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Fecha de Nacimiento:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="320" y="180" width="130" height="20"/>
+              <AbsoluteConstraints x="320" y="220" width="130" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -157,12 +133,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Estado civil:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="320" y="260" width="80" height="20"/>
+              <AbsoluteConstraints x="320" y="300" width="80" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -170,12 +143,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Numero de Matricula:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="320" y="420" width="130" height="20"/>
+              <AbsoluteConstraints x="320" y="460" width="130" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -183,12 +153,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Numero de Cuenta:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="320" y="340" width="110" height="20"/>
+              <AbsoluteConstraints x="320" y="380" width="110" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -196,52 +163,37 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Registro de horario:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="680" y="110" width="-1" height="20"/>
+              <AbsoluteConstraints x="680" y="150" width="-1" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_celular">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="340" width="139" height="-1"/>
+              <AbsoluteConstraints x="130" y="380" width="139" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_direccion">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="420" width="139" height="-1"/>
+              <AbsoluteConstraints x="130" y="460" width="139" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_matricula">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="420" width="160" height="20"/>
+              <AbsoluteConstraints x="470" y="460" width="160" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_cuenta">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="340" width="160" height="20"/>
+              <AbsoluteConstraints x="470" y="380" width="160" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -252,12 +204,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="GUARDAR"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="610" y="690" width="-1" height="40"/>
+              <AbsoluteConstraints x="610" y="730" width="-1" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -269,11 +218,10 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="260" width="160" height="20"/>
+              <AbsoluteConstraints x="470" y="300" width="160" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -284,52 +232,37 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ELIMINAR REGISTRO"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="350" y="690" width="-1" height="40"/>
+              <AbsoluteConstraints x="350" y="730" width="-1" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_nombre">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="100" width="139" height="-1"/>
+              <AbsoluteConstraints x="130" y="140" width="139" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_apellido">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="180" width="139" height="-1"/>
+              <AbsoluteConstraints x="130" y="220" width="139" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_correo">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="100" width="160" height="20"/>
+              <AbsoluteConstraints x="470" y="140" width="160" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_cedula">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="260" width="139" height="-1"/>
+              <AbsoluteConstraints x="130" y="300" width="139" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -337,12 +270,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="9:00-13:00"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="700" y="160" width="-1" height="-1"/>
+              <AbsoluteConstraints x="700" y="200" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -350,12 +280,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="13:00-15:00"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="800" y="160" width="-1" height="-1"/>
+              <AbsoluteConstraints x="800" y="200" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -363,12 +290,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="15:00-16:30"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="700" y="200" width="-1" height="-1"/>
+              <AbsoluteConstraints x="700" y="240" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -376,22 +300,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="16:30-18:30"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="800" y="200" width="-1" height="-1"/>
+              <AbsoluteConstraints x="800" y="240" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="nacimeinto">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="180" width="160" height="20"/>
+              <AbsoluteConstraints x="470" y="220" width="160" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -405,12 +323,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="*Campo Obligatorio"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="80" width="-1" height="-1"/>
+              <AbsoluteConstraints x="130" y="120" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -424,12 +339,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="*Campo Obligatorio"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="80" width="-1" height="10"/>
+              <AbsoluteConstraints x="470" y="120" width="-1" height="10"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -443,12 +355,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="*Campo Obligatorio"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="240" width="-1" height="-1"/>
+              <AbsoluteConstraints x="470" y="280" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -462,12 +371,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="*Campo Obligatorio"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="320" width="-1" height="-1"/>
+              <AbsoluteConstraints x="470" y="360" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -481,12 +387,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="*Campo Obligatorio"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="320" width="-1" height="-1"/>
+              <AbsoluteConstraints x="130" y="360" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -500,12 +403,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="*Campo Obligatorio"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="690" y="140" width="-1" height="-1"/>
+              <AbsoluteConstraints x="690" y="180" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -519,23 +419,19 @@
             </Property>
             <Property name="text" type="java.lang.String" value="*Campo Obligatorio"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="400" width="-1" height="-1"/>
+              <AbsoluteConstraints x="130" y="440" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="480" width="850" height="180"/>
+              <AbsoluteConstraints x="50" y="520" width="850" height="180"/>
             </Constraint>
           </Constraints>
 
@@ -553,9 +449,6 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -569,12 +462,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="*Correo Erroneo"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="80" width="110" height="10"/>
+              <AbsoluteConstraints x="470" y="120" width="110" height="10"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -585,12 +475,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="*Telefono Erroneo"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="320" width="110" height="-1"/>
+              <AbsoluteConstraints x="130" y="360" width="110" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -601,32 +488,23 @@
             </Property>
             <Property name="text" type="java.lang.String" value="FOTO"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="670" y="400" width="-1" height="-1"/>
+              <AbsoluteConstraints x="670" y="440" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="la_foto">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="780" y="260" width="150" height="170"/>
+              <AbsoluteConstraints x="780" y="300" width="150" height="170"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_buscar">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="690" y="40" width="230" height="-1"/>
+              <AbsoluteConstraints x="690" y="80" width="230" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -637,12 +515,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="BUSCAR:"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="620" y="40" width="60" height="30"/>
+              <AbsoluteConstraints x="620" y="80" width="60" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -653,9 +528,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="MODIFICAR"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="20" y="20" width="-1" height="50"/>
@@ -666,12 +538,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="CANCELAR"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="160" y="690" width="-1" height="40"/>
+              <AbsoluteConstraints x="160" y="730" width="-1" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -685,12 +554,16 @@
             </Property>
             <Property name="text" type="java.lang.String" value="*Campo Obligatorio"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="160" width="-1" height="-1"/>
+              <AbsoluteConstraints x="130" y="200" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txt_id">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="750" y="30" width="120" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

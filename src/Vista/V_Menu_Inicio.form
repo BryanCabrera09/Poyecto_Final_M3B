@@ -3,17 +3,11 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-      </AuxValues>
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="Registro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Registro"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="Reg_abogado">
               <Properties>
@@ -25,9 +19,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Abogado"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Reg_secretaria">
               <Properties>
@@ -39,9 +30,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Secretaria"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Reg_cliente">
               <Properties>
@@ -53,9 +41,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cliente"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Reg_usuario">
               <Properties>
@@ -67,9 +52,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Usuario"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -77,9 +59,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="Mod_abogado">
               <Properties>
@@ -91,9 +70,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Abogado"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Mod_secretaria">
               <Properties>
@@ -105,9 +81,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Secretaria"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Mod_cliente">
               <Properties>
@@ -119,9 +92,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cliente"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -129,9 +99,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Requisitos"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="casosJudiciales">
               <Properties>
@@ -140,9 +107,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Casos Judiciales"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="Req_divorcio">
                   <Properties>
@@ -154,9 +118,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Divorcio"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="Req_pensionesali">
                   <Properties>
@@ -168,9 +129,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Pensiones Alimenticias"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -181,9 +139,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tramites de Visa"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="Req_Visa_Eeuu">
                   <Properties>
@@ -195,9 +150,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="EEUU"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="Req_visa_europa">
                   <Properties>
@@ -209,9 +161,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Europa"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="Req_visa_loteria">
                   <Properties>
@@ -223,9 +172,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Loteria-EEUU"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="Req_visa_mexico">
                   <Properties>
@@ -237,9 +183,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Mexico"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -250,9 +193,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Waiver"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="Req_Perdon">
                   <Properties>
@@ -264,9 +204,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Perdon"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -277,9 +214,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Peticion Familiar"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="Req_peticionfamiliar">
                   <Properties>
@@ -291,9 +225,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Peticion Familiar"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -304,9 +235,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Procesos Migratorios"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="Req_Renovacion_Pasaporte">
                   <Properties>
@@ -318,9 +246,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Renovacion Pasaporte EEUU"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="Req_RetornanteInmigrante">
                   <Properties>
@@ -332,9 +257,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Retornante Inmigrante"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="Req_Reporte_Consular">
                   <Properties>
@@ -346,9 +268,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Reporte Consular"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -358,9 +277,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Citas_Consutas"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="Citas">
               <Properties>
@@ -372,9 +288,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Citas"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Consultas">
               <Properties>
@@ -386,9 +299,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Consultas"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -434,9 +344,6 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel1">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-      </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
         <Property name="useNullLayout" type="boolean" value="false"/>
@@ -446,9 +353,6 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Horario"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="10" y="0" width="80" height="60"/>
@@ -462,9 +366,6 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Cita"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="100" y="0" width="80" height="60"/>
@@ -475,9 +376,6 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Consulta"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="190" y="0" width="80" height="60"/>
@@ -488,9 +386,6 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Ver Caso"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="280" y="0" width="80" height="60"/>
@@ -501,9 +396,6 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Registro Cliente-Caso"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="370" y="0" width="80" height="60"/>
@@ -523,9 +415,6 @@
               <Dimension value="[60, 16]"/>
             </Property>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="460" y="0" width="90" height="60"/>

@@ -18,51 +18,50 @@ public class V_Consuta_Consultas extends javax.swing.JInternalFrame {
     /**
      * Creates new form V_Consuta_Consultas
      */
-    
     public static String x;
-    
+
     public V_Consuta_Consultas() {
         initComponents();
         x = "x";
         table.getTableHeader().setResizingAllowed(false);
         table.getTableHeader().setReorderingAllowed(false);
-        
+
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
         setLocation(a / 2, b / 5);
-        
+
     }
 
-    public static JLabel getjLabel1() {
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Consuta_Consultas.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JScrollPane getjScrollPane1() {
+    public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
 
-    public static void setjScrollPane1(JScrollPane jScrollPane1) {
-        V_Consuta_Consultas.jScrollPane1 = jScrollPane1;
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
     }
 
-    public static JTable getTable() {
+    public JTable getTable() {
         return table;
     }
 
-    public static void setTable(JTable table) {
-        V_Consuta_Consultas.table = table;
+    public void setTable(JTable table) {
+        this.table = table;
     }
 
-    public static JTextField getTxt_apellido() {
+    public JTextField getTxt_apellido() {
         return txt_apellido;
     }
 
-    public static void setTxt_apellido(JTextField txt_apellido) {
-        V_Consuta_Consultas.txt_apellido = txt_apellido;
+    public void setTxt_apellido(JTextField txt_apellido) {
+        this.txt_apellido = txt_apellido;
     }
 
     /**
@@ -127,28 +126,29 @@ public class V_Consuta_Consultas extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
-        
+
         x = null;
     }//GEN-LAST:event_formInternalFrameClosing
 
- 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable table;
-    public static javax.swing.JTextField txt_apellido;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable table;
+    private javax.swing.JTextField txt_apellido;
     // End of variables declaration//GEN-END:variables
 }

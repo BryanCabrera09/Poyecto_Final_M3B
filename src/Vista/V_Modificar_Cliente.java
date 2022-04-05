@@ -34,284 +34,284 @@ public class V_Modificar_Cliente extends javax.swing.JInternalFrame {
 
     }
 
-    public static JButton getBtn_cancelar() {
+    public JButton getBtn_cancelar() {
         return btn_cancelar;
     }
 
-    public static void setBtn_cancelar(JButton btn_cancelar) {
-        V_Modificar_Cliente.btn_cancelar = btn_cancelar;
+    public void setBtn_cancelar(JButton btn_cancelar) {
+        this.btn_cancelar = btn_cancelar;
     }
 
-    public static JButton getBtn_eliminar() {
+    public JButton getBtn_eliminar() {
         return btn_eliminar;
     }
 
-    public static void setBtn_eliminar(JButton btn_eliminar) {
-        V_Modificar_Cliente.btn_eliminar = btn_eliminar;
+    public void setBtn_eliminar(JButton btn_eliminar) {
+        this.btn_eliminar = btn_eliminar;
     }
 
-    public static JButton getBtn_guardar() {
+    public JButton getBtn_guardar() {
         return btn_guardar;
     }
 
-    public static void setBtn_guardar(JButton btn_guardar) {
-        V_Modificar_Cliente.btn_guardar = btn_guardar;
+    public void setBtn_guardar(JButton btn_guardar) {
+        this.btn_guardar = btn_guardar;
     }
 
-    public static JButton getBtn_modificar() {
+    public JButton getBtn_modificar() {
         return btn_modificar;
     }
 
-    public static void setBtn_modificar(JButton btn_modificar) {
-        V_Modificar_Cliente.btn_modificar = btn_modificar;
+    public void setBtn_modificar(JButton btn_modificar) {
+        this.btn_modificar = btn_modificar;
     }
 
-    public static JComboBox<String> getCb_estado() {
+    public JComboBox<String> getCb_estado() {
         return cb_estado;
     }
 
-    public static void setCb_estado(JComboBox<String> cb_estado) {
-        V_Modificar_Cliente.cb_estado = cb_estado;
+    public void setCb_estado(JComboBox<String> cb_estado) {
+        this.cb_estado = cb_estado;
     }
 
-    public static JLabel getCelular() {
+    public JLabel getCelular() {
         return celular;
     }
 
-    public static void setCelular(JLabel celular) {
-        V_Modificar_Cliente.celular = celular;
+    public void setCelular(JLabel celular) {
+        this.celular = celular;
     }
 
-    public static JLabel getCorreo() {
+    public JLabel getCorreo() {
         return correo;
     }
 
-    public static void setCorreo(JLabel correo) {
-        V_Modificar_Cliente.correo = correo;
+    public void setCorreo(JLabel correo) {
+        this.correo = correo;
     }
 
-    public static JLabel getjLabel1() {
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Modificar_Cliente.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JScrollPane getjScrollPane1() {
+    public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
 
-    public static void setjScrollPane1(JScrollPane jScrollPane1) {
-        V_Modificar_Cliente.jScrollPane1 = jScrollPane1;
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
     }
 
-    public static JLabel getLaapellido() {
+    public JLabel getLaapellido() {
         return laapellido;
     }
 
-    public static void setLaapellido(JLabel laapellido) {
-        V_Modificar_Cliente.laapellido = laapellido;
+    public void setLaapellido(JLabel laapellido) {
+        this.laapellido = laapellido;
     }
 
-    public static JLabel getLacedula() {
+    public JLabel getLacedula() {
         return lacedula;
     }
 
-    public static void setLacedula(JLabel lacedula) {
-        V_Modificar_Cliente.lacedula = lacedula;
+    public void setLacedula(JLabel lacedula) {
+        this.lacedula = lacedula;
     }
 
-    public static JLabel getLacelular() {
+    public JLabel getLacelular() {
         return lacelular;
     }
 
-    public static void setLacelular(JLabel lacelular) {
-        V_Modificar_Cliente.lacelular = lacelular;
+    public void setLacelular(JLabel lacelular) {
+        this.lacelular = lacelular;
     }
 
-    public static JLabel getLacorreo() {
+    public JLabel getLacorreo() {
         return lacorreo;
     }
 
-    public static void setLacorreo(JLabel lacorreo) {
-        V_Modificar_Cliente.lacorreo = lacorreo;
+    public void setLacorreo(JLabel lacorreo) {
+        this.lacorreo = lacorreo;
     }
 
-    public static JLabel getLadireccion() {
+    public JLabel getLadireccion() {
         return ladireccion;
     }
 
-    public static void setLadireccion(JLabel ladireccion) {
-        V_Modificar_Cliente.ladireccion = ladireccion;
+    public void setLadireccion(JLabel ladireccion) {
+        this.ladireccion = ladireccion;
     }
 
-    public static JLabel getLaestado() {
+    public JLabel getLaestado() {
         return laestado;
     }
 
-    public static void setLaestado(JLabel laestado) {
-        V_Modificar_Cliente.laestado = laestado;
+    public void setLaestado(JLabel laestado) {
+        this.laestado = laestado;
     }
 
-    public static JLabel getLafecha_nac() {
+    public JLabel getLafecha_nac() {
         return lafecha_nac;
     }
 
-    public static void setLafecha_nac(JLabel lafecha_nac) {
-        V_Modificar_Cliente.lafecha_nac = lafecha_nac;
+    public void setLafecha_nac(JLabel lafecha_nac) {
+        this.lafecha_nac = lafecha_nac;
     }
 
-    public static JLabel getLanombre() {
+    public JLabel getLanombre() {
         return lanombre;
     }
 
-    public static void setLanombre(JLabel lanombre) {
-        V_Modificar_Cliente.lanombre = lanombre;
+    public void setLanombre(JLabel lanombre) {
+        this.lanombre = lanombre;
     }
 
-    public static JLabel getLanum_cuenta() {
+    public JLabel getLanum_cuenta() {
         return lanum_cuenta;
     }
 
-    public static void setLanum_cuenta(JLabel lanum_cuenta) {
-        V_Modificar_Cliente.lanum_cuenta = lanum_cuenta;
+    public void setLanum_cuenta(JLabel lanum_cuenta) {
+        this.lanum_cuenta = lanum_cuenta;
     }
 
-    public static JLabel getLaregistro() {
+    public JLabel getLaregistro() {
         return laregistro;
     }
 
-    public static void setLaregistro(JLabel laregistro) {
-        V_Modificar_Cliente.laregistro = laregistro;
+    public void setLaregistro(JLabel laregistro) {
+        this.laregistro = laregistro;
     }
 
-    public static JLabel getLb_celular() {
+    public JLabel getLb_celular() {
         return lb_celular;
     }
 
-    public static void setLb_celular(JLabel lb_celular) {
-        V_Modificar_Cliente.lb_celular = lb_celular;
+    public void setLb_celular(JLabel lb_celular) {
+        this.lb_celular = lb_celular;
     }
 
-    public static JLabel getLb_correo() {
+    public JLabel getLb_correo() {
         return lb_correo;
     }
 
-    public static void setLb_correo(JLabel lb_correo) {
-        V_Modificar_Cliente.lb_correo = lb_correo;
+    public void setLb_correo(JLabel lb_correo) {
+        this.lb_correo = lb_correo;
     }
 
-    public static JLabel getLb_cuenta() {
+    public JLabel getLb_cuenta() {
         return lb_cuenta;
     }
 
-    public static void setLb_cuenta(JLabel lb_cuenta) {
-        V_Modificar_Cliente.lb_cuenta = lb_cuenta;
+    public void setLb_cuenta(JLabel lb_cuenta) {
+        this.lb_cuenta = lb_cuenta;
     }
 
-    public static JLabel getLb_direccion() {
+    public JLabel getLb_direccion() {
         return lb_direccion;
     }
 
-    public static void setLb_direccion(JLabel lb_direccion) {
-        V_Modificar_Cliente.lb_direccion = lb_direccion;
+    public void setLb_direccion(JLabel lb_direccion) {
+        this.lb_direccion = lb_direccion;
     }
 
-    public static JLabel getLb_estado() {
+    public JLabel getLb_estado() {
         return lb_estado;
     }
 
-    public static void setLb_estado(JLabel lb_estado) {
-        V_Modificar_Cliente.lb_estado = lb_estado;
+    public void setLb_estado(JLabel lb_estado) {
+        this.lb_estado = lb_estado;
     }
 
-    public static JLabel getLb_nombre() {
+    public JLabel getLb_nombre() {
         return lb_nombre;
     }
 
-    public static void setLb_nombre(JLabel lb_nombre) {
-        V_Modificar_Cliente.lb_nombre = lb_nombre;
+    public void setLb_nombre(JLabel lb_nombre) {
+        this.lb_nombre = lb_nombre;
     }
 
-    public static JTextField getNacimeinto() {
+    public JTextField getNacimeinto() {
         return nacimeinto;
     }
 
-    public static void setNacimeinto(JTextField nacimeinto) {
-        V_Modificar_Cliente.nacimeinto = nacimeinto;
+    public void setNacimeinto(JTextField nacimeinto) {
+        this.nacimeinto = nacimeinto;
     }
 
-    public static JTable getTablepersona() {
+    public JTable getTablepersona() {
         return tablepersona;
     }
 
-    public static void setTablepersona(JTable tablepersona) {
-        V_Modificar_Cliente.tablepersona = tablepersona;
+    public void setTablepersona(JTable tablepersona) {
+        this.tablepersona = tablepersona;
     }
 
-    public static JTextField getTxt_apellido() {
+    public JTextField getTxt_apellido() {
         return txt_apellido;
     }
 
-    public static void setTxt_apellido(JTextField txt_apellido) {
-        V_Modificar_Cliente.txt_apellido = txt_apellido;
+    public void setTxt_apellido(JTextField txt_apellido) {
+        this.txt_apellido = txt_apellido;
     }
 
-    public static JTextField getTxt_buscar() {
+    public JTextField getTxt_buscar() {
         return txt_buscar;
     }
 
-    public static void setTxt_buscar(JTextField txt_buscar) {
-        V_Modificar_Cliente.txt_buscar = txt_buscar;
+    public void setTxt_buscar(JTextField txt_buscar) {
+        this.txt_buscar = txt_buscar;
     }
 
-    public static JTextField getTxt_cedula() {
+    public JTextField getTxt_cedula() {
         return txt_cedula;
     }
 
-    public static void setTxt_cedula(JTextField txt_cedula) {
-        V_Modificar_Cliente.txt_cedula = txt_cedula;
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
     }
 
-    public static JTextField getTxt_celular() {
+    public JTextField getTxt_celular() {
         return txt_celular;
     }
 
-    public static void setTxt_celular(JTextField txt_celular) {
-        V_Modificar_Cliente.txt_celular = txt_celular;
+    public void setTxt_celular(JTextField txt_celular) {
+        this.txt_celular = txt_celular;
     }
 
-    public static JTextField getTxt_correo() {
+    public JTextField getTxt_correo() {
         return txt_correo;
     }
 
-    public static void setTxt_correo(JTextField txt_correo) {
-        V_Modificar_Cliente.txt_correo = txt_correo;
+    public void setTxt_correo(JTextField txt_correo) {
+        this.txt_correo = txt_correo;
     }
 
-    public static JTextField getTxt_direccion() {
+    public JTextField getTxt_direccion() {
         return txt_direccion;
     }
 
-    public static void setTxt_direccion(JTextField txt_direccion) {
-        V_Modificar_Cliente.txt_direccion = txt_direccion;
+    public void setTxt_direccion(JTextField txt_direccion) {
+        this.txt_direccion = txt_direccion;
     }
 
-    public static JTextField getTxt_nombre() {
+    public JTextField getTxt_nombre() {
         return txt_nombre;
     }
 
-    public static void setTxt_nombre(JTextField txt_nombre) {
-        V_Modificar_Cliente.txt_nombre = txt_nombre;
+    public void setTxt_nombre(JTextField txt_nombre) {
+        this.txt_nombre = txt_nombre;
     }
 
-    public static JTextField getTxt_ocupacion() {
+    public JTextField getTxt_ocupacion() {
         return txt_ocupacion;
     }
 
-    public static void setTxt_ocupacion(JTextField txt_ocupacion) {
-        V_Modificar_Cliente.txt_ocupacion = txt_ocupacion;
+    public void setTxt_ocupacion(JTextField txt_ocupacion) {
+        this.txt_ocupacion = txt_ocupacion;
     }
 
     /**
@@ -511,41 +511,41 @@ public class V_Modificar_Cliente extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btn_cancelar;
-    public static javax.swing.JButton btn_eliminar;
-    public static javax.swing.JButton btn_guardar;
-    public static javax.swing.JButton btn_modificar;
-    public static javax.swing.JComboBox<String> cb_estado;
-    public static javax.swing.JLabel celular;
-    public static javax.swing.JLabel correo;
-    public static javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_eliminar;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_modificar;
+    private javax.swing.JComboBox<String> cb_estado;
+    private javax.swing.JLabel celular;
+    private javax.swing.JLabel correo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JLabel laapellido;
-    public static javax.swing.JLabel lacedula;
-    public static javax.swing.JLabel lacelular;
-    public static javax.swing.JLabel lacorreo;
-    public static javax.swing.JLabel ladireccion;
-    public static javax.swing.JLabel laestado;
-    public static javax.swing.JLabel lafecha_nac;
-    public static javax.swing.JLabel lanombre;
-    public static javax.swing.JLabel lanum_cuenta;
-    public static javax.swing.JLabel laregistro;
-    public static javax.swing.JLabel lb_celular;
-    public static javax.swing.JLabel lb_correo;
-    public static javax.swing.JLabel lb_cuenta;
-    public static javax.swing.JLabel lb_direccion;
-    public static javax.swing.JLabel lb_estado;
-    public static javax.swing.JLabel lb_nombre;
-    public static javax.swing.JTextField nacimeinto;
-    public static javax.swing.JTable tablepersona;
-    public static javax.swing.JTextField txt_apellido;
-    public static javax.swing.JTextField txt_buscar;
-    public static javax.swing.JTextField txt_cedula;
-    public static javax.swing.JTextField txt_celular;
-    public static javax.swing.JTextField txt_correo;
-    public static javax.swing.JTextField txt_direccion;
-    public static javax.swing.JTextField txt_nombre;
-    public static javax.swing.JTextField txt_ocupacion;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel laapellido;
+    private javax.swing.JLabel lacedula;
+    private javax.swing.JLabel lacelular;
+    private javax.swing.JLabel lacorreo;
+    private javax.swing.JLabel ladireccion;
+    private javax.swing.JLabel laestado;
+    private javax.swing.JLabel lafecha_nac;
+    private javax.swing.JLabel lanombre;
+    private javax.swing.JLabel lanum_cuenta;
+    private javax.swing.JLabel laregistro;
+    private javax.swing.JLabel lb_celular;
+    private javax.swing.JLabel lb_correo;
+    private javax.swing.JLabel lb_cuenta;
+    private javax.swing.JLabel lb_direccion;
+    private javax.swing.JLabel lb_estado;
+    private javax.swing.JLabel lb_nombre;
+    private javax.swing.JTextField nacimeinto;
+    private javax.swing.JTable tablepersona;
+    private javax.swing.JTextField txt_apellido;
+    private javax.swing.JTextField txt_buscar;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_celular;
+    private javax.swing.JTextField txt_correo;
+    private javax.swing.JTextField txt_direccion;
+    private javax.swing.JTextField txt_nombre;
+    private javax.swing.JTextField txt_ocupacion;
     // End of variables declaration//GEN-END:variables
 }

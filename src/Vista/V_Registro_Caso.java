@@ -23,51 +23,51 @@ public class V_Registro_Caso extends javax.swing.JInternalFrame {
      */
     public V_Registro_Caso() {
         initComponents();
-        
+
         x = "x";
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
         setLocation(a / 2, b / 5);
     }
 
-    public static JButton getBtn_guardar() {
+    public JButton getBtn_guardar() {
         return btn_guardar;
     }
 
-    public static void setBtn_guardar(JButton btn_guardar) {
-        V_Registro_Caso.btn_guardar = btn_guardar;
+    public void setBtn_guardar(JButton btn_guardar) {
+        this.btn_guardar = btn_guardar;
     }
 
-    public static JComboBox<String> getCb_caso() {
+    public JComboBox<String> getCb_caso() {
         return cb_caso;
     }
 
-    public static void setCb_caso(JComboBox<String> cb_caso) {
-        V_Registro_Caso.cb_caso = cb_caso;
+    public void setCb_caso(JComboBox<String> cb_caso) {
+        this.cb_caso = cb_caso;
     }
 
-    public static JLabel getjLabel1() {
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Registro_Caso.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JLabel getjLabel2() {
+    public JLabel getjLabel2() {
         return jLabel2;
     }
 
-    public static void setjLabel2(JLabel jLabel2) {
-        V_Registro_Caso.jLabel2 = jLabel2;
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
     }
 
-    public static JTextField getTxt_cedula() {
+    public JTextField getTxt_cedula() {
         return txt_cedula;
     }
 
-    public static void setTxt_cedula(JTextField txt_cedula) {
-        V_Registro_Caso.txt_cedula = txt_cedula;
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
     }
 
     /**
@@ -146,11 +146,11 @@ public class V_Registro_Caso extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btn_guardar;
-    public static javax.swing.JComboBox<String> cb_caso;
-    public static javax.swing.JLabel jLabel1;
-    public static javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JComboBox<String> cb_caso;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_cedula;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,294 +28,294 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
         setLocation(a / 2, b / 5);
     }
 
-    public static JButton getBtn_cancelar() {
+    public JButton getBtn_cancelar() {
         return btn_cancelar;
     }
 
-    public static void setBtn_cancelar(JButton btn_cancelar) {
-        V_Registro_Cliente.btn_cancelar = btn_cancelar;
+    public void setBtn_cancelar(JButton btn_cancelar) {
+        this.btn_cancelar = btn_cancelar;
     }
 
-    public static JButton getBtn_guardar() {
+    public JButton getBtn_guardar() {
         return btn_guardar;
     }
 
-    public static void setBtn_guardar(JButton btn_guardar) {
-        V_Registro_Cliente.btn_guardar = btn_guardar;
+    public void setBtn_guardar(JButton btn_guardar) {
+        this.btn_guardar = btn_guardar;
     }
 
-    public static JButton getBtn_nuevo() {
+    public JButton getBtn_nuevo() {
         return btn_nuevo;
     }
 
-    public static void setBtn_nuevo(JButton btn_nuevo) {
-        V_Registro_Cliente.btn_nuevo = btn_nuevo;
+    public void setBtn_nuevo(JButton btn_nuevo) {
+        this.btn_nuevo = btn_nuevo;
     }
 
-    public static JDateChooser getCalendar() {
+    public JDateChooser getCalendar() {
         return calendar;
     }
 
-    public static void setCalendar(JDateChooser calendar) {
-        V_Registro_Cliente.calendar = calendar;
+    public void setCalendar(JDateChooser calendar) {
+        this.calendar = calendar;
     }
 
-    public static JComboBox<String> getCb_estado() {
+    public JComboBox<String> getCb_estado() {
         return cb_estado;
     }
 
-    public static void setCb_estado(JComboBox<String> cb_estado) {
-        V_Registro_Cliente.cb_estado = cb_estado;
+    public void setCb_estado(JComboBox<String> cb_estado) {
+        this.cb_estado = cb_estado;
     }
 
-    public static JLabel getCedula() {
+    public JLabel getCedula() {
         return cedula;
     }
 
-    public static void setCedula(JLabel cedula) {
-        V_Registro_Cliente.cedula = cedula;
+    public void setCedula(JLabel cedula) {
+        this.cedula = cedula;
     }
 
-    public static JLabel getCelular() {
+    public JLabel getCelular() {
         return celular;
     }
 
-    public static void setCelular(JLabel celular) {
-        V_Registro_Cliente.celular = celular;
+    public void setCelular(JLabel celular) {
+        this.celular = celular;
     }
 
-    public static JLabel getCorreo() {
+    public JLabel getCorreo() {
         return correo;
     }
 
-    public static void setCorreo(JLabel correo) {
-        V_Registro_Cliente.correo = correo;
+    public void setCorreo(JLabel correo) {
+        this.correo = correo;
     }
 
-    public static JLabel getDatocedula() {
+    public JLabel getDatocedula() {
         return datocedula;
     }
 
-    public static void setDatocedula(JLabel datocedula) {
-        V_Registro_Cliente.datocedula = datocedula;
+    public void setDatocedula(JLabel datocedula) {
+        this.datocedula = datocedula;
     }
 
-    public static JLabel getDatocorreo() {
+    public JLabel getDatocorreo() {
         return datocorreo;
     }
 
-    public static void setDatocorreo(JLabel datocorreo) {
-        V_Registro_Cliente.datocorreo = datocorreo;
+    public void setDatocorreo(JLabel datocorreo) {
+        this.datocorreo = datocorreo;
     }
 
-    public static JLabel getjLabel1() {
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Registro_Cliente.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JLabel getLaapellido2() {
+    public JLabel getLaapellido2() {
         return laapellido2;
     }
 
-    public static void setLaapellido2(JLabel laapellido2) {
-        V_Registro_Cliente.laapellido2 = laapellido2;
+    public void setLaapellido2(JLabel laapellido2) {
+        this.laapellido2 = laapellido2;
     }
 
-    public static JLabel getLacedula() {
+    public JLabel getLacedula() {
         return lacedula;
     }
 
-    public static void setLacedula(JLabel lacedula) {
-        V_Registro_Cliente.lacedula = lacedula;
+    public void setLacedula(JLabel lacedula) {
+        this.lacedula = lacedula;
     }
 
-    public static JLabel getLacelular2() {
+    public JLabel getLacelular2() {
         return lacelular2;
     }
 
-    public static void setLacelular2(JLabel lacelular2) {
-        V_Registro_Cliente.lacelular2 = lacelular2;
+    public void setLacelular2(JLabel lacelular2) {
+        this.lacelular2 = lacelular2;
     }
 
-    public static JLabel getLacorreo() {
+    public JLabel getLacorreo() {
         return lacorreo;
     }
 
-    public static void setLacorreo(JLabel lacorreo) {
-        V_Registro_Cliente.lacorreo = lacorreo;
+    public void setLacorreo(JLabel lacorreo) {
+        this.lacorreo = lacorreo;
     }
 
-    public static JLabel getLadireccion() {
+    public JLabel getLadireccion() {
         return ladireccion;
     }
 
-    public static void setLadireccion(JLabel ladireccion) {
-        V_Registro_Cliente.ladireccion = ladireccion;
+    public void setLadireccion(JLabel ladireccion) {
+        this.ladireccion = ladireccion;
     }
 
-    public static JLabel getLaestado() {
+    public JLabel getLaestado() {
         return laestado;
     }
 
-    public static void setLaestado(JLabel laestado) {
-        V_Registro_Cliente.laestado = laestado;
+    public void setLaestado(JLabel laestado) {
+        this.laestado = laestado;
     }
 
-    public static JLabel getLafecha_nac() {
+    public JLabel getLafecha_nac() {
         return lafecha_nac;
     }
 
-    public static void setLafecha_nac(JLabel lafecha_nac) {
-        V_Registro_Cliente.lafecha_nac = lafecha_nac;
+    public void setLafecha_nac(JLabel lafecha_nac) {
+        this.lafecha_nac = lafecha_nac;
     }
 
-    public static JLabel getLahorario() {
+    public JLabel getLahorario() {
         return lahorario;
     }
 
-    public static void setLahorario(JLabel lahorario) {
-        V_Registro_Cliente.lahorario = lahorario;
+    public void setLahorario(JLabel lahorario) {
+        this.lahorario = lahorario;
     }
 
-    public static JLabel getLanombre() {
+    public JLabel getLanombre() {
         return lanombre;
     }
 
-    public static void setLanombre(JLabel lanombre) {
-        V_Registro_Cliente.lanombre = lanombre;
+    public void setLanombre(JLabel lanombre) {
+        this.lanombre = lanombre;
     }
 
-    public static JLabel getLb_apellido() {
+    public JLabel getLb_apellido() {
         return lb_apellido;
     }
 
-    public static void setLb_apellido(JLabel lb_apellido) {
-        V_Registro_Cliente.lb_apellido = lb_apellido;
+    public void setLb_apellido(JLabel lb_apellido) {
+        this.lb_apellido = lb_apellido;
     }
 
-    public static JLabel getLb_cedula() {
+    public JLabel getLb_cedula() {
         return lb_cedula;
     }
 
-    public static void setLb_cedula(JLabel lb_cedula) {
-        V_Registro_Cliente.lb_cedula = lb_cedula;
+    public void setLb_cedula(JLabel lb_cedula) {
+        this.lb_cedula = lb_cedula;
     }
 
-    public static JLabel getLb_celular() {
+    public JLabel getLb_celular() {
         return lb_celular;
     }
 
-    public static void setLb_celular(JLabel lb_celular) {
-        V_Registro_Cliente.lb_celular = lb_celular;
+    public void setLb_celular(JLabel lb_celular) {
+        this.lb_celular = lb_celular;
     }
 
-    public static JLabel getLb_correo() {
+    public JLabel getLb_correo() {
         return lb_correo;
     }
 
-    public static void setLb_correo(JLabel lb_correo) {
-        V_Registro_Cliente.lb_correo = lb_correo;
+    public void setLb_correo(JLabel lb_correo) {
+        this.lb_correo = lb_correo;
     }
 
-    public static JLabel getLb_direccion() {
+    public JLabel getLb_direccion() {
         return lb_direccion;
     }
 
-    public static void setLb_direccion(JLabel lb_direccion) {
-        V_Registro_Cliente.lb_direccion = lb_direccion;
+    public void setLb_direccion(JLabel lb_direccion) {
+        this.lb_direccion = lb_direccion;
     }
 
-    public static JLabel getLb_estado() {
+    public JLabel getLb_estado() {
         return lb_estado;
     }
 
-    public static void setLb_estado(JLabel lb_estado) {
-        V_Registro_Cliente.lb_estado = lb_estado;
+    public void setLb_estado(JLabel lb_estado) {
+        this.lb_estado = lb_estado;
     }
 
-    public static JLabel getLb_fecha() {
+    public JLabel getLb_fecha() {
         return lb_fecha;
     }
 
-    public static void setLb_fecha(JLabel lb_fecha) {
-        V_Registro_Cliente.lb_fecha = lb_fecha;
+    public void setLb_fecha(JLabel lb_fecha) {
+        this.lb_fecha = lb_fecha;
     }
 
-    public static JLabel getLb_nombre() {
+    public JLabel getLb_nombre() {
         return lb_nombre;
     }
 
-    public static void setLb_nombre(JLabel lb_nombre) {
-        V_Registro_Cliente.lb_nombre = lb_nombre;
+    public void setLb_nombre(JLabel lb_nombre) {
+        this.lb_nombre = lb_nombre;
     }
 
-    public static JLabel getLb_ocupacion() {
+    public JLabel getLb_ocupacion() {
         return lb_ocupacion;
     }
 
-    public static void setLb_ocupacion(JLabel lb_ocupacion) {
-        V_Registro_Cliente.lb_ocupacion = lb_ocupacion;
+    public void setLb_ocupacion(JLabel lb_ocupacion) {
+        this.lb_ocupacion = lb_ocupacion;
     }
 
-    public static JTextField getTxt_apellido() {
+    public JTextField getTxt_apellido() {
         return txt_apellido;
     }
 
-    public static void setTxt_apellido(JTextField txt_apellido) {
-        V_Registro_Cliente.txt_apellido = txt_apellido;
+    public void setTxt_apellido(JTextField txt_apellido) {
+        this.txt_apellido = txt_apellido;
     }
 
-    public static JTextField getTxt_cedula() {
+    public JTextField getTxt_cedula() {
         return txt_cedula;
     }
 
-    public static void setTxt_cedula(JTextField txt_cedula) {
-        V_Registro_Cliente.txt_cedula = txt_cedula;
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
     }
 
-    public static JTextField getTxt_celular() {
+    public JTextField getTxt_celular() {
         return txt_celular;
     }
 
-    public static void setTxt_celular(JTextField txt_celular) {
-        V_Registro_Cliente.txt_celular = txt_celular;
+    public void setTxt_celular(JTextField txt_celular) {
+        this.txt_celular = txt_celular;
     }
 
-    public static JTextField getTxt_correo() {
+    public JTextField getTxt_correo() {
         return txt_correo;
     }
 
-    public static void setTxt_correo(JTextField txt_correo) {
-        V_Registro_Cliente.txt_correo = txt_correo;
+    public void setTxt_correo(JTextField txt_correo) {
+        this.txt_correo = txt_correo;
     }
 
-    public static JTextField getTxt_direccion() {
+    public JTextField getTxt_direccion() {
         return txt_direccion;
     }
 
-    public static void setTxt_direccion(JTextField txt_direccion) {
-        V_Registro_Cliente.txt_direccion = txt_direccion;
+    public void setTxt_direccion(JTextField txt_direccion) {
+        this.txt_direccion = txt_direccion;
     }
 
-    public static JTextField getTxt_nombre() {
+    public JTextField getTxt_nombre() {
         return txt_nombre;
     }
 
-    public static void setTxt_nombre(JTextField txt_nombre) {
-        V_Registro_Cliente.txt_nombre = txt_nombre;
+    public void setTxt_nombre(JTextField txt_nombre) {
+        this.txt_nombre = txt_nombre;
     }
 
-    public static JTextField getTxt_ocupacion() {
+    public JTextField getTxt_ocupacion() {
         return txt_ocupacion;
     }
 
-    public static void setTxt_ocupacion(JTextField txt_ocupacion) {
-        V_Registro_Cliente.txt_ocupacion = txt_ocupacion;
+    public void setTxt_ocupacion(JTextField txt_ocupacion) {
+        this.txt_ocupacion = txt_ocupacion;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -523,45 +523,44 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
         x = null;
     }//GEN-LAST:event_formInternalFrameClosing
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btn_cancelar;
-    public static javax.swing.JButton btn_guardar;
-    public static javax.swing.JButton btn_nuevo;
-    public static com.toedter.calendar.JDateChooser calendar;
-    public static javax.swing.JComboBox<String> cb_estado;
-    public static javax.swing.JLabel cedula;
-    public static javax.swing.JLabel celular;
-    public static javax.swing.JLabel correo;
-    public static javax.swing.JLabel datocedula;
-    public static javax.swing.JLabel datocorreo;
-    public static javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_nuevo;
+    private com.toedter.calendar.JDateChooser calendar;
+    private javax.swing.JComboBox<String> cb_estado;
+    private javax.swing.JLabel cedula;
+    private javax.swing.JLabel celular;
+    private javax.swing.JLabel correo;
+    private javax.swing.JLabel datocedula;
+    private javax.swing.JLabel datocorreo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JLabel laapellido2;
-    public static javax.swing.JLabel lacedula;
-    public static javax.swing.JLabel lacelular2;
-    public static javax.swing.JLabel lacorreo;
-    public static javax.swing.JLabel ladireccion;
-    public static javax.swing.JLabel laestado;
-    public static javax.swing.JLabel lafecha_nac;
-    public static javax.swing.JLabel lahorario;
-    public static javax.swing.JLabel lanombre;
-    public static javax.swing.JLabel lb_apellido;
-    public static javax.swing.JLabel lb_cedula;
-    public static javax.swing.JLabel lb_celular;
-    public static javax.swing.JLabel lb_correo;
-    public static javax.swing.JLabel lb_direccion;
-    public static javax.swing.JLabel lb_estado;
-    public static javax.swing.JLabel lb_fecha;
-    public static javax.swing.JLabel lb_nombre;
-    public static javax.swing.JLabel lb_ocupacion;
-    public static javax.swing.JTextField txt_apellido;
-    public static javax.swing.JTextField txt_cedula;
-    public static javax.swing.JTextField txt_celular;
-    public static javax.swing.JTextField txt_correo;
-    public static javax.swing.JTextField txt_direccion;
-    public static javax.swing.JTextField txt_nombre;
-    public static javax.swing.JTextField txt_ocupacion;
+    private javax.swing.JLabel laapellido2;
+    private javax.swing.JLabel lacedula;
+    private javax.swing.JLabel lacelular2;
+    private javax.swing.JLabel lacorreo;
+    private javax.swing.JLabel ladireccion;
+    private javax.swing.JLabel laestado;
+    private javax.swing.JLabel lafecha_nac;
+    private javax.swing.JLabel lahorario;
+    private javax.swing.JLabel lanombre;
+    private javax.swing.JLabel lb_apellido;
+    private javax.swing.JLabel lb_cedula;
+    private javax.swing.JLabel lb_celular;
+    private javax.swing.JLabel lb_correo;
+    private javax.swing.JLabel lb_direccion;
+    private javax.swing.JLabel lb_estado;
+    private javax.swing.JLabel lb_fecha;
+    private javax.swing.JLabel lb_nombre;
+    private javax.swing.JLabel lb_ocupacion;
+    private javax.swing.JTextField txt_apellido;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_celular;
+    private javax.swing.JTextField txt_correo;
+    private javax.swing.JTextField txt_direccion;
+    private javax.swing.JTextField txt_nombre;
+    private javax.swing.JTextField txt_ocupacion;
     // End of variables declaration//GEN-END:variables
 }

@@ -34,54 +34,54 @@ public class V_Horario extends javax.swing.JInternalFrame {
 
     }
 
-    public static JButton getBtn_buscar() {
+    public JButton getBtn_buscar() {
         return btn_buscar;
     }
 
-    public static void setBtn_buscar(JButton btn_buscar) {
-        V_Horario.btn_buscar = btn_buscar;
+    public void setBtn_buscar(JButton btn_buscar) {
+        this.btn_buscar = btn_buscar;
     }
 
-    public static JLabel getjLabel2() {
+    public JLabel getjLabel2() {
         return jLabel2;
     }
 
-    public static void setjLabel2(JLabel jLabel2) {
-        V_Horario.jLabel2 = jLabel2;
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
     }
 
-    public static JLabel getjLabel3() {
+    public JLabel getjLabel3() {
         return jLabel3;
     }
 
-    public static void setjLabel3(JLabel jLabel3) {
-        V_Horario.jLabel3 = jLabel3;
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
     }
 
-    public static JScrollPane getjScrollPane1() {
+    public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
 
-    public static void setjScrollPane1(JScrollPane jScrollPane1) {
-        V_Horario.jScrollPane1 = jScrollPane1;
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
     }
 
-    public static JTable getTableabogados() {
+    public JTable getTableabogados() {
         return tableabogados;
     }
 
-    public static void setTableabogados(JTable tableabogados) {
-        V_Horario.tableabogados = tableabogados;
+    public void setTableabogados(JTable tableabogados) {
+        this.tableabogados = tableabogados;
     }
 
-    public static JTextField getTxt_buscar() {
+    public JTextField getTxt_buscar() {
         return txt_buscar;
     }
 
-    public static void setTxt_buscar(JTextField txt_buscar) {
-        V_Horario.txt_buscar = txt_buscar;
+    public void setTxt_buscar(JTextField txt_buscar) {
+        this.txt_buscar = txt_buscar;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,12 +168,12 @@ public class V_Horario extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btn_buscar;
-    public static javax.swing.JLabel jLabel2;
-    public static javax.swing.JLabel jLabel3;
+    private javax.swing.JButton btn_buscar;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable tableabogados;
-    public static javax.swing.JTextField txt_buscar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableabogados;
+    private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables
 }

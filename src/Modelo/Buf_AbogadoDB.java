@@ -121,13 +121,13 @@ public class Buf_AbogadoDB implements Buf_AbogadoDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Abogados SET num_cuenta=?,horario=?,foto=? WHERE ci_abg=?";
+            String sql = "UPDATE Buf_Abogados SET num_cuenta=?,horario=?,foto=? WHERE id_abogado=?";
             pst = con.prepareStatement(sql);
 
             pst.setInt(1, abg.getNum_cuenta());
             pst.setString(2, abg.getHorario());
             pst.setBytes(3, abg.getFoto());
-            pst.setString(4, abg.getCedula());
+            pst.setInt(4, abg.getId_abg());
 
             int act_2 = pst.executeUpdate();
             Update = true;
@@ -168,10 +168,10 @@ public class Buf_AbogadoDB implements Buf_AbogadoDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "DELETE FROM Buf_Abogados WHERE ci_abg=?";
+            String sql = "DELETE FROM Buf_Abogados WHERE id_abogado=?";
 
             pst = con.prepareStatement(sql);
-            pst.setString(1, abg.getCedula());
+            pst.setInt(1, abg.getId_abg());
 
             int elim = pst.executeUpdate();
             Delete = true;

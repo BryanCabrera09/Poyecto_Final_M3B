@@ -1,14 +1,5 @@
 package controlador;
 
-import Metodos.Validar_Abogados;
-import Modelo.Buf_Abogado;
-import Modelo.Buf_AbogadoDB;
-import Modelo.Buf_ClienteDB;
-import Modelo.Buf_Persona;
-import Modelo.Buf_PersonaDB;
-import Modelo.Buf_SecretariaDB;
-import Modelo.Buf_Usuarios;
-import Modelo.Buf_UsuariosDB;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -44,25 +35,13 @@ import vista.V_Registro_Usuario;
  * @author BRYAN_CABRERA
  */
 public class C_Menu_Inicio implements ActionListener {
-    
-    //******************************************************
-    Buf_Abogado A = new Buf_Abogado();
-    Buf_Persona P = new Buf_Persona();
-    V_Registro_Abogado registro = new V_Registro_Abogado();
-    Buf_AbogadoDB A_DB = new Buf_AbogadoDB();
-    Buf_PersonaDB P_DB = new Buf_PersonaDB();
-    Buf_SecretariaDB S_DB = new Buf_SecretariaDB();
-    Buf_ClienteDB C_DB = new Buf_ClienteDB();
-    Validar_Abogados V = new Validar_Abogados();
-    
-    V_Modificar_Abogado modificar = new V_Modificar_Abogado();
-    Buf_Usuarios U = new Buf_Usuarios();
-    Buf_UsuariosDB U_DB = new Buf_UsuariosDB();
 
     private V_Menu_Inicio Inicio;
 
     public C_Menu_Inicio(V_Menu_Inicio Inicio) {
+
         this.Inicio = Inicio;
+
         this.Inicio.getBtn_citas().addActionListener(this);
         this.Inicio.getBtn_horario().addActionListener(this);
         this.Inicio.getBtn_Inicio().addActionListener(this);
@@ -100,7 +79,7 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Citas citas = new V_Citas();
                     C_Citas citas1 = new C_Citas(citas);
-                    Inicio.escritorio.add(citas);
+                    Inicio.getEscritorio().add(citas);
                     citas.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -115,7 +94,7 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Horario h1 = new V_Horario();
                     C_Horario horario = new C_Horario(h1);
-                    Inicio.escritorio.add(h1);
+                    Inicio.getEscritorio().add(h1);
                     h1.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -135,7 +114,7 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Registro_Caso rca = new V_Registro_Caso();
                     C_Registro_Caso registroCaso = new C_Registro_Caso(rca);
-                    Inicio.escritorio.add(rca);
+                    Inicio.getEscritorio().add(rca);
                     rca.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -150,7 +129,7 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Consultas con1 = new V_Consultas();
                     C_Consultas consultas = new C_Consultas(con1);
-                    Inicio.escritorio.add(con1);
+                    Inicio.getEscritorio().add(con1);
                     con1.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -165,7 +144,7 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Caso c1 = new V_Caso();
                     C_Caso caso = new C_Caso(c1);
-                    Inicio.escritorio.add(c1);
+                    Inicio.getEscritorio().add(c1);
                     c1.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -182,7 +161,7 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Consuta_Citas CI = new V_Consuta_Citas();
                     C_Consulta_Citas consulta_Citas = new C_Consulta_Citas(CI);
-                    Inicio.escritorio.add(CI);
+                    Inicio.getEscritorio().add(CI);
                     CI.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -197,7 +176,7 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Consuta_Consultas C = new V_Consuta_Consultas();
                     C_Consultas_Consultas consultas_Consultas = new C_Consultas_Consultas(C);
-                    Inicio.escritorio.add(C);
+                    Inicio.getEscritorio().add(C);
                     C.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -212,7 +191,7 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Modificar_Cliente C = new V_Modificar_Cliente();
                     C_Modificar_Cliente modificarCliente = new C_Modificar_Cliente(C);
-                    Inicio.escritorio.add(C);
+                    Inicio.getEscritorio().add(C);
                     C.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -227,7 +206,7 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Modificar_Secretaria S = new V_Modificar_Secretaria();
                     C_Modificar_Secretaria modificarSecretaria = new C_Modificar_Secretaria(S);
-                    Inicio.escritorio.add(S);
+                    Inicio.getEscritorio().add(S);
                     S.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -239,11 +218,12 @@ public class C_Menu_Inicio implements ActionListener {
         if (e.getSource() == Inicio.getMod_abogado()) {
             String x = V_Modificar_Abogado.x;
             try {
-                if (x != null) {
+                if (x == null) {
                     V_Modificar_Abogado RA = new V_Modificar_Abogado();
-                    C_Modificar_Abogado modificarAbogado = new C_Modificar_Abogado(modificar,A,P,U,A_DB,P_DB,S_DB,C_DB,U_DB,V);
-                    Inicio.escritorio.add(RA);
+                    C_Modificar_Abogado modificarAbogado = new C_Modificar_Abogado(RA);
+                    Inicio.getEscritorio().add(RA);
                     RA.show();
+                    modificarAbogado.Iniciar_Control();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }
@@ -254,11 +234,12 @@ public class C_Menu_Inicio implements ActionListener {
         if (e.getSource() == Inicio.getReg_abogado()) {
             String x = V_Registro_Abogado.x;
             try {
-                if (x != null) {
+                if (x == null) {
                     V_Registro_Abogado ra = new V_Registro_Abogado();
-                    C_Registro_Abogado registroAbogado = new C_Registro_Abogado(registro,A,P,A_DB,P_DB,S_DB,C_DB,V);
-                    Inicio.escritorio.add(ra);
+                    C_Registro_Abogado registroAbogado = new C_Registro_Abogado(ra);
+                    Inicio.getEscritorio().add(ra);
                     ra.show();
+                    registroAbogado.Iniciar_Control();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }
@@ -272,7 +253,7 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Registro_Cliente rc = new V_Registro_Cliente();
                     C_Registro_Cliente registroCliente = new C_Registro_Cliente(rc);
-                    Inicio.escritorio.add(rc);
+                    Inicio.getEscritorio().add(rc);
                     rc.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -287,7 +268,7 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Registro_Secretaria rs = new V_Registro_Secretaria();
                     C_Registro_Secretaria secretaria = new C_Registro_Secretaria(rs);
-                    Inicio.escritorio.add(rs);
+                    Inicio.getEscritorio().add(rs);
                     rs.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -302,8 +283,9 @@ public class C_Menu_Inicio implements ActionListener {
                 if (x == null) {
                     V_Registro_Usuario ru = new V_Registro_Usuario();
                     C_Registro_Usuario registroUsuario = new C_Registro_Usuario(ru);
-                    Inicio.escritorio.add(ru);
+                    Inicio.getEscritorio().add(ru);
                     ru.show();
+                    registroUsuario.Iniciar_Control();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }
@@ -316,7 +298,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Info_Req_Divorcio rq = new V_Info_Req_Divorcio();
-                    Inicio.escritorio.add(rq);
+                    Inicio.getEscritorio().add(rq);
                     rq.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -330,7 +312,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Info_Req_Visa_EEUU rqe = new V_Info_Req_Visa_EEUU();
-                    Inicio.escritorio.add(rqe);
+                    Inicio.getEscritorio().add(rqe);
                     rqe.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -344,7 +326,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Info_Req_Visa_Loteria rql = new V_Info_Req_Visa_Loteria();
-                    Inicio.escritorio.add(rql);
+                    Inicio.getEscritorio().add(rql);
                     rql.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -358,7 +340,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Info_Req_Visa_Mexico rqm = new V_Info_Req_Visa_Mexico();
-                    Inicio.escritorio.add(rqm);
+                    Inicio.getEscritorio().add(rqm);
                     rqm.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -372,7 +354,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Info_Req_PensionesAlimenticias rqp = new V_Info_Req_PensionesAlimenticias();
-                    Inicio.escritorio.add(rqp);
+                    Inicio.getEscritorio().add(rqp);
                     rqp.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -386,7 +368,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Info_Req_RenovacionPasaporte rqrp = new V_Info_Req_RenovacionPasaporte();
-                    Inicio.escritorio.add(rqrp);
+                    Inicio.getEscritorio().add(rqrp);
                     rqrp.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -400,7 +382,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Info_Req_Perdon rqpe = new V_Info_Req_Perdon();
-                    Inicio.escritorio.add(rqpe);
+                    Inicio.getEscritorio().add(rqpe);
                     rqpe.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -414,7 +396,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Info_Req_ReporteConsular rqrc = new V_Info_Req_ReporteConsular();
-                    Inicio.escritorio.add(rqrc);
+                    Inicio.getEscritorio().add(rqrc);
                     rqrc.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -428,7 +410,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Info_Req_RetornanteInmigrante rqri = new V_Info_Req_RetornanteInmigrante();
-                    Inicio.escritorio.add(rqri);
+                    Inicio.getEscritorio().add(rqri);
                     rqri.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -442,7 +424,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Info_Req_Visa_Europa rqeu = new V_Info_Req_Visa_Europa();
-                    Inicio.escritorio.add(rqeu);
+                    Inicio.getEscritorio().add(rqeu);
                     rqeu.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -457,7 +439,7 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Info_Req_Peticion rqp = new V_Info_Req_Peticion();
-                    Inicio.escritorio.add(rqp);
+                    Inicio.getEscritorio().add(rqp);
                     rqp.show();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
@@ -470,8 +452,8 @@ public class C_Menu_Inicio implements ActionListener {
     }
 
     public void Iniciar() {
+
         Inicio.setVisible(true);
-        Inicio.setLocationRelativeTo(null);
     }
 
 }

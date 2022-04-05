@@ -27,92 +27,220 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         setTitle("KarYaN");
     }
 
-    public static JMenuItem getCitas() {
+    public JMenuItem getCitas() {
         return Citas;
     }
 
-    public static void setCitas(JMenuItem Citas) {
-        V_Menu_Inicio.Citas = Citas;
+    public void setCitas(JMenuItem Citas) {
+        this.Citas = Citas;
     }
 
-    public static JMenuItem getConsultas() {
+    public JMenuItem getConsultas() {
         return Consultas;
     }
 
-    public static void setConsultas(JMenuItem Consultas) {
-        V_Menu_Inicio.Consultas = Consultas;
+    public void setConsultas(JMenuItem Consultas) {
+        this.Consultas = Consultas;
     }
 
-    public static JMenuItem getMod_abogado() {
+    public JMenuItem getMod_abogado() {
         return Mod_abogado;
     }
 
-    public static void setMod_abogado(JMenuItem Mod_abogado) {
-        V_Menu_Inicio.Mod_abogado = Mod_abogado;
+    public void setMod_abogado(JMenuItem Mod_abogado) {
+        this.Mod_abogado = Mod_abogado;
     }
 
-    public static JMenuItem getMod_cliente() {
+    public JMenuItem getMod_cliente() {
         return Mod_cliente;
     }
 
-    public static void setMod_cliente(JMenuItem Mod_cliente) {
-        V_Menu_Inicio.Mod_cliente = Mod_cliente;
+    public void setMod_cliente(JMenuItem Mod_cliente) {
+        this.Mod_cliente = Mod_cliente;
     }
 
-    public static JMenuItem getMod_secretaria() {
+    public JMenuItem getMod_secretaria() {
         return Mod_secretaria;
     }
 
-    public static void setMod_secretaria(JMenuItem Mod_secretaria) {
-        V_Menu_Inicio.Mod_secretaria = Mod_secretaria;
+    public void setMod_secretaria(JMenuItem Mod_secretaria) {
+        this.Mod_secretaria = Mod_secretaria;
     }
 
-    public static JMenu getModifcar() {
+    public JMenu getModifcar() {
         return Modifcar;
     }
 
-    public static void setModifcar(JMenu Modifcar) {
-        V_Menu_Inicio.Modifcar = Modifcar;
+    public void setModifcar(JMenu Modifcar) {
+        this.Modifcar = Modifcar;
     }
 
-    public static JMenuItem getReg_abogado() {
+    public JMenuItem getReg_abogado() {
         return Reg_abogado;
     }
 
-    public static void setReg_abogado(JMenuItem Reg_abogado) {
-        V_Menu_Inicio.Reg_abogado = Reg_abogado;
+    public void setReg_abogado(JMenuItem Reg_abogado) {
+        this.Reg_abogado = Reg_abogado;
     }
 
-    public static JMenuItem getReg_cliente() {
+    public JMenuItem getReg_cliente() {
         return Reg_cliente;
     }
 
-    public static void setReg_cliente(JMenuItem Reg_cliente) {
-        V_Menu_Inicio.Reg_cliente = Reg_cliente;
+    public void setReg_cliente(JMenuItem Reg_cliente) {
+        this.Reg_cliente = Reg_cliente;
     }
 
-    public static JMenuItem getReg_secretaria() {
+    public JMenuItem getReg_secretaria() {
         return Reg_secretaria;
     }
 
-    public static void setReg_secretaria(JMenuItem Reg_secretaria) {
-        V_Menu_Inicio.Reg_secretaria = Reg_secretaria;
+    public void setReg_secretaria(JMenuItem Reg_secretaria) {
+        this.Reg_secretaria = Reg_secretaria;
     }
 
-    public static JMenuItem getReg_usuario() {
+    public JMenuItem getReg_usuario() {
         return Reg_usuario;
     }
 
-    public static void setReg_usuario(JMenuItem Reg_usuario) {
-        V_Menu_Inicio.Reg_usuario = Reg_usuario;
+    public void setReg_usuario(JMenuItem Reg_usuario) {
+        this.Reg_usuario = Reg_usuario;
     }
 
-    public static JMenu getRegistro() {
+    public JMenu getRegistro() {
         return Registro;
     }
 
-    public static void setRegistro(JMenu Registro) {
-        V_Menu_Inicio.Registro = Registro;
+    public void setRegistro(JMenu Registro) {
+        this.Registro = Registro;
+    }
+
+    public JMenu getRequisit() {
+        return Requisit;
+    }
+
+    public void setRequisit(JMenu Requisit) {
+        this.Requisit = Requisit;
+    }
+
+    public JButton getBtn_Inicio() {
+        return btn_Inicio;
+    }
+
+    public void setBtn_Inicio(JButton btn_Inicio) {
+        this.btn_Inicio = btn_Inicio;
+    }
+
+    public JButton getBtn_RegistroClienteCaso() {
+        return btn_RegistroClienteCaso;
+    }
+
+    public void setBtn_RegistroClienteCaso(JButton btn_RegistroClienteCaso) {
+        this.btn_RegistroClienteCaso = btn_RegistroClienteCaso;
+    }
+
+    public JButton getBtn_VisualizarCaso() {
+        return btn_VisualizarCaso;
+    }
+
+    public void setBtn_VisualizarCaso(JButton btn_VisualizarCaso) {
+        this.btn_VisualizarCaso = btn_VisualizarCaso;
+    }
+
+    public JButton getBtn_citas() {
+        return btn_citas;
+    }
+
+    public void setBtn_citas(JButton btn_citas) {
+        this.btn_citas = btn_citas;
+    }
+
+    public JButton getBtn_horario() {
+        return btn_horario;
+    }
+
+    public void setBtn_horario(JButton btn_horario) {
+        this.btn_horario = btn_horario;
+    }
+
+    public JButton getBtn_visualizacion() {
+        return btn_visualizacion;
+    }
+
+    public void setBtn_visualizacion(JButton btn_visualizacion) {
+        this.btn_visualizacion = btn_visualizacion;
+    }
+
+    public JMenu getCasosJudiciales() {
+        return casosJudiciales;
+    }
+
+    public void setCasosJudiciales(JMenu casosJudiciales) {
+        this.casosJudiciales = casosJudiciales;
+    }
+
+    public JMenu getCitasConsultas() {
+        return citasConsultas;
+    }
+
+    public void setCitasConsultas(JMenu citasConsultas) {
+        this.citasConsultas = citasConsultas;
+    }
+
+    public static JDesktopPane getEscritorio() {
+        return escritorio;
+    }
+
+    public static void setEscritorio(JDesktopPane escritorio) {
+        V_Menu_Inicio.escritorio = escritorio;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JMenu getPeticionFamiliar() {
+        return peticionFamiliar;
+    }
+
+    public void setPeticionFamiliar(JMenu peticionFamiliar) {
+        this.peticionFamiliar = peticionFamiliar;
+    }
+
+    public JMenu getProcesosMigratorios() {
+        return procesosMigratorios;
+    }
+
+    public void setProcesosMigratorios(JMenu procesosMigratorios) {
+        this.procesosMigratorios = procesosMigratorios;
+    }
+
+    public JMenu getTramitesVisa() {
+        return tramitesVisa;
+    }
+
+    public void setTramitesVisa(JMenu tramitesVisa) {
+        this.tramitesVisa = tramitesVisa;
+    }
+
+    public JMenu getWaiver() {
+        return waiver;
+    }
+
+    public void setWaiver(JMenu waiver) {
+        this.waiver = waiver;
     }
 
     public JMenuItem getReq_Perdon() {
@@ -203,134 +331,6 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         this.Req_visa_mexico = Req_visa_mexico;
     }
 
-    public static JMenu getRequisit() {
-        return Requisit;
-    }
-
-    public static void setRequisit(JMenu Requisit) {
-        V_Menu_Inicio.Requisit = Requisit;
-    }
-
-    public static JButton getBtn_Inicio() {
-        return btn_Inicio;
-    }
-
-    public static void setBtn_Inicio(JButton btn_Inicio) {
-        V_Menu_Inicio.btn_Inicio = btn_Inicio;
-    }
-
-    public static JButton getBtn_RegistroClienteCaso() {
-        return btn_RegistroClienteCaso;
-    }
-
-    public static void setBtn_RegistroClienteCaso(JButton btn_RegistroClienteCaso) {
-        V_Menu_Inicio.btn_RegistroClienteCaso = btn_RegistroClienteCaso;
-    }
-
-    public static JButton getBtn_VisualizarCaso() {
-        return btn_VisualizarCaso;
-    }
-
-    public static void setBtn_VisualizarCaso(JButton btn_VisualizarCaso) {
-        V_Menu_Inicio.btn_VisualizarCaso = btn_VisualizarCaso;
-    }
-
-    public static JButton getBtn_citas() {
-        return btn_citas;
-    }
-
-    public static void setBtn_citas(JButton btn_citas) {
-        V_Menu_Inicio.btn_citas = btn_citas;
-    }
-
-    public static JButton getBtn_horario() {
-        return btn_horario;
-    }
-
-    public static void setBtn_horario(JButton btn_horario) {
-        V_Menu_Inicio.btn_horario = btn_horario;
-    }
-
-    public static JButton getBtn_visualizacion() {
-        return btn_visualizacion;
-    }
-
-    public static void setBtn_visualizacion(JButton btn_visualizacion) {
-        V_Menu_Inicio.btn_visualizacion = btn_visualizacion;
-    }
-
-    public static JMenu getCasosJudiciales() {
-        return casosJudiciales;
-    }
-
-    public static void setCasosJudiciales(JMenu casosJudiciales) {
-        V_Menu_Inicio.casosJudiciales = casosJudiciales;
-    }
-
-    public static JMenu getCitasConsultas() {
-        return citasConsultas;
-    }
-
-    public static void setCitasConsultas(JMenu citasConsultas) {
-        V_Menu_Inicio.citasConsultas = citasConsultas;
-    }
-
-    public static JDesktopPane getEscritorio() {
-        return escritorio;
-    }
-
-    public static void setEscritorio(JDesktopPane escritorio) {
-        V_Menu_Inicio.escritorio = escritorio;
-    }
-
-    public static JMenuBar getjMenuBar1() {
-        return jMenuBar1;
-    }
-
-    public static void setjMenuBar1(JMenuBar jMenuBar1) {
-        V_Menu_Inicio.jMenuBar1 = jMenuBar1;
-    }
-
-    public static JPanel getjPanel1() {
-        return jPanel1;
-    }
-
-    public static void setjPanel1(JPanel jPanel1) {
-        V_Menu_Inicio.jPanel1 = jPanel1;
-    }
-
-    public static JMenu getPeticionFamiliar() {
-        return peticionFamiliar;
-    }
-
-    public static void setPeticionFamiliar(JMenu peticionFamiliar) {
-        V_Menu_Inicio.peticionFamiliar = peticionFamiliar;
-    }
-
-    public static JMenu getProcesosMigratorios() {
-        return procesosMigratorios;
-    }
-
-    public static void setProcesosMigratorios(JMenu procesosMigratorios) {
-        V_Menu_Inicio.procesosMigratorios = procesosMigratorios;
-    }
-
-    public static JMenu getTramitesVisa() {
-        return tramitesVisa;
-    }
-
-    public static void setTramitesVisa(JMenu tramitesVisa) {
-        V_Menu_Inicio.tramitesVisa = tramitesVisa;
-    }
-
-    public static JMenu getWaiver() {
-        return waiver;
-    }
-
-    public static void setWaiver(JMenu waiver) {
-        V_Menu_Inicio.waiver = waiver;
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -581,43 +581,43 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JMenuItem Citas;
-    public static javax.swing.JMenuItem Consultas;
-    public static javax.swing.JMenuItem Mod_abogado;
-    public static javax.swing.JMenuItem Mod_cliente;
-    public static javax.swing.JMenuItem Mod_secretaria;
-    public static javax.swing.JMenu Modifcar;
-    public static javax.swing.JMenuItem Reg_abogado;
-    public static javax.swing.JMenuItem Reg_cliente;
-    public static javax.swing.JMenuItem Reg_secretaria;
-    public static javax.swing.JMenuItem Reg_usuario;
-    public static javax.swing.JMenu Registro;
-    public javax.swing.JMenuItem Req_Perdon;
-    public javax.swing.JMenuItem Req_Renovacion_Pasaporte;
-    public javax.swing.JMenuItem Req_Reporte_Consular;
-    public javax.swing.JMenuItem Req_RetornanteInmigrante;
-    public javax.swing.JMenuItem Req_Visa_Eeuu;
-    public javax.swing.JMenuItem Req_divorcio;
-    public javax.swing.JMenuItem Req_pensionesali;
-    public javax.swing.JMenuItem Req_peticionfamiliar;
-    public javax.swing.JMenuItem Req_visa_europa;
-    public javax.swing.JMenuItem Req_visa_loteria;
-    public javax.swing.JMenuItem Req_visa_mexico;
-    public static javax.swing.JMenu Requisit;
-    public static javax.swing.JButton btn_Inicio;
-    public static javax.swing.JButton btn_RegistroClienteCaso;
-    public static javax.swing.JButton btn_VisualizarCaso;
-    public static javax.swing.JButton btn_citas;
-    public static javax.swing.JButton btn_horario;
-    public static javax.swing.JButton btn_visualizacion;
-    public static javax.swing.JMenu casosJudiciales;
-    public static javax.swing.JMenu citasConsultas;
+    private javax.swing.JMenuItem Citas;
+    private javax.swing.JMenuItem Consultas;
+    private javax.swing.JMenuItem Mod_abogado;
+    private javax.swing.JMenuItem Mod_cliente;
+    private javax.swing.JMenuItem Mod_secretaria;
+    private javax.swing.JMenu Modifcar;
+    private javax.swing.JMenuItem Reg_abogado;
+    private javax.swing.JMenuItem Reg_cliente;
+    private javax.swing.JMenuItem Reg_secretaria;
+    private javax.swing.JMenuItem Reg_usuario;
+    private javax.swing.JMenu Registro;
+    private javax.swing.JMenuItem Req_Perdon;
+    private javax.swing.JMenuItem Req_Renovacion_Pasaporte;
+    private javax.swing.JMenuItem Req_Reporte_Consular;
+    private javax.swing.JMenuItem Req_RetornanteInmigrante;
+    private javax.swing.JMenuItem Req_Visa_Eeuu;
+    private javax.swing.JMenuItem Req_divorcio;
+    private javax.swing.JMenuItem Req_pensionesali;
+    private javax.swing.JMenuItem Req_peticionfamiliar;
+    private javax.swing.JMenuItem Req_visa_europa;
+    private javax.swing.JMenuItem Req_visa_loteria;
+    private javax.swing.JMenuItem Req_visa_mexico;
+    private javax.swing.JMenu Requisit;
+    private javax.swing.JButton btn_Inicio;
+    private javax.swing.JButton btn_RegistroClienteCaso;
+    private javax.swing.JButton btn_VisualizarCaso;
+    private javax.swing.JButton btn_citas;
+    private javax.swing.JButton btn_horario;
+    private javax.swing.JButton btn_visualizacion;
+    private javax.swing.JMenu casosJudiciales;
+    private javax.swing.JMenu citasConsultas;
     public static javax.swing.JDesktopPane escritorio;
-    public static javax.swing.JMenuBar jMenuBar1;
-    public static javax.swing.JPanel jPanel1;
-    public static javax.swing.JMenu peticionFamiliar;
-    public static javax.swing.JMenu procesosMigratorios;
-    public static javax.swing.JMenu tramitesVisa;
-    public static javax.swing.JMenu waiver;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenu peticionFamiliar;
+    private javax.swing.JMenu procesosMigratorios;
+    private javax.swing.JMenu tramitesVisa;
+    private javax.swing.JMenu waiver;
     // End of variables declaration//GEN-END:variables
 }

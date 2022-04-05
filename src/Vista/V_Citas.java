@@ -26,159 +26,159 @@ public class V_Citas extends javax.swing.JInternalFrame {
     public static String x;
 
     public V_Citas() {
-        
+
         initComponents();
-        
+
         x = "x";
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
         setLocation(a / 2, b / 5);
     }
 
-    public static JButton getBtn_buscar() {
+    public JButton getBtn_buscar() {
         return btn_buscar;
     }
 
-    public static void setBtn_buscar(JButton btn_buscar) {
-        V_Citas.btn_buscar = btn_buscar;
+    public void setBtn_buscar(JButton btn_buscar) {
+        this.btn_buscar = btn_buscar;
     }
 
-    public static JButton getBtn_guardar() {
+    public JButton getBtn_guardar() {
         return btn_guardar;
     }
 
-    public static void setBtn_guardar(JButton btn_guardar) {
-        V_Citas.btn_guardar = btn_guardar;
+    public void setBtn_guardar(JButton btn_guardar) {
+        this.btn_guardar = btn_guardar;
     }
 
-    public static JLabel getCaso() {
+    public JLabel getCaso() {
         return caso;
     }
 
-    public static void setCaso(JLabel caso) {
-        V_Citas.caso = caso;
+    public void setCaso(JLabel caso) {
+        this.caso = caso;
     }
 
-    public static JComboBox<String> getCb_caso() {
+    public JComboBox<String> getCb_caso() {
         return cb_caso;
     }
 
-    public static void setCb_caso(JComboBox<String> cb_caso) {
-        V_Citas.cb_caso = cb_caso;
+    public void setCb_caso(JComboBox<String> cb_caso) {
+        this.cb_caso = cb_caso;
     }
 
-    public static JLabel getCedula() {
+    public JLabel getCedula() {
         return cedula;
     }
 
-    public static void setCedula(JLabel cedula) {
-        V_Citas.cedula = cedula;
+    public void setCedula(JLabel cedula) {
+        this.cedula = cedula;
     }
 
-    public static JLabel getCelular() {
+    public JLabel getCelular() {
         return celular;
     }
 
-    public static void setCelular(JLabel celular) {
-        V_Citas.celular = celular;
+    public void setCelular(JLabel celular) {
+        this.celular = celular;
     }
 
-    public static JLabel getDds() {
+    public JLabel getDds() {
         return dds;
     }
 
-    public static void setDds(JLabel dds) {
-        V_Citas.dds = dds;
+    public void setDds(JLabel dds) {
+        this.dds = dds;
     }
 
-    public static JLabel getDescripcion() {
+    public JLabel getDescripcion() {
         return descripcion;
     }
 
-    public static void setDescripcion(JLabel descripcion) {
-        V_Citas.descripcion = descripcion;
+    public void setDescripcion(JLabel descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public static JLabel getHora() {
+    public JLabel getHora() {
         return hora;
     }
 
-    public static void setHora(JLabel hora) {
-        V_Citas.hora = hora;
+    public void setHora(JLabel hora) {
+        this.hora = hora;
     }
 
-    public static JLabel getjLabel1() {
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Citas.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JScrollPane getjScrollPane1() {
+    public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
 
-    public static void setjScrollPane1(JScrollPane jScrollPane1) {
-        V_Citas.jScrollPane1 = jScrollPane1;
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
     }
 
-    public static JSpinner getJs_hora() {
+    public JSpinner getJs_hora() {
         return js_hora;
     }
 
-    public static void setJs_hora(JSpinner js_hora) {
-        V_Citas.js_hora = js_hora;
+    public void setJs_hora(JSpinner js_hora) {
+        this.js_hora = js_hora;
     }
 
-    public static JLabel getLb_caso() {
+    public JLabel getLb_caso() {
         return lb_caso;
     }
 
-    public static void setLb_caso(JLabel lb_caso) {
-        V_Citas.lb_caso = lb_caso;
+    public void setLb_caso(JLabel lb_caso) {
+        this.lb_caso = lb_caso;
     }
 
-    public static JLabel getLb_cedula() {
+    public JLabel getLb_cedula() {
         return lb_cedula;
     }
 
-    public static void setLb_cedula(JLabel lb_cedula) {
-        V_Citas.lb_cedula = lb_cedula;
+    public void setLb_cedula(JLabel lb_cedula) {
+        this.lb_cedula = lb_cedula;
     }
 
-    public static JLabel getLb_celular() {
+    public JLabel getLb_celular() {
         return lb_celular;
     }
 
-    public static void setLb_celular(JLabel lb_celular) {
-        V_Citas.lb_celular = lb_celular;
+    public void setLb_celular(JLabel lb_celular) {
+        this.lb_celular = lb_celular;
     }
 
-    public static JTextArea getTxa_descripcion() {
+    public JTextArea getTxa_descripcion() {
         return txa_descripcion;
     }
 
-    public static void setTxa_descripcion(JTextArea txa_descripcion) {
-        V_Citas.txa_descripcion = txa_descripcion;
+    public void setTxa_descripcion(JTextArea txa_descripcion) {
+        this.txa_descripcion = txa_descripcion;
     }
 
-    public static JTextField getTxt_cedula() {
+    public JTextField getTxt_cedula() {
         return txt_cedula;
     }
 
-    public static void setTxt_cedula(JTextField txt_cedula) {
-        V_Citas.txt_cedula = txt_cedula;
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
     }
 
-    public static JTextField getTxt_celular() {
+    public JTextField getTxt_celular() {
         return txt_celular;
     }
 
-    public static void setTxt_celular(JTextField txt_celular) {
-        V_Citas.txt_celular = txt_celular;
+    public void setTxt_celular(JTextField txt_celular) {
+        this.txt_celular = txt_celular;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -307,24 +307,24 @@ public class V_Citas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btn_buscar;
-    public static javax.swing.JButton btn_guardar;
-    public static javax.swing.JLabel caso;
-    public static javax.swing.JComboBox<String> cb_caso;
-    public static javax.swing.JLabel cedula;
-    public static javax.swing.JLabel celular;
-    public static javax.swing.JLabel dds;
-    public static javax.swing.JLabel descripcion;
-    public static javax.swing.JLabel hora;
-    public static javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_buscar;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JLabel caso;
+    private javax.swing.JComboBox<String> cb_caso;
+    private javax.swing.JLabel cedula;
+    private javax.swing.JLabel celular;
+    private javax.swing.JLabel dds;
+    private javax.swing.JLabel descripcion;
+    private javax.swing.JLabel hora;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
-    public static javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JSpinner js_hora;
-    public static javax.swing.JLabel lb_caso;
-    public static javax.swing.JLabel lb_cedula;
-    public static javax.swing.JLabel lb_celular;
-    public static javax.swing.JTextArea txa_descripcion;
-    public static javax.swing.JTextField txt_cedula;
-    public static javax.swing.JTextField txt_celular;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner js_hora;
+    private javax.swing.JLabel lb_caso;
+    private javax.swing.JLabel lb_cedula;
+    private javax.swing.JLabel lb_celular;
+    private javax.swing.JTextArea txa_descripcion;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_celular;
     // End of variables declaration//GEN-END:variables
 }

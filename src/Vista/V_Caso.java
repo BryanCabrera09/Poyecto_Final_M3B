@@ -8,7 +8,6 @@ package vista;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
@@ -16,11 +15,10 @@ import javax.swing.JTextField;
  * @author Usuario
  */
 public class V_Caso extends javax.swing.JInternalFrame {
-    
+
     //public static String x;
-    
     public static String x;
-     
+
     public V_Caso() {
         initComponents();
         x = "x";
@@ -29,38 +27,38 @@ public class V_Caso extends javax.swing.JInternalFrame {
         setLocation(a / 2, b / 5);
     }
 
-    public static JButton getBtn_buscar() {
+    public JButton getBtn_buscar() {
         return btn_buscar;
     }
 
-    public static void setBtn_buscar(JButton btn_buscar) {
-        V_Caso.btn_buscar = btn_buscar;
+    public void setBtn_buscar(JButton btn_buscar) {
+        this.btn_buscar = btn_buscar;
     }
 
-    public static JComboBox<String> getCb_caso() {
+    public JComboBox<String> getCb_caso() {
         return cb_caso;
     }
 
-    public static void setCb_caso(JComboBox<String> cb_caso) {
-        V_Caso.cb_caso = cb_caso;
+    public void setCb_caso(JComboBox<String> cb_caso) {
+        this.cb_caso = cb_caso;
     }
 
-    public static JLabel getjLabel1() {
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Caso.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JTextField getTxt_cedula() {
+    public JTextField getTxt_cedula() {
         return txt_cedula;
     }
 
-    public static void setTxt_cedula(JTextField txt_cedula) {
-        V_Caso.txt_cedula = txt_cedula;
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -133,12 +131,12 @@ public class V_Caso extends javax.swing.JInternalFrame {
         x = null;
     }//GEN-LAST:event_formInternalFrameClosing
 
-   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btn_buscar;
-    public static javax.swing.JComboBox<String> cb_caso;
-    public static javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_buscar;
+    private javax.swing.JComboBox<String> cb_caso;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_cedula;
     // End of variables declaration//GEN-END:variables
 }

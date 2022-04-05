@@ -7,6 +7,7 @@ package vista;
 
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -17,9 +18,8 @@ public class V_Pago extends javax.swing.JInternalFrame {
     /**
      * Creates new form Modificar_Consulta
      */
-    
     public static String x;
-    
+
     public V_Pago() {
         initComponents();
         table_pago.getTableHeader().setResizingAllowed(false);
@@ -30,84 +30,92 @@ public class V_Pago extends javax.swing.JInternalFrame {
         setLocation(a / 2, b / 5);
     }
 
-    public static JButton getBtn_abono() {
+    public JButton getBtn_abono() {
         return btn_abono;
     }
 
-    public static void setBtn_abono(JButton btn_abono) {
-        V_Pago.btn_abono = btn_abono;
+    public void setBtn_abono(JButton btn_abono) {
+        this.btn_abono = btn_abono;
     }
 
-    public static JButton getBtn_guardar() {
+    public JButton getBtn_guardar() {
         return btn_guardar;
     }
 
-    public static void setBtn_guardar(JButton btn_guardar) {
-        V_Pago.btn_guardar = btn_guardar;
+    public void setBtn_guardar(JButton btn_guardar) {
+        this.btn_guardar = btn_guardar;
     }
 
-    public static JDateChooser getjDateChooser1() {
+    public JDateChooser getCalendar() {
         return calendar;
     }
 
-    public static void setjDateChooser1(JDateChooser jDateChooser1) {
-        V_Pago.calendar = jDateChooser1;
+    public void setCalendar(JDateChooser calendar) {
+        this.calendar = calendar;
     }
 
-    public static JLabel getjLabel1() {
+    public JDialog getjDialog1() {
+        return jDialog1;
+    }
+
+    public void setjDialog1(JDialog jDialog1) {
+        this.jDialog1 = jDialog1;
+    }
+
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Pago.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JLabel getjLabel2() {
+    public JLabel getjLabel2() {
         return jLabel2;
     }
 
-    public static void setjLabel2(JLabel jLabel2) {
-        V_Pago.jLabel2 = jLabel2;
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
     }
 
-    public static JLabel getjLabel3() {
+    public JLabel getjLabel3() {
         return jLabel3;
     }
 
-    public static void setjLabel3(JLabel jLabel3) {
-        V_Pago.jLabel3 = jLabel3;
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
     }
 
-    public static JScrollPane getjScrollPane2() {
+    public JScrollPane getjScrollPane2() {
         return jScrollPane2;
     }
 
-    public static void setjScrollPane2(JScrollPane jScrollPane2) {
-        V_Pago.jScrollPane2 = jScrollPane2;
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
     }
 
-    public static JTable getTable_Pago() {
+    public JTable getTable_pago() {
         return table_pago;
     }
 
-    public static void setTable_Pago(JTable table_Pago) {
-        V_Pago.table_pago = table_Pago;
+    public void setTable_pago(JTable table_pago) {
+        this.table_pago = table_pago;
     }
 
-    public static JTextField getTxtCantidad() {
+    public JTextField getTxt_cantidad() {
         return txt_cantidad;
     }
 
-    public static void setTxtCantidad(JTextField txtCantidad) {
-        V_Pago.txt_cantidad = txtCantidad;
+    public void setTxt_cantidad(JTextField txt_cantidad) {
+        this.txt_cantidad = txt_cantidad;
     }
 
-    public static JTextField getTxt_valorInicial() {
+    public JTextField getTxt_valorInicial() {
         return txt_valorInicial;
     }
 
-    public static void setTxt_valorInicial(JTextField txt_valorInicial) {
-        V_Pago.txt_valorInicial = txt_valorInicial;
+    public void setTxt_valorInicial(JTextField txt_valorInicial) {
+        this.txt_valorInicial = txt_valorInicial;
     }
 
     @SuppressWarnings("unchecked")
@@ -204,23 +212,23 @@ public class V_Pago extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
-        
+
         x = null;
     }//GEN-LAST:event_formInternalFrameClosing
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btn_abono;
-    public static javax.swing.JButton btn_guardar;
-    public static com.toedter.calendar.JDateChooser calendar;
+    private javax.swing.JButton btn_abono;
+    private javax.swing.JButton btn_guardar;
+    private com.toedter.calendar.JDateChooser calendar;
     private javax.swing.JDialog jDialog1;
-    public static javax.swing.JLabel jLabel1;
-    public static javax.swing.JLabel jLabel2;
-    public static javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JScrollPane jScrollPane2;
-    public static javax.swing.JTable table_pago;
-    public static javax.swing.JTextField txt_cantidad;
-    public static javax.swing.JTextField txt_valorInicial;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable table_pago;
+    private javax.swing.JTextField txt_cantidad;
+    private javax.swing.JTextField txt_valorInicial;
     // End of variables declaration//GEN-END:variables
 }

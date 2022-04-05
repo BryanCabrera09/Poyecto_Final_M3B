@@ -19,59 +19,50 @@ public class V_Consuta_Citas extends javax.swing.JInternalFrame {
     /**
      * Creates new form Modificacion_Consultas
      */
-    
     public static String x;
-    
+
     public V_Consuta_Citas() {
         initComponents();
         x = "x";
         table.getTableHeader().setResizingAllowed(false);
         table.getTableHeader().setReorderingAllowed(false);
-        
+
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
         setLocation(a / 2, b / 5);
-        
+
     }
 
-    public static JLabel getjLabel1() {
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Consuta_Citas.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JPanel getjPanel1() {
-        return jPanel1;
-    }
-
-    public static void setjPanel1(JPanel jPanel1) {
-        V_Consuta_Citas.jPanel1 = jPanel1;
-    }
-
-    public static JScrollPane getjScrollPane1() {
+    public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
 
-    public static void setjScrollPane1(JScrollPane jScrollPane1) {
-        V_Consuta_Citas.jScrollPane1 = jScrollPane1;
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
     }
 
-    public static JTable getTable() {
+    public JTable getTable() {
         return table;
     }
 
-    public static void setTable(JTable table) {
-        V_Consuta_Citas.table = table;
+    public void setTable(JTable table) {
+        this.table = table;
     }
 
-    public static JTextField getTxt_cedula() {
+    public JTextField getTxt_cedula() {
         return txt_cedula;
     }
 
-    public static void setTxt_cedula(JTextField txt_cedula) {
-        V_Consuta_Citas.txt_cedula = txt_cedula;
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
     }
 
     /**
@@ -150,12 +141,12 @@ public class V_Consuta_Citas extends javax.swing.JInternalFrame {
         x = null;
     }//GEN-LAST:event_formInternalFrameClosing
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel1;
     public static javax.swing.JPanel jPanel1;
-    public static javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable table;
-    public static javax.swing.JTextField txt_cedula;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable table;
+    private javax.swing.JTextField txt_cedula;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,133 +26,125 @@ public class V_Consultas extends javax.swing.JInternalFrame {
     public static String x;
 
     public V_Consultas() {
-        
+
         initComponents();
         x = "x";
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
         setLocation(a / 2, b / 5);
-       
+
     }
 
-    public static JLabel getApellidos() {
+    public JLabel getApellidos() {
         return apellidos;
     }
 
-    public static void setApellidos(JLabel apellidos) {
-        V_Consultas.apellidos = apellidos;
+    public void setApellidos(JLabel apellidos) {
+        this.apellidos = apellidos;
     }
 
-    public static JButton getBtn_cancelar() {
+    public JButton getBtn_cancelar() {
         return btn_cancelar;
     }
 
-    public static void setBtn_cancelar(JButton btn_cancelar) {
-        V_Consultas.btn_cancelar = btn_cancelar;
+    public void setBtn_cancelar(JButton btn_cancelar) {
+        this.btn_cancelar = btn_cancelar;
     }
 
-    public static JButton getBtn_guardar() {
+    public JButton getBtn_guardar() {
         return btn_guardar;
     }
 
-    public static void setBtn_guardar(JButton btn_guardar) {
-        V_Consultas.btn_guardar = btn_guardar;
+    public void setBtn_guardar(JButton btn_guardar) {
+        this.btn_guardar = btn_guardar;
     }
 
-    public static JButton getBtn_nuevo() {
+    public JButton getBtn_nuevo() {
         return btn_nuevo;
     }
 
-    public static void setBtn_nuevo(JButton btn_nuevo) {
-        V_Consultas.btn_nuevo = btn_nuevo;
+    public void setBtn_nuevo(JButton btn_nuevo) {
+        this.btn_nuevo = btn_nuevo;
     }
 
-    public static JComboBox<String> getCb_caso() {
+    public JComboBox<String> getCb_caso() {
         return cb_caso;
     }
 
-    public static void setCb_caso(JComboBox<String> cb_caso) {
-        V_Consultas.cb_caso = cb_caso;
+    public void setCb_caso(JComboBox<String> cb_caso) {
+        this.cb_caso = cb_caso;
     }
 
-    public static JLabel getjLabel1() {
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Consultas.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JLabel getjLabel2() {
+    public JLabel getjLabel2() {
         return jLabel2;
     }
 
-    public static void setjLabel2(JLabel jLabel2) {
-        V_Consultas.jLabel2 = jLabel2;
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
     }
 
-    public static JLabel getjLabel3() {
+    public JLabel getjLabel3() {
         return jLabel3;
     }
 
-    public static void setjLabel3(JLabel jLabel3) {
-        V_Consultas.jLabel3 = jLabel3;
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
     }
 
-    public static JLabel getjLabel4() {
+    public JLabel getjLabel4() {
         return jLabel4;
     }
 
-    public static void setjLabel4(JLabel jLabel4) {
-        V_Consultas.jLabel4 = jLabel4;
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
     }
 
-    public static JLabel getjLabel5() {
+    public JLabel getjLabel5() {
         return jLabel5;
     }
 
-    public static void setjLabel5(JLabel jLabel5) {
-        V_Consultas.jLabel5 = jLabel5;
+    public void setjLabel5(JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
     }
 
-    public static JPanel getjPanel1() {
-        return jPanel1;
-    }
-
-    public static void setjPanel1(JPanel jPanel1) {
-        V_Consultas.jPanel1 = jPanel1;
-    }
-
-    public static JScrollPane getjScrollPane1() {
+    public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
 
-    public static void setjScrollPane1(JScrollPane jScrollPane1) {
-        V_Consultas.jScrollPane1 = jScrollPane1;
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
     }
 
-    public static JSpinner getJs_hora() {
+    public JSpinner getJs_hora() {
         return js_hora;
     }
 
-    public static void setJs_hora(JSpinner js_hora) {
-        V_Consultas.js_hora = js_hora;
+    public void setJs_hora(JSpinner js_hora) {
+        this.js_hora = js_hora;
     }
 
-    public static JLabel getLacaso1() {
+    public JLabel getLacaso1() {
         return lacaso1;
     }
 
-    public static void setLacaso1(JLabel lacaso1) {
-        V_Consultas.lacaso1 = lacaso1;
+    public void setLacaso1(JLabel lacaso1) {
+        this.lacaso1 = lacaso1;
     }
 
-    public static JLabel getNombres() {
+    public JLabel getNombres() {
         return nombres;
     }
 
-    public static void setNombres(JLabel nombres) {
-        V_Consultas.nombres = nombres;
+    public void setNombres(JLabel nombres) {
+        this.nombres = nombres;
     }
 
     public JTextArea getTxa_descripcion() {
@@ -163,20 +155,20 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         this.txa_descripcion = txa_descripcion;
     }
 
-    public static JTextField getTxt_apellidos() {
+    public JTextField getTxt_apellidos() {
         return txt_apellidos;
     }
 
-    public static void setTxt_apellidos(JTextField txt_apellidos) {
-        V_Consultas.txt_apellidos = txt_apellidos;
+    public void setTxt_apellidos(JTextField txt_apellidos) {
+        this.txt_apellidos = txt_apellidos;
     }
 
-    public static JTextField getTxt_nombres() {
+    public JTextField getTxt_nombres() {
         return txt_nombres;
     }
 
-    public static void setTxt_nombres(JTextField txt_nombres) {
-        V_Consultas.txt_nombres = txt_nombres;
+    public void setTxt_nombres(JTextField txt_nombres) {
+        this.txt_nombres = txt_nombres;
     }
 
     /**
@@ -308,23 +300,23 @@ public class V_Consultas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JLabel apellidos;
-    public static javax.swing.JButton btn_cancelar;
-    public static javax.swing.JButton btn_guardar;
-    public static javax.swing.JButton btn_nuevo;
-    public static javax.swing.JComboBox<String> cb_caso;
-    public static javax.swing.JLabel jLabel1;
-    public static javax.swing.JLabel jLabel2;
-    public static javax.swing.JLabel jLabel3;
-    public static javax.swing.JLabel jLabel4;
-    public static javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel apellidos;
+    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_nuevo;
+    private javax.swing.JComboBox<String> cb_caso;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     public static javax.swing.JPanel jPanel1;
-    public static javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JSpinner js_hora;
-    public static javax.swing.JLabel lacaso1;
-    public static javax.swing.JLabel nombres;
-    public javax.swing.JTextArea txa_descripcion;
-    public static javax.swing.JTextField txt_apellidos;
-    public static javax.swing.JTextField txt_nombres;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner js_hora;
+    private javax.swing.JLabel lacaso1;
+    private javax.swing.JLabel nombres;
+    private javax.swing.JTextArea txa_descripcion;
+    private javax.swing.JTextField txt_apellidos;
+    private javax.swing.JTextField txt_nombres;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,9 +5,16 @@
  */
 package controlador;
 
-import Metodos.Validar_InicioSesion;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Modelo.Buf_Usuarios;
+import Modelo.Buf_UsuariosDB;
+import Vista.V_RecuperarContraseña;
+import Controlador.C_Recuperar_Contraseña;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.List;
 import javax.swing.JOptionPane;
 import vista.V_Inicio_Sesion;
 import vista.V_Menu_Inicio;
@@ -15,34 +22,118 @@ import vista.V_Menu_Inicio;
 /*
  * @author BRYAN_CABRERA
  */
-public class C_Inicio_Sesion implements ActionListener {
+public class C_Inicio_Sesion {
 
-    V_Inicio_Sesion sesion;
-    Validar_InicioSesion V;
+    private V_Inicio_Sesion sesion;
+    Buf_UsuariosDB userDB;
+    Buf_Usuarios U;
 
-    public C_Inicio_Sesion(V_Inicio_Sesion sesion) {
+    public C_Inicio_Sesion(V_Inicio_Sesion sesion, Buf_UsuariosDB userDB, Buf_Usuarios U) {
 
         this.sesion = sesion;
-        this.sesion.getBtn_ingresar().addActionListener(this);
+        this.userDB = userDB;
+        this.U = U;
+
+        Campos();
+
+        sesion.setVisible(true);
+        sesion.setLocationRelativeTo(null);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+    public void Iniciar_Control() {
 
-        if (e.getSource() == sesion.getBtn_ingresar()) {
+        KeyListener K = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
 
-            validarDatos();
-        }
+                if (e.getSource() == sesion.getPsw_contraseña()) {
+
+                    char presionar = e.getKeyChar();
+
+                    if (presionar == KeyEvent.VK_ENTER) {
+
+                        sesion.getBtn_ingresar().doClick();
+                    }
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+                if (e.getSource() == sesion.getPsw_contraseña()) {
+                    Campo_Vacio();
+                }
+                if (e.getSource() == sesion.getTxt_usuario()) {
+
+                    Campo_Vacio();
+                }
+            }
+        };
+        sesion.getTxt_usuario().addKeyListener(K);
+        sesion.getPsw_contraseña().addKeyListener(K);
+
+        //ACTIVAR BOTONES
+        sesion.getBtn_cancelar().addActionListener(l -> {
+            Cancelar();
+        });
+        sesion.getBtn_ingresar().addActionListener(l -> {
+            Validar_Datos();
+        });
+
+        //EVENTOS DE MOUSE
+        MouseListener M = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                if (e.getSource() == sesion.getLb_olvidar()) {
+
+                    V_RecuperarContraseña rec = new V_RecuperarContraseña();
+                    C_Recuperar_Contraseña recupera = new C_Recuperar_Contraseña(rec);
+                    recupera.Iniciar_Control();
+                    rec.setVisible(true);
+                    sesion.setVisible(false);
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+                if (e.getSource() == sesion.getLb_olvidar()) {
+
+                    sesion.getLb_olvidar().setForeground(Color.BLUE);
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        };
+        sesion.getLb_olvidar().addMouseListener(M);
     }
 
-    public void validarDatos() {
+    public void Validar_Datos() {
 
-        if (V.Validar_Campos() == true) {
+        if (Validar_Campos() == true) {
 
-            if ((V.Validar_Usuario() == true) && (V.Validar_Contraseña() == true)) {
+            if ((Validar_Usuario() == true) && (Validar_Contraseña() == true)) {
 
-                V_Menu_Inicio menu = new V_Menu_Inicio();
-                menu.setVisible(true);
+                Campos();
+                V_Menu_Inicio inicio = new V_Menu_Inicio();
+                C_Menu_Inicio iniciar = new C_Menu_Inicio(inicio);
+                iniciar.Iniciar();
+                inicio.setVisible(true);
                 sesion.setVisible(false);
 
             } else {
@@ -52,6 +143,76 @@ public class C_Inicio_Sesion implements ActionListener {
         } else {
 
             JOptionPane.showMessageDialog(null, "Llene Todos Los Campos", "Compos Vacios", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void Campos() {
+
+        sesion.getTxt_usuario().setText("");
+        sesion.getPsw_contraseña().setText("");
+        sesion.getLb_contra().setVisible(false);
+        sesion.getLb_usuario().setVisible(false);
+    }
+
+    public void Cancelar() {
+
+        sesion.getTxt_usuario().setText("");
+        sesion.getPsw_contraseña().setText("");
+    }
+
+    public void Campo_Vacio() {
+
+        if (sesion.getTxt_usuario().getText().isEmpty()) {
+
+            sesion.getLb_usuario().setVisible(true);
+        }
+        if (sesion.getPsw_contraseña().getText().isEmpty()) {
+
+            sesion.getLb_contra().setVisible(true);
+        }
+
+        if (!(sesion.getTxt_usuario().getText().isEmpty())) {
+
+            sesion.getLb_usuario().setVisible(false);
+        }
+        if (!(sesion.getPsw_contraseña().getText().isEmpty())) {
+
+            sesion.getLb_contra().setVisible(false);
+        }
+    }
+
+    public boolean Validar_Usuario() {
+
+        List<Buf_Usuarios> List_usr = userDB.Getter();
+
+        for (int i = 0; i < List_usr.size(); i++) {
+            if (List_usr.get(i).getUsuario().equals(sesion.getTxt_usuario().getText())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean Validar_Contraseña() {
+
+        List<Buf_Usuarios> List_usr = userDB.Getter();
+
+        for (int i = 0; i < List_usr.size(); i++) {
+            if (List_usr.get(i).getContrasenia().equals(sesion.getPsw_contraseña().getText())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean Validar_Campos() {
+
+        if (!(sesion.getTxt_usuario().getText().isEmpty()) && !(sesion.getPsw_contraseña().getText().isEmpty())) {
+
+            return true;
+        } else {
+
+            return false;
         }
     }
 }

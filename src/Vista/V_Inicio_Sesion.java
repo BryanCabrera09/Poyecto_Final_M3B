@@ -19,89 +19,97 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
      * Creates new form Inicio_Sesion
      */
     public V_Inicio_Sesion() {
-        
+
         initComponents();
         setTitle("KarYaN");
     }
 
-    public static JButton getBtn_cancelar() {
+    public JButton getBtn_cancelar() {
         return btn_cancelar;
     }
 
-    public static void setBtn_cancelar(JButton btn_cancelar) {
-        V_Inicio_Sesion.btn_cancelar = btn_cancelar;
+    public void setBtn_cancelar(JButton btn_cancelar) {
+        this.btn_cancelar = btn_cancelar;
     }
 
-    public static JButton getBtn_ingresar() {
+    public JButton getBtn_ingresar() {
         return btn_ingresar;
     }
 
-    public static void setBtn_ingresar(JButton btn_ingresar) {
-        V_Inicio_Sesion.btn_ingresar = btn_ingresar;
+    public void setBtn_ingresar(JButton btn_ingresar) {
+        this.btn_ingresar = btn_ingresar;
     }
 
-    public static JLabel getjLabel1() {
+    public JLabel getjLabel1() {
         return jLabel1;
     }
 
-    public static void setjLabel1(JLabel jLabel1) {
-        V_Inicio_Sesion.jLabel1 = jLabel1;
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
     }
 
-    public static JLabel getLbl_bienvenido() {
-        return lbl_bienvenido;
-    }
-
-    public static void setLbl_bienvenido(JLabel lbl_bienvenido) {
-        V_Inicio_Sesion.lbl_bienvenido = lbl_bienvenido;
-    }
-
-    public static JLabel getLbl_contraseña() {
-        return lbl_contraseña;
-    }
-
-    public static void setLbl_contraseña(JLabel lbl_contraseña) {
-        V_Inicio_Sesion.lbl_contraseña = lbl_contraseña;
-    }
-
-    public static JLabel getLbl_usuario() {
-        return lbl_usuario;
-    }
-
-    public static void setLbl_usuario(JLabel lbl_usuario) {
-        V_Inicio_Sesion.lbl_usuario = lbl_usuario;
-    }
-
-    public static JPasswordField getPsw_contraseña() {
-        return psw_contraseña;
-    }
-
-    public static void setPsw_contraseña(JPasswordField psw_contraseña) {
-        V_Inicio_Sesion.psw_contraseña = psw_contraseña;
-    }
-
-    public static JTextField getTxt_usuario() {
-        return txt_usuario;
-    }
-
-    public static void setTxt_usuario(JTextField txt_usuario) {
-        V_Inicio_Sesion.txt_usuario = txt_usuario;
-    }
-
-    public static JLabel getLb_contra() {
+    public JLabel getLb_contra() {
         return lb_contra;
     }
 
-    public static void setLb_contra(JLabel lb_contra) {
-        V_Inicio_Sesion.lb_contra = lb_contra;
+    public void setLb_contra(JLabel lb_contra) {
+        this.lb_contra = lb_contra;
     }
 
-    public static JLabel getLb_usuario() {
+    public JLabel getLb_olvidar() {
+        return lb_olvidar;
+    }
+
+    public void setLb_olvidar(JLabel lb_olvidar) {
+        this.lb_olvidar = lb_olvidar;
+    }
+
+    public JLabel getLb_usuario() {
         return lb_usuario;
     }
 
-    public static void setLb_usuario(JLabel lb_usuario) {
-        V_Inicio_Sesion.lb_usuario = lb_usuario;
+    public void setLb_usuario(JLabel lb_usuario) {
+        this.lb_usuario = lb_usuario;
+    }
+    
+    public JLabel getLbl_contraseña() {
+        return lbl_contraseña;
+    }
+
+    public void setLbl_contraseña(JLabel lbl_contraseña) {
+        this.lbl_contraseña = lbl_contraseña;
+    }
+
+    public JLabel getLbl_bienvenido() {
+        return lbl_bienvenido;
+    }
+
+    public void setLbl_bienvenido(JLabel lbl_bienvenido) {
+        this.lbl_bienvenido = lbl_bienvenido;
+    }
+
+    public JLabel getLbl_usuario() {
+        return lbl_usuario;
+    }
+
+    public void setLbl_usuario(JLabel lbl_usuario) {
+        this.lbl_usuario = lbl_usuario;
+    }
+
+    public JPasswordField getPsw_contraseña() {
+        return psw_contraseña;
+    }
+
+    public void setPsw_contraseña(JPasswordField psw_contraseña) {
+        this.psw_contraseña = psw_contraseña;
+    }
+
+    public JTextField getTxt_usuario() {
+        return txt_usuario;
+    }
+
+    public void setTxt_usuario(JTextField txt_usuario) {
+        this.txt_usuario = txt_usuario;
     }
 
     /**
@@ -124,37 +132,38 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
         btn_cancelar = new javax.swing.JButton();
         lb_contra = new javax.swing.JLabel();
         lb_usuario = new javax.swing.JLabel();
+        lb_olvidar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_bienvenido.setFont(new java.awt.Font("Bodoni MT Black", 1, 24)); // NOI18N
-        lbl_bienvenido.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_bienvenido.setForeground(new java.awt.Color(0, 0, 0));
         lbl_bienvenido.setText("BIENVENIDO");
-        jPanel1.add(lbl_bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 200, 40));
+        jPanel1.add(lbl_bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 200, 40));
 
         lbl_usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbl_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_usuario.setForeground(new java.awt.Color(0, 0, 0));
         lbl_usuario.setText("USUARIO");
         jPanel1.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 80, 30));
 
         lbl_contraseña.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbl_contraseña.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_contraseña.setForeground(new java.awt.Color(0, 0, 0));
         lbl_contraseña.setText("CONTRASEÑA");
         jPanel1.add(lbl_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 110, 30));
-        jPanel1.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 150, 31));
-        jPanel1.add(psw_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 150, 31));
+        jPanel1.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 180, 31));
+        jPanel1.add(psw_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 180, 31));
 
         btn_ingresar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_ingresar.setText("INGRESAR");
-        jPanel1.add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 110, 50));
+        jPanel1.add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 110, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/fsdfdsfsfs.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 130, 130));
 
         btn_cancelar.setText("CANCELAR");
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 100, 50));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 100, 50));
 
         lb_contra.setBackground(new java.awt.Color(255, 255, 255));
         lb_contra.setForeground(new java.awt.Color(255, 0, 0));
@@ -166,15 +175,23 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
         lb_usuario.setText("*Campo Obligatorio");
         jPanel1.add(lb_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
 
+        lb_olvidar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_olvidar.setText("¿Olvidaste tu Contraseña?");
+        jPanel1.add(lb_olvidar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 180, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,7 +201,7 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-//    public static void main(String args[]) {
+//    public  void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
 //        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -217,16 +234,17 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btn_cancelar;
-    public static javax.swing.JButton btn_ingresar;
-    public static javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_ingresar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JLabel lb_contra;
-    public static javax.swing.JLabel lb_usuario;
-    public static javax.swing.JLabel lbl_bienvenido;
-    public static javax.swing.JLabel lbl_contraseña;
-    public static javax.swing.JLabel lbl_usuario;
-    public static javax.swing.JPasswordField psw_contraseña;
-    public static javax.swing.JTextField txt_usuario;
+    private javax.swing.JLabel lb_contra;
+    private javax.swing.JLabel lb_olvidar;
+    private javax.swing.JLabel lb_usuario;
+    private javax.swing.JLabel lbl_bienvenido;
+    private javax.swing.JLabel lbl_contraseña;
+    private javax.swing.JLabel lbl_usuario;
+    private javax.swing.JPasswordField psw_contraseña;
+    private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
 }
