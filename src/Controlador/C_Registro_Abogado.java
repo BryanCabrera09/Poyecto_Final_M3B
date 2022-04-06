@@ -244,197 +244,32 @@ public class C_Registro_Abogado {
 
     public void Guardar() {
 
-        List<Buf_Abogado> List_abg = A_DB.Getter();
-        List<Buf_Secretaria> List_secre = S_DB.Getter();
-        List<Buf_Cliente> List_cliente = C_DB.Getter();
-
         if (Validar_Datos() == true) {
-            if (!List_secre.isEmpty() && !List_abg.isEmpty() && !List_cliente.isEmpty()) {
-                if (Validar_Cedula() == true && Validar_Correo() == true && Validar_Matricula() == true) {
-                    if (Validar_Correo(registro.getTxt_correo().getText()) && Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
-                        int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
-                        switch (resp) {
-                            case 0:
-                                Subir_Datos();
-                                break;
-                            case 1:
-                                Campo_Vacio();
-                                JOptionPane.showMessageDialog(null, "LLENE LOS CAMPOS CON LA INFORMACION CORRECTA");
-                                break;
-                        }
-                    } else {
-
-                        Campo_Vacio();
-                        JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+            if (Validar_Cedula() == true && Validar_Correo() == true && Validar_Matricula() == true) {
+                if (Validar_Correo(registro.getTxt_correo().getText()) && Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
+                    int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
+                    switch (resp) {
+                        case 0:
+                            Subir_Datos();
+                            break;
+                        case 1:
+                            Campo_Vacio();
+                            JOptionPane.showMessageDialog(null, "LLENE LOS CAMPOS CON LA INFORMACION CORRECTA");
+                            break;
                     }
                 } else {
 
                     Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
+            } else {
+
+                Campo_Vacio();
+                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             Campo_Vacio();
             JOptionPane.showMessageDialog(null, "LLENE TODOS LOS CAMPOS");
-        }
-
-        if (List_abg.size() <= 0 && List_secre.size() <= 0 && List_cliente.size() <= 0 && Validar_Datos() == true) {
-            if (Validar_Correo(registro.getTxt_correo().getText()) && Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
-                int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
-                switch (resp) {
-                    case 0:
-                        Subir_Datos();
-                        break;
-                    case 1:
-                        Campo_Vacio();
-                        JOptionPane.showMessageDialog(null, "LLENE LOS CAMPOS CON LA INFORMACION CORRECTA");
-                        break;
-                }
-            } else {
-
-                Campo_Vacio();
-                JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-        } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && List_cliente.size() <= 0 && (Validar_Datos() == true)) {
-            if (Validar_Cedula() == true && Validar_Correo() == true && Validar_Matricula() == true) {
-                if (Validar_Correo(registro.getTxt_correo().getText()) && Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            Campo_Vacio();
-                            JOptionPane.showMessageDialog(null, "LLENE LOS CAMPOS CON LA INFORMACION CORRECTA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-
-        } else if (!(List_abg.size() <= 0) && !(List_secre.size() <= 0) && List_cliente.size() <= 0 && (Validar_Datos() == true)) {
-            if (Validar_Cedula() == true && Validar_Correo() == true && Validar_Matricula() == true) {
-                if (Validar_Correo(registro.getTxt_correo().getText()) && Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            Campo_Vacio();
-                            JOptionPane.showMessageDialog(null, "LLENE LOS CAMPOS CON LA INFORMACION CORRECTA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-
-        } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && !(List_cliente.size() <= 0) && (Validar_Datos() == true)) {
-            if (Validar_Cedula() == true && Validar_Correo() == true && Validar_Matricula() == true) {
-                if (Validar_Correo(registro.getTxt_correo().getText()) && Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            Campo_Vacio();
-                            JOptionPane.showMessageDialog(null, "LLENE LOS CAMPOS CON LA INFORMACION CORRECTA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-        } else if (List_abg.size() <= 0 && !(List_secre.size() <= 0) && !(List_cliente.size() <= 0) && (Validar_Datos() == true)) {
-            if (Validar_Cedula() == true && Validar_Correo() == true && Validar_Matricula() == true) {
-                if (Validar_Correo(registro.getTxt_correo().getText()) && Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            Campo_Vacio();
-                            JOptionPane.showMessageDialog(null, "LLENE LOS CAMPOS CON LA INFORMACION CORRECTA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-        } else if (List_abg.isEmpty() && List_secre.isEmpty() && !(List_cliente.size() <= 0) && (Validar_Datos() == true)) {
-            if (Validar_Cedula() == true && Validar_Correo() == true && Validar_Matricula() == true) {
-                if (Validar_Correo(registro.getTxt_correo().getText()) && Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            Campo_Vacio();
-                            JOptionPane.showMessageDialog(null, "LLENE LOS CAMPOS CON LA INFORMACION CORRECTA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-        } else if (List_abg.isEmpty() && !List_secre.isEmpty() && List_cliente.isEmpty() && (Validar_Datos() == true)) {
-            if (Validar_Cedula() == true && Validar_Correo() == true && Validar_Matricula() == true) {
-                if (Validar_Correo(registro.getTxt_correo().getText()) && Verificar_Cedula(registro.getTxt_cedula().getText()) && registro.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "LOS DATOS INGRESADOS SON CORRECTOS...?", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            Campo_Vacio();
-                            JOptionPane.showMessageDialog(null, "LLENE LOS CAMPOS CON LA INFORMACION CORRECTA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
         }
     }
 

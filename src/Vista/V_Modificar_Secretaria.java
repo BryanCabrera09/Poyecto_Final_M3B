@@ -370,6 +370,14 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
         this.txt_id = txt_id;
     }
 
+    public JLabel getLb_apellido() {
+        return lb_apellido;
+    }
+
+    public void setLb_apellido(JLabel lb_apellido) {
+        this.lb_apellido = lb_apellido;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -421,6 +429,7 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         btn_cancelar = new javax.swing.JButton();
         txt_id = new javax.swing.JTextField();
+        lb_apellido = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -578,6 +587,11 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
         jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 650, 100, 50));
         jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 120, -1));
 
+        lb_apellido.setBackground(new java.awt.Color(255, 255, 255));
+        lb_apellido.setForeground(new java.awt.Color(255, 0, 0));
+        lb_apellido.setText("*Campo Obligatorio");
+        jPanel1.add(lb_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 720));
 
         pack();
@@ -631,6 +645,7 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lahorario;
     private javax.swing.JLabel lanombre;
     private javax.swing.JLabel laregistro;
+    private javax.swing.JLabel lb_apellido;
     private javax.swing.JLabel lb_celular;
     private javax.swing.JLabel lb_correo;
     private javax.swing.JLabel lb_direccion;

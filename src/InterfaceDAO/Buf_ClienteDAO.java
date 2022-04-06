@@ -15,4 +15,6 @@ public interface Buf_ClienteDAO {
     public boolean Update(Buf_Cliente cliente);
 
     public boolean Delete(Buf_Cliente cliente);
+    
+    public List<Buf_Cliente> Search(String cliente);
 }

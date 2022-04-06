@@ -7,6 +7,8 @@ package controlador;
 
 import Modelo.Buf_Abogado;
 import Modelo.Buf_AbogadoDB;
+import Modelo.Buf_Secretaria;
+import Modelo.Buf_SecretariaDB;
 import Modelo.Buf_Usuarios;
 import Modelo.Buf_UsuariosDB;
 import java.awt.event.KeyEvent;
@@ -22,6 +24,7 @@ public class C_Registro_Usuario {
 
     V_Registro_Usuario crearuser;
     Buf_Usuarios U = new Buf_Usuarios();
+    Buf_SecretariaDB S_DB = new Buf_SecretariaDB();
     Buf_UsuariosDB U_DB = new Buf_UsuariosDB();
     Buf_AbogadoDB A_DB = new Buf_AbogadoDB();
 
@@ -231,36 +234,7 @@ public class C_Registro_Usuario {
             crearuser.getLb_cedula().setVisible(false);
             crearuser.getBtn_cancelar().setEnabled(true);
 
-            List<Buf_Usuarios> List_user = U_DB.Getter();
-            List<Buf_Abogado> List_abg = A_DB.Getter();
-
-            if (List_user.isEmpty()) {
-                for (int i = 0; i < List_abg.size(); i++) {
-                    if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                        crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
-                    } else {
-                        crearuser.getTxt_id().setText("");
-                    }
-                }
-            } else {
-
-                for (int i = 0; i < List_user.size(); i++) {
-                    for (int p = 0; p < List_abg.size(); p++) {
-                        if (List_user.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                            crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
-                        } else if (List_abg.get(p).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                            crearuser.getTxt_id().setText(String.valueOf(List_abg.get(p).getId_abg()));
-                        } else {
-                            crearuser.getTxt_id().setText("");
-                        }
-                        if (List_user.get(i).getCedula().equals(crearuser.getTxt_cedula().getText()) && List_abg.get(p).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                            crearuser.getLb_registro().setVisible(true);
-                        } else if (!List_user.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                            crearuser.getLb_registro().setVisible(false);
-                        }
-                    }
-                }
-            }
+            Validar();
         }
 
         if (!crearuser.getTxt_usuario().getText().isEmpty()) {
@@ -299,14 +273,81 @@ public class C_Registro_Usuario {
         }
     }
 
+    public void Validar() {
+
+        List<Buf_Usuarios> List_user = U_DB.Getter();
+        List<Buf_Abogado> List_abg = A_DB.Getter();
+        List<Buf_Secretaria> List_secre = S_DB.Getter();
+
+        if (List_user.isEmpty()) {
+            for (int i = 0; i < List_abg.size(); i++) {
+                if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                    crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
+                } else {
+                    crearuser.getTxt_id().setText("");
+                }
+            }
+        }
+        if (List_secre.isEmpty()) {
+
+            for (int i = 0; i < List_user.size(); i++) {
+                for (int p = 0; p < List_abg.size(); p++) {
+                    if (List_abg.get(p).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                        crearuser.getTxt_id().setText(String.valueOf(List_abg.get(p).getId_abg()));
+                    } else {
+                        crearuser.getTxt_id().setText("");
+                    }
+                    if (List_user.get(i).getCedula().equals(crearuser.getTxt_cedula().getText()) && List_abg.get(p).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                        crearuser.getLb_registro().setVisible(true);
+                    } else if (!List_user.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                        crearuser.getLb_registro().setVisible(false);
+                    }
+                }
+            }
+        }
+        for (int j = 0; j < List_secre.size(); j++) {
+            for (int u = 0; u < List_user.size(); u++) {
+                for (int i = 0; i < List_abg.size(); i++) {
+                    if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                        crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
+                    } else if (List_secre.get(j).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                        crearuser.getTxt_id().setText(String.valueOf(List_secre.get(j).getId_secretaria()));
+                    } else {
+                        crearuser.getTxt_id().setText("");
+                    }
+                    if (List_user.get(u).getCedula().equals(crearuser.getTxt_cedula().getText()) && List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                        crearuser.getLb_registro().setVisible(true);
+                    } else if ((List_user.get(u).getCedula().equals(crearuser.getTxt_cedula().getText()) && List_secre.get(j).getCedula().equals(crearuser.getTxt_cedula().getText()))) {
+                        crearuser.getLb_registro().setVisible(true);
+                    } else if (!List_user.get(u).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                        crearuser.getLb_registro().setVisible(false);
+                    }
+                }
+            }
+        }
+    }
+
     public boolean Validar_Registro() {
 
         List<Buf_Abogado> List_abg = A_DB.Getter();
+        List<Buf_Secretaria> List_secre = S_DB.Getter();
 
-        for (int i = 0; i < List_abg.size(); i++) {
-            if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                return true;
+        if (!List_secre.isEmpty()) {
+            for (int i = 0; i < List_abg.size(); i++) {
+                if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                    return true;
+                }
             }
+            return false;
+        }
+
+        for (int j = 0; j < List_secre.size(); j++) {
+            for (int i = 0; i < List_abg.size(); i++) {
+                if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText()) || List_secre.get(j).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                    return true;
+                }
+            }
+
         }
         return false;
     }

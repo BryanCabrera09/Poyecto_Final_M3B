@@ -200,6 +200,7 @@ public class C_Menu_Inicio implements ActionListener {
                     C_Modificar_Cliente modificarCliente = new C_Modificar_Cliente(C);
                     Inicio.getEscritorio().add(C);
                     C.show();
+                    modificarCliente.Iniciar_Control();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }
@@ -263,6 +264,7 @@ public class C_Menu_Inicio implements ActionListener {
                     C_Registro_Cliente registroCliente = new C_Registro_Cliente(rc);
                     Inicio.getEscritorio().add(rc);
                     rc.show();
+                    registroCliente.Iniciar_Control();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }

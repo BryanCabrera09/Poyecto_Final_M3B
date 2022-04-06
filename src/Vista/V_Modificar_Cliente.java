@@ -314,6 +314,22 @@ public class V_Modificar_Cliente extends javax.swing.JInternalFrame {
         this.txt_ocupacion = txt_ocupacion;
     }
 
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
+    public JLabel getLb_apellido() {
+        return lb_apellido;
+    }
+
+    public void setLb_apellido(JLabel lb_apellido) {
+        this.lb_apellido = lb_apellido;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -359,6 +375,8 @@ public class V_Modificar_Cliente extends javax.swing.JInternalFrame {
         txt_buscar = new javax.swing.JTextField();
         btn_modificar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
+        lb_apellido = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -389,82 +407,82 @@ public class V_Modificar_Cliente extends javax.swing.JInternalFrame {
 
         laregistro.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         laregistro.setText("Modificar Informacion");
-        jPanel1.add(laregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, 30));
+        jPanel1.add(laregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, 30));
 
         lacedula.setText("Cedula:");
-        jPanel1.add(lacedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, 20));
+        jPanel1.add(lacedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, -1, 20));
 
         lacelular.setText("Celular:");
-        jPanel1.add(lacelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, 20));
+        jPanel1.add(lacelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, 20));
 
         lanombre.setText("Nombre:");
-        jPanel1.add(lanombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, 20));
+        jPanel1.add(lanombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, 20));
 
         lacorreo.setText("Correo Electronico:");
-        jPanel1.add(lacorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, 20));
+        jPanel1.add(lacorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, 20));
 
         laapellido.setText("Apellido:");
-        jPanel1.add(laapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, 20));
+        jPanel1.add(laapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, 20));
 
         ladireccion.setText("Direccion:");
-        jPanel1.add(ladireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, -1, 20));
+        jPanel1.add(ladireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, -1, 20));
 
         lafecha_nac.setText("Fecha de Nacimiento:");
-        jPanel1.add(lafecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, 20));
+        jPanel1.add(lafecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, 20));
 
         laestado.setText("Estado civil:");
-        jPanel1.add(laestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, -1, 20));
+        jPanel1.add(laestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, 20));
 
         lanum_cuenta.setText("Ocupacion:");
-        jPanel1.add(lanum_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, 20));
-        jPanel1.add(txt_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 139, -1));
-        jPanel1.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 139, -1));
-        jPanel1.add(txt_ocupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 160, -1));
+        jPanel1.add(lanum_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, -1, 20));
+        jPanel1.add(txt_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 139, -1));
+        jPanel1.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, 139, -1));
+        jPanel1.add(txt_ocupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 160, -1));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 680, -1, 40));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 720, -1, 40));
 
-        jPanel1.add(cb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 160, -1));
+        jPanel1.add(cb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 160, -1));
 
-        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar.png"))); // NOI18N
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Eliminar.png"))); // NOI18N
         btn_eliminar.setText("ELIMINAR REGISTRO");
-        jPanel1.add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 680, -1, 40));
-        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 139, -1));
-        jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 139, -1));
-        jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 160, -1));
-        jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 139, -1));
-        jPanel1.add(nacimeinto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 160, -1));
+        jPanel1.add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 720, -1, 40));
+        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 139, -1));
+        jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 139, -1));
+        jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 160, -1));
+        jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 139, -1));
+        jPanel1.add(nacimeinto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 160, -1));
 
         lb_nombre.setBackground(new java.awt.Color(255, 255, 255));
         lb_nombre.setForeground(new java.awt.Color(255, 0, 0));
         lb_nombre.setText("*Campo Obligatorio");
-        jPanel1.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
+        jPanel1.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
 
         lb_correo.setBackground(new java.awt.Color(255, 255, 255));
         lb_correo.setForeground(new java.awt.Color(255, 0, 0));
         lb_correo.setText("*Campo Obligatorio");
-        jPanel1.add(lb_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, -1, -1));
+        jPanel1.add(lb_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, -1, -1));
 
         lb_estado.setBackground(new java.awt.Color(255, 255, 255));
         lb_estado.setForeground(new java.awt.Color(255, 0, 0));
         lb_estado.setText("*Campo Obligatorio");
-        jPanel1.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, -1, -1));
+        jPanel1.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
 
         lb_cuenta.setBackground(new java.awt.Color(255, 255, 255));
         lb_cuenta.setForeground(new java.awt.Color(255, 0, 0));
         lb_cuenta.setText("*Campo Obligatorio");
-        jPanel1.add(lb_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, -1, -1));
+        jPanel1.add(lb_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, -1, -1));
 
         lb_celular.setBackground(new java.awt.Color(255, 255, 255));
         lb_celular.setForeground(new java.awt.Color(255, 0, 0));
         lb_celular.setText("*Campo Obligatorio");
-        jPanel1.add(lb_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, -1));
+        jPanel1.add(lb_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, -1, -1));
 
         lb_direccion.setBackground(new java.awt.Color(255, 255, 255));
         lb_direccion.setForeground(new java.awt.Color(255, 0, 0));
         lb_direccion.setText("*Campo Obligatorio");
-        jPanel1.add(lb_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, -1, -1));
+        jPanel1.add(lb_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, -1, -1));
 
         tablepersona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -476,30 +494,36 @@ public class V_Modificar_Cliente extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tablepersona);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 770, 180));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 770, 180));
 
         correo.setBackground(new java.awt.Color(255, 255, 255));
         correo.setForeground(new java.awt.Color(255, 0, 0));
         correo.setText("*Correo Erroneo");
-        jPanel1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 110, -1));
+        jPanel1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 110, -1));
 
         celular.setForeground(new java.awt.Color(255, 0, 0));
         celular.setText("*Telefono Erroneo");
-        jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 110, -1));
+        jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 110, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("BUSCAR:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, 70, 30));
-        jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 200, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 70, 30));
+        jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 200, -1));
 
-        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
-        jPanel1.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 40));
+        jPanel1.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, 40));
 
         btn_cancelar.setText("CANCELAR");
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 680, -1, 40));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 720, -1, 40));
+        jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 120, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 750));
+        lb_apellido.setBackground(new java.awt.Color(255, 255, 255));
+        lb_apellido.setForeground(new java.awt.Color(255, 0, 0));
+        lb_apellido.setText("*Campo Obligatorio");
+        jPanel1.add(lb_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 790));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -508,7 +532,6 @@ public class V_Modificar_Cliente extends javax.swing.JInternalFrame {
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         x = null;
     }//GEN-LAST:event_formInternalFrameClosing
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
@@ -531,6 +554,7 @@ public class V_Modificar_Cliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lanombre;
     private javax.swing.JLabel lanum_cuenta;
     private javax.swing.JLabel laregistro;
+    private javax.swing.JLabel lb_apellido;
     private javax.swing.JLabel lb_celular;
     private javax.swing.JLabel lb_correo;
     private javax.swing.JLabel lb_cuenta;
@@ -545,6 +569,7 @@ public class V_Modificar_Cliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txt_celular;
     private javax.swing.JTextField txt_correo;
     private javax.swing.JTextField txt_direccion;
+    private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_ocupacion;
     // End of variables declaration//GEN-END:variables

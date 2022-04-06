@@ -243,7 +243,7 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
             return null;
         }
     }
-    
+
     @Override
     public List<Buf_Persona> Search_Secre(String Identificador) {
 
@@ -373,4 +373,89 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
         }
     }
 
+    @Override
+    public List<Buf_Persona> Getter_Cliente() {
+
+        Statement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT P.Ci, P.Nombre, P.Apellido, P.Correo, P.Direccion, P.Num_Celular, P.Estado, P.Fecha_Nacimiento FROM Buf_Persona P JOIN Buf_Clientes C ON P.Ci = C.ci";
+
+        List<Buf_Persona> Lista_Per = new ArrayList<>();
+
+        try {
+
+            con = DB_Connect.Connect();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                Buf_Persona P = new Buf_Persona();
+                P.setCedula(rs.getString("ci"));
+                P.setNombre(rs.getString("nombre"));
+                P.setApellido(rs.getString("apellido"));
+                P.setCorreo(rs.getString("correo"));
+                P.setDireccion(rs.getString("direccion"));
+                P.setNum_celular(rs.getString("Num_Celular"));
+                P.setEstado_civil(rs.getString("estado"));
+                P.setFecha_Nacimiento(rs.getString("fecha_nacimiento"));
+
+                Lista_Per.add(P);
+            }
+            st.close();
+            con.close();
+            rs.close();
+            return Lista_Per;
+
+        } catch (SQLException e) {
+
+            Logger.getLogger(Buf_PersonaDB.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<Buf_Persona> Search_Cliente(String Identificador) {
+
+        Statement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT P.Ci, P.Nombre, P.Apellido, P.Correo, P.Direccion, P.Num_Celular, P.Estado, P.Fecha_Nacimiento FROM Buf_Persona P JOIN Buf_Clientes C ON P.Ci = C.ci WHERE P.ci LIKE '%" + Identificador + "%'";
+
+        List<Buf_Persona> Lista_Per = new ArrayList<>();
+
+        try {
+
+            con = DB_Connect.Connect();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                Buf_Persona P = new Buf_Persona();
+                P.setCedula(rs.getString("ci"));
+                P.setNombre(rs.getString("nombre"));
+                P.setApellido(rs.getString("apellido"));
+                P.setCorreo(rs.getString("correo"));
+                P.setDireccion(rs.getString("direccion"));
+                P.setNum_celular(rs.getString("Num_Celular"));
+                P.setEstado_civil(rs.getString("estado"));
+                P.setFecha_Nacimiento(rs.getString("fecha_nacimiento"));
+
+                Lista_Per.add(P);
+            }
+            st.close();
+            con.close();
+            rs.close();
+            return Lista_Per;
+
+        } catch (SQLException e) {
+
+            Logger.getLogger(Buf_PersonaDB.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+    }
 }

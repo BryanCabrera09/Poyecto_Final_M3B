@@ -7,7 +7,6 @@ package controlador;
 
 import Modelo.Buf_Abogado;
 import Modelo.Buf_AbogadoDB;
-import Modelo.Buf_Cliente;
 import Modelo.Buf_ClienteDB;
 import Modelo.Buf_Persona;
 import Modelo.Buf_PersonaDB;
@@ -369,6 +368,7 @@ public class C_Modificar_Abogado {
         modificar.getTxt_matricula().setText("");
         modificar.getTxt_correo().setText("");
         modificar.getTxt_id().setText("");
+        modificar.getTxt_buscar().setText("");
         modificar.getCb_1().setSelected(false);
         modificar.getCb_2().setSelected(false);
         modificar.getCb_3().setSelected(false);
@@ -378,199 +378,32 @@ public class C_Modificar_Abogado {
 
     public void Guardar_Datos() {
 
-        List<Buf_Abogado> List_abg = A_DB.Getter();
-        List<Buf_Secretaria> List_secre = S_DB.Getter();
-        List<Buf_Cliente> List_cliente = C_DB.Getter();
-
         if (Validar_Datos_Modificar() == true) {
-            if (!List_secre.isEmpty() && !List_abg.isEmpty() && !List_cliente.isEmpty()) {
-                if (Validar_Correo_Modificar() == true) {
-                    if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
-                        int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                        switch (resp) {
-                            case 0:
-
-                                Subir_Datos();
-                                break;
-                            case 1:
-                                JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                                break;
-                        }
-                    } else {
-
-                        Campo_Vacio_Modificar();
-                        JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+            if (Validar_Correo_Modificar() == true) {
+                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
+                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
+                    switch (resp) {
+                        case 0:
+                            Subir_Datos();
+                            break;
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
+                            break;
                     }
                 } else {
 
                     Campo_Vacio_Modificar();
-                    JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
+            } else {
+
+                Campo_Vacio_Modificar();
+                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
             }
+
         } else {
             Campo_Vacio_Modificar();
             JOptionPane.showMessageDialog(null, "LLENE TODOS LOS CAMPOS");
-        }
-
-        if (List_abg.size() <= 0 && List_secre.size() <= 0 && List_cliente.size() <= 0 && Validar_Datos_Modificar() == true) {
-            if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
-                int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                switch (resp) {
-                    case 0:
-
-                        Subir_Datos();
-
-                        break;
-                    case 1:
-                        JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                        break;
-                }
-            } else {
-
-                Campo_Vacio_Modificar();
-                JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-        } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && List_cliente.size() <= 0 && Validar_Datos_Modificar() == true) {
-            if (Validar_Correo_Modificar() == true) {
-                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio_Modificar();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio_Modificar();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-
-        } else if (!(List_abg.size() <= 0) && !(List_secre.size() <= 0) && List_cliente.size() <= 0 && Validar_Datos_Modificar() == true) {
-            if (Validar_Correo_Modificar() == true) {
-                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio_Modificar();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio_Modificar();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-
-        } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && !(List_cliente.size() <= 0) && Validar_Datos_Modificar() == true) {
-            if (Validar_Correo_Modificar() == true) {
-                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio_Modificar();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio_Modificar();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-
-        } else if (List_abg.size() <= 0 && !(List_secre.size() <= 0) && !(List_cliente.size() <= 0) && Validar_Datos_Modificar() == true) {
-            if (Validar_Correo_Modificar() == true) {
-                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio_Modificar();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio_Modificar();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-        } else if (List_abg.isEmpty() && List_secre.isEmpty() && !(List_cliente.size() <= 0) && Validar_Datos_Modificar() == true) {
-            if (Validar_Correo_Modificar() == true) {
-                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio_Modificar();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio_Modificar();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
-        } else if (List_abg.isEmpty() && !List_secre.isEmpty() && List_cliente.isEmpty() && Validar_Datos_Modificar() == true) {
-            if (Validar_Correo_Modificar() == true) {
-                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-
-                            Subir_Datos();
-                            break;
-                        case 1:
-                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio_Modificar();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-
-                Campo_Vacio_Modificar();
-                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-            }
         }
     }
 
@@ -819,14 +652,13 @@ public class C_Modificar_Abogado {
         modificar.getBtn_elimina().setEnabled(true);
         modificar.getBtn_modificar().setEnabled(true);
         modificar.getBtn_imagen().setEnabled(false);
-        modificar.getTxt_buscar().setEditable(true);
     }
 
     public boolean Validar_Datos_Modificar() {
 
         String estado = (String) modificar.getCb_estado().getSelectedItem();
 
-        if (!modificar.getTxt_nombre().getText().equals("") && !modificar.getTxt_correo().getText().equals("") && !modificar.getTxt_direccion().getText().equals("") && !modificar.getTxt_celular().getText().equals("") && !modificar.getTxt_cuenta().getText().equals("") && !estado.equals("Seleccionar") && (modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
+        if (!modificar.getTxt_nombre().getText().equals("") && !modificar.getTxt_correo().getText().equals("")  && !modificar.getTxt_apellido().getText().equals("") && !modificar.getTxt_direccion().getText().equals("") && !modificar.getTxt_celular().getText().equals("") && !modificar.getTxt_cuenta().getText().equals("") && !estado.equals("Seleccionar") && (modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
             return true;
         } else {
 
@@ -965,6 +797,7 @@ public class C_Modificar_Abogado {
     }
 
     public void Nuevo_Modificar() {
+        
         modificar.getBtn_guardar().setEnabled(false);
         modificar.getBtn_elimina().setEnabled(false);
         modificar.getTxt_nombre().setEditable(false);
@@ -982,7 +815,9 @@ public class C_Modificar_Abogado {
         modificar.getCb_3().setEnabled(false);
         modificar.getCb_4().setEnabled(false);
         modificar.getNacimeinto().setEditable(false);
+        modificar.getTxt_buscar().setEditable(true);
         modificar.getTxt_cedula().setText("");
+        modificar.getTxt_buscar().setText("");
         modificar.getTxt_id().setText("");
         modificar.getTxt_nombre().setText("");
         modificar.getCb_estado().setSelectedIndex(0);
@@ -1008,6 +843,7 @@ public class C_Modificar_Abogado {
         modificar.getTxt_correo().setEditable(true);
         modificar.getTxt_celular().setEditable(true);
         modificar.getTxt_cuenta().setEditable(true);
+        modificar.getTxt_buscar().setEditable(false);
         modificar.getTxt_direccion().setEditable(true);
         modificar.getCb_estado().setEnabled(true);
         modificar.getCb_1().setEnabled(true);

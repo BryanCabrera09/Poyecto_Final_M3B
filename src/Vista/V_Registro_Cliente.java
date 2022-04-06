@@ -316,6 +316,22 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
         this.txt_ocupacion = txt_ocupacion;
     }
 
+    public JTextField getTxt_abogado() {
+        return txt_abogado;
+    }
+
+    public void setTxt_abogado(JTextField txt_abogado) {
+        this.txt_abogado = txt_abogado;
+    }
+
+    public JTextField getTxt_id_abg() {
+        return txt_id_abg;
+    }
+
+    public void setTxt_id_abg(JTextField txt_id_abg) {
+        this.txt_id_abg = txt_id_abg;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -357,6 +373,8 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
         celular = new javax.swing.JLabel();
         datocedula = new javax.swing.JLabel();
         datocorreo = new javax.swing.JLabel();
+        txt_abogado = new javax.swing.JTextField();
+        txt_id_abg = new javax.swing.JTextField();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -468,16 +486,16 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
         lb_ocupacion.setText("*Campo Obligatorio");
         jPanel1.add(lb_ocupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, -1, -1));
 
-        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cancelar.png"))); // NOI18N
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
         jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 130, 50));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
         jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, 120, 50));
 
         btn_nuevo.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Nuevo.png"))); // NOI18N
+        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N
         btn_nuevo.setText("NUEVO");
         jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 110, 50));
         jPanel1.add(txt_ocupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 160, -1));
@@ -502,6 +520,8 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
         datocorreo.setForeground(new java.awt.Color(255, 0, 0));
         datocorreo.setText("*Dato Existente");
         jPanel1.add(datocorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
+        jPanel1.add(txt_abogado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 130, -1));
+        jPanel1.add(txt_id_abg, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 80, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -555,11 +575,13 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lb_fecha;
     private javax.swing.JLabel lb_nombre;
     private javax.swing.JLabel lb_ocupacion;
+    private javax.swing.JTextField txt_abogado;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_cedula;
     private javax.swing.JTextField txt_celular;
     private javax.swing.JTextField txt_correo;
     private javax.swing.JTextField txt_direccion;
+    private javax.swing.JTextField txt_id_abg;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_ocupacion;
     // End of variables declaration//GEN-END:variables

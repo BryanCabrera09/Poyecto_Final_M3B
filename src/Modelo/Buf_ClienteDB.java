@@ -35,13 +35,14 @@ public class Buf_ClienteDB implements Buf_ClienteDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Clientes VALUES (?, ?, ?)";
+            String sql = "INSERT INTO Buf_Clientes VALUES (?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 
             pst.setInt(1, cliente.getId_cliente());
             pst.setString(2, cliente.getCedula());
-            pst.setString(3, cliente.getOcupacion());
+            pst.setInt(3, cliente.getId_abg());
+            pst.setString(4, cliente.getOcupacion());
             pst.executeUpdate();
 
             con.commit();
@@ -67,6 +68,7 @@ public class Buf_ClienteDB implements Buf_ClienteDAO {
 
     @Override
     public List<Buf_Cliente> Getter() {
+        
         Statement st = null;
         Connection con = null;
         ResultSet rs = null;
@@ -83,11 +85,12 @@ public class Buf_ClienteDB implements Buf_ClienteDAO {
 
             while (rs.next()) {
 
-                Buf_Cliente A = new Buf_Cliente();
-                A.setId_abg(rs.getInt("id_cliente"));
-                A.setCedula(rs.getString("ci"));
-                A.setOcupacion(rs.getString("ocupacion"));
-                Lista_cli.add(A);
+                Buf_Cliente C = new Buf_Cliente();
+                C.setId_cliente(rs.getInt("id_cliente"));
+                C.setCedula(rs.getString("ci"));
+                C.setId_abg(rs.getInt("id_abg"));
+                C.setOcupacion(rs.getString("ocupacion"));
+                Lista_cli.add(C);
             }
             st.close();
             con.close();
@@ -96,14 +99,14 @@ public class Buf_ClienteDB implements Buf_ClienteDAO {
 
         } catch (SQLException e) {
 
-            Logger.getLogger(Buf_PersonaDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Buf_ClienteDB.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }
 
     @Override
     public boolean Update(Buf_Cliente cliente) {
-boolean Update = false;
+        boolean Update = false;
 
         Connection con = null;
         PreparedStatement pst = null;
@@ -117,12 +120,11 @@ boolean Update = false;
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Clientes SET ci=?,ocupacion=? WHERE id_cliente=?";
+            String sql = "UPDATE Buf_Clientes SET ocupacion=? WHERE id_cliente=?";
             pst = con.prepareStatement(sql);
 
-            pst.setString(1, cliente.getCedula());
-            pst.setString(2, cliente.getOcupacion());
-            pst.setInt(3, cliente.getId_cliente());
+            pst.setString(1, cliente.getOcupacion());
+            pst.setInt(2, cliente.getId_cliente());
 
             int act_2 = pst.executeUpdate();
             Update = true;
@@ -143,11 +145,12 @@ boolean Update = false;
             }
         }
 
-        return Update;    }
+        return Update;
+    }
 
     @Override
     public boolean Delete(Buf_Cliente cliente) {
- boolean Delete = false;
+        boolean Delete = false;
 
         PreparedStatement pst = null;
         Statement st = null;
@@ -164,7 +167,7 @@ boolean Update = false;
             String sql = "DELETE FROM Buf_Clientes WHERE id_cliente=?";
 
             pst = con.prepareStatement(sql);
-            pst.setInt(1, cliente.getId_abg());
+            pst.setInt(1, cliente.getId_cliente());
 
             int elim = pst.executeUpdate();
             Delete = true;
@@ -183,6 +186,44 @@ boolean Update = false;
                 System.out.println("Error > " + ex.getMessage());
             }
         }
-        return Delete;    }
+        return Delete;
+    }
 
+    @Override
+    public List<Buf_Cliente> Search(String Identificador) {
+        
+        Statement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM Buf_Clientes WHERE ci LIKE '%" + Identificador + "%'";
+
+        List<Buf_Cliente> Lista_cli = new ArrayList<>();
+
+        try {
+
+            con = DB_Connect.Connect();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                Buf_Cliente C = new Buf_Cliente();
+                C.setId_cliente(rs.getInt("id_cliente"));
+                C.setCedula(rs.getString("ci"));
+                C.setId_abg(rs.getInt("id_abg"));
+                C.setOcupacion(rs.getString("ocupacion"));
+                Lista_cli.add(C);
+            }
+            st.close();
+            con.close();
+            rs.close();
+            return Lista_cli;
+
+        } catch (SQLException e) {
+
+            Logger.getLogger(Buf_ClienteDB.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+    }
 }

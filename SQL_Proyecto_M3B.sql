@@ -21,7 +21,7 @@ SELECT
     P.Fecha_Nacimiento
 FROM
          Buf_Persona P
-    JOIN Buf_Secretarias S ON P.Ci = S.Ci_Secre;
+    JOIN Buf_Clientes C ON P.Ci = C.ci;
 /*
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 TABLA PERSONAS

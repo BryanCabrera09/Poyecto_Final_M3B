@@ -15,6 +15,8 @@ public interface Buf_PersonaDAO {
     public List<Buf_Persona> Getter_Secre();
     
     public List<Buf_Persona> Getter_Abg();
+    
+    public List<Buf_Persona> Getter_Cliente();
 
     public boolean Update(Buf_Persona persona);
 
@@ -23,4 +25,6 @@ public interface Buf_PersonaDAO {
     public List<Buf_Persona> Search_Abg(String per);
     
     public List<Buf_Persona> Search_Secre(String per);
+    
+    public List<Buf_Persona> Search_Cliente(String per);
 }
