@@ -63,17 +63,8 @@ public class C_Inicio_Sesion {
 
             @Override
             public void keyReleased(KeyEvent e) {
-
-                if (e.getSource() == sesion.getPsw_contraseña()) {
-                    Campo_Vacio();
-                }
-                if (e.getSource() == sesion.getTxt_usuario()) {
-
-                    Campo_Vacio();
-                }
             }
         };
-        sesion.getTxt_usuario().addKeyListener(K);
         sesion.getPsw_contraseña().addKeyListener(K);
 
         //ACTIVAR BOTONES
@@ -118,6 +109,11 @@ public class C_Inicio_Sesion {
 
             @Override
             public void mouseExited(MouseEvent e) {
+                
+                if (e.getSource() == sesion.getLb_olvidar()) {
+
+                    sesion.getLb_olvidar().setForeground(Color.darkGray);
+                }
             }
         };
         sesion.getLb_olvidar().addMouseListener(M);
@@ -150,35 +146,12 @@ public class C_Inicio_Sesion {
 
         sesion.getTxt_usuario().setText("");
         sesion.getPsw_contraseña().setText("");
-        sesion.getLb_contra().setVisible(false);
-        sesion.getLb_usuario().setVisible(false);
     }
 
     public void Cancelar() {
 
         sesion.getTxt_usuario().setText("");
         sesion.getPsw_contraseña().setText("");
-    }
-
-    public void Campo_Vacio() {
-
-        if (sesion.getTxt_usuario().getText().isEmpty()) {
-
-            sesion.getLb_usuario().setVisible(true);
-        }
-        if (sesion.getPsw_contraseña().getText().isEmpty()) {
-
-            sesion.getLb_contra().setVisible(true);
-        }
-
-        if (!(sesion.getTxt_usuario().getText().isEmpty())) {
-
-            sesion.getLb_usuario().setVisible(false);
-        }
-        if (!(sesion.getPsw_contraseña().getText().isEmpty())) {
-
-            sesion.getLb_contra().setVisible(false);
-        }
     }
 
     public boolean Validar_Usuario() {

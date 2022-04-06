@@ -15,6 +15,7 @@ import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import vista.V_Inicio_Sesion;
@@ -86,6 +87,8 @@ public class C_Recuperar_Contraseña {
             controlador.C_Inicio_Sesion ctrlI = new controlador.C_Inicio_Sesion(inicio_Sesion, userDB, U);
 
             ctrlI.Iniciar_Control();
+            
+            recuperar.setVisible(false);
         });
         recuperar.getBtn_enviar().addActionListener(l -> {
             Subir_Datos();
@@ -102,7 +105,7 @@ public class C_Recuperar_Contraseña {
                 Mensage = "";
                 To = recuperar.getTxt_correo().getText();
                 Subject = "RECUPERACION DE CONTRASEÑA";
-                SendMail();
+//                SendMail();
 
             } else {
 
@@ -114,36 +117,31 @@ public class C_Recuperar_Contraseña {
         }
     }
 
-    public void SendMail() {
+    public void SendMail() throws AddressException, MessagingException {
+
+        String correo = "bcsebastian99@gmail.com";
+        String contra = "uxaxdfqicjqxvrdi";
+        String correodest = "pordones000@gmail.com";
 
         Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        props.setProperty("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.ssl.trust", "smtp,gmail.com");
+        props.setProperty("mail.smtp.port", "8090");
+        props.setProperty("mail.smtp.user", correo);
+        props.setProperty("mail.smtp.auth", "true");
 
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(Username, PassWord);
-            }
-        });
+        Session s = Session.getDefaultInstance(props);
+        MimeMessage mensaje = new MimeMessage(s);
+        mensaje.setFrom(new InternetAddress(correo));
+        mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(correodest));
+        mensaje.setSubject("fsdfs");
+        mensaje.setText("fasdgdgsdgsdgsdgfsd");
 
-        try {
-
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(Username));
-            message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(To));
-            message.setSubject(Subject);
-            message.setText(Mensage);
-
-            Transport.send(message);
-            JOptionPane.showMessageDialog(this, "Su mensaje ha sido enviado");
-
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
-        }
+        Transport t = s.getTransport("smtp");
+        t.connect(correo, contra);
+        t.sendMessage(mensaje, mensaje.getAllRecipients());
+        t.close();
     }
 
     public void Campos() {

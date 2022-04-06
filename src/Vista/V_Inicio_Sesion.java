@@ -48,14 +48,6 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
         this.jLabel1 = jLabel1;
     }
 
-    public JLabel getLb_contra() {
-        return lb_contra;
-    }
-
-    public void setLb_contra(JLabel lb_contra) {
-        this.lb_contra = lb_contra;
-    }
-
     public JLabel getLb_olvidar() {
         return lb_olvidar;
     }
@@ -64,14 +56,6 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
         this.lb_olvidar = lb_olvidar;
     }
 
-    public JLabel getLb_usuario() {
-        return lb_usuario;
-    }
-
-    public void setLb_usuario(JLabel lb_usuario) {
-        this.lb_usuario = lb_usuario;
-    }
-    
     public JLabel getLbl_contraseña() {
         return lbl_contraseña;
     }
@@ -130,11 +114,10 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
         btn_ingresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_cancelar = new javax.swing.JButton();
-        lb_contra = new javax.swing.JLabel();
-        lb_usuario = new javax.swing.JLabel();
         lb_olvidar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -164,16 +147,6 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
 
         btn_cancelar.setText("CANCELAR");
         jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 100, 50));
-
-        lb_contra.setBackground(new java.awt.Color(255, 255, 255));
-        lb_contra.setForeground(new java.awt.Color(255, 0, 0));
-        lb_contra.setText("*Campo Obligatorio");
-        jPanel1.add(lb_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
-
-        lb_usuario.setBackground(new java.awt.Color(255, 255, 255));
-        lb_usuario.setForeground(new java.awt.Color(255, 0, 0));
-        lb_usuario.setText("*Campo Obligatorio");
-        jPanel1.add(lb_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
 
         lb_olvidar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_olvidar.setText("¿Olvidaste tu Contraseña?");
@@ -238,9 +211,7 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
     private javax.swing.JButton btn_ingresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lb_contra;
     private javax.swing.JLabel lb_olvidar;
-    private javax.swing.JLabel lb_usuario;
     private javax.swing.JLabel lbl_bienvenido;
     private javax.swing.JLabel lbl_contraseña;
     private javax.swing.JLabel lbl_usuario;

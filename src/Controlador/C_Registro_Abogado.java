@@ -40,9 +40,9 @@ public class C_Registro_Abogado {
         this.registro = registro;
 
         registro.setTitle("ABOGADOS");
-        this.Estado_Civil();
-        this.Nuevo();
-        this.Campos();
+        Estado_Civil();
+        Nuevo();
+        Campos();
     }
 
     public void Iniciar_Control() {

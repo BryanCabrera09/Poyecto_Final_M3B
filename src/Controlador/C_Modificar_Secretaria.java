@@ -5,698 +5,236 @@
  */
 package controlador;
 
+import Modelo.Buf_Abogado;
+import Modelo.Buf_AbogadoDB;
+import Modelo.Buf_Cliente;
+import Modelo.Buf_ClienteDB;
+import Modelo.Buf_Persona;
+import Modelo.Buf_PersonaDB;
+import Modelo.Buf_Secretaria;
+import Modelo.Buf_SecretariaDB;
+import Modelo.Buf_Usuarios;
+import Modelo.Buf_UsuariosDB;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.FileInputStream;
+import java.io.InputStream;
+;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
-import modelo.Secretaria;
-import vista.ModificarSecretaria;
-import static vista.RegistroAbogado.Lista_abogado;
-import static vista.RegistroCliente.Lista_cliente;
-import static vista.RegistroSecretaria.Lista_Secretaria;
-import static vista.RegistroUsuario.listausuario;
+import vista.V_Modificar_Secretaria;
 
 /*
  * @author BRYAN_CABRERA
  */
-public class C_Modificar_Secretaria implements ActionListener, KeyListener, MouseListener {
 
-    ModificarSecretaria modificarSecretaria;
+
+public class C_Modificar_Secretaria {
+
+    V_Modificar_Secretaria modificar;
+    Buf_Abogado A = new Buf_Abogado();
+    Buf_Persona P = new Buf_Persona();
+    Buf_Secretaria S = new Buf_Secretaria();
+    Buf_Usuarios U = new Buf_Usuarios();
+    Buf_AbogadoDB A_DB = new Buf_AbogadoDB();
+    Buf_PersonaDB P_DB = new Buf_PersonaDB();
+    Buf_UsuariosDB U_DB = new Buf_UsuariosDB();
+    Buf_SecretariaDB S_DB = new Buf_SecretariaDB();
+    Buf_ClienteDB C_DB = new Buf_ClienteDB();
+
+    Image img;
     private DefaultTableModel modelo;
 
-    String cedula = "";
-    TableRowSorter<DefaultTableModel> sorter;
+    public C_Modificar_Secretaria(V_Modificar_Secretaria modificar) {
 
-    protected static String Imagen, Dest, Orig;
+        this.modificar = modificar;
 
-    public C_Modificar_Secretaria(ModificarSecretaria modificarSecretaria) {
-        this.modificarSecretaria = modificarSecretaria;
-        this.modificarSecretaria.btncancelar.addActionListener(this);
-        this.modificarSecretaria.btnelimina.addActionListener(this);
-        this.modificarSecretaria.btnguardar.addActionListener(this);
-        this.modificarSecretaria.btnimagen.addActionListener(this);
-        this.modificarSecretaria.btnmodificar.addActionListener(this);
-        this.modificarSecretaria.cbestado.addActionListener(this);
-        this.modificarSecretaria.cb1.addActionListener(this);
-        this.modificarSecretaria.cb2.addActionListener(this);
-        this.modificarSecretaria.cb3.addActionListener(this);
-        this.modificarSecretaria.cb4.addActionListener(this);
-
-        this.modificarSecretaria.tablepersona.addMouseListener(this);
-
-        this.modificarSecretaria.txtcelular.addKeyListener(this);
-        this.modificarSecretaria.txtnombre.addKeyListener(this);
-        this.modificarSecretaria.txtdireccion.addKeyListener(this);
-        this.modificarSecretaria.txtcorreo.addKeyListener(this);
-        this.modificarSecretaria.txtbuscar.addKeyListener(this);
-        estado_civil();
+        Estado_Civil();
         Campos();
-        cargarDatos();
+        Nuevo();
+        Datos_Table();
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        if (evt.getSource() == modificarSecretaria.btncancelar) {
-            modificarSecretaria.cb1.setEnabled(false);
-            modificarSecretaria.cb2.setEnabled(false);
-            modificarSecretaria.cb3.setEnabled(false);
-            modificarSecretaria.cb4.setEnabled(false);
-            modificarSecretaria.txtnombre.setEditable(false);
-            modificarSecretaria.txtcorreo.setEditable(false);
-            modificarSecretaria.txtcelular.setEditable(false);
-            modificarSecretaria.txtdireccion.setEditable(false);
-            modificarSecretaria.cbestado.setEnabled(false);
-            modificarSecretaria.btnimagen.setEnabled(false);
-            modificarSecretaria.nacimeinto.setEditable(false);
-            modificarSecretaria.txtbuscar.setEditable(true);
-            modificarSecretaria.btnimagen.setEnabled(false);
-            modificarSecretaria.btnguardar.setEnabled(false);
-            modificarSecretaria.btncancelar.setEnabled(false);
-            modificarSecretaria.btnelimina.setEnabled(true);
-            modificarSecretaria.btnmodificar.setEnabled(true);
-        }
-        if (evt.getSource() == modificarSecretaria.btnelimina) {
-            for (int i = 0; i < Lista_Secretaria.size(); i++) {
-                if (Lista_Secretaria.get(i).getCedula().equals(modificarSecretaria.txtcedula.getText())) {
-                    int elimina = JOptionPane.showConfirmDialog(null, "ELIMINAR REGISTRO", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (elimina) {
-                        case 0:
-                            Lista_Secretaria.remove(i);
-                            Nuevo();
-                            modificarSecretaria.txtbuscar.setEditable(true);
-                            modificarSecretaria.btnmodificar.setEnabled(false);
-                            modificarSecretaria.btnelimina.setEnabled(false);
-                            Limpiar_Tabla();
-                            Actualizar_Tabla();
-                            break;
+    public void Iniciar_Control() {
 
-                        case 1:
-                            JOptionPane.showMessageDialog(null, "ELIMINACION CANCELADA");
-                            break;
+        //EVENTOS TECLADO
+        KeyListener K = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent evt) {
+
+                if (evt.getSource() == modificar.getTxt_celular()) {
+
+                    char c = evt.getKeyChar();
+
+                    if (c >= '0' && c <= '9' && modificar.getTxt_celular().getText().length() <= 9) {
+
+                    } else {
+                        evt.consume();
                     }
                 }
-            }
-            for (int i = 0; i < listausuario.size(); i++) {
-                if (listausuario.get(i).getCedula().equals(cedula)) {
-                    listausuario.remove(i);
+                if (evt.getSource() == modificar.getTxt_nombre()) {
+                    char c = evt.getKeyChar();
+
+                    if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
+                        evt.consume();
+                    }
                 }
-            }
-        }
-        if (evt.getSource() == modificarSecretaria.btnguardar) {
+                if (evt.getSource() == modificar.getTxt_buscar()) {
+                    char c = evt.getKeyChar();
 
-            if (Imagen.isEmpty()) {
-                if (!(modificarSecretaria.lafoto.getIcon() == null)) {
-                    try {
+                    if (c >= '0' && c <= '9' && modificar.getTxt_buscar().getText().length() <= 9) {
 
-                        Path Destino = Paths.get(Dest);
-                        Path Origen = Paths.get(Orig);
-                        Files.copy(Origen, Destino, StandardCopyOption.REPLACE_EXISTING);
-
-                    } catch (IOException e) {
-                        Logger.getLogger(ModificarSecretaria.class.getName()).log(Level.SEVERE, null, e);
+                    } else {
+                        evt.consume();
                     }
                 }
             }
 
-            String estado = (String) modificarSecretaria.cbestado.getSelectedItem();
-            String horario = "";
-            if (modificarSecretaria.cb1.isSelected() == true) {
-
-                horario = horario + modificarSecretaria.cb1.getText();
-            }
-            if (modificarSecretaria.cb2.isSelected() == true) {
-
-                horario = horario + modificarSecretaria.cb2.getText();
-            }
-            if (modificarSecretaria.cb3.isSelected() == true) {
-
-                horario = horario + modificarSecretaria.cb3.getText();
-            }
-            if (modificarSecretaria.cb4.isSelected() == true) {
-
-                horario = horario + modificarSecretaria.cb4.getText();
+            @Override
+            public void keyPressed(KeyEvent evt) {
             }
 
-            if (!modificarSecretaria.txtnombre.getText().isEmpty() && !modificarSecretaria.txtcorreo.getText().isEmpty() && !modificarSecretaria.txtdireccion.getText().isEmpty() && !modificarSecretaria.txtcelular.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarSecretaria.cb1.isSelected() || modificarSecretaria.cb2.isSelected() || modificarSecretaria.cb3.isSelected() || modificarSecretaria.cb4.isSelected())) {
-                if (!Lista_Secretaria.isEmpty() && !Lista_abogado.isEmpty() && !Lista_cliente.isEmpty()) {
-                    if (Validar_Correo() == true) {
-                        if (Validar_Correo(modificarSecretaria.txtcorreo.getText()) && modificarSecretaria.txtcelular.getText().length() == 10) {
-                            int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                            switch (resp) {
-                                case 0:
+            @Override
+            public void keyReleased(KeyEvent evt) {
+                if (evt.getSource() == modificar.getTxt_buscar()) {
+                    Buscar();
+                }
+                if (evt.getSource() == modificar.getTxt_celular()) {
+                    if (modificar.getTxt_celular().isEditable() == true) {
+                        Campo_Vacio();
+                    }
+                }
+                if (evt.getSource() == modificar.getTxt_correo()) {
+                    if (modificar.getTxt_correo().isEditable() == true) {
+                        Campo_Vacio();
+                    }
 
-                                    int select = modificarSecretaria.tablepersona.getSelectedRow();
+                    if (Validar_Correo(modificar.getTxt_correo().getText())) {
 
-                                    Lista_Secretaria.get(select).setNombre(modificarSecretaria.txtnombre.getText());
-                                    Lista_Secretaria.get(select).setCorreo(modificarSecretaria.txtcorreo.getText());
-                                    Lista_Secretaria.get(select).setDireccion(modificarSecretaria.txtdireccion.getText());
-                                    Lista_Secretaria.get(select).setCelular(modificarSecretaria.txtcelular.getText());
-                                    Lista_Secretaria.get(select).setHorario(horario);
-                                    Lista_Secretaria.get(select).setEstado(estado);
-                                    Lista_Secretaria.get(select).setImagen(Imagen);
-                                    Campos();
-                                    Limpiar_Tabla();
-                                    Actualizar_Tabla();
-                                    Nuevo();
-                                    break;
-                                case 1:
-                                    JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                                    break;
-                            }
+                        modificar.getCorreo().setVisible(false);
+                    } else {
+
+                        if (modificar.getLb_correo().isShowing() == true) {
+
+                            modificar.getCorreo().setVisible(false);
                         } else {
-
-                            Campo_Vacio();
-                            JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+                            modificar.getCorreo().setVisible(true);
                         }
-                    } else {
-
-                        Campo_Vacio();
-                        JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-            } else {
-                Campo_Vacio();
-                JOptionPane.showMessageDialog(null, "LLENE TODOS LOS CAMPOS");
-            }
-
-            if (Lista_Secretaria.size() <= 0 && Lista_cliente.size() <= 0 && Lista_abogado.size() <= 0 && !modificarSecretaria.txtnombre.getText().isEmpty() && !modificarSecretaria.txtcorreo.getText().isEmpty() && !modificarSecretaria.txtdireccion.getText().isEmpty() && !modificarSecretaria.txtcelular.getText().isEmpty() && !estado.equals("Seleccionar...") && (modificarSecretaria.cb1.isSelected() || modificarSecretaria.cb2.isSelected() || modificarSecretaria.cb3.isSelected() || modificarSecretaria.cb4.isSelected())) {
-                if (Validar_Correo(modificarSecretaria.txtcorreo.getText()) && modificarSecretaria.txtcelular.getText().length() == 10) {
-                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                    switch (resp) {
-                        case 0:
-
-                            int select = modificarSecretaria.tablepersona.getSelectedRow();
-
-                            Lista_Secretaria.get(select).setNombre(modificarSecretaria.txtnombre.getText());
-                            Lista_Secretaria.get(select).setCorreo(modificarSecretaria.txtcorreo.getText());
-                            Lista_Secretaria.get(select).setDireccion(modificarSecretaria.txtdireccion.getText());
-                            Lista_Secretaria.get(select).setCelular(modificarSecretaria.txtcelular.getText());
-                            Lista_Secretaria.get(select).setHorario(horario);
-                            Lista_Secretaria.get(select).setEstado(estado);
-                            Lista_Secretaria.get(select).setImagen(Imagen);
-                            Campos();
-                            Limpiar_Tabla();
-                            Actualizar_Tabla();
-                            Nuevo();
-
-                            break;
-                        case 1:
-                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                            break;
-                    }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-
-                }
-            } else if (!(Lista_Secretaria.size() <= 0) && Lista_cliente.size() <= 0 && Lista_abogado.size() <= 0 && !modificarSecretaria.txtnombre.getText().isEmpty() && !modificarSecretaria.txtcorreo.getText().isEmpty() && !modificarSecretaria.txtdireccion.getText().isEmpty() && !modificarSecretaria.txtcelular.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarSecretaria.cb1.isSelected() || modificarSecretaria.cb2.isSelected() || modificarSecretaria.cb3.isSelected() || modificarSecretaria.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarSecretaria.txtcorreo.getText()) && modificarSecretaria.txtcelular.getText().length() == 10) {
-                        int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                        switch (resp) {
-                            case 0:
-
-                                int select = modificarSecretaria.tablepersona.getSelectedRow();
-
-                                Lista_Secretaria.get(select).setNombre(modificarSecretaria.txtnombre.getText());
-                                Lista_Secretaria.get(select).setCorreo(modificarSecretaria.txtcorreo.getText());
-                                Lista_Secretaria.get(select).setDireccion(modificarSecretaria.txtdireccion.getText());
-                                Lista_Secretaria.get(select).setCelular(modificarSecretaria.txtcelular.getText());
-                                Lista_Secretaria.get(select).setHorario(horario);
-                                Lista_Secretaria.get(select).setEstado(estado);
-                                Lista_Secretaria.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
-                                break;
-                            case 1:
-                                JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                                break;
-                        }
-                    } else {
-
+                if (evt.getSource() == modificar.getTxt_direccion()) {
+                    if (modificar.getTxt_direccion().isEditable() == true) {
                         Campo_Vacio();
-                        JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                     }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
-            } else if (!(Lista_Secretaria.size() <= 0) && !(Lista_cliente.size() <= 0) && Lista_abogado.size() <= 0 && !modificarSecretaria.txtnombre.getText().isEmpty() && !modificarSecretaria.txtcorreo.getText().isEmpty() && !modificarSecretaria.txtdireccion.getText().isEmpty() && !modificarSecretaria.txtcelular.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarSecretaria.cb1.isSelected() || modificarSecretaria.cb2.isSelected() || modificarSecretaria.cb3.isSelected() || modificarSecretaria.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarSecretaria.txtcorreo.getText()) && modificarSecretaria.txtcelular.getText().length() == 10) {
-                        int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                        switch (resp) {
-                            case 0:
-
-                                int select = modificarSecretaria.tablepersona.getSelectedRow();
-
-                                Lista_Secretaria.get(select).setNombre(modificarSecretaria.txtnombre.getText());
-                                Lista_Secretaria.get(select).setCorreo(modificarSecretaria.txtcorreo.getText());
-                                Lista_Secretaria.get(select).setDireccion(modificarSecretaria.txtdireccion.getText());
-                                Lista_Secretaria.get(select).setCelular(modificarSecretaria.txtcelular.getText());
-                                Lista_Secretaria.get(select).setHorario(horario);
-                                Lista_Secretaria.get(select).setEstado(estado);
-                                Lista_Secretaria.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
-                                break;
-                            case 1:
-                                JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                                break;
-                        }
-                    } else {
-
+                if (evt.getSource() == modificar.getTxt_nombre()) {
+                    if (modificar.getTxt_nombre().isEditable() == true) {
                         Campo_Vacio();
-                        JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                     }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else if (!(Lista_Secretaria.size() <= 0) && Lista_cliente.size() <= 0 && !(Lista_abogado.size() <= 0) && !modificarSecretaria.txtnombre.getText().isEmpty() && !modificarSecretaria.txtcorreo.getText().isEmpty() && !modificarSecretaria.txtdireccion.getText().isEmpty() && !modificarSecretaria.txtcelular.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarSecretaria.cb1.isSelected() || modificarSecretaria.cb2.isSelected() || modificarSecretaria.cb3.isSelected() || modificarSecretaria.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarSecretaria.txtcorreo.getText()) && modificarSecretaria.txtcelular.getText().length() == 10) {
-                        int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                        switch (resp) {
-                            case 0:
-
-                                int select = modificarSecretaria.tablepersona.getSelectedRow();
-
-                                Lista_Secretaria.get(select).setNombre(modificarSecretaria.txtnombre.getText());
-                                Lista_Secretaria.get(select).setCorreo(modificarSecretaria.txtcorreo.getText());
-                                Lista_Secretaria.get(select).setDireccion(modificarSecretaria.txtdireccion.getText());
-                                Lista_Secretaria.get(select).setCelular(modificarSecretaria.txtcelular.getText());
-                                Lista_Secretaria.get(select).setHorario(horario);
-                                Lista_Secretaria.get(select).setEstado(estado);
-                                Lista_Secretaria.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
-                                break;
-                            case 1:
-                                JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                                break;
-                        }
-                    } else {
-
-                        Campo_Vacio();
-                        JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                    }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else if (Lista_Secretaria.size() <= 0 && !(Lista_cliente.size() <= 0) && !(Lista_abogado.size() <= 0) && !modificarSecretaria.txtnombre.getText().isEmpty() && !modificarSecretaria.txtcorreo.getText().isEmpty() && !modificarSecretaria.txtdireccion.getText().isEmpty() && !modificarSecretaria.txtcelular.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarSecretaria.cb1.isSelected() || modificarSecretaria.cb2.isSelected() || modificarSecretaria.cb3.isSelected() || modificarSecretaria.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarSecretaria.txtcorreo.getText()) && modificarSecretaria.txtcelular.getText().length() == 10) {
-                        int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                        switch (resp) {
-                            case 0:
-
-                                int select = modificarSecretaria.tablepersona.getSelectedRow();
-
-                                Lista_Secretaria.get(select).setNombre(modificarSecretaria.txtnombre.getText());
-                                Lista_Secretaria.get(select).setCorreo(modificarSecretaria.txtcorreo.getText());
-                                Lista_Secretaria.get(select).setDireccion(modificarSecretaria.txtdireccion.getText());
-                                Lista_Secretaria.get(select).setCelular(modificarSecretaria.txtcelular.getText());
-                                Lista_Secretaria.get(select).setHorario(horario);
-                                Lista_Secretaria.get(select).setEstado(estado);
-                                Lista_Secretaria.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
-                                break;
-                            case 1:
-                                JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                                break;
-                        }
-                    } else {
-
-                        Campo_Vacio();
-                        JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                    }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else if (Lista_Secretaria.isEmpty() && Lista_cliente.isEmpty() && !(Lista_abogado.size() <= 0) && !modificarSecretaria.txtnombre.getText().isEmpty() && !modificarSecretaria.txtcorreo.getText().isEmpty() && !modificarSecretaria.txtdireccion.getText().isEmpty() && !modificarSecretaria.txtcelular.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarSecretaria.cb1.isSelected() || modificarSecretaria.cb2.isSelected() || modificarSecretaria.cb3.isSelected() || modificarSecretaria.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarSecretaria.txtcorreo.getText()) && modificarSecretaria.txtcelular.getText().length() == 10) {
-                        int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                        switch (resp) {
-                            case 0:
-
-                                int select = modificarSecretaria.tablepersona.getSelectedRow();
-
-                                Lista_Secretaria.get(select).setNombre(modificarSecretaria.txtnombre.getText());
-                                Lista_Secretaria.get(select).setCorreo(modificarSecretaria.txtcorreo.getText());
-                                Lista_Secretaria.get(select).setDireccion(modificarSecretaria.txtdireccion.getText());
-                                Lista_Secretaria.get(select).setCelular(modificarSecretaria.txtcelular.getText());
-                                Lista_Secretaria.get(select).setHorario(horario);
-                                Lista_Secretaria.get(select).setEstado(estado);
-                                Lista_Secretaria.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
-                                break;
-                            case 1:
-                                JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                                break;
-                        }
-                    } else {
-
-                        Campo_Vacio();
-                        JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                    }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else if (Lista_Secretaria.isEmpty() && !(Lista_cliente.size() <= 0) && Lista_abogado.isEmpty() && !modificarSecretaria.txtnombre.getText().isEmpty() && !modificarSecretaria.txtcorreo.getText().isEmpty() && !modificarSecretaria.txtdireccion.getText().isEmpty() && !modificarSecretaria.txtcelular.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarSecretaria.cb1.isSelected() || modificarSecretaria.cb2.isSelected() || modificarSecretaria.cb3.isSelected() || modificarSecretaria.cb4.isSelected())) {
-                if (Validar_Correo() == true) {
-                    if (Validar_Correo(modificarSecretaria.txtcorreo.getText()) && modificarSecretaria.txtcelular.getText().length() == 10) {
-                        int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                        switch (resp) {
-                            case 0:
-
-                                int select = modificarSecretaria.tablepersona.getSelectedRow();
-
-                                Lista_Secretaria.get(select).setNombre(modificarSecretaria.txtnombre.getText());
-                                Lista_Secretaria.get(select).setCorreo(modificarSecretaria.txtcorreo.getText());
-                                Lista_Secretaria.get(select).setDireccion(modificarSecretaria.txtdireccion.getText());
-                                Lista_Secretaria.get(select).setCelular(modificarSecretaria.txtcelular.getText());
-                                Lista_Secretaria.get(select).setHorario(horario);
-                                Lista_Secretaria.get(select).setEstado(estado);
-                                Lista_Secretaria.get(select).setImagen(Imagen);
-                                Campos();
-                                Limpiar_Tabla();
-                                Actualizar_Tabla();
-                                Nuevo();
-                                break;
-                            case 1:
-                                JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                                break;
-                        }
-                    } else {
-
-                        Campo_Vacio();
-                        JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
-                    }
-                } else {
-
-                    Campo_Vacio();
-                    JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        }
-        if (evt.getSource() == modificarSecretaria.btnimagen) {
-            JFileChooser file = new JFileChooser();
-            file.setCurrentDirectory(new File("C:\\Users\\ACER\\OneDrive\\Escritorio\\ACTIVIDAD_PRODUCTOS\\REGISTRO_PRODUCTOS"));
-            file.showOpenDialog(modificarSecretaria);
-            File archivo = file.getSelectedFile();
-            Dest = "src\\Imagenes_Secretarias\\" + archivo.getName();
-            Orig = archivo.getPath();
-            Imagen = archivo.getName();
+        };
+        modificar.getTxt_celular().addKeyListener(K);
+        modificar.getTxt_nombre().addKeyListener(K);
+        modificar.getTxt_direccion().addKeyListener(K);
+        modificar.getTxt_correo().addKeyListener(K);
+        modificar.getTxt_buscar().addKeyListener(K);
 
-            ImageIcon icon = new ImageIcon(Orig);
-            ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(modificarSecretaria.lafoto.getWidth(), modificarSecretaria.lafoto.getHeight(), Image.SCALE_DEFAULT));
-            modificarSecretaria.lafoto.setText(null);
-            modificarSecretaria.lafoto.setIcon(icono);
+        //EVENTOS MOUSE
+        MouseListener M = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
 
+            }
+
+            @Override
+            public void mousePressed(MouseEvent evt) {
+
+                if (evt.getSource() == modificar.getTablepersona()) {
+
+                    Cargar_Table();
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent evt) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent evt) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent evt) {
+
+            }
+        };
+        modificar.getTablepersona().addMouseListener(M);
+
+        //ACCION BOTONES
+        modificar.getBtn_cancelar().addActionListener(l -> {
+            Cancelar_Modificar();
+        });
+        modificar.getBtn_eliminar().addActionListener(l -> {
+            Eliminar_Datos();
+        });
+        modificar.getBtn_guardar().addActionListener(l -> {
+            Guardar();
+        });
+        modificar.getBtn_imagen().addActionListener(l -> {
+            modificar.Cargar_Imagen();
             Campo_Vacio();
-        }
-        if (evt.getSource() == modificarSecretaria.btnmodificar) {
-
-            modificarSecretaria.cb1.setEnabled(true);
-            modificarSecretaria.cb2.setEnabled(true);
-            modificarSecretaria.cb3.setEnabled(true);
-            modificarSecretaria.cb4.setEnabled(true);
-            modificarSecretaria.txtnombre.setEditable(true);
-            modificarSecretaria.txtcorreo.setEditable(true);
-            modificarSecretaria.txtcelular.setEditable(true);
-            modificarSecretaria.txtdireccion.setEditable(true);
-            modificarSecretaria.cbestado.setEnabled(true);
-            modificarSecretaria.btnimagen.setEnabled(true);
-            modificarSecretaria.nacimeinto.setEditable(false);
-            modificarSecretaria.txtbuscar.setEditable(false);
-            modificarSecretaria.btnelimina.setEnabled(false);
-            modificarSecretaria.btnimagen.setEnabled(true);
-            modificarSecretaria.btncancelar.setEnabled(true);
-            modificarSecretaria.btnmodificar.setEnabled(false);
-        }
-        if (evt.getSource() == modificarSecretaria.cbestado) {
-            if (modificarSecretaria.cbestado.isEnabled() == true) {
+        });
+        modificar.getBtn_modificar().addActionListener(l -> {
+            Modificar();
+        });
+        modificar.getCb_estado().addActionListener(l -> {
+            if (modificar.getCb_estado().isEnabled() == true) {
                 Campo_Vacio();
             }
-        }
-        if (evt.getSource() == modificarSecretaria.cb1) {
-            if (modificarSecretaria.cb1.isEnabled() == true) {
+        });
+        modificar.getCb_1().addActionListener(l -> {
+            if (modificar.getCb_1().isEnabled() == true) {
                 Campo_Vacio();
             }
-        }
-        if (evt.getSource() == modificarSecretaria.cb2) {
-            if (modificarSecretaria.cb2.isEnabled() == true) {
+        });
+        modificar.getCb_2().addActionListener(l -> {
+            if (modificar.getCb_2().isEnabled() == true) {
                 Campo_Vacio();
             }
-        }
-        if (evt.getSource() == modificarSecretaria.cb3) {
-            if (modificarSecretaria.cb3.isEnabled() == true) {
+        });
+        modificar.getCb_3().addActionListener(l -> {
+            if (modificar.getCb_3().isEnabled() == true) {
                 Campo_Vacio();
             }
-        }
-        if (evt.getSource() == modificarSecretaria.cb4) {
-            if (modificarSecretaria.cb4.isEnabled() == true) {
+        });
+        modificar.getCb_4().addActionListener(l -> {
+            if (modificar.getCb_4().isEnabled() == true) {
                 Campo_Vacio();
             }
-        }
+        });
     }
 
-    @Override
-    public void keyTyped(KeyEvent evt) {
+    public void Datos_Table() {
 
-        if (evt.getSource() == modificarSecretaria.txtcelular) {
+        modificar.getTablepersona().getTableHeader().setResizingAllowed(false);
+        modificar.getTablepersona().getTableHeader().setReorderingAllowed(false);
 
-            char c = evt.getKeyChar();
-
-            if (c >= '0' && c <= '9' && modificarSecretaria.txtcelular.getText().length() <= 9) {
-
-            } else {
-                evt.consume();
-            }
-        }
-        if (evt.getSource() == modificarSecretaria.txtnombre) {
-            char c = evt.getKeyChar();
-
-            if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
-                evt.consume();
-            }
-        }
-        if (evt.getSource() == modificarSecretaria.txtbuscar) {
-            char c = evt.getKeyChar();
-
-            if (c >= '0' && c <= '9' && modificarSecretaria.txtbuscar.getText().length() <= 9) {
-
-            } else {
-                evt.consume();
-            }
-        }
-    }
-
-    @Override
-    public void keyPressed(KeyEvent evt) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent evt) {
-        if (evt.getSource() == modificarSecretaria.txtbuscar) {
-            Datos();
-        }
-        if (evt.getSource() == modificarSecretaria.txtcelular) {
-            if (modificarSecretaria.txtcelular.isEditable() == true) {
-                Campo_Vacio();
-            }
-        }
-        if (evt.getSource() == modificarSecretaria.txtcorreo) {
-            if (modificarSecretaria.txtcorreo.isEditable() == true) {
-                Campo_Vacio();
-            }
-
-            if (Validar_Correo(modificarSecretaria.txtcorreo.getText())) {
-
-                modificarSecretaria.correo.setVisible(false);
-            } else {
-
-                if (modificarSecretaria.lacorreo1.isShowing() == true) {
-
-                    modificarSecretaria.correo.setVisible(false);
-                } else {
-                    modificarSecretaria.correo.setVisible(true);
-                }
-            }
-        }
-        if (evt.getSource() == modificarSecretaria.txtdireccion) {
-            if (modificarSecretaria.txtdireccion.isEditable() == true) {
-                Campo_Vacio();
-            }
-        }
-        if (evt.getSource() == modificarSecretaria.txtnombre) {
-            if (modificarSecretaria.txtnombre.isEditable() == true) {
-                Campo_Vacio();
-            }
-        }
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent evt) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent evt) {
-        if (evt.getSource() == modificarSecretaria.tablepersona) {
-            int select = modificarSecretaria.tablepersona.getSelectedRow();
-
-            if (select != -1) {
-
-                modificarSecretaria.txtbuscar.setEditable(true);
-                modificarSecretaria.cb1.setSelected(false);
-                modificarSecretaria.cb2.setSelected(false);
-                modificarSecretaria.cb3.setSelected(false);
-                modificarSecretaria.cb4.setSelected(false);
-                modificarSecretaria.txtnombre.setText(Lista_Secretaria.get(select).getNombre());
-                modificarSecretaria.txtapellido.setText(Lista_Secretaria.get(select).getApellidos());
-                modificarSecretaria.txtcedula.setText(Lista_Secretaria.get(select).getCedula());
-                cedula = Lista_Secretaria.get(select).getCedula();
-                modificarSecretaria.txtcorreo.setText(Lista_Secretaria.get(select).getCorreo());
-                modificarSecretaria.txtcelular.setText(Lista_Secretaria.get(select).getCelular());
-                modificarSecretaria.txtdireccion.setText(Lista_Secretaria.get(select).getDireccion());
-                modificarSecretaria.cbestado.setSelectedItem(Lista_Secretaria.get(select).getEstado());
-                if (Lista_Secretaria.get(select).getHorario().equals("9:00-13:00")) {
-                    modificarSecretaria.cb1.setSelected(true);
-                }
-                if (Lista_Secretaria.get(select).getHorario().equals("13:00-15:00")) {
-                    modificarSecretaria.cb2.setSelected(true);
-                }
-                if (Lista_Secretaria.get(select).getHorario().equals("15:00-16:30")) {
-                    modificarSecretaria.cb3.setSelected(true);
-                }
-                if (Lista_Secretaria.get(select).getHorario().equals("16:30-18:30")) {
-                    modificarSecretaria.cb4.setSelected(true);
-                }
-
-                //MAS DE DOS OPCIONES
-                if (Lista_Secretaria.get(select).getHorario().equals("9:00-13:0013:00-15:00")) {
-                    modificarSecretaria.cb1.setSelected(true);
-                    modificarSecretaria.cb2.setSelected(true);
-                }
-                if (Lista_Secretaria.get(select).getHorario().equals("9:00-13:0015:00-16:30")) {
-                    modificarSecretaria.cb1.setSelected(true);
-                    modificarSecretaria.cb3.setSelected(true);
-                }
-                if (Lista_Secretaria.get(select).getHorario().equals("9:00-13:0016:30-18:30")) {
-                    modificarSecretaria.cb1.setSelected(true);
-                    modificarSecretaria.cb4.setSelected(true);
-                }
-
-                if (Lista_Secretaria.get(select).getHorario().equals("13:00-15:0015:00-16:30")) {
-                    modificarSecretaria.cb2.setSelected(true);
-                    modificarSecretaria.cb3.setSelected(true);
-                }
-                if (Lista_Secretaria.get(select).getHorario().equals("15:00-16:3016:30-18:30")) {
-                    modificarSecretaria.cb3.setSelected(true);
-                    modificarSecretaria.cb4.setSelected(true);
-                }
-                if (Lista_Secretaria.get(select).getHorario().equals("13:00-15:0016:30-18:30")) {
-                    modificarSecretaria.cb2.setSelected(true);
-                    modificarSecretaria.cb4.setSelected(true);
-                }
-
-                if (Lista_Secretaria.get(select).getHorario().equals("9:00-13:0013:00-15:0015:00-16:30")) {
-                    modificarSecretaria.cb1.setSelected(true);
-                    modificarSecretaria.cb2.setSelected(true);
-                    modificarSecretaria.cb3.setSelected(true);
-                }
-                if (Lista_Secretaria.get(select).getHorario().equals("9:00-13:0013:00-15:0016:30-18:30")) {
-                    modificarSecretaria.cb1.setSelected(true);
-                    modificarSecretaria.cb2.setSelected(true);
-                    modificarSecretaria.cb4.setSelected(true);
-                }
-                if (Lista_Secretaria.get(select).getHorario().equals("13:00-15:0015:00-16:3016:30-18:30")) {
-                    modificarSecretaria.cb2.setSelected(true);
-                    modificarSecretaria.cb3.setSelected(true);
-                    modificarSecretaria.cb4.setSelected(true);
-                }
-                if (Lista_Secretaria.get(select).getHorario().equals("9:00-13:0013:00-15:0015:00-16:3016:30-18:30")) {
-                    modificarSecretaria.cb1.setSelected(true);
-                    modificarSecretaria.cb2.setSelected(true);
-                    modificarSecretaria.cb3.setSelected(true);
-                    modificarSecretaria.cb4.setSelected(true);
-                }
-
-                modificarSecretaria.nacimeinto.setText(Lista_Secretaria.get(select).getNacimiento());
-                Imagen = Lista_Secretaria.get(select).getImagen();
-                Orig = "src/Imagenes_Secretarias/" + Imagen;
-                ImageIcon icon = new ImageIcon(Orig);
-                ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(modificarSecretaria.lafoto.getWidth(), modificarSecretaria.lafoto.getHeight(), Image.SCALE_DEFAULT));
-                modificarSecretaria.lafoto.setText(null);
-                modificarSecretaria.lafoto.setIcon(icono);
-                modificarSecretaria.btnimagen.setEnabled(false);
-                modificarSecretaria.btnmodificar.setEnabled(true);
-                modificarSecretaria.btnelimina.setEnabled(true);
-            }
-        }
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent evt) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent evt) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent evt) {
-
-    }
-
-    public void cargarDatos() {
-        modificarSecretaria.tablepersona.setDefaultEditor(Object.class, null);
+        modificar.getTablepersona().setDefaultEditor(Object.class, null);
         modelo = new DefaultTableModel() {
             //CARGAR CAMPOS EN LA TABLA
             public boolean iscelleditable(int filas, int columnas) {
@@ -716,234 +254,707 @@ public class C_Modificar_Secretaria implements ActionListener, KeyListener, Mous
         modelo.addColumn("CELULAR");
         modelo.addColumn("DIRECCION");
         modelo.addColumn("HORARIO");
-        for (Secretaria persona : Lista_Secretaria) {
 
-            Object[] fila = new Object[9];
-            fila[0] = persona.getCedula();
-            fila[1] = persona.getNombre();
-            fila[2] = persona.getApellidos();
-            fila[3] = persona.getCorreo();
-            fila[4] = persona.getNacimiento();
-            fila[5] = persona.getCelular();
-            fila[6] = persona.getDireccion();
-            fila[7] = persona.getHorario();
-            modelo.addRow(fila);
-        }
-        modificarSecretaria.tablepersona.setModel(modelo);
-        modificarSecretaria.tablepersona.setAutoCreateRowSorter(true);
-        sorter = new TableRowSorter<>(modelo);
-        modificarSecretaria.tablepersona.setRowSorter(sorter);
-        Nuevo();
+        List<Buf_Secretaria> List_secre = S_DB.Getter();
+        List<Buf_Persona> List_per = P_DB.Getter_Secre();
+
+        List_per.forEach((persona) -> {
+            List_secre.stream().map((secretaria) -> {
+                Object[] fila = new Object[8];
+                fila[0] = persona.getCedula();
+                fila[1] = persona.getNombre();
+                fila[2] = persona.getApellido();
+                fila[3] = persona.getCorreo();
+                fila[4] = persona.getFecha_Nacimiento();
+                fila[5] = persona.getNum_celular();
+                fila[6] = persona.getDireccion();
+                fila[7] = secretaria.getHorario();
+                return fila;
+            }).forEachOrdered((fila) -> {
+                modelo.addRow(fila);
+            });
+        });
+        modificar.getTablepersona().setModel(modelo);
     }
 
-    public void estado_civil() {
-        modificarSecretaria.cbestado.addItem("Seleccionar");
-        modificarSecretaria.cbestado.addItem("Soltero");
-        modificarSecretaria.cbestado.addItem("Casado");
-        modificarSecretaria.cbestado.addItem("Divorciado");
+    public void Buscar() {
+
+        if (modificar.getTxt_buscar().getText().isEmpty()) {
+
+            Limpiar_Tabla();
+            Actualizar_Tabla();
+        }
+
+        modelo.setRowCount(0);
+        List<Buf_Secretaria> List_secre = S_DB.Search(modificar.getTxt_buscar().getText());
+        List<Buf_Persona> List_per = P_DB.Search_Secre(modificar.getTxt_buscar().getText());
+
+        List_per.forEach((persona) -> {
+            List_secre.stream().map((secretaria) -> {
+                Object[] fila = new Object[8];
+                fila[0] = persona.getCedula();
+                fila[1] = persona.getNombre();
+                fila[2] = persona.getApellido();
+                fila[3] = persona.getCorreo();
+                fila[4] = persona.getFecha_Nacimiento();
+                fila[5] = persona.getNum_celular();
+                fila[6] = persona.getDireccion();
+                fila[7] = secretaria.getHorario();
+                return fila;
+            }).forEachOrdered((fila) -> {
+                modelo.addRow(fila);
+            });
+        });
+        modificar.getTablepersona().setModel(modelo);
+    }
+
+    public void Cancelar_Modificar() {
+
+        modificar.getCb_1().setEnabled(false);
+        modificar.getCb_2().setEnabled(false);
+        modificar.getCb_3().setEnabled(false);
+        modificar.getCb_4().setEnabled(false);
+        modificar.getTxt_nombre().setEditable(false);
+        modificar.getTxt_correo().setEditable(false);
+        modificar.getTxt_celular().setEditable(false);
+        modificar.getTxt_direccion().setEditable(false);
+        modificar.getCb_estado().setEnabled(false);
+        modificar.getBtn_imagen().setEnabled(false);
+        modificar.getNacimeinto().setEditable(false);
+        modificar.getTxt_buscar().setEditable(true);
+        modificar.getBtn_imagen().setEnabled(false);
+        modificar.getBtn_guardar().setEnabled(false);
+        modificar.getBtn_cancelar().setEnabled(false);
+        modificar.getBtn_eliminar().setEnabled(true);
+        modificar.getBtn_modificar().setEnabled(true);
+    }
+
+    public void Eliminar_Datos() {
+
+        List<Buf_Secretaria> List_secre = S_DB.Getter();
+        List<Buf_Usuarios> List_user = U_DB.Getter();
+        List<Buf_Persona> List_per = P_DB.Getter();
+
+        for (int i = 0; i < List_secre.size(); i++) {
+            if (List_secre.get(i).getId_secretaria() == Integer.parseInt(modificar.getTxt_id().getText())) {
+                int elimina = JOptionPane.showConfirmDialog(null, "ELIMINAR REGISTRO", "AVISO", JOptionPane.YES_NO_OPTION);
+                switch (elimina) {
+                    case 0:
+
+                        for (int u = 0; u < List_user.size(); u++) {
+                            if (List_user.get(u).getId_User() == Integer.parseInt(modificar.getTxt_id().getText())) {
+
+                                U.setId_User(Integer.parseInt(modificar.getTxt_id().getText()));
+
+                                if (U_DB.Delete(U)) {
+
+                                } else {
+
+                                    JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
+                                }
+                            }
+                        }
+
+                        S.setId_secretaria(Integer.parseInt(modificar.getTxt_id().getText()));
+
+                        if (S_DB.Delete(S)) {
+
+                            for (int p = 0; p < List_per.size(); p++) {
+                                if (List_per.get(p).getCedula().equalsIgnoreCase(modificar.getTxt_cedula().getText())) {
+
+                                    P.setCedula(modificar.getTxt_cedula().getText());
+
+                                    Nuevo();
+                                    modificar.getTxt_buscar().setEditable(true);
+                                    modificar.getBtn_modificar().setEnabled(false);
+                                    modificar.getBtn_eliminar().setEnabled(false);
+
+                                    JOptionPane.showMessageDialog(null, "Eliminacion Completada");
+                                    if (P_DB.Delete(P)) {
+
+                                    } else {
+
+                                        JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
+                                    }
+                                }
+                            }
+                            Limpiar_Tabla();
+                            Actualizar_Tabla();
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        break;
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "ELIMINACION CANCELADA");
+                        break;
+                }
+            }
+        }
+    }
+
+    public void Guardar() {
+
+        List<Buf_Abogado> List_abg = A_DB.Getter();
+        List<Buf_Secretaria> List_secre = S_DB.Getter();
+        List<Buf_Cliente> List_cliente = C_DB.Getter();
+
+        if (Validar_Datos() == true) {
+            if (!List_secre.isEmpty() && !List_abg.isEmpty() && !List_cliente.isEmpty()) {
+                if (Validar_Correo() == true) {
+                    if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
+                        int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
+                        switch (resp) {
+                            case 0:
+                                Cargar_Datos();
+                                break;
+                            case 1:
+                                JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
+                                break;
+                        }
+                    } else {
+
+                        Campo_Vacio();
+                        JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+
+                    Campo_Vacio();
+                    JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+            Campo_Vacio();
+            JOptionPane.showMessageDialog(null, "LLENE TODOS LOS CAMPOS");
+        }
+
+        if (List_secre.size() <= 0 && List_cliente.size() <= 0 && List_abg.size() <= 0 && Validar_Datos()) {
+            if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
+                int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
+                switch (resp) {
+                    case 0:
+                        Cargar_Datos();
+                        break;
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
+                        break;
+                }
+            } else {
+
+                Campo_Vacio();
+                JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+
+            }
+        } else if (!(List_secre.size() <= 0) && List_cliente.size() <= 0 && List_abg.size() <= 0 && Validar_Datos() == true) {
+            if (Validar_Correo() == true) {
+                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
+                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
+                    switch (resp) {
+                        case 0:
+                            Cargar_Datos();
+                            break;
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
+                            break;
+                    }
+                } else {
+
+                    Campo_Vacio();
+                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+
+                Campo_Vacio();
+                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (!(List_secre.size() <= 0) && !(List_cliente.size() <= 0) && List_abg.size() <= 0 && Validar_Datos() == true) {
+            if (Validar_Correo() == true) {
+                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
+                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
+                    switch (resp) {
+                        case 0:
+                            Cargar_Datos();
+                            break;
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
+                            break;
+                    }
+                } else {
+
+                    Campo_Vacio();
+                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+
+                Campo_Vacio();
+                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (!(List_secre.size() <= 0) && List_cliente.size() <= 0 && !(List_abg.size() <= 0) && Validar_Datos() == true) {
+            if (Validar_Correo() == true) {
+                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
+                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
+                    switch (resp) {
+                        case 0:
+                            Cargar_Datos();
+                            break;
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
+                            break;
+                    }
+                } else {
+
+                    Campo_Vacio();
+                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+
+                Campo_Vacio();
+                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (List_secre.size() <= 0 && !(List_cliente.size() <= 0) && !(List_abg.size() <= 0) && Validar_Datos() == true) {
+            if (Validar_Correo() == true) {
+                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
+                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
+                    switch (resp) {
+                        case 0:
+                            Cargar_Datos();
+                            break;
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
+                            break;
+                    }
+                } else {
+
+                    Campo_Vacio();
+                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+
+                Campo_Vacio();
+                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (List_secre.isEmpty() && List_cliente.isEmpty() && !(List_abg.size() <= 0) && Validar_Datos() == true) {
+            if (Validar_Correo() == true) {
+                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
+                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
+                    switch (resp) {
+                        case 0:
+                            Cargar_Datos();
+                            break;
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
+                            break;
+                    }
+                } else {
+
+                    Campo_Vacio();
+                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+
+                Campo_Vacio();
+                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (List_secre.isEmpty() && !(List_cliente.size() <= 0) && List_abg.isEmpty() && Validar_Datos() == true) {
+            if (Validar_Correo() == true) {
+                if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
+                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
+                    switch (resp) {
+                        case 0:
+                            Cargar_Datos();
+                            break;
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
+                            break;
+                    }
+                } else {
+
+                    Campo_Vacio();
+                    JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+
+                Campo_Vacio();
+                JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    public void Cargar_Datos() {
+
+        String estado = (String) modificar.getCb_estado().getSelectedItem();
+
+        String horario = "";
+        if (modificar.getCb_1().isSelected() == true) {
+
+            horario = horario + " | " + modificar.getCb_1().getText() + " | ";
+        }
+        if (modificar.getCb_2().isSelected() == true) {
+
+            horario = horario + " | " + modificar.getCb_2().getText() + " | ";
+        }
+        if (modificar.getCb_3().isSelected() == true) {
+
+            horario = horario + " | " + modificar.getCb_3().getText() + " | ";
+        }
+        if (modificar.getCb_4().isSelected() == true) {
+
+            horario = horario + " | " + modificar.getCb_4().getText() + " | ";
+        }
+
+        P.setNombre(modificar.getTxt_nombre().getText());
+        P.setApellido(modificar.getTxt_apellido().getText());
+        P.setCorreo(modificar.getTxt_correo().getText());
+        P.setDireccion(modificar.getTxt_direccion().getText());
+        P.setNum_celular(modificar.getTxt_celular().getText());
+        P.setEstado_civil(estado);
+        P.setCedula(modificar.getTxt_cedula().getText());
+
+        S.setHorario(horario);
+        File ruta = new File(modificar.rutas);
+
+        try {
+            byte[] icono = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(icono);
+            S.setFoto(icono);
+        } catch (Exception ex) {
+            S.setFoto(null);
+        }
+
+        S.setId_secretaria(Integer.parseInt(modificar.getTxt_id().getText()));
+        if (P_DB.Update(P)) {
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (S_DB.Update(S)) {
+
+            JOptionPane.showMessageDialog(null, "Registro Guardado");
+            Campos();
+            Nuevo();
+            Limpiar_Tabla();
+            Actualizar_Tabla();
+        }
+
+    }
+
+    public void Modificar() {
+
+        modificar.getCb_1().setEnabled(true);
+        modificar.getCb_2().setEnabled(true);
+        modificar.getCb_3().setEnabled(true);
+        modificar.getCb_4().setEnabled(true);
+        modificar.getTxt_nombre().setEditable(true);
+        modificar.getTxt_correo().setEditable(true);
+        modificar.getTxt_celular().setEditable(true);
+        modificar.getTxt_direccion().setEditable(true);
+        modificar.getCb_estado().setEnabled(true);
+        modificar.getBtn_imagen().setEnabled(true);
+        modificar.getNacimeinto().setEditable(false);
+        modificar.getTxt_buscar().setEditable(false);
+        modificar.getBtn_eliminar().setEnabled(false);
+        modificar.getBtn_imagen().setEnabled(true);
+        modificar.getBtn_cancelar().setEnabled(true);
+        modificar.getBtn_modificar().setEnabled(false);
+    }
+
+    public void Cargar_Table() {
+
+        List<Buf_Secretaria> List_secre = S_DB.Getter();
+        List<Buf_Persona> List_per = P_DB.Getter_Secre();
+
+        int select = modificar.getTablepersona().getSelectedRow();
+
+        if (select != -1) {
+
+            modificar.getTxt_buscar().setEditable(true);
+            modificar.getCb_1().setSelected(false);
+            modificar.getCb_2().setSelected(false);
+            modificar.getCb_3().setSelected(false);
+            modificar.getCb_4().setSelected(false);
+
+            modificar.getTxt_cedula().setText(List_per.get(select).getCedula());
+            modificar.getTxt_nombre().setText(List_per.get(select).getNombre());
+            modificar.getTxt_apellido().setText(List_per.get(select).getApellido());
+            modificar.getTxt_correo().setText(List_per.get(select).getCorreo());
+            modificar.getTxt_direccion().setText(List_per.get(select).getDireccion());
+            modificar.getTxt_celular().setText(List_per.get(select).getNum_celular());
+            modificar.getCb_estado().setSelectedItem(List_per.get(select).getEstado_civil());
+            modificar.getNacimeinto().setText(List_per.get(select).getFecha_Nacimiento());
+
+            modificar.getTxt_id().setText(String.valueOf(List_secre.get(select).getId_secretaria()));
+
+            if (List_secre.get(select).getHorario().equals(" | 9:00-13:00 | ")) {
+                modificar.getCb_1().setSelected(true);
+            }
+            if (List_secre.get(select).getHorario().equals(" | 13:00-15:00 | ")) {
+                modificar.getCb_2().setSelected(true);
+            }
+            if (List_secre.get(select).getHorario().equals(" | 15:00-16:30 | ")) {
+                modificar.getCb_3().setSelected(true);
+            }
+            if (List_secre.get(select).getHorario().equals(" | 16:30-18:30 | ")) {
+                modificar.getCb_4().setSelected(true);
+            }
+
+            //MAS DE DOS OPCIONES
+            if (List_secre.get(select).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 | ")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_2().setSelected(true);
+            }
+            if (List_secre.get(select).getHorario().equals(" | 9:00-13:00 |  | 15:00-16:30 | ")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_3().setSelected(true);
+            }
+            if (List_secre.get(select).getHorario().equals(" | 9:00-13:00 |  | 16:30-18:30 | ")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+
+            if (List_secre.get(select).getHorario().equals(" | 13:00-15:00 |  | 15:00-16:30 | ")) {
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_3().setSelected(true);
+            }
+            if (List_secre.get(select).getHorario().equals(" | 15:00-16:30 |  | 16:30-18:30 | ")) {
+                modificar.getCb_3().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+            if (List_secre.get(select).getHorario().equals(" | 13:00-15:00 |  | 16:30-18:30 | ")) {
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+
+            if (List_secre.get(select).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 |  | 15:00-16:30 | ")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_3().setSelected(true);
+            }
+            if (List_secre.get(select).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 |  | 16:30-18:30 | ")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+            if (List_secre.get(select).getHorario().equals(" | 13:00-15:00 |  | 15:00-16:30 |  | 16:30-18:30 | ")) {
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_3().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+            if (List_secre.get(select).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 |  | 15:00-16:30 |  | 16:30-18:30 | ")) {
+                modificar.getCb_1().setSelected(true);
+                modificar.getCb_2().setSelected(true);
+                modificar.getCb_3().setSelected(true);
+                modificar.getCb_4().setSelected(true);
+            }
+
+            try {
+                byte[] bi = List_secre.get(select).getFoto();
+                BufferedImage image = null;
+                InputStream in = new ByteArrayInputStream(bi);
+                image = ImageIO.read(in);
+                ImageIcon imgi = new ImageIcon(image.getScaledInstance(modificar.getLb_foto().getWidth(), modificar.getLb_foto().getHeight(), img.SCALE_DEFAULT));
+                modificar.getLb_foto().setIcon(imgi);
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+            modificar.getBtn_imagen().setEnabled(false);
+            modificar.getBtn_modificar().setEnabled(true);
+            modificar.getBtn_eliminar().setEnabled(true);
+        }
+    }
+
+    public void Estado_Civil() {
+
+        modificar.getCb_estado().addItem("Seleccionar");
+        modificar.getCb_estado().addItem("Soltero");
+        modificar.getCb_estado().addItem("Casado");
+        modificar.getCb_estado().addItem("Divorciado");
     }
 
     public void Campo_Vacio() {
-        String estado = (String) modificarSecretaria.cbestado.getSelectedItem();
-        if (modificarSecretaria.txtnombre.getText().isEmpty()) {
-            modificarSecretaria.lanombre1.setVisible(true);
+        String estado = (String) modificar.getCb_estado().getSelectedItem();
+        if (modificar.getTxt_nombre().getText().isEmpty()) {
+            modificar.getLb_nombre().setVisible(true);
         }
 
-        if (modificarSecretaria.txtcelular.getText().isEmpty()) {
-            modificarSecretaria.lacelular1.setVisible(true);
+        if (modificar.getTxt_celular().getText().isEmpty()) {
+            modificar.getLb_celular().setVisible(true);
         }
 
-        if (modificarSecretaria.txtcorreo.getText().isEmpty()) {
-            modificarSecretaria.lacorreo1.setVisible(true);
+        if (modificar.getTxt_correo().getText().isEmpty()) {
+            modificar.getLb_correo().setVisible(true);
         }
 
-        if (modificarSecretaria.txtdireccion.getText().isEmpty()) {
-            modificarSecretaria.ladireccion1.setVisible(true);
+        if (modificar.getTxt_direccion().getText().isEmpty()) {
+            modificar.getLb_direccion().setVisible(true);
         }
 
         if (estado.equals("Seleccionar")) {
-            modificarSecretaria.laestado1.setVisible(true);
+            modificar.getLb_estado().setVisible(true);
         }
 
-        if (!(modificarSecretaria.cb1.isSelected() || modificarSecretaria.cb2.isSelected() || modificarSecretaria.cb3.isSelected() || modificarSecretaria.cb4.isSelected())) {
-            modificarSecretaria.lahorario1.setVisible(true);
+        if (!(modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
+            modificar.getLb_horario().setVisible(true);
         }
 
         //CUANDO EL CAMPO ESTA LLENO
-        if (!modificarSecretaria.txtnombre.getText().isEmpty()) {
-            modificarSecretaria.lanombre1.setVisible(false);
+        if (!modificar.getTxt_nombre().getText().isEmpty()) {
+            modificar.getLb_nombre().setVisible(false);
         }
 
-        if (!modificarSecretaria.txtcelular.getText().isEmpty()) {
-            modificarSecretaria.lacelular1.setVisible(false);
+        if (!modificar.getTxt_celular().getText().isEmpty()) {
+            modificar.getLb_celular().setVisible(false);
         }
 
-        if (!modificarSecretaria.txtcorreo.getText().isEmpty()) {
-            modificarSecretaria.lacorreo1.setVisible(false);
+        if (!modificar.getTxt_correo().getText().isEmpty()) {
+            modificar.getLb_correo().setVisible(false);
         }
 
-        if (!modificarSecretaria.txtdireccion.getText().isEmpty()) {
-            modificarSecretaria.ladireccion1.setVisible(false);
+        if (!modificar.getTxt_direccion().getText().isEmpty()) {
+            modificar.getLb_direccion().setVisible(false);
         }
 
         if (!estado.equals("Seleccionar")) {
-            modificarSecretaria.laestado1.setVisible(false);
+            modificar.getLb_estado().setVisible(false);
         }
 
-        if ((modificarSecretaria.cb1.isSelected() || modificarSecretaria.cb2.isSelected() || modificarSecretaria.cb3.isSelected() || modificarSecretaria.cb4.isSelected())) {
-            modificarSecretaria.lahorario1.setVisible(false);
+        if ((modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
+            modificar.getLb_horario().setVisible(false);
         }
 
-        if (modificarSecretaria.lacelular1.isShowing() == true) {
-            modificarSecretaria.celular.setVisible(false);
-        } else if (!verificarCedula(modificarSecretaria.txtcedula.getText())) {
-            modificarSecretaria.celular.setVisible(true);
-        } else if (verificarCedula(modificarSecretaria.txtcedula.getText())) {
-            modificarSecretaria.celular.setVisible(false);
+        if (modificar.getLb_celular().isShowing() == true) {
+            modificar.getCelular().setVisible(false);
+        } else if (modificar.getTxt_celular().getText().length() < 10) {
+            modificar.getCelular().setVisible(true);
+        } else if (modificar.getTxt_celular().getText().length() == 10) {
+            modificar.getCelular().setVisible(false);
         }
 
-        if (!modificarSecretaria.txtnombre.getText().isEmpty() && !modificarSecretaria.txtcorreo.getText().isEmpty() && !(modificarSecretaria.lafoto.getIcon() == null) && !modificarSecretaria.txtdireccion.getText().isEmpty() && !modificarSecretaria.txtcelular.getText().isEmpty() && !estado.equals("Seleccionar") && (modificarSecretaria.cb1.isSelected() || modificarSecretaria.cb2.isSelected() || modificarSecretaria.cb3.isSelected() || modificarSecretaria.cb4.isSelected())) {
-            modificarSecretaria.btnguardar.setEnabled(true);
+        if (!modificar.getTxt_nombre().getText().isEmpty() && !modificar.getTxt_correo().getText().isEmpty() && !(modificar.getLb_foto().getIcon() == null) && !modificar.getTxt_direccion().getText().isEmpty() && !modificar.getTxt_celular().getText().isEmpty() && !estado.equals("Seleccionar") && (modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
+            modificar.getBtn_guardar().setEnabled(true);
         } else {
-            modificarSecretaria.btnguardar.setEnabled(false);
+            modificar.getBtn_guardar().setEnabled(false);
         }
-    }
-
-    public boolean verificarCedula(String cedula) {
-        int total = 0;
-        int tamanoLongitudCedula = 10;
-        int[] coeficientes = {2, 1, 2, 1, 2, 1, 2, 1, 2};
-        int numeroProviancias = 24;
-        int tercerdigito = 6;
-        if (cedula.matches("[0-9]*") && cedula.length() == tamanoLongitudCedula) {
-            int provincia = Integer.parseInt(cedula.charAt(0) + "" + cedula.charAt(1));
-            int digitoTres = Integer.parseInt(cedula.charAt(2) + "");
-            if ((provincia > 0 && provincia <= numeroProviancias) && digitoTres < tercerdigito) {
-                int digitoVerificadorRecibido = Integer.parseInt(cedula.charAt(9) + "");
-                for (int i = 0; i < coeficientes.length; i++) {
-                    int valor = Integer.parseInt(coeficientes[i] + "") * Integer.parseInt(cedula.charAt(i) + "");
-                    total = valor >= 10 ? total + (valor - 9) : total + valor;
-                }
-                int digitoVerificadorObtenido = total >= 10 ? (total % 10) != 0 ? 10 - (total % 10) : (total % 10) : total;
-                if (digitoVerificadorObtenido == digitoVerificadorRecibido) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return false;
     }
 
     public void Campos() {
 
-        modificarSecretaria.celular.setVisible(false);
-        modificarSecretaria.lanombre1.setVisible(false);
-        modificarSecretaria.lacorreo1.setVisible(false);
-        modificarSecretaria.lacelular1.setVisible(false);
-        modificarSecretaria.lahorario1.setVisible(false);
-        modificarSecretaria.laestado1.setVisible(false);
-        modificarSecretaria.ladireccion1.setVisible(false);
-        modificarSecretaria.correo.setVisible(false);
-        modificarSecretaria.btnguardar.setEnabled(false);
-        modificarSecretaria.btnmodificar.setEnabled(false);
-        modificarSecretaria.btnimagen.setEnabled(false);
-        modificarSecretaria.btncancelar.setEnabled(false);
+        modificar.getCelular().setVisible(false);
+        modificar.getLb_nombre().setVisible(false);
+        modificar.getLb_correo().setVisible(false);
+        modificar.getLb_celular().setVisible(false);
+        modificar.getLb_horario().setVisible(false);
+        modificar.getLb_estado().setVisible(false);
+        modificar.getLb_direccion().setVisible(false);
+        modificar.getCorreo().setVisible(false);
+        modificar.getBtn_guardar().setEnabled(false);
+        modificar.getBtn_modificar().setEnabled(false);
+        modificar.getBtn_imagen().setEnabled(false);
+        modificar.getBtn_cancelar().setEnabled(false);
     }
 
     public void Nuevo() {
-        modificarSecretaria.btnguardar.setEnabled(false);
-        modificarSecretaria.btnelimina.setEnabled(false);
-        modificarSecretaria.txtnombre.setEditable(false);
-        modificarSecretaria.txtcedula.setEditable(false);
-        modificarSecretaria.txtapellido.setEditable(false);
-        modificarSecretaria.cbestado.setEnabled(false);
-        modificarSecretaria.txtcelular.setEditable(false);
-        modificarSecretaria.txtdireccion.setEditable(false);
-        modificarSecretaria.txtcorreo.setEditable(false);
-        modificarSecretaria.cb1.setEnabled(false);
-        modificarSecretaria.cb2.setEnabled(false);
-        modificarSecretaria.cb3.setEnabled(false);
-        modificarSecretaria.cb4.setEnabled(false);
-        modificarSecretaria.nacimeinto.setEditable(false);
-        modificarSecretaria.txtcedula.setText("");
-        modificarSecretaria.txtnombre.setText("");
-        modificarSecretaria.cbestado.setSelectedIndex(0);
-        modificarSecretaria.txtapellido.setText("");
-        modificarSecretaria.txtcelular.setText("");
-        modificarSecretaria.txtdireccion.setText("");
-        modificarSecretaria.txtcorreo.setText("");
-        modificarSecretaria.cb1.setSelected(false);
-        modificarSecretaria.cb2.setSelected(false);
-        modificarSecretaria.cb3.setSelected(false);
-        modificarSecretaria.cb4.setSelected(false);
-        modificarSecretaria.nacimeinto.setText("");
-        modificarSecretaria.lafoto.setIcon(null);
+
+        modificar.getBtn_guardar().setEnabled(false);
+        modificar.getBtn_eliminar().setEnabled(false);
+        modificar.getTxt_nombre().setEditable(false);
+        modificar.getTxt_cedula().setEditable(false);
+        modificar.getTxt_apellido().setEditable(false);
+        modificar.getCb_estado().setEnabled(false);
+        modificar.getTxt_celular().setEditable(false);
+        modificar.getTxt_direccion().setEditable(false);
+        modificar.getTxt_correo().setEditable(false);
+        modificar.getTxt_id().setEditable(false);
+        modificar.getCb_1().setEnabled(false);
+        modificar.getCb_2().setEnabled(false);
+        modificar.getCb_3().setEnabled(false);
+        modificar.getCb_4().setEnabled(false);
+        modificar.getNacimeinto().setEditable(false);
+        modificar.getTxt_cedula().setText("");
+        modificar.getTxt_nombre().setText("");
+        modificar.getTxt_id().setText("");
+        modificar.getCb_estado().setSelectedIndex(0);
+        modificar.getTxt_apellido().setText("");
+        modificar.getTxt_celular().setText("");
+        modificar.getTxt_direccion().setText("");
+        modificar.getTxt_correo().setText("");
+        modificar.getCb_1().setSelected(false);
+        modificar.getCb_2().setSelected(false);
+        modificar.getCb_3().setSelected(false);
+        modificar.getCb_4().setSelected(false);
+        modificar.getNacimeinto().setText("");
+        modificar.getLb_foto().setIcon(null);
     }
 
     public void Actualizar_Tabla() {
 
-        for (Secretaria persona : Lista_Secretaria) {
+        List<Buf_Secretaria> List_secre = S_DB.Getter();
+        List<Buf_Persona> List_per = P_DB.Getter_Secre();
 
-            Object[] fila = new Object[8];
-            fila[0] = persona.getCedula();
-            fila[1] = persona.getNombre();
-            fila[2] = persona.getApellidos();
-            fila[3] = persona.getCorreo();
-            fila[4] = persona.getNacimiento();
-            fila[5] = persona.getCelular();
-            fila[6] = persona.getDireccion();
-            fila[7] = persona.getHorario();
-            modelo.addRow(fila);
-        }
-        modificarSecretaria.tablepersona.setModel(modelo);
+        List_per.forEach((persona) -> {
+            List_secre.stream().map((secretaria) -> {
+                Object[] fila = new Object[8];
+                fila[0] = persona.getCedula();
+                fila[1] = persona.getNombre();
+                fila[2] = persona.getApellido();
+                fila[3] = persona.getCorreo();
+                fila[4] = persona.getFecha_Nacimiento();
+                fila[5] = persona.getNum_celular();
+                fila[6] = persona.getDireccion();
+                fila[7] = secretaria.getHorario();
+                return fila;
+            }).forEachOrdered((fila) -> {
+                modelo.addRow(fila);
+            });
+        });
+        modificar.getTablepersona().setModel(modelo);
     }
 
     public void Limpiar_Tabla() {
 
         modelo.setRowCount(0);
-        modificarSecretaria.txtcedula.setText("");
-        modificarSecretaria.txtnombre.setText("");
-        modificarSecretaria.cbestado.setSelectedIndex(0);
-        modificarSecretaria.txtapellido.setText("");
-        modificarSecretaria.txtcelular.setText("");
-        modificarSecretaria.txtdireccion.setText("");
-        modificarSecretaria.txtcorreo.setText("");
-        modificarSecretaria.cb1.setSelected(false);
-        modificarSecretaria.cb2.setSelected(false);
-        modificarSecretaria.cb3.setSelected(false);
-        modificarSecretaria.cb4.setSelected(false);
-        modificarSecretaria.nacimeinto.setText("");
+        modificar.getTxt_cedula().setText("");
+        modificar.getTxt_nombre().setText("");
+        modificar.getCb_estado().setSelectedIndex(0);
+        modificar.getTxt_apellido().setText("");
+        modificar.getTxt_celular().setText("");
+        modificar.getTxt_direccion().setText("");
+        modificar.getTxt_correo().setText("");
+        modificar.getTxt_id().setText("");
+        modificar.getCb_1().setSelected(false);
+        modificar.getCb_2().setSelected(false);
+        modificar.getCb_3().setSelected(false);
+        modificar.getCb_4().setSelected(false);
+        modificar.getNacimeinto().setText("");
+    }
+
+    public boolean Validar_Datos() {
+
+        String estado = (String) modificar.getCb_estado().getSelectedItem();
+
+        if (!modificar.getTxt_nombre().getText().isEmpty() && !modificar.getTxt_correo().getText().isEmpty() && !modificar.getTxt_direccion().getText().isEmpty() && !modificar.getTxt_celular().getText().isEmpty() && !estado.equals("Seleccionar") && (modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
+            return true;
+        } else {
+
+            return false;
+        }
+
     }
 
     public boolean Validar_Correo() {
 
-        for (int i = 0; i < Lista_abogado.size(); i++) {
-            if (Lista_abogado.get(i).getCorreo().equalsIgnoreCase(modificarSecretaria.txtcorreo.getText())) {
-                return false;
-            }
-        }
+        List<Buf_Persona> List_pers = P_DB.Getter();
 
-        for (int i = 0; i < Lista_Secretaria.size(); i++) {
-            if (Lista_Secretaria.get(i).getCorreo().equalsIgnoreCase(modificarSecretaria.txtcorreo.getText())) {
-                return false;
-            }
-        }
-
-        for (int i = 0; i < Lista_cliente.size(); i++) {
-            if (Lista_cliente.get(i).getCorreo().equalsIgnoreCase(modificarSecretaria.txtcorreo.getText())) {
+        for (int i = 0; i < List_pers.size(); i++) {
+            if (List_pers.get(i).getCorreo().equalsIgnoreCase(modificar.getTxt_correo().getText())) {
                 return false;
             }
         }
         return true;
-    }
-
-    private void Datos() {
-
-        try {
-            sorter.setRowFilter(RowFilter.regexFilter(modificarSecretaria.txtbuscar.getText(), 0));
-
-        } catch (Exception e) {
-        }
     }
 
     public boolean Validar_Correo(String correo) {

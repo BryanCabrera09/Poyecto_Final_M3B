@@ -127,7 +127,7 @@ public class Buf_SecretariaDB implements Buf_SecretariaDAO {
 
             pst.setString(1, secre.getHorario());
             pst.setBytes(2, secre.getFoto());
-            pst.setInt(3, secre.getId_abg());
+            pst.setInt(3, secre.getId_secretaria());
 
             int act_2 = pst.executeUpdate();
             Update = true;
@@ -168,6 +168,88 @@ public class Buf_SecretariaDB implements Buf_SecretariaDAO {
             con.setAutoCommit(false);
 
             String sql = "DELETE FROM Buf_Secretarias WHERE id_secretaria=?";
+
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, secre.getId_secretaria());
+
+            int elim = pst.executeUpdate();
+            Delete = true;
+
+            con.commit();
+
+        } catch (SQLException e) {
+
+            System.out.println("Error > " + e.getMessage());
+
+            try {
+
+                con.rollback();
+            } catch (SQLException ex) {
+
+                System.out.println("Error > " + ex.getMessage());
+            }
+        }
+        return Delete;
+    }
+
+    @Override
+    public List<Buf_Secretaria> Search(String Identificador) {
+
+        Statement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM Buf_Secretarias WHERE ci_secre LIKE '%" + Identificador + "%'";
+
+        List<Buf_Secretaria> Lista_secre = new ArrayList<>();
+
+        try {
+
+            con = DB_Connect.Connect();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                Buf_Secretaria A = new Buf_Secretaria();
+                A.setId_secretaria(rs.getInt("id_secretaria"));
+                A.setId_abg(rs.getInt("id_abg"));
+                A.setCedula(rs.getString("ci_secre"));
+                A.setHorario(rs.getString("horario"));
+                A.setFoto(rs.getBytes("foto"));
+
+                Lista_secre.add(A);
+            }
+            st.close();
+            con.close();
+            rs.close();
+            return Lista_secre;
+
+        } catch (SQLException e) {
+
+            Logger.getLogger(Buf_PersonaDB.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+    }
+
+    @Override
+    public boolean Delete_From_Abg(Buf_Secretaria secre) {
+        
+        boolean Delete = false;
+
+        PreparedStatement pst = null;
+        Statement st = null;
+        Connection con = null;
+
+        try {
+
+            con = DB_Connect.Connect();
+
+            st = con.createStatement();
+
+            con.setAutoCommit(false);
+
+            String sql = "DELETE FROM Buf_Secretarias WHERE id_abg=?";
 
             pst = con.prepareStatement(sql);
             pst.setInt(1, secre.getId_abg());

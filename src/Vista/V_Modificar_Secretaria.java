@@ -5,13 +5,18 @@
  */
 package vista;
 
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /*
  * @author BRYAN_CABRERA
@@ -23,10 +28,13 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
      */
     public static String x;
 
+    protected static File ruta;
+    protected static Image img;
+
+    public String rutas;
+
     public V_Modificar_Secretaria() {
         initComponents();
-        tablepersona.getTableHeader().setResizingAllowed(false);
-        tablepersona.getTableHeader().setReorderingAllowed(false);
         x = "x";
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
@@ -354,6 +362,14 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
         this.txt_nombre = txt_nombre;
     }
 
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -404,6 +420,7 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
         btn_modificar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_cancelar = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -434,93 +451,93 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
 
         laregistro.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         laregistro.setText("Modificar Informacion");
-        jPanel1.add(laregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, 30));
+        jPanel1.add(laregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, 30));
 
         lacedula.setText("Cedula:");
-        jPanel1.add(lacedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, 20));
+        jPanel1.add(lacedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, -1, 20));
 
         lacelular.setText("Celular:");
-        jPanel1.add(lacelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, 20));
+        jPanel1.add(lacelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, 20));
 
         lanombre.setText("Nombre:");
-        jPanel1.add(lanombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, 20));
+        jPanel1.add(lanombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, 20));
 
         lacorreo.setText("Correo Electronico:");
-        jPanel1.add(lacorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, -1, 20));
+        jPanel1.add(lacorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, -1, 20));
 
         laapellido.setText("Apellido:");
-        jPanel1.add(laapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, 20));
+        jPanel1.add(laapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, 20));
 
         ladireccion.setText("Direccion:");
-        jPanel1.add(ladireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 60, 20));
+        jPanel1.add(ladireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 60, 20));
 
         lafecha_nac.setText("Fecha de Nacimiento:");
-        jPanel1.add(lafecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 130, 20));
+        jPanel1.add(lafecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 130, 20));
 
         laestado.setText("Estado civil:");
-        jPanel1.add(laestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, 20));
+        jPanel1.add(laestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, 20));
 
         lahorario.setText("Registro de horario:");
-        jPanel1.add(lahorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, -1, 20));
-        jPanel1.add(txt_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 139, -1));
-        jPanel1.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 139, -1));
+        jPanel1.add(lahorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, -1, 20));
+        jPanel1.add(txt_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 139, -1));
+        jPanel1.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 139, -1));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 620, 90, 50));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 650, 90, 50));
 
-        jPanel1.add(cb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 140, -1));
+        jPanel1.add(cb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 140, -1));
 
-        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar.png"))); // NOI18N
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Eliminar.png"))); // NOI18N
         btn_eliminar.setText("ELIMINAR REGISTRO");
-        jPanel1.add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 620, -1, 50));
-        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 139, -1));
-        jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 139, -1));
-        jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 140, -1));
-        jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 139, -1));
+        jPanel1.add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 650, -1, 50));
+        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 139, -1));
+        jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 139, -1));
+        jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 140, -1));
+        jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 139, -1));
 
         cb_1.setText("9:00-13:00");
-        jPanel1.add(cb_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, -1, -1));
+        jPanel1.add(cb_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, -1, -1));
 
         cb_2.setText("13:00-15:00");
-        jPanel1.add(cb_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 160, -1, -1));
+        jPanel1.add(cb_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 190, -1, -1));
 
         cb_3.setText("15:00-16:30");
-        jPanel1.add(cb_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, -1, -1));
+        jPanel1.add(cb_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, -1, -1));
 
         cb_4.setText("16:30-18:30");
-        jPanel1.add(cb_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 200, -1, -1));
-        jPanel1.add(nacimeinto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 140, -1));
+        jPanel1.add(cb_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 230, -1, -1));
+        jPanel1.add(nacimeinto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 140, -1));
 
         lb_nombre.setBackground(new java.awt.Color(255, 255, 255));
         lb_nombre.setForeground(new java.awt.Color(255, 0, 0));
         lb_nombre.setText("*Campo Obligatorio");
-        jPanel1.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+        jPanel1.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
 
         lb_correo.setBackground(new java.awt.Color(255, 255, 255));
         lb_correo.setForeground(new java.awt.Color(255, 0, 0));
         lb_correo.setText("*Campo Obligatorio");
-        jPanel1.add(lb_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, -1, -1));
+        jPanel1.add(lb_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, -1, -1));
 
         lb_estado.setBackground(new java.awt.Color(255, 255, 255));
         lb_estado.setForeground(new java.awt.Color(255, 0, 0));
         lb_estado.setText("*Campo Obligatorio");
-        jPanel1.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, -1));
+        jPanel1.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, -1, -1));
 
         lb_celular.setBackground(new java.awt.Color(255, 255, 255));
         lb_celular.setForeground(new java.awt.Color(255, 0, 0));
         lb_celular.setText("*Campo Obligatorio");
-        jPanel1.add(lb_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
+        jPanel1.add(lb_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, -1, -1));
 
         lb_horario.setBackground(new java.awt.Color(255, 255, 255));
         lb_horario.setForeground(new java.awt.Color(255, 0, 0));
         lb_horario.setText("*Campo Obligatorio");
-        jPanel1.add(lb_horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, -1, -1));
+        jPanel1.add(lb_horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, -1));
 
         lb_direccion.setBackground(new java.awt.Color(255, 255, 255));
         lb_direccion.setForeground(new java.awt.Color(255, 0, 0));
         lb_direccion.setText("*Campo Obligatorio");
-        jPanel1.add(lb_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, -1, -1));
+        jPanel1.add(lb_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, -1, -1));
 
         tablepersona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -532,35 +549,36 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tablepersona);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 880, 180));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 880, 180));
 
         correo.setBackground(new java.awt.Color(255, 255, 255));
         correo.setForeground(new java.awt.Color(255, 0, 0));
         correo.setText("*Correo Erroneo");
-        jPanel1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 110, -1));
+        jPanel1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 110, -1));
 
         celular.setForeground(new java.awt.Color(255, 0, 0));
         celular.setText("*Telefono Erroneo");
-        jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, -1));
+        jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 110, -1));
 
-        btn_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Foto.png"))); // NOI18N
+        btn_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Foto.png"))); // NOI18N
         btn_imagen.setText("FOTO");
-        jPanel1.add(btn_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, -1, 40));
-        jPanel1.add(lb_foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 130, 140));
-        jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 230, -1));
+        jPanel1.add(btn_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 370, -1, 40));
+        jPanel1.add(lb_foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 130, 140));
+        jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 230, -1));
 
-        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
-        jPanel1.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 50));
+        jPanel1.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, 50));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("BUSCAR:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 70, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 70, 30));
 
         btn_cancelar.setText("CANCELAR");
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 620, 100, 50));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 650, 100, 50));
+        jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 120, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 690));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -569,7 +587,24 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
         x = null;
     }//GEN-LAST:event_formInternalFrameClosing
 
+    public void Cargar_Imagen() {
 
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        j.setFileFilter(fil);
+
+        File ruta_carpeta = new File("");
+        j.setCurrentDirectory(ruta_carpeta);
+
+        int s = j.showOpenDialog(j);
+        if (s == JFileChooser.APPROVE_OPTION) {
+            ruta = j.getSelectedFile();
+            rutas = String.valueOf(ruta);
+            img = getToolkit().getImage(String.valueOf(rutas));
+            img = img.getScaledInstance(getLb_foto().getWidth(), getLb_foto().getHeight(), img.SCALE_DEFAULT);
+            getLb_foto().setIcon(new ImageIcon(img));
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_eliminar;
@@ -611,6 +646,7 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txt_celular;
     private javax.swing.JTextField txt_correo;
     private javax.swing.JTextField txt_direccion;
+    private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }

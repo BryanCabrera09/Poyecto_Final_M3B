@@ -16,8 +16,6 @@ import Modelo.Buf_SecretariaDB;
 import Modelo.Buf_Usuarios;
 import Modelo.Buf_UsuariosDB;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -45,6 +43,7 @@ public class C_Modificar_Abogado {
     Buf_Abogado A = new Buf_Abogado();
     Buf_Persona P = new Buf_Persona();
     Buf_Usuarios U = new Buf_Usuarios();
+    Buf_Secretaria S = new Buf_Secretaria();
     Buf_AbogadoDB A_DB = new Buf_AbogadoDB();
     Buf_PersonaDB P_DB = new Buf_PersonaDB();
     Buf_SecretariaDB S_DB = new Buf_SecretariaDB();
@@ -281,7 +280,7 @@ public class C_Modificar_Abogado {
         modelo.addColumn("MATRICULA");
 
         List<Buf_Abogado> List_abg = A_DB.Getter();
-        List<Buf_Persona> List_per = P_DB.Getter();
+        List<Buf_Persona> List_per = P_DB.Getter_Abg();
 
         for (Buf_Abogado abogado : List_abg) {
 
@@ -312,7 +311,7 @@ public class C_Modificar_Abogado {
 
         modelo.setRowCount(0);
         List<Buf_Abogado> List_abg = A_DB.Search(modificar.getTxt_buscar().getText());
-        List<Buf_Persona> List_per = P_DB.Search(modificar.getTxt_buscar().getText());
+        List<Buf_Persona> List_per = P_DB.Search_Abg(modificar.getTxt_buscar().getText());
 
         List_per.forEach((persona) -> {
             List_abg.stream().map((abogado) -> {
@@ -336,7 +335,7 @@ public class C_Modificar_Abogado {
     public void Actualizar_Tabla() {
 
         List<Buf_Abogado> List_abg = A_DB.Getter();
-        List<Buf_Persona> List_per = P_DB.Getter();
+        List<Buf_Persona> List_per = P_DB.Getter_Abg();
 
         List_per.forEach((persona) -> {
             List_abg.stream().map((abogado) -> {
@@ -369,6 +368,7 @@ public class C_Modificar_Abogado {
         modificar.getTxt_direccion().setText("");
         modificar.getTxt_matricula().setText("");
         modificar.getTxt_correo().setText("");
+        modificar.getTxt_id().setText("");
         modificar.getCb_1().setSelected(false);
         modificar.getCb_2().setSelected(false);
         modificar.getCb_3().setSelected(false);
@@ -382,7 +382,7 @@ public class C_Modificar_Abogado {
         List<Buf_Secretaria> List_secre = S_DB.Getter();
         List<Buf_Cliente> List_cliente = C_DB.Getter();
 
-        if (Valdar_Datos_Modificar() == true) {
+        if (Validar_Datos_Modificar() == true) {
             if (!List_secre.isEmpty() && !List_abg.isEmpty() && !List_cliente.isEmpty()) {
                 if (Validar_Correo_Modificar() == true) {
                     if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
@@ -412,7 +412,7 @@ public class C_Modificar_Abogado {
             JOptionPane.showMessageDialog(null, "LLENE TODOS LOS CAMPOS");
         }
 
-        if (List_abg.size() <= 0 && List_secre.size() <= 0 && List_cliente.size() <= 0 && Valdar_Datos_Modificar() == true) {
+        if (List_abg.size() <= 0 && List_secre.size() <= 0 && List_cliente.size() <= 0 && Validar_Datos_Modificar() == true) {
             if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                 int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
                 switch (resp) {
@@ -430,7 +430,7 @@ public class C_Modificar_Abogado {
                 Campo_Vacio_Modificar();
                 JOptionPane.showMessageDialog(null, "DATOS INGRESADOS ERRONEOS", "ERROR!!", JOptionPane.ERROR_MESSAGE);
             }
-        } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && List_cliente.size() <= 0 && Valdar_Datos_Modificar() == true) {
+        } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && List_cliente.size() <= 0 && Validar_Datos_Modificar() == true) {
             if (Validar_Correo_Modificar() == true) {
                 if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                     int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
@@ -454,7 +454,7 @@ public class C_Modificar_Abogado {
                 JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
             }
 
-        } else if (!(List_abg.size() <= 0) && !(List_secre.size() <= 0) && List_cliente.size() <= 0 && Valdar_Datos_Modificar() == true) {
+        } else if (!(List_abg.size() <= 0) && !(List_secre.size() <= 0) && List_cliente.size() <= 0 && Validar_Datos_Modificar() == true) {
             if (Validar_Correo_Modificar() == true) {
                 if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                     int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
@@ -478,7 +478,7 @@ public class C_Modificar_Abogado {
                 JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
             }
 
-        } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && !(List_cliente.size() <= 0) && Valdar_Datos_Modificar() == true) {
+        } else if (!(List_abg.size() <= 0) && List_secre.size() <= 0 && !(List_cliente.size() <= 0) && Validar_Datos_Modificar() == true) {
             if (Validar_Correo_Modificar() == true) {
                 if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                     int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
@@ -502,7 +502,7 @@ public class C_Modificar_Abogado {
                 JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
             }
 
-        } else if (List_abg.size() <= 0 && !(List_secre.size() <= 0) && !(List_cliente.size() <= 0) && Valdar_Datos_Modificar() == true) {
+        } else if (List_abg.size() <= 0 && !(List_secre.size() <= 0) && !(List_cliente.size() <= 0) && Validar_Datos_Modificar() == true) {
             if (Validar_Correo_Modificar() == true) {
                 if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                     int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
@@ -525,7 +525,7 @@ public class C_Modificar_Abogado {
                 Campo_Vacio_Modificar();
                 JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
             }
-        } else if (List_abg.isEmpty() && List_secre.isEmpty() && !(List_cliente.size() <= 0) && Valdar_Datos_Modificar() == true) {
+        } else if (List_abg.isEmpty() && List_secre.isEmpty() && !(List_cliente.size() <= 0) && Validar_Datos_Modificar() == true) {
             if (Validar_Correo_Modificar() == true) {
                 if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                     int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
@@ -548,7 +548,7 @@ public class C_Modificar_Abogado {
                 Campo_Vacio_Modificar();
                 JOptionPane.showMessageDialog(null, "DATOS YA INGRESADO", "ERROR!!", JOptionPane.ERROR_MESSAGE);
             }
-        } else if (List_abg.isEmpty() && !List_secre.isEmpty() && List_cliente.isEmpty() && Valdar_Datos_Modificar() == true) {
+        } else if (List_abg.isEmpty() && !List_secre.isEmpty() && List_cliente.isEmpty() && Validar_Datos_Modificar() == true) {
             if (Validar_Correo_Modificar() == true) {
                 if (Validar_Correo(modificar.getTxt_correo().getText()) && modificar.getTxt_celular().getText().length() == 10) {
                     int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
@@ -578,6 +578,7 @@ public class C_Modificar_Abogado {
 
         List<Buf_Abogado> List_abg = A_DB.Getter();
         List<Buf_Usuarios> List_user = U_DB.Getter();
+        List<Buf_Secretaria> List_secre = S_DB.Getter();
         List<Buf_Persona> List_per = P_DB.Getter();
 
         for (int i = 0; i < List_abg.size(); i++) {
@@ -587,9 +588,9 @@ public class C_Modificar_Abogado {
                     case 0:
 
                         for (int u = 0; u < List_user.size(); u++) {
-                            if (List_user.get(u).getId_abg() == Integer.parseInt(modificar.getTxt_id().getText())) {
+                            if (List_user.get(u).getId_User() == Integer.parseInt(modificar.getTxt_id().getText())) {
 
-                                U.setId_abg(Integer.parseInt(modificar.getTxt_id().getText()));
+                                U.setId_User(Integer.parseInt(modificar.getTxt_id().getText()));
 
                                 if (U_DB.Delete(U)) {
 
@@ -599,7 +600,23 @@ public class C_Modificar_Abogado {
                                 }
                             }
                         }
-                        
+
+                        if (!List_secre.isEmpty()) {
+                            for (int j = 0; j < List_secre.size(); j++) {
+
+                                if (List_secre.get(i).getId_abg() == Integer.parseInt(modificar.getTxt_id().getText())) {
+
+                                    S.setId_abg(Integer.parseInt(modificar.getTxt_id().getText()));
+
+                                    if (S_DB.Delete_From_Abg(S)) {
+
+                                    } else {
+
+                                        JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
+                                    }
+                                }
+                            }
+                        }
                         A.setId_abg(Integer.parseInt(modificar.getTxt_id().getText()));
 
                         if (A_DB.Delete(A)) {
@@ -638,8 +655,6 @@ public class C_Modificar_Abogado {
     }
 
     public void Subir_Datos() {
-
-        int select = modificar.getTablepersona().getSelectedRow();
 
         String horario = "";
         if (modificar.getCb_1().isSelected() == true) {
@@ -681,7 +696,7 @@ public class C_Modificar_Abogado {
         } catch (Exception ex) {
             A.setFoto(null);
         }
-        A.setId_abg(Integer.parseInt(modificar.getTxt_cedula().getText()));
+        A.setId_abg(Integer.parseInt(modificar.getTxt_id().getText()));
 
         if (P_DB.Update(P)) {
 
@@ -705,7 +720,7 @@ public class C_Modificar_Abogado {
     public void Cargar_Table() {
 
         List<Buf_Abogado> List_abg = A_DB.Getter();
-        List<Buf_Persona> List_per = P_DB.Getter();
+        List<Buf_Persona> List_per = P_DB.Getter_Abg();
 
         int select = modificar.getTablepersona().getSelectedRow();
 
@@ -807,7 +822,7 @@ public class C_Modificar_Abogado {
         modificar.getTxt_buscar().setEditable(true);
     }
 
-    public boolean Valdar_Datos_Modificar() {
+    public boolean Validar_Datos_Modificar() {
 
         String estado = (String) modificar.getCb_estado().getSelectedItem();
 
@@ -968,6 +983,7 @@ public class C_Modificar_Abogado {
         modificar.getCb_4().setEnabled(false);
         modificar.getNacimeinto().setEditable(false);
         modificar.getTxt_cedula().setText("");
+        modificar.getTxt_id().setText("");
         modificar.getTxt_nombre().setText("");
         modificar.getCb_estado().setSelectedIndex(0);
         modificar.getTxt_apellido().setText("");

@@ -1,5 +1,7 @@
 package controlador;
 
+import Modelo.Buf_Usuarios;
+import Modelo.Buf_UsuariosDB;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -104,8 +106,13 @@ public class C_Menu_Inicio implements ActionListener {
             }
         }
         if (e.getSource() == Inicio.getBtn_Inicio()) {
-            V_Inicio_Sesion cs = new V_Inicio_Sesion();
-            cs.setVisible(true);
+            V_Inicio_Sesion inicio_Sesion = new V_Inicio_Sesion();
+            Buf_UsuariosDB userDB = new Buf_UsuariosDB();
+            Buf_Usuarios U = new Buf_Usuarios();
+
+            C_Inicio_Sesion ctrlI = new C_Inicio_Sesion(inicio_Sesion, userDB, U);
+
+            ctrlI.Iniciar_Control();
             Inicio.dispose();
         }
         if (e.getSource() == Inicio.getBtn_RegistroClienteCaso()) {
@@ -208,6 +215,7 @@ public class C_Menu_Inicio implements ActionListener {
                     C_Modificar_Secretaria modificarSecretaria = new C_Modificar_Secretaria(S);
                     Inicio.getEscritorio().add(S);
                     S.show();
+                    modificarSecretaria.Iniciar_Control();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }
@@ -270,6 +278,7 @@ public class C_Menu_Inicio implements ActionListener {
                     C_Registro_Secretaria secretaria = new C_Registro_Secretaria(rs);
                     Inicio.getEscritorio().add(rs);
                     rs.show();
+                    secretaria.Iniciar_Control();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }

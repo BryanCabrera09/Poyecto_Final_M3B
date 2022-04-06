@@ -6,11 +6,16 @@
 package vista;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /*
  * @author BRYAN_CABRERA
@@ -18,6 +23,11 @@ import javax.swing.JTextField;
 public class V_Registro_Secretaria extends javax.swing.JInternalFrame {
 
     public static String x;
+
+    protected static File ruta;
+    protected static Image img;
+
+    public String rutas;
 
     public V_Registro_Secretaria() {
         initComponents();
@@ -366,6 +376,22 @@ public class V_Registro_Secretaria extends javax.swing.JInternalFrame {
         this.txt_nombre = txt_nombre;
     }
 
+    public JTextField getTxt_abogado() {
+        return txt_abogado;
+    }
+
+    public void setTxt_abogado(JTextField txt_abogado) {
+        this.txt_abogado = txt_abogado;
+    }
+
+    public JTextField getTxt_id_abg() {
+        return txt_id_abg;
+    }
+
+    public void setTxt_id_abg(JTextField txt_id_abg) {
+        this.txt_id_abg = txt_id_abg;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -413,6 +439,8 @@ public class V_Registro_Secretaria extends javax.swing.JInternalFrame {
         datocedula = new javax.swing.JLabel();
         datocorreo = new javax.swing.JLabel();
         lb_horario = new javax.swing.JLabel();
+        txt_abogado = new javax.swing.JTextField();
+        txt_id_abg = new javax.swing.JTextField();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -536,16 +564,16 @@ public class V_Registro_Secretaria extends javax.swing.JInternalFrame {
         cb_4.setText("16:30-18:30");
         jPanel1.add(cb_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, -1, -1));
 
-        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cancelar.png"))); // NOI18N
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
         jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 130, 50));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
         jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 120, 50));
 
         btn_nuevo.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Nuevo.png"))); // NOI18N
+        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N
         btn_nuevo.setText("NUEVO");
         jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 110, 50));
 
@@ -563,9 +591,9 @@ public class V_Registro_Secretaria extends javax.swing.JInternalFrame {
         jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
         jPanel1.add(lb_foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 270, 150, 160));
 
-        btn_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Foto.png"))); // NOI18N
+        btn_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Foto.png"))); // NOI18N
         btn_imagen.setText("FOTO");
-        jPanel1.add(btn_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, -1, 40));
+        jPanel1.add(btn_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, -1, 40));
 
         datocedula.setForeground(new java.awt.Color(255, 0, 0));
         datocedula.setText("*Dato Existente");
@@ -579,6 +607,8 @@ public class V_Registro_Secretaria extends javax.swing.JInternalFrame {
         lb_horario.setForeground(new java.awt.Color(255, 0, 0));
         lb_horario.setText("*Campo Obligatorio");
         jPanel1.add(lb_horario, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, -1, -1));
+        jPanel1.add(txt_abogado, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 130, -1));
+        jPanel1.add(txt_id_abg, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 80, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -603,7 +633,24 @@ public class V_Registro_Secretaria extends javax.swing.JInternalFrame {
         x = null;
     }//GEN-LAST:event_formInternalFrameClosing
 
+    public void Cargar_Imagen() {
 
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        j.setFileFilter(fil);
+
+        File ruta_carpeta = new File("");
+        j.setCurrentDirectory(ruta_carpeta);
+
+        int s = j.showOpenDialog(j);
+        if (s == JFileChooser.APPROVE_OPTION) {
+            ruta = j.getSelectedFile();
+            rutas = String.valueOf(ruta);
+            img = getToolkit().getImage(String.valueOf(rutas));
+            img = img.getScaledInstance(getLb_foto().getWidth(), getLb_foto().getHeight(), img.SCALE_DEFAULT);
+            getLb_foto().setIcon(new ImageIcon(img));
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_guardar;
@@ -642,11 +689,13 @@ public class V_Registro_Secretaria extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lb_foto;
     private javax.swing.JLabel lb_horario;
     private javax.swing.JLabel lb_nombre;
+    private javax.swing.JTextField txt_abogado;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_cedula;
     private javax.swing.JTextField txt_celular;
     private javax.swing.JTextField txt_correo;
     private javax.swing.JTextField txt_direccion;
+    private javax.swing.JTextField txt_id_abg;
     private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }

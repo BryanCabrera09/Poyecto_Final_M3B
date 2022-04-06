@@ -34,7 +34,7 @@ public class Buf_UsuariosDB implements Buf_UsuarioDAO {
 
             pst = con.prepareStatement(sql);
 
-            pst.setInt(1, user.getId_abg());
+            pst.setInt(1, user.getId_User());
             pst.setString(2, user.getCedula());
             pst.setString(3, user.getUsuario());
             pst.setString(4, user.getContrasenia());
@@ -82,7 +82,7 @@ public class Buf_UsuariosDB implements Buf_UsuarioDAO {
             while (rs.next()) {
 
                 Buf_Usuarios A = new Buf_Usuarios();
-                A.setId_abg(rs.getInt("id_abg"));
+                A.setId_User(rs.getInt("id_user"));
                 A.setCedula(rs.getString("ci_user"));
                 A.setUsuario(rs.getString("usuario"));
                 A.setContrasenia(rs.getString("Contraseña"));
@@ -118,12 +118,12 @@ public class Buf_UsuariosDB implements Buf_UsuarioDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Usuarios SET usuario=?,contraseña=? WHERE id_abg=?";
+            String sql = "UPDATE Buf_Usuarios SET usuario=?,contraseña=? WHERE id_user=?";
             pst = con.prepareStatement(sql);
 
             pst.setString(1, user.getUsuario());
             pst.setString(2, user.getContrasenia());
-            pst.setInt(3, user.getId_abg());
+            pst.setInt(3, user.getId_User());
 
             int act_2 = pst.executeUpdate();
             Update = true;
@@ -164,10 +164,10 @@ public class Buf_UsuariosDB implements Buf_UsuarioDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "DELETE FROM Buf_Usuarios WHERE id_abg=?";
+            String sql = "DELETE FROM Buf_Usuarios WHERE id_user=?";
 
             pst = con.prepareStatement(sql);
-            pst.setInt(1, user.getId_abg());
+            pst.setInt(1, user.getId_User());
 
             int elim = pst.executeUpdate();
             Delete = true;

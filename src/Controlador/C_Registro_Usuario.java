@@ -168,7 +168,7 @@ public class C_Registro_Usuario {
         U.setCedula(crearuser.getTxt_cedula().getText());
         U.setUsuario(crearuser.getTxt_usuario().getText());
         U.setContrasenia(crearuser.getPsw_contraseña().getText());
-        U.setId_abg(Integer.parseInt(crearuser.getTxt_id().getText()));
+        U.setId_User(Integer.parseInt(crearuser.getTxt_id().getText()));
 
         if (U_DB.Register(U)) {
 
@@ -235,9 +235,8 @@ public class C_Registro_Usuario {
             List<Buf_Abogado> List_abg = A_DB.Getter();
 
             if (List_user.isEmpty()) {
-                for (int i = 0; i < List_abg.size() - 1; i++) {
+                for (int i = 0; i < List_abg.size(); i++) {
                     if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                        System.out.println("fdsfsd");
                         crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
                     } else {
                         crearuser.getTxt_id().setText("");
@@ -246,7 +245,7 @@ public class C_Registro_Usuario {
             } else {
 
                 for (int i = 0; i < List_user.size(); i++) {
-                    for (int p = 0; p < List_abg.size() ; p++) {
+                    for (int p = 0; p < List_abg.size(); p++) {
                         if (List_user.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
                             crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
                         } else if (List_abg.get(p).getCedula().equals(crearuser.getTxt_cedula().getText())) {
@@ -338,7 +337,7 @@ public class C_Registro_Usuario {
 
     public boolean Validar_Datos() {
 
-        if (!crearuser.getTxt_cedula().getText().equals("") && !crearuser.getTxt_usuario().getText().equals("") && !crearuser.getPsw_contraseña().getText().equals("")) {
+        if (!crearuser.getTxt_cedula().getText().equals("") && !crearuser.getTxt_usuario().getText().equals("") && !crearuser.getTxt_id().getText().equals("") && !crearuser.getPsw_contraseña().getText().equals("")) {
 
             return true;
         } else {

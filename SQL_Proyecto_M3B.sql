@@ -10,7 +10,18 @@ CREATE TABLE Buf_Admin_User (
     PRIMARY KEY ( Cedula )
 );
 
-
+SELECT
+    P.Ci,
+    P.Nombre,
+    P.Apellido,
+    P.Correo,
+    P.Direccion,
+    P.Num_Celular,
+    P.Estado,
+    P.Fecha_Nacimiento
+FROM
+         Buf_Persona P
+    JOIN Buf_Secretarias S ON P.Ci = S.Ci_Secre;
 /*
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 TABLA PERSONAS
@@ -27,11 +38,16 @@ CREATE TABLE Buf_Persona (
     Fecha_Nacimiento VARCHAR2(20),
     PRIMARY KEY ( Ci )
 );
-drop table buf_usuarios;
-drop table buf_clientes;
-drop table buf_secretarias;
-drop table buf_abogados;
-drop table buf_persona;
+
+DROP TABLE Buf_Usuarios;
+
+DROP TABLE Buf_Clientes;
+
+DROP TABLE Buf_Secretarias;
+
+DROP TABLE Buf_Abogados;
+
+DROP TABLE Buf_Persona;
 
 /*
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -72,18 +88,16 @@ CREATE TABLE Buf_Secretarias (
 
 /*
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-TABLA USUARIOS
+TABLA USUARIOS DE ABOGADOS
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 */
 CREATE TABLE Buf_Usuarios (
-    Id_Abg     NUMBER(8),
+    Id_User    NUMBER(8),
     Ci_User    VARCHAR2(10),
     Usuario    VARCHAR2(20),
     Contraseña VARCHAR2(15),
     CONSTRAINT Fk_Pers_User FOREIGN KEY ( Ci_User )
         REFERENCES Buf_Persona ( Ci ),
-    CONSTRAINT Fk_Abg_User FOREIGN KEY ( Id_Abg )
-        REFERENCES Buf_Abogados ( Id_Abogado ),
     PRIMARY KEY ( Ci_User )
 );
 

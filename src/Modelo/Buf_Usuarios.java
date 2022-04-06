@@ -6,13 +6,13 @@ package Modelo;
  */
 public class Buf_Usuarios {
     
-    private int id_abg;
+    private int id_user;
     private String cedula;
     private String usuario;
     private String contrasenia;
 
-    public Buf_Usuarios(int id_abg, String cedula, String usuario, String contrasenia) {
-        this.id_abg = id_abg;
+    public Buf_Usuarios(int id_user, String cedula, String usuario, String contrasenia) {
+        this.id_user = id_user;
         this.cedula = cedula;
         this.usuario = usuario;
         this.contrasenia = contrasenia;
@@ -21,12 +21,12 @@ public class Buf_Usuarios {
     public Buf_Usuarios() {
     }
 
-    public int getId_abg() {
-        return id_abg;
+    public int getId_User() {
+        return id_user;
     }
 
-    public void setId_abg(int id_abg) {
-        this.id_abg = id_abg;
+    public void setId_User(int id_user) {
+        this.id_user= id_user;
     }
 
     public String getCedula() {
