@@ -1,25 +1,26 @@
-
 package Modelo;
 
 /*
  * @author BRYAN_CABRERA
  */
 public class Buf_Consulta {
-    
+
     private int id_consulta;
     private String nombre;
     private String apellido;
+    private String num_celular;
     private String descripcion;
     private String caso;
     private String hora;
 
-    public Buf_Consulta(int id_consulta, String nombre, String apellido, String descripcion, String caso, String hora) {
+    public Buf_Consulta(int id_consulta, String nombre, String apellido, String descripcion, String caso, String hora, String num_celular) {
         this.id_consulta = id_consulta;
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
         this.caso = caso;
         this.hora = hora;
+        this.num_celular = num_celular;
     }
 
     public Buf_Consulta() {
@@ -72,5 +73,13 @@ public class Buf_Consulta {
     public void setHora(String hora) {
         this.hora = hora;
     }
-    
+
+    public String getNum_celular() {
+        return num_celular;
+    }
+
+    public void setNum_celular(String num_celular) {
+        this.num_celular = num_celular;
+    }
+
 }

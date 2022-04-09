@@ -8,7 +8,6 @@ package vista;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
@@ -33,14 +32,6 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
         setLocation(a / 2, b / 5);
 
-    }
-
-    public JLabel getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(JLabel apellidos) {
-        this.apellidos = apellidos;
     }
 
     public JButton getBtn_cancelar() {
@@ -131,22 +122,6 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         this.js_hora = js_hora;
     }
 
-    public JLabel getLacaso1() {
-        return lacaso1;
-    }
-
-    public void setLacaso1(JLabel lacaso1) {
-        this.lacaso1 = lacaso1;
-    }
-
-    public JLabel getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(JLabel nombres) {
-        this.nombres = nombres;
-    }
-
     public JTextArea getTxa_descripcion() {
         return txa_descripcion;
     }
@@ -171,6 +146,54 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         this.txt_nombres = txt_nombres;
     }
 
+    public JLabel getLb_apellido() {
+        return lb_apellido;
+    }
+
+    public void setLb_apellido(JLabel lb_apellido) {
+        this.lb_apellido = lb_apellido;
+    }
+
+    public JLabel getLb_caso() {
+        return lb_caso;
+    }
+
+    public void setLb_caso(JLabel lb_caso) {
+        this.lb_caso = lb_caso;
+    }
+
+    public JLabel getLb_nombre() {
+        return lb_nombre;
+    }
+
+    public void setLb_nombre(JLabel lb_nombre) {
+        this.lb_nombre = lb_nombre;
+    }
+
+    public JTextField getTxt_celular() {
+        return txt_celular;
+    }
+
+    public void setTxt_celular(JTextField txt_celular) {
+        this.txt_celular = txt_celular;
+    }
+
+    public JLabel getLb_celular() {
+        return lb_celular;
+    }
+
+    public void setLb_celular(JLabel lb_celular) {
+        this.lb_celular = lb_celular;
+    }
+
+    public JLabel getCelular() {
+        return celular;
+    }
+
+    public void setCelular(JLabel celular) {
+        this.celular = celular;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -191,13 +214,17 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         btn_guardar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         js_hora = new javax.swing.JSpinner();
-        nombres = new javax.swing.JLabel();
+        lb_nombre = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txt_apellidos = new javax.swing.JTextField();
         txt_nombres = new javax.swing.JTextField();
-        lacaso1 = new javax.swing.JLabel();
-        apellidos = new javax.swing.JLabel();
+        lb_caso = new javax.swing.JLabel();
+        lb_apellido = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txt_celular = new javax.swing.JTextField();
+        lb_celular = new javax.swing.JLabel();
+        celular = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -224,71 +251,85 @@ public class V_Consultas extends javax.swing.JInternalFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cancelar.png"))); // NOI18N
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 100, 50));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 100, 50));
 
         jLabel3.setText("Caso:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 40, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 40, 20));
 
-        cb_caso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Casos Judiciales", "Petición Familiar", "Trámites de Visa", "Waiver", "Procesos Migratorios" }));
-        jPanel1.add(cb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 174, -1));
+        cb_caso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Casos Judiciales", "Petición Familiar", "Trámites de Visa", "Waiver", "Procesos Migratorios" }));
+        jPanel1.add(cb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 210, -1));
 
         jLabel4.setText("Descripcion:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 90, 20));
 
         txa_descripcion.setColumns(20);
         txa_descripcion.setLineWrap(true);
         txa_descripcion.setRows(5);
         jScrollPane1.setViewportView(txa_descripcion);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 290, 153));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 310, 153));
 
-        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Nuevo.png"))); // NOI18N
+        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N
         btn_nuevo.setText("NUEVO");
         jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 90, 50));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 90, 50));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 90, 50));
 
         jLabel5.setText("Hora:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 40, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 40, 20));
 
         js_hora.setModel(new javax.swing.SpinnerDateModel());
         js_hora.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         js_hora.setEditor(new javax.swing.JSpinner.DateEditor(js_hora, "dd/MM/yyyy HH:mm"));
-        jPanel1.add(js_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, -1));
+        jPanel1.add(js_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 140, -1));
 
-        nombres.setForeground(new java.awt.Color(255, 0, 0));
-        nombres.setText("*Campo Obligatorio");
-        jPanel1.add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 130, -1));
+        lb_nombre.setForeground(new java.awt.Color(255, 0, 0));
+        lb_nombre.setText("*Campo Obligatorio");
+        jPanel1.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 130, -1));
 
         jLabel1.setText("Nombres:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 60, 20));
 
         jLabel2.setText("Apellidos:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 60, 20));
-        jPanel1.add(txt_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 170, -1));
-        jPanel1.add(txt_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 170, -1));
+        jPanel1.add(txt_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 210, -1));
+        jPanel1.add(txt_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 210, -1));
 
-        lacaso1.setForeground(new java.awt.Color(255, 0, 0));
-        lacaso1.setText("*Campo Obligatorio");
-        jPanel1.add(lacaso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 130, -1));
+        lb_caso.setForeground(new java.awt.Color(255, 0, 0));
+        lb_caso.setText("*Campo Obligatorio");
+        jPanel1.add(lb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 130, -1));
 
-        apellidos.setForeground(new java.awt.Color(255, 0, 0));
-        apellidos.setText("*Campo Obligatorio");
-        jPanel1.add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 130, -1));
+        lb_apellido.setForeground(new java.awt.Color(255, 0, 0));
+        lb_apellido.setText("*Campo Obligatorio");
+        jPanel1.add(lb_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 130, -1));
+
+        jLabel6.setText("Celular:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 50, 20));
+        jPanel1.add(txt_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 210, -1));
+
+        lb_celular.setForeground(new java.awt.Color(255, 0, 0));
+        lb_celular.setText("*Campo Obligatorio");
+        jPanel1.add(lb_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 130, -1));
+
+        celular.setForeground(new java.awt.Color(255, 0, 0));
+        celular.setText("*Telefono Erroneo");
+        jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 673, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -300,23 +341,27 @@ public class V_Consultas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel apellidos;
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_nuevo;
     private javax.swing.JComboBox<String> cb_caso;
+    private javax.swing.JLabel celular;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     public static javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner js_hora;
-    private javax.swing.JLabel lacaso1;
-    private javax.swing.JLabel nombres;
+    private javax.swing.JLabel lb_apellido;
+    private javax.swing.JLabel lb_caso;
+    private javax.swing.JLabel lb_celular;
+    private javax.swing.JLabel lb_nombre;
     private javax.swing.JTextArea txa_descripcion;
     private javax.swing.JTextField txt_apellidos;
+    private javax.swing.JTextField txt_celular;
     private javax.swing.JTextField txt_nombres;
     // End of variables declaration//GEN-END:variables
 }

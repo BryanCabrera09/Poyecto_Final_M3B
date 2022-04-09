@@ -6,7 +6,6 @@
 package vista;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -14,19 +13,16 @@ import javax.swing.JTextField;
 /*
  * @author BRYAN_CABRERA
  */
-public class V_Consuta_Citas extends javax.swing.JInternalFrame {
+public class V_Consulta_Citas extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Modificacion_Consultas
      */
     public static String x;
 
-    public V_Consuta_Citas() {
+    public V_Consulta_Citas() {
         initComponents();
         x = "x";
-        table.getTableHeader().setResizingAllowed(false);
-        table.getTableHeader().setReorderingAllowed(false);
-
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
         setLocation(a / 2, b / 5);

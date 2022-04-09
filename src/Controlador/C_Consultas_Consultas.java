@@ -5,112 +5,134 @@
  */
 package controlador;
 
+import Modelo.Buf_Consulta;
+import Modelo.Buf_ConsultaDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.RowFilter;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
-import modelo.Consulta;
-import static vista.Consultas.Lista_consulta;
-import vista.Consuta_Consultas;
-import static vista.Consuta_Consultas.table;
-import static vista.MenuInicio.escritorio;
-import vista.Modificacion_Citas;
-import vista.Modificar_Consulta;
+import vista.V_Consulta_Consultas;
+import vista.V_Menu_Inicio;
+import vista.V_Modificar_Consulta;
 
 /*
  * @author BRYAN_CABRERA
  */
-public class C_Consultas_Consultas implements KeyListener, MouseListener {
-
-    Consuta_Consultas consuta_Consultas;
+public class C_Consultas_Consultas  {
+    
+    V_Consulta_Consultas consultas;
+    V_Menu_Inicio Inicio;
+    
+    Buf_ConsultaDB C_DB = new Buf_ConsultaDB();
+    
     private DefaultTableModel modelo;
-
-    TableRowSorter<DefaultTableModel> sorter;
-
-    public C_Consultas_Consultas(Consuta_Consultas consuta_Consultas) {
-        this.consuta_Consultas = consuta_Consultas;
-        table.addMouseListener(this);
-        this.consuta_Consultas.txtapellido.addKeyListener(this);
+    
+    public C_Consultas_Consultas(V_Consulta_Consultas consultas) {
+        
+        this.consultas = consultas;
+        Cargar_Datos();
     }
+    
+    public void Iniciar_Control() {
 
-    @Override
-    public void keyTyped(KeyEvent evt) {
-        if (evt.getSource() == consuta_Consultas.txtapellido) {
-            char c = evt.getKeyChar();
-
-            if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
-                evt.consume();
+        //EVENTS KEY
+        KeyListener K = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent evt) {
+                if (evt.getSource() == consultas.getTxt_apellido()) {
+                    char c = evt.getKeyChar();
+                    
+                    if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
+                        evt.consume();
+                    }
+                }
             }
-        }
+            
+            @Override
+            public void keyPressed(KeyEvent evt) {
+                
+            }
+            
+            @Override
+            public void keyReleased(KeyEvent evt) {
+                if (evt.getSource() == consultas.getTxt_apellido()) {
+                    Buscar();
+                }
+            }
+        };
+        consultas.getTxt_apellido().addKeyListener(K);
+
+        //EVENTS MOUSE
+        MouseListener M = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+            
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (e.getSource() == consultas.getTable()) {
+                    Abrir_Modificar();
+                }
+            }
+            
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+            
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        };
+        consultas.getTable().addMouseListener(M);
     }
-
-    @Override
-    public void keyPressed(KeyEvent evt) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent evt) {
-        if (evt.getSource() == consuta_Consultas.txtapellido) {
-            Datos();
-        }
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        String x = Modificar_Consulta.x;
+    
+    public void Abrir_Modificar() {
+        
+        String x = V_Modificar_Consulta.x;
+        
         try {
-            Modificar_Consulta CI = new Modificar_Consulta();
-            C_Modificar_Consultas modificarConsultas = new C_Modificar_Consultas(CI);
-            escritorio.add(CI);
+            V_Modificar_Consulta CI = new V_Modificar_Consulta();
+            C_Modificar_Consultas modificar = new C_Modificar_Consultas(CI);
+            Inicio.getEscritorio().add(CI);
             CI.show();
-            consuta_Consultas.setVisible(false);
+            consultas.setVisible(false);
+            
+            List<Buf_Consulta> List_consulta = C_DB.Getter();
 
-            int datos = table.getSelectedRow();
+            int datos = consultas.getTable().getSelectedRow();
 
-            String hora = Lista_consulta.get(datos).getHora();
+            String hora = List_consulta.get(datos).getHora();
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-            Date dataFormateada = formato.parse(hora);
             Date fecha = formato.parse(hora);
-
-            Modificar_Consulta.txtnombres.setText(Lista_consulta.get(datos).getNombres());
-            Modificar_Consulta.txtapellidos.setText(Lista_consulta.get(datos).getApellidos());
-            Modificar_Consulta.cbcaso.setSelectedItem(Lista_consulta.get(datos).getCaso());
-            Modificar_Consulta.jhora.setValue(fecha);
-            Modificar_Consulta.txdescripcion.setText(Lista_consulta.get(datos).getConsulta());
-            Modificacion_Citas.lacelular.setVisible(false);
+            
+            CI.getTxt_nombres().setText(List_consulta.get(datos).getNombre());
+            CI.getTxt_apellidos().setText(List_consulta.get(datos).getApellido());
+            CI.getTxt_celular().setText(List_consulta.get(datos).getNum_celular());
+            CI.getCb_caso().setSelectedItem(List_consulta.get(datos).getCaso());
+            CI.getJs_hora().setValue(fecha);
+            CI.getTxa_descripcion().setText(List_consulta.get(datos).getDescripcion());
+            CI.getTxt_id().setText(String.valueOf(List_consulta.get(datos).getId_consulta()));
+            CI.getLb_nombre().setVisible(false);
+            modificar.Iniciar_Control();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
-
-    public void cargarDatos() {
-        table.setDefaultEditor(Object.class, null);
+    
+    public void Cargar_Datos() {
+        
+        consultas.getTable().getTableHeader().setResizingAllowed(false);
+        consultas.getTable().getTableHeader().setReorderingAllowed(false);
+        
+        consultas.getTable().setDefaultEditor(Object.class, null);
         modelo = new DefaultTableModel() {
             //CARGAR CAMPOS EN LA TABLA
             public boolean iscelleditable(int filas, int columnas) {
@@ -121,33 +143,71 @@ public class C_Consultas_Consultas implements KeyListener, MouseListener {
                 }
             }
         };
-
+        
         modelo.addColumn("NOMBRES");
         modelo.addColumn("APELLIDOS");
         modelo.addColumn("CASO");
         modelo.addColumn("HORA");
-
-        for (Consulta consulta : Lista_consulta) {
-
+        
+        List<Buf_Consulta> List_consulta = C_DB.Getter();
+        
+        List_consulta.stream().map((consulta) -> {
             Object[] fila = new Object[4];
-            fila[0] = consulta.getNombres();
-            fila[1] = consulta.getApellidos();
+            fila[0] = consulta.getNombre();
+            fila[1] = consulta.getApellido();
             fila[2] = consulta.getCaso();
             fila[3] = consulta.getHora();
+            return fila;
+        }).forEachOrdered((fila) -> {
             modelo.addRow(fila);
-        }
-        table.setModel(modelo);
-        table.setAutoCreateRowSorter(true);
-        sorter = new TableRowSorter<>(modelo);
-        table.setRowSorter(sorter);
+        });
+        consultas.getTable().setModel(modelo);
     }
-
-    private void Datos() {
-
-        try {
-            sorter.setRowFilter(RowFilter.regexFilter(consuta_Consultas.txtapellido.getText(), 1));
-
-        } catch (Exception e) {
+    
+    public void Limpiar_Tabla() {
+        
+        modelo.setRowCount(0);
+        consultas.getTxt_apellido().setText("");
+    }
+    
+    public void Actualizar_Tabla() {
+        
+        List<Buf_Consulta> List_consulta = C_DB.Getter();
+        
+        List_consulta.stream().map((consulta) -> {
+            Object[] fila = new Object[4];
+            fila[0] = consulta.getNombre();
+            fila[1] = consulta.getApellido();
+            fila[2] = consulta.getCaso();
+            fila[3] = consulta.getHora();
+            return fila;
+        }).forEachOrdered((fila) -> {
+            modelo.addRow(fila);
+        });
+        consultas.getTable().setModel(modelo);
+    }
+    
+    public void Buscar() {
+        
+        if (consultas.getTxt_apellido().getText().isEmpty()) {
+            
+            Limpiar_Tabla();
+            Actualizar_Tabla();
         }
+        
+        modelo.setRowCount(0);
+        List<Buf_Consulta> List_consulta = C_DB.Search(consultas.getTxt_apellido().getText());
+        
+        List_consulta.stream().map((consulta) -> {
+            Object[] fila = new Object[4];
+            fila[0] = consulta.getNombre();
+            fila[1] = consulta.getApellido();
+            fila[2] = consulta.getCaso();
+            fila[3] = consulta.getHora();
+            return fila;
+        }).forEachOrdered((fila) -> {
+            modelo.addRow(fila);
+        });
+        consultas.getTable().setModel(modelo);
     }
 }

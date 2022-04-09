@@ -11,6 +11,8 @@ public interface Buf_ConsultaDAO {
     public boolean Register(Buf_Consulta consulta);
 
     public List<Buf_Consulta> Getter();
+    
+    public List<Buf_Consulta> Search(String cita);
 
     public boolean Update(Buf_Consulta consulta);
 

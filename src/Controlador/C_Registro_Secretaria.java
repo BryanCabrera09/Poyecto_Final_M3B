@@ -232,6 +232,7 @@ public class C_Registro_Secretaria {
     public void Nuevo() {
 
         registro.getBtn_guardar().setEnabled(false);
+        registro.getBtn_cancelar().setEnabled(false);
         registro.getTxt_nombre().setEditable(false);
         registro.getTxt_cedula().setEditable(false);
         registro.getTxt_apellido().setEditable(false);
@@ -283,6 +284,7 @@ public class C_Registro_Secretaria {
     }
 
     public void Campo_Vacio() {
+
         String estado = (String) registro.getCb_estado().getSelectedItem();
         if (registro.getTxt_nombre().getText().isEmpty()) {
             registro.getLb_nombre().setVisible(true);
@@ -428,19 +430,25 @@ public class C_Registro_Secretaria {
                 if (!List_abg.get(i).getCedula().equalsIgnoreCase(registro.getTxt_cedula().getText())) {
                     registro.getTxt_id_abg().setText(String.valueOf(List_abg.get(i).getId_abg()));
                     registro.getTxt_abogado().setText(List_pers.get(i).getApellido().toUpperCase() + " " + List_pers.get(i).getNombre().toUpperCase());
+                    i = List_abg.size();
                 }
             }
         }
 
         for (int i = 0; i < List_abg.size(); i++) {
             for (int j = 0; j < List_secre.size(); j++) {
-                if (List_abg.get(i).getId_abg() != List_secre.get(j).getId_abg()) {
+                for (int k = 0; k < List_pers.size(); k++) {
+                    if (List_abg.get(i).getId_abg() != List_secre.get(j).getId_abg()) {
 
-                    registro.getTxt_id_abg().setText(String.valueOf(List_abg.get(i).getId_abg()));
-                    registro.getTxt_abogado().setText(List_pers.get(i).getApellido().toUpperCase() + " " + List_pers.get(i).getNombre().toUpperCase());
-                } else {
-                    registro.getTxt_id_abg().setText("");
-                    registro.getTxt_abogado().setText("");
+                        registro.getTxt_id_abg().setText(String.valueOf(List_abg.get(i).getId_abg()));
+                        registro.getTxt_abogado().setText(List_pers.get(i).getApellido().toUpperCase() + " " + List_pers.get(i).getNombre().toUpperCase());
+                        i = List_abg.size();
+                        j = List_secre.size();
+                        k = List_pers.size();
+                    } else {
+                        registro.getTxt_id_abg().setText("");
+                        registro.getTxt_abogado().setText("");
+                    }
                 }
             }
         }

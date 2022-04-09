@@ -167,6 +167,14 @@ public class V_Modificacion_Citas extends javax.swing.JInternalFrame {
         this.txt_celular = txt_celular;
     }
 
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -194,6 +202,7 @@ public class V_Modificacion_Citas extends javax.swing.JInternalFrame {
         celular = new javax.swing.JLabel();
         btn_regresar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
 
         setIconifiable(true);
         setMaximizable(true);
@@ -240,11 +249,11 @@ public class V_Modificacion_Citas extends javax.swing.JInternalFrame {
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 320, 120));
 
-        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
         jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 60));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
         jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 120, 60));
 
@@ -271,6 +280,7 @@ public class V_Modificacion_Citas extends javax.swing.JInternalFrame {
 
         btn_cancelar.setText("CANCELAR CITA");
         jPanel2.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 150, 60));
+        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -311,5 +321,6 @@ public class V_Modificacion_Citas extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea txa_descripcion;
     private javax.swing.JTextField txt_cedula;
     private javax.swing.JTextField txt_celular;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 }

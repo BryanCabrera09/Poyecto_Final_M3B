@@ -120,7 +120,7 @@ public class V_Registro_Caso extends javax.swing.JInternalFrame {
 
         jPanel1.add(cb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 187, 30));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
         jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 90, 50));
 

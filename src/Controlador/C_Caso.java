@@ -29,7 +29,7 @@ import vista.RequisitosVisaMexico;
  */
 public class C_Caso implements ActionListener, KeyListener {
 
-    Caso caso;
+    V_Caso caso;
 
     public C_Caso(Caso caso) {
         this.caso = caso;

@@ -5,160 +5,175 @@
  */
 package controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Modelo.Buf_Caso;
+import Modelo.Buf_CasoDB;
+import Modelo.Buf_Cliente;
+import Modelo.Buf_ClienteDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.List;
 import javax.swing.JOptionPane;
-import modelo.ClienteCaso;
-import vista.RegistroCaso;
-import static vista.RegistroCaso.Lista_ClienteCaso;
-import static vista.RegistroCliente.Lista_cliente;
+import vista.V_Registro_Caso;
 
 /*
  * @author BRYAN_CABRERA
  */
-public class C_Registro_Caso implements ActionListener, KeyListener {
+public class C_Registro_Caso {
 
-    RegistroCaso registroCaso;
+    V_Registro_Caso registro;
 
-    public C_Registro_Caso(RegistroCaso registroCaso) {
-        this.registroCaso = registroCaso;
-        this.registroCaso.btn_guardar.addActionListener(this);
-        this.registroCaso.txt_cedula.addKeyListener(this);
-        numCaso();
+    Buf_Caso Ca = new Buf_Caso();
+    Buf_CasoDB Ca_DB = new Buf_CasoDB();
+    Buf_ClienteDB C_DB = new Buf_ClienteDB();
+
+    public C_Registro_Caso(V_Registro_Caso registro) {
+
+        this.registro = registro;
+
+        Num_Casos();
     }
 
-    public void numCaso() {
-        registroCaso.comboCaso.addItem("Seleccionar...");
-        registroCaso.comboCaso.addItem("Divorcio");
-        registroCaso.comboCaso.addItem("Pensiones Alimenticias");
-        registroCaso.comboCaso.addItem("Peticion Familiar");
-        registroCaso.comboCaso.addItem("Perdon-EEUU");
-        registroCaso.comboCaso.addItem("Visa EEUU");
-        registroCaso.comboCaso.addItem("Visa Europa");
-        registroCaso.comboCaso.addItem("Loteria EEUU");
-        registroCaso.comboCaso.addItem("Visa Mexico");
-        registroCaso.comboCaso.addItem("Renovacion Pasaporte Americano");
-        registroCaso.comboCaso.addItem("Retornante Inmigrante");
-        registroCaso.comboCaso.addItem("Reporte Consular");
+    public void Num_Casos() {
+
+        registro.getCb_caso().addItem("Seleccionar");
+        registro.getCb_caso().addItem("Divorcio");
+        registro.getCb_caso().addItem("Pensiones Alimenticias");
+        registro.getCb_caso().addItem("Peticion Familiar");
+        registro.getCb_caso().addItem("Perdon-EEUU");
+        registro.getCb_caso().addItem("Visa EEUU");
+        registro.getCb_caso().addItem("Visa Europa");
+        registro.getCb_caso().addItem("Loteria EEUU");
+        registro.getCb_caso().addItem("Visa Mexico");
+        registro.getCb_caso().addItem("Renovacion Pasaporte Americano");
+        registro.getCb_caso().addItem("Retornante Inmigrante");
+        registro.getCb_caso().addItem("Reporte Consular");
     }
 
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        if (evt.getSource() == registroCaso.btn_guardar) {
+    public void Iniciar_Control() {
 
-//        for (int i = 0; i < Lista_cliente.size(); i++) {
-//            System.out.println(Lista_cliente.get(i).getCedula());
-//        }
-            String caso = (String) registroCaso.comboCaso.getSelectedItem();
-            int c = 0;
-            if (!caso.equals("Seleccionar...")) {
-                for (int i = 0; i < Lista_cliente.size(); i++) {
-                    if (Lista_cliente.get(i).getCedula().equals(registroCaso.txt_cedula.getText())) {
-                        if (Lista_ClienteCaso.isEmpty()) {
-                            ClienteCaso cc = new ClienteCaso(registroCaso.txt_cedula.getText(), caso);
-                            Lista_ClienteCaso.add(cc);
-                            JOptionPane.showMessageDialog(null, "Registrado " + caso);
-                            registroCaso.comboCaso.setSelectedIndex(0);
-                            registroCaso.txt_cedula.setText("");
-                        } else {
-                            c = 1;
-                        }
+        //EVENTOS TECLADO
+        KeyListener K = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent evt) {
+                if (evt.getSource() == registro.getTxt_cedula()) {
+                    char c = evt.getKeyChar();
 
-                    }
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Llene Todos los campos");
-            }
-            int p = 0;
+                    if (c >= '0' && c <= '9' && registro.getTxt_cedula().getText().length() <= 9) {
 
-            if (c == 1) {
-
-                for (int j = 0; j < Lista_ClienteCaso.size(); j++) {
-                    p = 0;
-                    caso = (String) registroCaso.comboCaso.getSelectedItem();
-                    if (Lista_ClienteCaso.get(j).getCedula().equals(registroCaso.txt_cedula.getText()) && Lista_ClienteCaso.get(j).getCaso().equals(caso)) {
-                        JOptionPane.showMessageDialog(null, "Esta cedula ya tiene este caso", "", 0);
-                        break;
                     } else {
-                        p = 1;
+                        evt.consume();
                     }
                 }
             }
 
-            if (p == 1) {
-                ClienteCaso cc = new ClienteCaso(registroCaso.txt_cedula.getText(), caso);
-                Lista_ClienteCaso.add(cc);
-                JOptionPane.showMessageDialog(null, "Registrado " + caso);
-                registroCaso.comboCaso.setSelectedIndex(0);
-                registroCaso.txt_cedula.setText("");
+            @Override
+            public void keyPressed(KeyEvent evt) {
             }
 
-            /*
-        
-        String caso = (String) comboCaso.getSelectedItem();
-        int a = 0, b = 0;
-        for (int i = 0; i < Lista_cliente.size(); i++) {
+            @Override
+            public void keyReleased(KeyEvent evt) {
+            }
+        };
+        registro.getTxt_cedula().addKeyListener(K);
 
-            if (Lista_cliente.get(i).getCedula().equals(txt_cedula.getText())) {
-                ClienteCaso cc = new ClienteCaso(txt_cedula.getText(), caso);
-                for (int j = 0; j < Lista_ClienteCaso.size(); j++) {
-                    System.out.println("------------");
-                    System.out.println(caso);
-                    System.out.println("------------");
-                    if (Lista_ClienteCaso.get(j).getCaso().equals(caso)) {
-                        b = 1;
-                        System.out.println("rrrrrrrrrrrrr");
-                        break;
-                    } else if (!Lista_ClienteCaso.get(j).getCaso().equalsIgnoreCase(caso)) {
-                        Lista_ClienteCaso.add(cc);
-                        break;
-                    }
+        //ACTION BUTTONS
+        registro.getBtn_guardar().addActionListener(l -> {
+            Guardar();
+        });
+    }
+
+    public boolean Validar_Datos() {
+
+        String caso = (String) registro.getCb_caso().getSelectedItem();
+
+        if (!registro.getTxt_cedula().getText().equals("") && !caso.equals("Seleccionar")) {
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int Id_Generator() {
+
+        List<Buf_Caso> List_caso = Ca_DB.Getter();
+
+        int id_caso = (int) Math.floor(Math.random() * (99999 - 11111 + 1) + 11111);
+
+        int a = 0;
+        do {
+
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getId_caso() == id_caso) {
+                    a = 1;
                 }
+            }
 
-                if (Lista_ClienteCaso.size() == 0) {
-                    Lista_ClienteCaso.add(cc);
+        } while (a == 1);
 
+        return id_caso;
+    }
+
+    public void Guardar() {
+
+        if (Validar_Datos() == true) {
+            if (Cedula_Cliente() == true) {
+                if (Cedula_Repetida() == true) {
+                    Subir_Datos();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Caso Registrado Previamente", "Aviso", JOptionPane.WARNING_MESSAGE);
                 }
-                Limpiar();
-                break;
             } else {
-                a = 1;
-                Limpiar();
-                break;
+                JOptionPane.showMessageDialog(null, "Cliente No Registrado", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    public void Subir_Datos() {
+
+        String caso = (String) registro.getCb_caso().getSelectedItem();
+
+        Ca.setCedula(registro.getTxt_cedula().getText());
+        Ca.setId_caso(Id_Generator());
+        Ca.setCaso(caso);
+
+        if (Ca_DB.Register(Ca)) {
+
+            JOptionPane.showMessageDialog(null, "Caso " + caso + " Registrado");
+            registro.getCb_caso().setSelectedIndex(0);
+            registro.getTxt_cedula().setText("");
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    public boolean Cedula_Cliente() {
+
+        List<Buf_Cliente> List_cliente = C_DB.Getter();
+
+        for (int i = 0; i < List_cliente.size(); i++) {
+            if (List_cliente.get(i).getCedula().equals(registro.getTxt_cedula().getText())) {
+                return true;
             }
         }
-        if (a == 1) {
-            JOptionPane.showMessageDialog(null, "ESTA CEDULA NO EXISTE EN EL REGISTRO", "", 3);
-        }
-        if (b == 1) {
-            JOptionPane.showMessageDialog(null, "ESTA CEDULA YA REGISTRO ESTE CASO", "", 3);
-        }*/
-        }
+        return false;
     }
 
-    @Override
-    public void keyTyped(KeyEvent evt) {
-        if (evt.getSource() == registroCaso.txt_cedula) {
-            char c = evt.getKeyChar();
+    public boolean Cedula_Repetida() {
 
-            if (c >= '0' && c <= '9' && registroCaso.txt_cedula.getText().length() <= 9) {
+        String caso = (String) registro.getCb_caso().getSelectedItem();
 
-            } else {
-                evt.consume();
+        List<Buf_Caso> List_caso = Ca_DB.Getter();
+
+        for (int j = 0; j < List_caso.size(); j++) {
+            if (List_caso.get(j).getCaso().equals(caso)) {
+                return false;
             }
         }
+        return true;
     }
-
-    @Override
-    public void keyPressed(KeyEvent evt) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent evt) {
-
-    }
-
 }

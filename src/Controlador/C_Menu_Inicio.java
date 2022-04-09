@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 import vista.V_Caso;
 import vista.V_Citas;
 import vista.V_Consultas;
-import vista.V_Consuta_Citas;
-import vista.V_Consuta_Consultas;
+import vista.V_Consulta_Citas;
+import vista.V_Consulta_Consultas;
 import vista.V_Horario;
 import vista.V_Inicio_Sesion;
 import vista.V_Menu_Inicio;
@@ -70,6 +70,7 @@ public class C_Menu_Inicio implements ActionListener {
         this.Inicio.getReg_usuario().addActionListener(this);
         this.Inicio.getReq_visa_europa().addActionListener(this);
         this.Inicio.getReq_peticionfamiliar().addActionListener(this);
+        this.Inicio.getBtn_consultas().addActionListener(this);
 
     }
 
@@ -80,9 +81,26 @@ public class C_Menu_Inicio implements ActionListener {
             try {
                 if (x == null) {
                     V_Citas citas = new V_Citas();
-                    C_Citas citas1 = new C_Citas(citas);
+                    C_Citas cita = new C_Citas(citas);
                     Inicio.getEscritorio().add(citas);
                     citas.show();
+                    cita.Iniciar_Control();
+                } else {
+                    JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == Inicio.getBtn_consultas()) {
+            String x = V_Consultas.x;
+            try {
+                if (x == null) {
+                    V_Consultas consultas = new V_Consultas();
+                    C_Consultas consulta = new C_Consultas(consultas);
+                    Inicio.getEscritorio().add(consultas);
+                    consultas.show();
+                    consulta.Iniciar_Control();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }
@@ -123,6 +141,7 @@ public class C_Menu_Inicio implements ActionListener {
                     C_Registro_Caso registroCaso = new C_Registro_Caso(rca);
                     Inicio.getEscritorio().add(rca);
                     rca.show();
+                    registroCaso.Iniciar_Control();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }
@@ -163,13 +182,14 @@ public class C_Menu_Inicio implements ActionListener {
         }
         //ABRIR OPCIONES PRESENTADAS EN EL MENU
         if (e.getSource() == Inicio.getCitas()) {
-            String x = V_Consuta_Citas.x;
+            String x = V_Consulta_Citas.x;
             try {
                 if (x == null) {
-                    V_Consuta_Citas CI = new V_Consuta_Citas();
+                    V_Consulta_Citas CI = new V_Consulta_Citas();
                     C_Consulta_Citas consulta_Citas = new C_Consulta_Citas(CI);
                     Inicio.getEscritorio().add(CI);
                     CI.show();
+                    consulta_Citas.Iniciar_Control();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }
@@ -178,13 +198,14 @@ public class C_Menu_Inicio implements ActionListener {
             }
         }
         if (e.getSource() == Inicio.getConsultas()) {
-            String x = V_Consuta_Consultas.x;
+            String x = V_Consulta_Consultas.x;
             try {
                 if (x == null) {
-                    V_Consuta_Consultas C = new V_Consuta_Consultas();
+                    V_Consulta_Consultas C = new V_Consulta_Consultas();
                     C_Consultas_Consultas consultas_Consultas = new C_Consultas_Consultas(C);
                     Inicio.getEscritorio().add(C);
                     C.show();
+                    consultas_Consultas.Iniciar_Control();
                 } else {
                     JOptionPane.showMessageDialog(null, "ESTA VENTANA YA ESTA ABIERTA", "", 3);
                 }

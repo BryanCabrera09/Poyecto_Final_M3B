@@ -168,6 +168,11 @@ public class C_Modificar_Abogado {
                         Campo_Vacio_Modificar();
                     }
                 }
+                if (evt.getSource() == modificar.getTxt_apellido()) {
+                    if (modificar.getTxt_apellido().isEditable() == true) {
+                        Campo_Vacio_Modificar();
+                    }
+                }
             }
         };
 
@@ -261,7 +266,7 @@ public class C_Modificar_Abogado {
         modelo = new DefaultTableModel() {
             //CARGAR CAMPOS EN LA TABLA
             public boolean iscelleditable(int filas, int columnas) {
-                if (columnas == 8) {
+                if (columnas == 7) {
                     return true;
                 } else {
                     return false;
@@ -276,27 +281,22 @@ public class C_Modificar_Abogado {
         modelo.addColumn("FECHA DE NACIMIENTO");
         modelo.addColumn("CELULAR");
         modelo.addColumn("DIRECCION");
-        modelo.addColumn("MATRICULA");
 
-        List<Buf_Abogado> List_abg = A_DB.Getter();
         List<Buf_Persona> List_per = P_DB.Getter_Abg();
 
-        for (Buf_Abogado abogado : List_abg) {
-
-            for (Buf_Persona persona : List_per) {
-
-                Object[] fila = new Object[8];
-                fila[0] = abogado.getCedula();
-                fila[1] = persona.getNombre();
-                fila[2] = persona.getApellido();
-                fila[3] = persona.getCorreo();
-                fila[4] = persona.getFecha_Nacimiento();
-                fila[5] = persona.getNum_celular();
-                fila[6] = persona.getDireccion();
-                fila[7] = abogado.getNum_matricula();
-                modelo.addRow(fila);
-            }
-        }
+        List_per.stream().map((persona) -> {
+            Object[] fila = new Object[7];
+            fila[0] = persona.getCedula();
+            fila[1] = persona.getNombre();
+            fila[2] = persona.getApellido();
+            fila[3] = persona.getCorreo();
+            fila[4] = persona.getFecha_Nacimiento();
+            fila[5] = persona.getNum_celular();
+            fila[6] = persona.getDireccion();
+            return fila;
+        }).forEachOrdered((fila) -> {
+            modelo.addRow(fila);
+        });
         modificar.getTablepersona().setModel(modelo);
     }
 
@@ -309,48 +309,40 @@ public class C_Modificar_Abogado {
         }
 
         modelo.setRowCount(0);
-        List<Buf_Abogado> List_abg = A_DB.Search(modificar.getTxt_buscar().getText());
         List<Buf_Persona> List_per = P_DB.Search_Abg(modificar.getTxt_buscar().getText());
 
-        List_per.forEach((persona) -> {
-            List_abg.stream().map((abogado) -> {
-                Object[] fila = new Object[8];
-                fila[0] = persona.getCedula();
-                fila[1] = persona.getNombre();
-                fila[2] = persona.getApellido();
-                fila[3] = persona.getCorreo();
-                fila[4] = persona.getFecha_Nacimiento();
-                fila[5] = persona.getNum_celular();
-                fila[6] = persona.getDireccion();
-                fila[7] = abogado.getNum_matricula();
-                return fila;
-            }).forEachOrdered((fila) -> {
-                modelo.addRow(fila);
-            });
+        List_per.stream().map((persona) -> {
+            Object[] fila = new Object[7];
+            fila[0] = persona.getCedula();
+            fila[1] = persona.getNombre();
+            fila[2] = persona.getApellido();
+            fila[3] = persona.getCorreo();
+            fila[4] = persona.getFecha_Nacimiento();
+            fila[5] = persona.getNum_celular();
+            fila[6] = persona.getDireccion();
+            return fila;
+        }).forEachOrdered((fila) -> {
+            modelo.addRow(fila);
         });
         modificar.getTablepersona().setModel(modelo);
     }
 
     public void Actualizar_Tabla() {
 
-        List<Buf_Abogado> List_abg = A_DB.Getter();
         List<Buf_Persona> List_per = P_DB.Getter_Abg();
 
-        List_per.forEach((persona) -> {
-            List_abg.stream().map((abogado) -> {
-                Object[] fila = new Object[8];
-                fila[0] = persona.getCedula();
-                fila[1] = persona.getNombre();
-                fila[2] = persona.getApellido();
-                fila[3] = persona.getCorreo();
-                fila[4] = persona.getFecha_Nacimiento();
-                fila[5] = persona.getNum_celular();
-                fila[6] = persona.getDireccion();
-                fila[7] = abogado.getNum_matricula();
-                return fila;
-            }).forEachOrdered((fila) -> {
-                modelo.addRow(fila);
-            });
+        List_per.stream().map((persona) -> {
+            Object[] fila = new Object[7];
+            fila[0] = persona.getCedula();
+            fila[1] = persona.getNombre();
+            fila[2] = persona.getApellido();
+            fila[3] = persona.getCorreo();
+            fila[4] = persona.getFecha_Nacimiento();
+            fila[5] = persona.getNum_celular();
+            fila[6] = persona.getDireccion();
+            return fila;
+        }).forEachOrdered((fila) -> {
+            modelo.addRow(fila);
         });
         modificar.getTablepersona().setModel(modelo);
     }
@@ -658,7 +650,7 @@ public class C_Modificar_Abogado {
 
         String estado = (String) modificar.getCb_estado().getSelectedItem();
 
-        if (!modificar.getTxt_nombre().getText().equals("") && !modificar.getTxt_correo().getText().equals("")  && !modificar.getTxt_apellido().getText().equals("") && !modificar.getTxt_direccion().getText().equals("") && !modificar.getTxt_celular().getText().equals("") && !modificar.getTxt_cuenta().getText().equals("") && !estado.equals("Seleccionar") && (modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
+        if (!modificar.getTxt_nombre().getText().equals("") && !modificar.getTxt_correo().getText().equals("") && !modificar.getTxt_apellido().getText().equals("") && !modificar.getTxt_direccion().getText().equals("") && !modificar.getTxt_celular().getText().equals("") && !modificar.getTxt_cuenta().getText().equals("") && !estado.equals("Seleccionar") && (modificar.getCb_1().isSelected() || modificar.getCb_2().isSelected() || modificar.getCb_3().isSelected() || modificar.getCb_4().isSelected())) {
             return true;
         } else {
 
@@ -797,7 +789,7 @@ public class C_Modificar_Abogado {
     }
 
     public void Nuevo_Modificar() {
-        
+
         modificar.getBtn_guardar().setEnabled(false);
         modificar.getBtn_elimina().setEnabled(false);
         modificar.getTxt_nombre().setEditable(false);

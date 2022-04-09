@@ -283,6 +283,7 @@ public class C_Registro_Usuario {
             for (int i = 0; i < List_abg.size(); i++) {
                 if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
                     crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
+                    i = List_abg.size();
                 } else {
                     crearuser.getTxt_id().setText("");
                 }
@@ -294,6 +295,8 @@ public class C_Registro_Usuario {
                 for (int p = 0; p < List_abg.size(); p++) {
                     if (List_abg.get(p).getCedula().equals(crearuser.getTxt_cedula().getText())) {
                         crearuser.getTxt_id().setText(String.valueOf(List_abg.get(p).getId_abg()));
+                        i = List_user.size();
+                        p = List_abg.size();
                     } else {
                         crearuser.getTxt_id().setText("");
                     }
@@ -310,8 +313,14 @@ public class C_Registro_Usuario {
                 for (int i = 0; i < List_abg.size(); i++) {
                     if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
                         crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
+                        j = List_secre.size();
+                        u = List_user.size();
+                        i = List_abg.size();
                     } else if (List_secre.get(j).getCedula().equals(crearuser.getTxt_cedula().getText())) {
                         crearuser.getTxt_id().setText(String.valueOf(List_secre.get(j).getId_secretaria()));
+                        j = List_secre.size();
+                        u = List_user.size();
+                        i = List_abg.size();
                     } else {
                         crearuser.getTxt_id().setText("");
                     }
@@ -332,7 +341,7 @@ public class C_Registro_Usuario {
         List<Buf_Abogado> List_abg = A_DB.Getter();
         List<Buf_Secretaria> List_secre = S_DB.Getter();
 
-        if (!List_secre.isEmpty()) {
+        if (List_secre.isEmpty()) {
             for (int i = 0; i < List_abg.size(); i++) {
                 if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
                     return true;

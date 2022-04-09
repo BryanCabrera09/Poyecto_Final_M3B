@@ -25,8 +25,6 @@ public class V_Modificar_Cliente extends javax.swing.JInternalFrame {
     public V_Modificar_Cliente() {
 
         initComponents();
-        tablepersona.getTableHeader().setResizingAllowed(false);
-        tablepersona.getTableHeader().setReorderingAllowed(false);
         x = "x";
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();

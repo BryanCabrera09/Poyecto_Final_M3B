@@ -13,19 +13,16 @@ import javax.swing.JTextField;
 /*
  * @author BRYAN_CABRERA
  */
-public class V_Consuta_Consultas extends javax.swing.JInternalFrame {
+public class V_Consulta_Consultas extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form V_Consuta_Consultas
+     * Creates new form V_Consulta_Consultas
      */
     public static String x;
 
-    public V_Consuta_Consultas() {
+    public V_Consulta_Consultas() {
         initComponents();
         x = "x";
-        table.getTableHeader().setResizingAllowed(false);
-        table.getTableHeader().setReorderingAllowed(false);
-
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
         setLocation(a / 2, b / 5);

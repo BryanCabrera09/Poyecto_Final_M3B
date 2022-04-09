@@ -5,265 +5,362 @@
  */
 package controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Modelo.Buf_Cita;
+import Modelo.Buf_CitaDB;
+import Modelo.Buf_Consulta;
+import Modelo.Buf_ConsultaDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import javax.swing.JOptionPane;
-import modelo.Consulta;
-import static vista.Citas.Lista_Cita;
-import vista.Consultas;
-import static vista.Consultas.Lista_consulta;
+import vista.V_Consultas;
 
 /*
  * @author BRYAN_CABRERA
  */
-public class C_Consultas implements ActionListener, KeyListener {
+public class C_Consultas {
 
-    Consultas consultas;
+    V_Consultas consultas;
 
-    public C_Consultas(Consultas consultas) {
+    Buf_Consulta C = new Buf_Consulta();
+    Buf_ConsultaDB C_DB = new Buf_ConsultaDB();
+    Buf_CitaDB Ci_DB = new Buf_CitaDB();
+
+    public C_Consultas(V_Consultas consultas) {
+
         this.consultas = consultas;
-        this.consultas.btncancelar.addActionListener(this);
-        this.consultas.btnguardar.addActionListener(this);
-        this.consultas.btnnuevo.addActionListener(this);
-        this.consultas.cbcaso.addActionListener(this);
-
-        this.consultas.txtapellidos.addKeyListener(this);
-        this.consultas.txtnombres.addKeyListener(this);
-        this.consultas.cbcaso.addKeyListener(this);
-        this.consultas.jSpinner1.addKeyListener(this);
-        this.consultas.txdescripcion.addKeyListener(this);
 
         Nuevo();
         Campos();
     }
 
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        if (evt.getSource() == consultas.btnguardar) {
-            String caso = (String) consultas.cbcaso.getSelectedItem();
+    public void Iniciar_Control() {
 
-            String hora = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(consultas.jSpinner1.getValue());
+        //EVENTO KEY
+        KeyListener K = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent evt) {
+                if (evt.getSource() == consultas.getTxt_nombres()) {
+                    int key = evt.getKeyChar();
 
-            Consulta C = new Consulta(caso, hora, consultas.txtnombres.getText(), consultas.txtapellidos.getText(), consultas.txdescripcion.getText());
+                    if (consultas.getTxt_nombres().getText().length() <= 30) {
+                        boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
+                        if (!letra) {
+                            evt.consume();
+                        }
+                    } else {
+                        evt.consume();
+                    }
+                }
+                if (evt.getSource() == consultas.getTxt_apellidos()) {
 
-            int a = 0, p = 0, r = 0;
+                    int key = evt.getKeyChar();
 
-            if (caso.equals("Seleccione") || consultas.txtnombres.getText().isEmpty() || consultas.txtapellidos.getText().isEmpty()) {
+                    if (consultas.getTxt_apellidos().getText().length() <= 30) {
+                        boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
+                        if (!letra) {
+                            evt.consume();
+                        }
+                    } else {
+                        evt.consume();
+                    }
+                }
+                if (evt.getSource() == consultas.getTxt_celular()) {
+                    char c = evt.getKeyChar();
 
-                Campo_Vacio();
-                JOptionPane.showMessageDialog(null, "LOS CAMPOS DEBEN ESTAR LLENOS");
+                    if (c >= '0' && c <= '9' && consultas.getTxt_celular().getText().length() <= 9) {
+                    } else {
+                        evt.consume();
+                    }
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent evt) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent evt) {
+                if (evt.getSource() == consultas.getTxt_nombres()) {
+                    Campo_Vacio();
+                }
+                if (evt.getSource() == consultas.getTxt_apellidos()) {
+                    Campo_Vacio();
+                }
+                if (evt.getSource() == consultas.getTxt_celular()) {
+                    Campo_Vacio();
+                }
+            }
+        };
+        consultas.getTxt_apellidos().addKeyListener(K);
+        consultas.getTxt_nombres().addKeyListener(K);
+        consultas.getTxt_celular().addKeyListener(K);
+
+        //ACTION BUTTONS
+        consultas.getBtn_cancelar().addActionListener(l -> {
+            Cancelar();
+        });
+        consultas.getBtn_guardar().addActionListener(l -> {
+            Guardar();
+        });
+        consultas.getBtn_nuevo().addActionListener(l -> {
+            Nuevo_Registro();
+        });
+        consultas.getCb_caso().addActionListener(l -> {
+            Campo_Vacio();
+        });
+    }
+
+    public boolean Validar_Datos() {
+
+        String caso = (String) consultas.getCb_caso().getSelectedItem();
+
+        if (!caso.equals("Seleccionar") && !consultas.getTxt_nombres().getText().isEmpty() && !consultas.getTxt_apellidos().getText().isEmpty() && !consultas.getTxt_celular().getText().isEmpty()) {
+
+            return true;
+        } else {
+
+            return false;
+        }
+    }
+
+    public void Guardar() {
+
+        if (Validar_Datos() == true) {
+            if (Validar_Registro() == true) {
+                if (Validar_Hora() == true) {
+                    Subir_Datos();
+                } else {
+                    JOptionPane.showMessageDialog(null, "CITA YA AGENDADA CON LA FECHA SELECCIONADA", "CITA", JOptionPane.INFORMATION_MESSAGE);
+
+                }
             } else {
+                JOptionPane.showMessageDialog(null, "Consulta Registrada Previamente", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
+        } else {
 
-                if (Lista_Cita.isEmpty() && Lista_consulta.isEmpty()) {
+            Campo_Vacio();
+            JOptionPane.showMessageDialog(null, "LOS CAMPOS DEBEN ESTAR LLENOS");
+        }
+    }
 
-                    Lista_consulta.add(C);
+    public int Id_Generator() {
+
+        List<Buf_Consulta> List_consult = C_DB.Getter();
+        List<Buf_Cita> List_cita = Ci_DB.Getter();
+
+        int id_consulta = (int) Math.floor(Math.random() * (999999 - 111111 + 1) + 111111);
+
+        int a = 0;
+        do {
+
+            if (List_cita.isEmpty()) {
+                for (int i = 0; i < List_consult.size(); i++) {
+                    if (List_consult.get(i).getId_consulta() == id_consulta) {
+                        a = 1;
+                    }
+                }
+            }
+
+            for (int i = 0; i < List_cita.size(); i++) {
+                for (int j = 0; j < List_consult.size(); j++) {
+                    if (List_cita.get(i).getId_cita() == id_consulta || List_consult.get(j).getId_consulta() == id_consulta) {
+                        a = 1;
+                    }
+                }
+            }
+        } while (a == 1);
+
+        return id_consulta;
+    }
+
+    public boolean Validar_Hora() {
+
+        List<Buf_Consulta> List_consult = C_DB.Getter();
+        List<Buf_Cita> List_cita = Ci_DB.Getter();
+
+        String hora = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(consultas.getJs_hora().getValue());
+
+        if (List_cita.isEmpty()) {
+            for (int i = 0; i < List_consult.size(); i++) {
+                if (List_consult.get(i).getHora().equalsIgnoreCase(hora)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        for (int i = 0; i < List_cita.size(); i++) {
+            for (int j = 0; j < List_consult.size(); j++) {
+                if (List_cita.get(i).getHora().equalsIgnoreCase(hora) || List_consult.get(j).getHora().equalsIgnoreCase(hora)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean Validar_Registro() {
+
+        String caso = (String) consultas.getCb_caso().getSelectedItem();
+
+        List<Buf_Consulta> List_consult = C_DB.Getter();
+        for (int j = 0; j < List_consult.size(); j++) {
+            if (List_consult.get(j).getNombre().equalsIgnoreCase(consultas.getTxt_nombres().getText()) && List_consult.get(j).getNombre().equalsIgnoreCase(consultas.getTxt_nombres().getText()) && List_consult.get(j).getCaso().equalsIgnoreCase(caso)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void Subir_Datos() {
+
+        String caso = (String) consultas.getCb_caso().getSelectedItem();
+        String hora = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(consultas.getJs_hora().getValue());
+
+        C.setId_consulta(Id_Generator());
+        C.setNombre(consultas.getTxt_nombres().getText());
+        C.setApellido(consultas.getTxt_apellidos().getText());
+        C.setNum_celular(consultas.getTxt_celular().getText());
+        C.setDescripcion(consultas.getTxa_descripcion().getText());
+        C.setCaso(caso);
+        C.setHora(hora);
+
+        if (C_DB.Register(C)) {
+
+            JOptionPane.showMessageDialog(null, "Registro Guardado");
+            Nuevo();
+            Campos();
+            JOptionPane.showMessageDialog(null, "Consulta Agendada Para El Caso " + caso.toUpperCase() + ", Para El " + hora);
+            consultas.getBtn_nuevo().setEnabled(true);
+            consultas.getBtn_cancelar().setEnabled(false);
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void Cancelar() {
+
+        if (Validar_Cancelar() == true) {
+            int salir = JOptionPane.showConfirmDialog(null, "DESCARTAR DATOS INGRESADOS", "SALIR", JOptionPane.YES_NO_OPTION);
+            switch (salir) {
+                case 0:
                     Nuevo();
                     Campos();
-                    consultas.btnnuevo.setEnabled(true);
-                    consultas.btncancelar.setEnabled(false);
-                    JOptionPane.showMessageDialog(null, "CITA AGENDADA " + caso.toUpperCase());
-                } else if (!Lista_Cita.isEmpty() && Lista_consulta.isEmpty()) {
-                    for (int j = 0; j < Lista_Cita.size(); j++) {
-                        if (!Lista_Cita.get(j).getHora().equals(hora)) {
-                            Lista_consulta.add(C);
-                            Nuevo();
-                            Campos();
-                            consultas.btnnuevo.setEnabled(true);
-                            JOptionPane.showMessageDialog(null, "CITA AGENDADA " + caso.toUpperCase());
-                            j = Lista_Cita.size();
-                            consultas.btncancelar.setEnabled(false);
-                            break;
-                        } else {
-                            JOptionPane.showMessageDialog(null, "CITA YA AGENDADA CON LA FECHA SELECCIONADA", "CITA", JOptionPane.INFORMATION_MESSAGE);
-                            break;
-                        }
-
-                    }
-                } else if (Lista_Cita.isEmpty() && !Lista_consulta.isEmpty()) {
-                    for (int j = 0; j < Lista_consulta.size(); j++) {
-                        if (!Lista_consulta.get(j).getApellidos().equals(consultas.txtapellidos.getText()) && !Lista_consulta.get(j).getHora().equals(hora)) {
-                            Lista_consulta.add(C);
-                            Nuevo();
-                            Campos();
-                            consultas.btnnuevo.setEnabled(true);
-                            JOptionPane.showMessageDialog(null, "CITA AGENDADA " + caso.toUpperCase());
-                            j = Lista_consulta.size();
-                            consultas.btncancelar.setEnabled(false);
-                            break;
-                        } else {
-
-                            JOptionPane.showMessageDialog(null, "CITA YA AGENDADA", "CITA", JOptionPane.INFORMATION_MESSAGE);
-                            break;
-                        }
-                    }
-                } else if (!Lista_Cita.isEmpty() && !Lista_consulta.isEmpty()) {
-                    for (int i = 0; i < Lista_Cita.size(); i++) {
-                        for (int j = 0; j < Lista_consulta.size(); j++) {
-                            if (!Lista_Cita.get(i).getHora().equals(hora) && !Lista_consulta.get(j).getHora().equals(hora) && !Lista_consulta.get(j).getApellidos().equals(consultas.txtapellidos.getText())) {
-                                Lista_consulta.add(C);
-                                Nuevo();
-                                Campos();
-                                consultas.btnnuevo.setEnabled(true);
-                                JOptionPane.showMessageDialog(null, "CITA AGENDADA " + caso.toUpperCase());
-                                j = Lista_consulta.size();
-                                i = Lista_Cita.size();
-                                consultas.btncancelar.setEnabled(false);
-                                break;
-                            } else {
-
-                                JOptionPane.showMessageDialog(null, "CITA YA AGENDADA", "CITA", JOptionPane.INFORMATION_MESSAGE);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        if (evt.getSource() == consultas.btncancelar) {
-            String caso = (String) consultas.cbcaso.getSelectedItem();
-            if (!consultas.txtnombres.getText().equals("") || !consultas.txtapellidos.getText().equals("") || !caso.equals("Seleccione")) {
-                int salir = JOptionPane.showConfirmDialog(null, "DESCARTAR DATOS INGRESADOS", "SALIR", JOptionPane.YES_NO_OPTION);
-                switch (salir) {
-                    case 0:
-                        Nuevo();
-                        Campos();
-                        consultas.btncancelar.setEnabled(false);
-                        consultas.btnnuevo.setEnabled(true);
-                        break;
-                    case 1:
-                        Campo_Vacio();
-                        break;
-                }
-            }
-        }
-        if (evt.getSource() == consultas.btnnuevo) {
-            consultas.jSpinner1.setEnabled(true);
-            consultas.cbcaso.setEnabled(true);
-            consultas.txtnombres.setEditable(true);
-            consultas.txtapellidos.setEditable(true);
-            consultas.txdescripcion.setEditable(true);
-            consultas.btnnuevo.setEnabled(false);
-        }
-        if (evt.getSource() == consultas.cbcaso) {
-            Campo_Vacio();
-        }
-    }
-
-    @Override
-    public void keyTyped(KeyEvent evt) {
-        if (evt.getSource() == consultas.btnguardar) {
-            int key = evt.getKeyChar();
-
-            if (consultas.txtnombres.getText().length() <= 30) {
-                boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
-
-                if (!letra) {
-
-                    evt.consume();
-                }
-
-            } else {
-
-                evt.consume();
-            }
-        }
-        if (evt.getSource() == consultas.txtapellidos) {
-
-            int key = evt.getKeyChar();
-
-            if (consultas.txtapellidos.getText().length() <= 30) {
-                boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
-
-                if (!letra) {
-
-                    evt.consume();
-                }
-
-            } else {
-
-                evt.consume();
+                    consultas.getBtn_cancelar().setEnabled(false);
+                    consultas.getBtn_nuevo().setEnabled(true);
+                    break;
+                case 1:
+                    Campo_Vacio();
+                    break;
             }
         }
     }
 
-    @Override
-    public void keyPressed(KeyEvent evt) {
-        if (evt.getSource() == consultas.btnguardar) {
+    public boolean Validar_Cancelar() {
 
+        String caso = (String) consultas.getCb_caso().getSelectedItem();
+
+        if (!consultas.getTxt_nombres().getText().equals("") || !consultas.getTxt_celular().getText().equals("") || !consultas.getTxt_apellidos().getText().equals("") || !caso.equals("Seleccionar")) {
+            return true;
+        } else {
+            return false;
         }
     }
 
-    @Override
-    public void keyReleased(KeyEvent evt) {
-        if (evt.getSource() == consultas.txtnombres) {
-            Campo_Vacio();
-        }
-        if (evt.getSource() == consultas.txtapellidos) {
-            Campo_Vacio();
-        }
+    public void Nuevo_Registro() {
 
+        consultas.getJs_hora().setEnabled(true);
+        consultas.getCb_caso().setEnabled(true);
+        consultas.getTxt_nombres().setEditable(true);
+        consultas.getTxt_celular().setEditable(true);
+        consultas.getTxt_apellidos().setEditable(true);
+        consultas.getTxa_descripcion().setEditable(true);
+        consultas.getBtn_nuevo().setEnabled(false);
     }
 
     public void Nuevo() {
-        consultas.btncancelar.setEnabled(false);
-        consultas.btnguardar.setEnabled(false);
-        consultas.jSpinner1.setEnabled(false);
-        consultas.cbcaso.setEnabled(false);
-        consultas.cbcaso.setSelectedIndex(0);
-        consultas.txtapellidos.setEditable(false);
-        consultas.txtnombres.setEditable(false);
-        consultas.txtapellidos.setText("");
-        consultas.txtnombres.setText("");
-        consultas.txdescripcion.setText("");
+
+        consultas.getBtn_cancelar().setEnabled(false);
+        consultas.getBtn_guardar().setEnabled(false);
+        consultas.getJs_hora().setEnabled(false);
+        consultas.getCb_caso().setEnabled(false);
+        consultas.getCb_caso().setSelectedIndex(0);
+        consultas.getTxt_apellidos().setEditable(false);
+        consultas.getTxt_celular().setEditable(false);
+        consultas.getTxt_nombres().setEditable(false);
+        consultas.getTxt_apellidos().setText("");
+        consultas.getTxt_celular().setText("");
+        consultas.getTxt_nombres().setText("");
+        consultas.getTxa_descripcion().setText("");
     }
 
     public void Campo_Vacio() {
-        String caso = (String) consultas.cbcaso.getSelectedItem();
-        if (caso.equals("Seleccione")) {
-            consultas.lacaso1.setVisible(true);
-            consultas.btncancelar.setEnabled(false);
+        String caso = (String) consultas.getCb_caso().getSelectedItem();
+        if (caso.equals("Seleccionar")) {
+            consultas.getLb_caso().setVisible(true);
+            consultas.getBtn_cancelar().setEnabled(false);
         }
 
-        if (consultas.txtapellidos.getText().isEmpty()) {
-            consultas.apellidos.setVisible(true);
-            consultas.btncancelar.setEnabled(false);
+        if (consultas.getTxt_apellidos().getText().isEmpty()) {
+            consultas.getLb_apellido().setVisible(true);
+            consultas.getBtn_cancelar().setEnabled(false);
         }
 
-        if (consultas.txtnombres.getText().isEmpty()) {
-            consultas.nombres.setVisible(true);
-            consultas.btncancelar.setEnabled(false);
+        if (consultas.getTxt_nombres().getText().isEmpty()) {
+            consultas.getLb_nombre().setVisible(true);
+            consultas.getBtn_cancelar().setEnabled(false);
+        }
+
+        if (consultas.getTxt_celular().getText().isEmpty()) {
+            consultas.getLb_celular().setVisible(true);
+            consultas.getBtn_cancelar().setEnabled(false);
         }
         //CUANDO EL CAMPO ESTA LLENO
-        if (!caso.equals("Seleccione")) {
-            consultas.lacaso1.setVisible(false);
-            consultas.btncancelar.setEnabled(true);
+        if (!caso.equals("Seleccionar")) {
+            consultas.getLb_caso().setVisible(false);
+            consultas.getBtn_cancelar().setEnabled(true);
         }
 
-        if (!consultas.txtapellidos.getText().isEmpty()) {
-            consultas.apellidos.setVisible(false);
-            consultas.btncancelar.setEnabled(true);
+        if (!consultas.getTxt_celular().getText().isEmpty()) {
+            consultas.getLb_celular().setVisible(false);
+            consultas.getBtn_cancelar().setEnabled(true);
         }
 
-        if (!consultas.txtnombres.getText().isEmpty()) {
-            consultas.nombres.setVisible(false);
-            consultas.btncancelar.setEnabled(true);
+        if (!consultas.getTxt_apellidos().getText().isEmpty()) {
+            consultas.getLb_apellido().setVisible(false);
+            consultas.getBtn_cancelar().setEnabled(true);
         }
 
-        if (!consultas.txtnombres.getText().isEmpty() && !caso.equals("Seleccione") && !consultas.txtapellidos.getText().isEmpty()) {
-            consultas.btnguardar.setEnabled(true);
+        if (!consultas.getTxt_nombres().getText().isEmpty()) {
+            consultas.getLb_nombre().setVisible(false);
+            consultas.getBtn_cancelar().setEnabled(true);
+        }
+
+        if (consultas.getLb_celular().isShowing() == true) {
+            consultas.getCelular().setVisible(false);
+        } else if (consultas.getTxt_celular().getText().length() < 10) {
+            consultas.getCelular().setVisible(true);
+        } else if (consultas.getTxt_celular().getText().length() == 10) {
+            consultas.getCelular().setVisible(false);
+        }
+
+        if (!consultas.getTxt_nombres().getText().isEmpty() && !caso.equals("Seleccione") && !consultas.getTxt_apellidos().getText().isEmpty() && !consultas.getTxt_celular().getText().isEmpty()) {
+            consultas.getBtn_guardar().setEnabled(true);
         } else {
-            consultas.btnguardar.setEnabled(false);
+            consultas.getBtn_guardar().setEnabled(false);
         }
     }
 
     public void Campos() {
 
-        consultas.btnguardar.setEnabled(false);
-        consultas.nombres.setVisible(false);
-        consultas.apellidos.setVisible(false);
-        consultas.lacaso1.setVisible(false);
+        consultas.getBtn_guardar().setEnabled(false);
+        consultas.getLb_nombre().setVisible(false);
+        consultas.getLb_apellido().setVisible(false);
+        consultas.getLb_caso().setVisible(false);
+        consultas.getCelular().setVisible(false);
+        consultas.getLb_celular().setVisible(false);
     }
 }

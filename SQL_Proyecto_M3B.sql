@@ -21,7 +21,7 @@ SELECT
     P.Fecha_Nacimiento
 FROM
          Buf_Persona P
-    JOIN Buf_Clientes C ON P.Ci = C.ci;
+    JOIN Buf_Clientes C ON P.Ci = C.Ci;
 /*
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 TABLA PERSONAS
@@ -116,7 +116,7 @@ CREATE TABLE Buf_Clientes (
         REFERENCES Buf_Persona ( Ci ),
     CONSTRAINT Fk_Abg_Clientes FOREIGN KEY ( Id_Abg )
         REFERENCES Buf_Abogados ( Id_Abogado ),
-    PRIMARY KEY ( Id_Cliente )
+    PRIMARY KEY ( Ci )
 );
 
 
@@ -129,8 +129,8 @@ CREATE TABLE Buf_Caso (
     Id_Caso NUMBER(5),
     Cedula  VARCHAR2(10),
     Caso    VARCHAR2(30),
-    CONSTRAINT Fk_Pers_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Persona ( Ci ),
+    CONSTRAINT Fk_Caso_Cliente FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
     PRIMARY KEY ( Id_Caso )
 );
 
@@ -141,17 +141,15 @@ TABLA CITAS
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 */
 CREATE TABLE Buf_Citas (
-    Id_Cita     NUMBER(5),
+    Id_Cita     NUMBER(6),
     Ci          VARCHAR2(10),
+    Id_Caso     NUMBER(5),
+    Nom_Caso    VARCHAR2(30),
     Num_Celular VARCHAR2(10),
     Descripcion VARCHAR2(50),
-    Nom_Caso    VARCHAR2(30),
-    Id_Caso     NUMBER(5),
-    Hora        VARCHAR2(20),
+    Hora        VARCHAR2(70),
     CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Ci )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Num_Celular )
-        REFERENCES Buf_Cliente ( Num_Celular ),
+        REFERENCES Buf_Clientes ( Ci ),
     CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso ),
     PRIMARY KEY ( Id_Cita )
@@ -164,12 +162,13 @@ TABLA CONSULTAS
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 */
 CREATE TABLE Buf_Consultas (
-    Id_Consulta NUMBER(5),
+    Id_Consulta NUMBER(6),
     Nombre      VARCHAR2(20),
     Apellido    VARCHAR2(20),
-    Descripcion VARCHAR2(50),
-    Caso        VARCHAR2(20),
-    Hora        VARCHAR2(20),
+    Celular     VARCHAR2(10),
+    Descripcion VARCHAR2(80),
+    Caso        VARCHAR2(30),
+    Hora        VARCHAR2(70),
     PRIMARY KEY ( Id_Consulta )
 );
 

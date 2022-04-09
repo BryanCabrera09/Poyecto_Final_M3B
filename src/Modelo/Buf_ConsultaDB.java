@@ -34,16 +34,17 @@ public class Buf_ConsultaDB implements Buf_ConsultaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "INSERT INTO Buf_Consultas VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Buf_Consultas VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             pst = con.prepareStatement(sql);
 
             pst.setInt(1, consulta.getId_consulta());
             pst.setString(2, consulta.getNombre());
             pst.setString(3, consulta.getApellido());
-            pst.setString(4, consulta.getDescripcion());
-            pst.setString(5, consulta.getCaso());
-            pst.setString(6, consulta.getHora());
+            pst.setString(4, consulta.getNum_celular());
+            pst.setString(5, consulta.getDescripcion());
+            pst.setString(6, consulta.getCaso());
+            pst.setString(7, consulta.getHora());
 
             pst.executeUpdate();
 
@@ -70,6 +71,7 @@ public class Buf_ConsultaDB implements Buf_ConsultaDAO {
 
     @Override
     public List<Buf_Consulta> Getter() {
+
         Statement st = null;
         Connection con = null;
         ResultSet rs = null;
@@ -90,6 +92,7 @@ public class Buf_ConsultaDB implements Buf_ConsultaDAO {
                 A.setId_consulta(rs.getInt("id_consulta"));
                 A.setNombre(rs.getString("nombre"));
                 A.setApellido(rs.getString("apellido"));
+                A.setNum_celular(rs.getString("celular"));
                 A.setDescripcion(rs.getString("descripcion"));
                 A.setCaso(rs.getString("caso"));
                 A.setHora(rs.getString("hora"));
@@ -103,7 +106,7 @@ public class Buf_ConsultaDB implements Buf_ConsultaDAO {
 
         } catch (SQLException e) {
 
-            Logger.getLogger(Buf_PersonaDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Buf_ConsultaDB.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }
@@ -124,13 +127,13 @@ public class Buf_ConsultaDB implements Buf_ConsultaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Consultas SET nombre=?,apellido=?,descripcion=?,caso=?,hora=? WHERE id_consulta=?";
+            String sql = "UPDATE Buf_Consultas SET nombre=?,apellido=?,celular=?,descripcion=?,hora=? WHERE id_consulta=?";
             pst = con.prepareStatement(sql);
 
             pst.setString(1, consulta.getNombre());
             pst.setString(2, consulta.getApellido());
-            pst.setString(3, consulta.getDescripcion());
-            pst.setString(4, consulta.getCaso());
+            pst.setString(3, consulta.getNum_celular());
+            pst.setString(4, consulta.getDescripcion());
             pst.setString(5, consulta.getHora());
             pst.setInt(6, consulta.getId_consulta());
 
@@ -197,4 +200,45 @@ public class Buf_ConsultaDB implements Buf_ConsultaDAO {
         return Delete;
     }
 
+    @Override
+    public List<Buf_Consulta> Search(String Identificador) {
+
+        Statement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM Buf_Consultas WHERE apellido LIKE '%" + Identificador + "%'";
+
+        List<Buf_Consulta> Lista_consulta = new ArrayList<>();
+
+        try {
+
+            con = DB_Connect.Connect();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                Buf_Consulta A = new Buf_Consulta();
+                A.setId_consulta(rs.getInt("id_consulta"));
+                A.setNombre(rs.getString("nombre"));
+                A.setApellido(rs.getString("apellido"));
+                A.setNum_celular(rs.getString("celular"));
+                A.setDescripcion(rs.getString("descripcion"));
+                A.setCaso(rs.getString("caso"));
+                A.setHora(rs.getString("hora"));
+
+                Lista_consulta.add(A);
+            }
+            st.close();
+            con.close();
+            rs.close();
+            return Lista_consulta;
+
+        } catch (SQLException e) {
+
+            Logger.getLogger(Buf_ConsultaDB.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+    }
 }

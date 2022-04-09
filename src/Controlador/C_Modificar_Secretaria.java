@@ -7,7 +7,6 @@ package controlador;
 
 import Modelo.Buf_Abogado;
 import Modelo.Buf_AbogadoDB;
-import Modelo.Buf_Cliente;
 import Modelo.Buf_ClienteDB;
 import Modelo.Buf_Persona;
 import Modelo.Buf_PersonaDB;
@@ -88,6 +87,13 @@ public class C_Modificar_Secretaria {
                         evt.consume();
                     }
                 }
+                if (evt.getSource() == modificar.getTxt_apellido()) {
+                    char c = evt.getKeyChar();
+
+                    if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
+                        evt.consume();
+                    }
+                }
                 if (evt.getSource() == modificar.getTxt_buscar()) {
                     char c = evt.getKeyChar();
 
@@ -124,7 +130,6 @@ public class C_Modificar_Secretaria {
                     } else {
 
                         if (modificar.getLb_correo().isShowing() == true) {
-
                             modificar.getCorreo().setVisible(false);
                         } else {
                             modificar.getCorreo().setVisible(true);
@@ -141,6 +146,11 @@ public class C_Modificar_Secretaria {
                         Campo_Vacio();
                     }
                 }
+                if (evt.getSource() == modificar.getTxt_apellido()) {
+                    if (modificar.getTxt_apellido().isEditable() == true) {
+                        Campo_Vacio();
+                    }
+                }
             }
         };
         modificar.getTxt_celular().addKeyListener(K);
@@ -148,6 +158,7 @@ public class C_Modificar_Secretaria {
         modificar.getTxt_direccion().addKeyListener(K);
         modificar.getTxt_correo().addKeyListener(K);
         modificar.getTxt_buscar().addKeyListener(K);
+        modificar.getTxt_apellido().addKeyListener(K);
 
         //EVENTOS MOUSE
         MouseListener M = new MouseListener() {
@@ -235,7 +246,7 @@ public class C_Modificar_Secretaria {
         modelo = new DefaultTableModel() {
             //CARGAR CAMPOS EN LA TABLA
             public boolean iscelleditable(int filas, int columnas) {
-                if (columnas == 8) {
+                if (columnas == 7) {
                     return true;
                 } else {
                     return false;
@@ -250,27 +261,23 @@ public class C_Modificar_Secretaria {
         modelo.addColumn("FECHA DE NACIMIENTO");
         modelo.addColumn("CELULAR");
         modelo.addColumn("DIRECCION");
-        modelo.addColumn("HORARIO");
 
-        List<Buf_Secretaria> List_secre = S_DB.Getter();
         List<Buf_Persona> List_per = P_DB.Getter_Secre();
 
-        List_per.forEach((persona) -> {
-            List_secre.stream().map((secretaria) -> {
-                Object[] fila = new Object[8];
-                fila[0] = persona.getCedula();
-                fila[1] = persona.getNombre();
-                fila[2] = persona.getApellido();
-                fila[3] = persona.getCorreo();
-                fila[4] = persona.getFecha_Nacimiento();
-                fila[5] = persona.getNum_celular();
-                fila[6] = persona.getDireccion();
-                fila[7] = secretaria.getHorario();
-                return fila;
-            }).forEachOrdered((fila) -> {
-                modelo.addRow(fila);
-            });
+        List_per.stream().map((persona) -> {
+            Object[] fila = new Object[7];
+            fila[0] = persona.getCedula();
+            fila[1] = persona.getNombre();
+            fila[2] = persona.getApellido();
+            fila[3] = persona.getCorreo();
+            fila[4] = persona.getFecha_Nacimiento();
+            fila[5] = persona.getNum_celular();
+            fila[6] = persona.getDireccion();
+            return fila;
+        }).forEachOrdered((fila) -> {
+            modelo.addRow(fila);
         });
+
         modificar.getTablepersona().setModel(modelo);
     }
 
@@ -283,24 +290,20 @@ public class C_Modificar_Secretaria {
         }
 
         modelo.setRowCount(0);
-        List<Buf_Secretaria> List_secre = S_DB.Search(modificar.getTxt_buscar().getText());
         List<Buf_Persona> List_per = P_DB.Search_Secre(modificar.getTxt_buscar().getText());
 
-        List_per.forEach((persona) -> {
-            List_secre.stream().map((secretaria) -> {
-                Object[] fila = new Object[8];
-                fila[0] = persona.getCedula();
-                fila[1] = persona.getNombre();
-                fila[2] = persona.getApellido();
-                fila[3] = persona.getCorreo();
-                fila[4] = persona.getFecha_Nacimiento();
-                fila[5] = persona.getNum_celular();
-                fila[6] = persona.getDireccion();
-                fila[7] = secretaria.getHorario();
-                return fila;
-            }).forEachOrdered((fila) -> {
-                modelo.addRow(fila);
-            });
+        List_per.stream().map((persona) -> {
+            Object[] fila = new Object[7];
+            fila[0] = persona.getCedula();
+            fila[1] = persona.getNombre();
+            fila[2] = persona.getApellido();
+            fila[3] = persona.getCorreo();
+            fila[4] = persona.getFecha_Nacimiento();
+            fila[5] = persona.getNum_celular();
+            fila[6] = persona.getDireccion();
+            return fila;
+        }).forEachOrdered((fila) -> {
+            modelo.addRow(fila);
         });
         modificar.getTablepersona().setModel(modelo);
     }
@@ -618,7 +621,9 @@ public class C_Modificar_Secretaria {
     }
 
     public void Campo_Vacio() {
+        
         String estado = (String) modificar.getCb_estado().getSelectedItem();
+        
         if (modificar.getTxt_nombre().getText().isEmpty()) {
             modificar.getLb_nombre().setVisible(true);
         }
@@ -695,7 +700,6 @@ public class C_Modificar_Secretaria {
 
         modificar.getCelular().setVisible(false);
         modificar.getLb_nombre().setVisible(false);
-        modificar.getTxt_apellido().setEditable(false);
         modificar.getLb_correo().setVisible(false);
         modificar.getLb_celular().setVisible(false);
         modificar.getLb_horario().setVisible(false);
@@ -706,6 +710,7 @@ public class C_Modificar_Secretaria {
         modificar.getBtn_modificar().setEnabled(false);
         modificar.getBtn_imagen().setEnabled(false);
         modificar.getBtn_cancelar().setEnabled(false);
+        modificar.getLb_apellido().setVisible(false);
     }
 
     public void Nuevo() {
@@ -745,24 +750,20 @@ public class C_Modificar_Secretaria {
 
     public void Actualizar_Tabla() {
 
-        List<Buf_Secretaria> List_secre = S_DB.Getter();
         List<Buf_Persona> List_per = P_DB.Getter_Secre();
 
-        List_per.forEach((persona) -> {
-            List_secre.stream().map((secretaria) -> {
-                Object[] fila = new Object[8];
-                fila[0] = persona.getCedula();
-                fila[1] = persona.getNombre();
-                fila[2] = persona.getApellido();
-                fila[3] = persona.getCorreo();
-                fila[4] = persona.getFecha_Nacimiento();
-                fila[5] = persona.getNum_celular();
-                fila[6] = persona.getDireccion();
-                fila[7] = secretaria.getHorario();
-                return fila;
-            }).forEachOrdered((fila) -> {
-                modelo.addRow(fila);
-            });
+        List_per.stream().map((persona) -> {
+            Object[] fila = new Object[7];
+            fila[0] = persona.getCedula();
+            fila[1] = persona.getNombre();
+            fila[2] = persona.getApellido();
+            fila[3] = persona.getCorreo();
+            fila[4] = persona.getFecha_Nacimiento();
+            fila[5] = persona.getNum_celular();
+            fila[6] = persona.getDireccion();
+            return fila;
+        }).forEachOrdered((fila) -> {
+            modelo.addRow(fila);
         });
         modificar.getTablepersona().setModel(modelo);
     }

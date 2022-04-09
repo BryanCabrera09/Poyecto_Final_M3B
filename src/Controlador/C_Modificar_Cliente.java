@@ -83,7 +83,11 @@ public class C_Modificar_Cliente {
                     }
                 }
                 if (evt.getSource() == modificar.getTxt_apellido()) {
+                    char c = evt.getKeyChar();
 
+                    if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
+                        evt.consume();
+                    }
                 }
             }
 
@@ -136,6 +140,11 @@ public class C_Modificar_Cliente {
                         Campo_Vacio();
                     }
                 }
+                if (evt.getSource() == modificar.getTxt_apellido()) {
+                    if (modificar.getTxt_apellido().isEditable() == true) {
+                        Campo_Vacio();
+                    }
+                }
 
             }
         };
@@ -145,6 +154,7 @@ public class C_Modificar_Cliente {
         modificar.getTxt_correo().addKeyListener(K);
         modificar.getTxt_direccion().addKeyListener(K);
         modificar.getTxt_buscar().addKeyListener(K);
+        modificar.getTxt_apellido().addKeyListener(K);
 
         //EVENTO MOUSE
         MouseListener M = new MouseListener() {
@@ -345,24 +355,20 @@ public class C_Modificar_Cliente {
         }
 
         modelo.setRowCount(0);
-        List<Buf_Cliente> List_cliente = C_DB.Search(modificar.getTxt_buscar().getText());
         List<Buf_Persona> List_per = P_DB.Search_Cliente(modificar.getTxt_buscar().getText());
 
-        List_per.forEach((persona) -> {
-            List_cliente.stream().map((cliente) -> {
-                Object[] fila = new Object[8];
-                fila[0] = persona.getCedula();
-                fila[1] = persona.getNombre();
-                fila[2] = persona.getApellido();
-                fila[3] = persona.getCorreo();
-                fila[4] = persona.getFecha_Nacimiento();
-                fila[5] = persona.getNum_celular();
-                fila[6] = persona.getDireccion();
-                fila[7] = cliente.getOcupacion();
-                return fila;
-            }).forEachOrdered((fila) -> {
-                modelo.addRow(fila);
-            });
+        List_per.stream().map((persona) -> {
+            Object[] fila = new Object[7];
+            fila[0] = persona.getCedula();
+            fila[1] = persona.getNombre();
+            fila[2] = persona.getApellido();
+            fila[3] = persona.getCorreo();
+            fila[4] = persona.getFecha_Nacimiento();
+            fila[5] = persona.getNum_celular();
+            fila[6] = persona.getDireccion();
+            return fila;
+        }).forEachOrdered((fila) -> {
+            modelo.addRow(fila);
         });
         modificar.getTablepersona().setModel(modelo);
     }
@@ -411,7 +417,7 @@ public class C_Modificar_Cliente {
         if (modificar.getTxt_celular().getText().isEmpty()) {
             modificar.getLb_celular().setVisible(true);
         }
-        
+
         if (modificar.getTxt_apellido().getText().isEmpty()) {
             modificar.getLb_apellido().setVisible(true);
             modificar.getBtn_cancelar().setEnabled(false);
@@ -457,7 +463,7 @@ public class C_Modificar_Cliente {
         if (!(modificar.getCb_estado().getSelectedIndex() == 0)) {
             modificar.getLb_estado().setVisible(false);
         }
-        
+
         if (!modificar.getTxt_apellido().getText().isEmpty()) {
             modificar.getLb_apellido().setVisible(false);
             modificar.getBtn_cancelar().setEnabled(true);
@@ -481,7 +487,7 @@ public class C_Modificar_Cliente {
     public void Campos() {
 
         modificar.getCelular().setVisible(false);
-        modificar.getTxt_apellido().setEditable(false);
+        modificar.getLb_apellido().setVisible(false);
         modificar.getLb_nombre().setVisible(false);
         modificar.getLb_correo().setVisible(false);
         modificar.getLb_celular().setVisible(false);
@@ -495,11 +501,15 @@ public class C_Modificar_Cliente {
     }
 
     public void Cargar_Datos() {
+
+        modificar.getTablepersona().getTableHeader().setResizingAllowed(false);
+        modificar.getTablepersona().getTableHeader().setReorderingAllowed(false);
+
         modificar.getTablepersona().setDefaultEditor(Object.class, null);
         modelo = new DefaultTableModel() {
             //CARGAR CAMPOS EN LA TABLA
             public boolean iscelleditable(int filas, int columnas) {
-                if (columnas == 8) {
+                if (columnas == 7) {
                     return true;
                 } else {
                     return false;
@@ -514,27 +524,23 @@ public class C_Modificar_Cliente {
         modelo.addColumn("FECHA DE NACIMIENTO");
         modelo.addColumn("CELULAR");
         modelo.addColumn("DIRECCION");
-        modelo.addColumn("OCUPACION");
 
-        List<Buf_Cliente> List_cliente = C_DB.Getter();
         List<Buf_Persona> List_per = P_DB.Getter_Cliente();
 
-        List_per.forEach((persona) -> {
-            List_cliente.stream().map((secretaria) -> {
-                Object[] fila = new Object[8];
-                fila[0] = persona.getCedula();
-                fila[1] = persona.getNombre();
-                fila[2] = persona.getApellido();
-                fila[3] = persona.getCorreo();
-                fila[4] = persona.getFecha_Nacimiento();
-                fila[5] = persona.getNum_celular();
-                fila[6] = persona.getDireccion();
-                fila[7] = secretaria.getOcupacion();
-                return fila;
-            }).forEachOrdered((fila) -> {
-                modelo.addRow(fila);
-            });
+        List_per.stream().map((persona) -> {
+            Object[] fila = new Object[7];
+            fila[0] = persona.getCedula();
+            fila[1] = persona.getNombre();
+            fila[2] = persona.getApellido();
+            fila[3] = persona.getCorreo();
+            fila[4] = persona.getFecha_Nacimiento();
+            fila[5] = persona.getNum_celular();
+            fila[6] = persona.getDireccion();
+            return fila;
+        }).forEachOrdered((fila) -> {
+            modelo.addRow(fila);
         });
+
         modificar.getTablepersona().setModel(modelo);
         Nuevo();
     }
@@ -567,24 +573,20 @@ public class C_Modificar_Cliente {
 
     public void Actualizar_Tabla() {
 
-        List<Buf_Cliente> List_cliente = C_DB.Getter();
         List<Buf_Persona> List_per = P_DB.Getter_Cliente();
 
-        List_per.forEach((persona) -> {
-            List_cliente.stream().map((secretaria) -> {
-                Object[] fila = new Object[8];
-                fila[0] = persona.getCedula();
-                fila[1] = persona.getNombre();
-                fila[2] = persona.getApellido();
-                fila[3] = persona.getCorreo();
-                fila[4] = persona.getFecha_Nacimiento();
-                fila[5] = persona.getNum_celular();
-                fila[6] = persona.getDireccion();
-                fila[7] = secretaria.getOcupacion();
-                return fila;
-            }).forEachOrdered((fila) -> {
-                modelo.addRow(fila);
-            });
+        List_per.stream().map((persona) -> {
+            Object[] fila = new Object[7];
+            fila[0] = persona.getCedula();
+            fila[1] = persona.getNombre();
+            fila[2] = persona.getApellido();
+            fila[3] = persona.getCorreo();
+            fila[4] = persona.getFecha_Nacimiento();
+            fila[5] = persona.getNum_celular();
+            fila[6] = persona.getDireccion();
+            return fila;
+        }).forEachOrdered((fila) -> {
+            modelo.addRow(fila);
         });
         modificar.getTablepersona().setModel(modelo);
     }

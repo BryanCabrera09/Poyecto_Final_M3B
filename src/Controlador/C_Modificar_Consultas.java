@@ -5,148 +5,311 @@
  */
 package controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Modelo.Buf_Cita;
+import Modelo.Buf_CitaDB;
+import Modelo.Buf_Consulta;
+import Modelo.Buf_ConsultaDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import javax.swing.JOptionPane;
-import static vista.Consultas.Lista_consulta;
-import vista.Consuta_Consultas;
-import static vista.Consuta_Consultas.table;
-import static vista.MenuInicio.escritorio;
-import vista.Modificar_Consulta;
-import static vista.Modificar_Consulta.cbcaso;
-import static vista.Modificar_Consulta.jhora;
-import static vista.Modificar_Consulta.lanombres;
-import static vista.Modificar_Consulta.txdescripcion;
-import static vista.Modificar_Consulta.txtapellidos;
-import static vista.Modificar_Consulta.txtnombres;
+import vista.V_Consulta_Citas;
+import vista.V_Consulta_Consultas;
+import vista.V_Menu_Inicio;
+import vista.V_Modificar_Consulta;
 
 /*
  * @author BRYAN_CABRERA
  */
-public class C_Modificar_Consultas implements ActionListener, KeyListener {
+public class C_Modificar_Consultas {
 
-    Modificar_Consulta modificar_Consulta;
+    V_Modificar_Consulta modificar;
+    V_Menu_Inicio Inicio;
 
-    public C_Modificar_Consultas(Modificar_Consulta modificar_Consulta) {
-        this.modificar_Consulta = modificar_Consulta;
-        this.modificar_Consulta.btnguardar.addActionListener(this);
-        this.modificar_Consulta.btnmodificar.addActionListener(this);
-        this.modificar_Consulta.btnregresar.addActionListener(this);
+    Buf_CitaDB Ci_DB = new Buf_CitaDB();
+    Buf_ConsultaDB C_DB = new Buf_ConsultaDB();
+    Buf_Consulta C = new Buf_Consulta();
 
-        this.modificar_Consulta.txtnombres.addKeyListener(this);
+    public C_Modificar_Consultas(V_Modificar_Consulta modificar) {
+
+        this.modificar = modificar;
+
         Campos();
     }
 
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        if (evt.getSource() == modificar_Consulta.btnguardar) {
-            String caso = (String) cbcaso.getSelectedItem();
+    public void Iniciar_Control() {
 
-            String hora = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(jhora.getValue());
+        //EVENTO KEY
+        KeyListener K = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent evt) {
+                if (evt.getSource() == modificar.getTxt_nombres()) {
+                    int key = evt.getKeyChar();
 
-            if (txtnombres.getText().isEmpty()) {
+                    if (modificar.getTxt_nombres().getText().length() <= 30) {
+                        boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
+                        if (!letra) {
+                            evt.consume();
+                        }
+                    } else {
+                        evt.consume();
+                    }
+                }
+                if (evt.getSource() == modificar.getTxt_apellidos()) {
 
-                Campo_Vacio();
-                JOptionPane.showMessageDialog(null, "LOS CAMPOS DEBEN ESTAR LLENOS");
+                    int key = evt.getKeyChar();
 
-            } else {
+                    if (modificar.getTxt_apellidos().getText().length() <= 20) {
+                        boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
 
+                        if (!letra) {
+
+                            evt.consume();
+                        }
+
+                    } else {
+
+                        evt.consume();
+                    }
+                }
+                if (evt.getSource() == modificar.getTxt_celular()) {
+                    char c = evt.getKeyChar();
+
+                    if (c >= '0' && c <= '9' && modificar.getTxt_celular().getText().length() <= 9) {
+                    } else {
+                        evt.consume();
+                    }
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent evt) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent evt) {
+                if (evt.getSource() == modificar.getTxt_nombres()) {
+                    Campo_Vacio();
+                }
+                if (evt.getSource() == modificar.getTxt_apellidos()) {
+                    Campo_Vacio();
+                }
+                if (evt.getSource() == modificar.getTxt_celular()) {
+                    Campo_Vacio();
+                }
+            }
+        };
+        modificar.getTxt_nombres().addKeyListener(K);
+        modificar.getTxt_celular().addKeyListener(K);
+        modificar.getTxt_apellidos().addKeyListener(K);
+
+        //ACTION BUTTON
+        modificar.getBtn_guardar().addActionListener(l -> {
+            Guardar();
+        });
+        modificar.getBtn_modificar().addActionListener(l -> {
+            Modificar();
+        });
+        modificar.getBtn_regresar().addActionListener(l -> {
+            Regresar();
+        });
+        modificar.getBtn_cancelar().addActionListener(l -> {
+            Cancelar_Consulta();
+        });
+    }
+
+    public void Cancelar_Consulta() {
+
+        List<Buf_Consulta> List_consult = C_DB.Getter();
+
+        for (int i = 0; i < List_consult.size(); i++) {
+            if (List_consult.get(i).getId_consulta() == Integer.parseInt(modificar.getTxt_id().getText())) {
+                int elimina = JOptionPane.showConfirmDialog(null, "¿Cancelar Consulta?", "AVISO", JOptionPane.YES_NO_OPTION);
+                switch (elimina) {
+                    case 0:
+                        C.setId_consulta(Integer.parseInt(modificar.getTxt_id().getText()));
+
+                        if (C_DB.Delete(C)) {
+
+                            JOptionPane.showMessageDialog(null, "Consulta Cancelada");
+
+                            Regresar();
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        break;
+
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "ELIMINACION CANCELADA");
+                        break;
+                }
+            }
+        }
+    }
+
+    public void Guardar() {
+
+        if (Validar_Datos() == true) {
+            if (Validar_Hora() == true) {
                 int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
                 switch (resp) {
                     case 0:
-
-                        int datos = table.getSelectedRow();
-
-                        Lista_consulta.get(datos).setNombres(txtnombres.getText());
-                        Lista_consulta.get(datos).setHora(hora);
-                        Lista_consulta.get(datos).setConsulta(txdescripcion.getText());
-                        modificar_Consulta.btnmodificar.setEnabled(true);
-                        Campo_Vacio();
-                        Campos();
-
+                        Cargar_Datos();
                         break;
-
                     case 1:
                         JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
                         break;
                 }
-            }
-        }
-        if (evt.getSource() == modificar_Consulta.btnmodificar) {
-            txtnombres.setEditable(true);
-            txdescripcion.setEditable(true);
-            jhora.setEnabled(true);
-            modificar_Consulta.btnmodificar.setEnabled(false);
-        }
-        if (evt.getSource() == modificar_Consulta.btnregresar) {
-            modificar_Consulta.dispose();
-            Consuta_Consultas C = new Consuta_Consultas();
-            escritorio.add(C);
-            C.show();
-        }
-    }
-
-    @Override
-    public void keyTyped(KeyEvent evt) {
-        if (evt.getSource() == modificar_Consulta.txtnombres) {
-            int key = evt.getKeyChar();
-
-            if (txtnombres.getText().length() <= 30) {
-                boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
-
-                if (!letra) {
-
-                    evt.consume();
-                }
-
             } else {
 
-                evt.consume();
+                JOptionPane.showMessageDialog(null, "Fecha Ya Registrada", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }
-        if (evt.getSource() == modificar_Consulta.txtapellidos) {
-            char c = evt.getKeyChar();
-
-            if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
-                evt.consume();
-            }
-        }
-    }
-
-    @Override
-    public void keyPressed(KeyEvent evt) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent evt) {
-        if (evt.getSource() == modificar_Consulta.txtnombres) {
+        } else {
             Campo_Vacio();
+            JOptionPane.showMessageDialog(null, "LOS CAMPOS DEBEN ESTAR LLENOS");
         }
+    }
+
+    public boolean Validar_Datos() {
+
+        if (!modificar.getTxt_nombres().getText().isEmpty() && !modificar.getTxt_apellidos().getText().isEmpty() && !modificar.getTxt_celular().getText().isEmpty()) {
+
+            return true;
+        } else {
+
+            return false;
+        }
+    }
+
+    public void Cargar_Datos() {
+
+        String hora = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(modificar.getJs_hora().getValue());
+
+        C.setNombre(modificar.getTxt_nombres().getText());
+        C.setApellido(modificar.getTxt_apellidos().getText());
+        C.setNum_celular(modificar.getTxt_celular().getText());
+        C.setDescripcion(modificar.getTxa_descripcion().getText());
+        C.setHora(hora);
+        C.setId_consulta(Integer.parseInt(modificar.getTxt_id().getText()));
+
+        if (C_DB.Update(C)) {
+
+            Campos();
+            Campo_Vacio();
+            modificar.getBtn_modificar().setEnabled(false);
+            JOptionPane.showMessageDialog(null, "Modificacion Realizada");
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    public boolean Validar_Hora() {
+
+        List<Buf_Consulta> List_consult = C_DB.Getter();
+        List<Buf_Cita> List_cita = Ci_DB.Getter();
+
+        String hora = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(modificar.getJs_hora().getValue());
+
+        if (List_cita.isEmpty()) {
+            for (int i = 0; i < List_consult.size(); i++) {
+                if (List_consult.get(i).getHora().equalsIgnoreCase(hora)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        for (int i = 0; i < List_cita.size(); i++) {
+            for (int j = 0; j < List_consult.size(); j++) {
+                if (List_cita.get(i).getHora().equalsIgnoreCase(hora) || List_consult.get(j).getHora().equalsIgnoreCase(hora)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void Regresar() {
+
+        V_Consulta_Consultas CI = new V_Consulta_Consultas();
+        C_Consultas_Consultas C = new C_Consultas_Consultas(CI);
+        Inicio.escritorio.add(CI);
+        CI.show();
+        C.Iniciar_Control();
+        modificar.dispose();
+    }
+
+    public void Modificar() {
+
+        modificar.getTxt_nombres().setEditable(true);
+        modificar.getTxt_apellidos().setEditable(true);
+        modificar.getTxa_descripcion().setEditable(true);
+        modificar.getTxt_celular().setEditable(true);
+        modificar.getJs_hora().setEnabled(true);
+        modificar.getBtn_modificar().setEnabled(false);
     }
 
     public void Campo_Vacio() {
 
-        if (txtnombres.getText().isEmpty()) {
-            lanombres.setVisible(true);
-            modificar_Consulta.btnguardar.setEnabled(false);
+        if (modificar.getTxt_apellidos().getText().isEmpty()) {
+            modificar.getLb_apellido().setVisible(true);
+            modificar.getBtn_guardar().setEnabled(false);
         }
 
-        if (!txtnombres.getText().isEmpty()) {
-            lanombres.setVisible(false);
-            modificar_Consulta.btnguardar.setEnabled(true);
+        if (modificar.getTxt_nombres().getText().isEmpty()) {
+            modificar.getLb_nombre().setVisible(true);
+            modificar.getBtn_guardar().setEnabled(false);
+        }
+
+        if (modificar.getTxt_celular().getText().isEmpty()) {
+            modificar.getLb_celular().setVisible(true);
+            modificar.getBtn_guardar().setEnabled(false);
+        }
+        //CUANDO EL CAMPO ESTA LLENO
+
+        if (!modificar.getTxt_apellidos().getText().isEmpty()) {
+            modificar.getLb_apellido().setVisible(false);
+            modificar.getBtn_guardar().setEnabled(true);
+        }
+
+        if (!modificar.getTxt_nombres().getText().isEmpty()) {
+            modificar.getLb_nombre().setVisible(false);
+            modificar.getBtn_guardar().setEnabled(true);
+        }
+
+        if (modificar.getLb_celular().isShowing() == true) {
+            modificar.getCelular().setVisible(false);
+        } else if (modificar.getTxt_celular().getText().length() < 10) {
+            modificar.getCelular().setVisible(true);
+        } else if (modificar.getTxt_celular().getText().length() == 10) {
+            modificar.getCelular().setVisible(false);
+        }
+
+        if (!modificar.getTxt_nombres().getText().isEmpty() && !modificar.getTxt_apellidos().getText().isEmpty() && !modificar.getTxt_celular().getText().isEmpty()) {
+            modificar.getBtn_guardar().setEnabled(true);
+        } else {
+            modificar.getBtn_guardar().setEnabled(false);
         }
     }
 
     public void Campos() {
 
-        txtnombres.setEditable(false);
-        cbcaso.setEnabled(false);
-        txtapellidos.setEditable(false);
-        jhora.setEnabled(false);
-        txdescripcion.setEditable(false);
+        modificar.getBtn_guardar().setEnabled(false);
+        modificar.getLb_nombre().setVisible(false);
+        modificar.getLb_apellido().setVisible(false);
+        modificar.getCelular().setVisible(false);
+        modificar.getLb_celular().setVisible(false);
+        modificar.getCb_caso().setEnabled(false);
+        modificar.getTxt_celular().setEditable(false);
+        modificar.getTxt_id().setEditable(false);
+        modificar.getTxt_nombres().setEditable(false);
+        modificar.getTxt_apellidos().setEditable(false);
+        modificar.getTxa_descripcion().setEditable(false);
+        modificar.getJs_hora().setEnabled(false);
     }
 }

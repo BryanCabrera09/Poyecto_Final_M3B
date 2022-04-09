@@ -8,7 +8,6 @@ package vista;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
@@ -83,12 +82,12 @@ public class V_Citas extends javax.swing.JInternalFrame {
         this.celular = celular;
     }
 
-    public JLabel getDds() {
-        return dds;
+    public JLabel getCeiu() {
+        return ceiu;
     }
 
-    public void setDds(JLabel dds) {
-        this.dds = dds;
+    public void setCeiu(JLabel ceiu) {
+        this.ceiu = ceiu;
     }
 
     public JLabel getDescripcion() {
@@ -179,6 +178,30 @@ public class V_Citas extends javax.swing.JInternalFrame {
         this.txt_celular = txt_celular;
     }
 
+    public JButton getBtn_cancelar() {
+        return btn_cancelar;
+    }
+
+    public void setBtn_cancelar(JButton btn_cancelar) {
+        this.btn_cancelar = btn_cancelar;
+    }
+
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
+    public JButton getBtn_nuevo() {
+        return btn_nuevo;
+    }
+
+    public void setBtn_nuevo(JButton btn_nuevo) {
+        this.btn_nuevo = btn_nuevo;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -191,7 +214,7 @@ public class V_Citas extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         txt_celular = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        dds = new javax.swing.JLabel();
+        ceiu = new javax.swing.JLabel();
         caso = new javax.swing.JLabel();
         cb_caso = new javax.swing.JComboBox<>();
         descripcion = new javax.swing.JLabel();
@@ -207,6 +230,9 @@ public class V_Citas extends javax.swing.JInternalFrame {
         btn_buscar = new javax.swing.JButton();
         cedula = new javax.swing.JLabel();
         celular = new javax.swing.JLabel();
+        btn_cancelar = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
+        btn_nuevo = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -237,13 +263,13 @@ public class V_Citas extends javax.swing.JInternalFrame {
         jLabel1.setText("Cedula:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 50, 20));
 
-        dds.setText("Celular:");
-        jPanel2.add(dds, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 50, 20));
+        ceiu.setText("Celular:");
+        jPanel2.add(ceiu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 50, 20));
 
         caso.setText("Caso:");
         jPanel2.add(caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 40, 20));
 
-        cb_caso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        cb_caso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
         jPanel2.add(cb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 239, -1));
 
         descripcion.setText("Descripcion:");
@@ -256,9 +282,9 @@ public class V_Citas extends javax.swing.JInternalFrame {
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 320, 120));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 120, 60));
+        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 120, 60));
 
         hora.setText("Hora:");
         jPanel2.add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 40, 20));
@@ -284,9 +310,9 @@ public class V_Citas extends javax.swing.JInternalFrame {
         jPanel2.add(lb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
         jPanel2.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 240, -1));
 
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Buscar.png"))); // NOI18N
         btn_buscar.setText("BUSCAR");
-        jPanel2.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 120, 50));
+        jPanel2.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 120, 50));
 
         cedula.setForeground(new java.awt.Color(255, 0, 0));
         cedula.setText("*Cedula Erronea");
@@ -295,6 +321,15 @@ public class V_Citas extends javax.swing.JInternalFrame {
         celular.setForeground(new java.awt.Color(255, 0, 0));
         celular.setText("*Telefono Erroneo");
         jPanel2.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 120, -1));
+
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
+        btn_cancelar.setText("CANCELAR");
+        jPanel2.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 100, 50));
+        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 140, -1));
+
+        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N
+        btn_nuevo.setText("NUEVO");
+        jPanel2.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 50));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 390));
 
@@ -308,12 +343,14 @@ public class V_Citas extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar;
+    private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_nuevo;
     private javax.swing.JLabel caso;
     private javax.swing.JComboBox<String> cb_caso;
     private javax.swing.JLabel cedula;
+    private javax.swing.JLabel ceiu;
     private javax.swing.JLabel celular;
-    private javax.swing.JLabel dds;
     private javax.swing.JLabel descripcion;
     private javax.swing.JLabel hora;
     private javax.swing.JLabel jLabel1;
@@ -326,5 +363,6 @@ public class V_Citas extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea txa_descripcion;
     private javax.swing.JTextField txt_cedula;
     private javax.swing.JTextField txt_celular;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 }

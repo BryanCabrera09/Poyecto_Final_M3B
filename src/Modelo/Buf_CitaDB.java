@@ -1,4 +1,3 @@
-
 package Modelo;
 
 import InterfaceDAO.Buf_CitaDAO;
@@ -36,10 +35,10 @@ public class Buf_CitaDB implements Buf_CitaDAO {
 
             pst.setInt(1, cita.getId_cita());
             pst.setString(2, cita.getCedula());
-            pst.setString(3, cita.getNum_celular());
-            pst.setString(4, cita.getDescripcion());
-            pst.setString(5, cita.getNom_caso());
-            pst.setInt(6, cita.getId_caso());
+            pst.setInt(3, cita.getId_caso());
+            pst.setString(4, cita.getNom_caso());
+            pst.setString(5, cita.getNum_celular());
+            pst.setString(6, cita.getDescripcion());
             pst.setString(7, cita.getHora());
 
             pst.executeUpdate();
@@ -67,6 +66,7 @@ public class Buf_CitaDB implements Buf_CitaDAO {
 
     @Override
     public List<Buf_Cita> Getter() {
+
         Statement st = null;
         Connection con = null;
         ResultSet rs = null;
@@ -85,11 +85,11 @@ public class Buf_CitaDB implements Buf_CitaDAO {
 
                 Buf_Cita C = new Buf_Cita();
                 C.setId_cita(rs.getInt("id_cita"));
-                C.setCedula(rs.getString("cedula"));
+                C.setCedula(rs.getString("ci"));
+                C.setId_caso(rs.getInt("id_caso"));
+                C.setNom_caso(rs.getString("nom_caso"));
                 C.setNum_celular(rs.getString("num_celular"));
                 C.setDescripcion(rs.getString("descripcion"));
-                C.setNom_caso(rs.getString("nom_caso"));
-                C.setId_caso(rs.getInt("id_caso"));
                 C.setHora(rs.getString("hora"));
                 Lista_cita.add(C);
             }
@@ -107,8 +107,8 @@ public class Buf_CitaDB implements Buf_CitaDAO {
 
     @Override
     public boolean Update(Buf_Cita cita) {
-        
-         boolean Update = false;
+
+        boolean Update = false;
 
         Connection con = null;
         PreparedStatement pst = null;
@@ -191,6 +191,48 @@ public class Buf_CitaDB implements Buf_CitaDAO {
                 System.out.println("Error > " + ex.getMessage());
             }
         }
-        return Delete;    }
+        return Delete;
+    }
+
+    @Override
+    public List<Buf_Cita> Search(String Identificador) {
+
+        Statement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM Buf_Citas WHERE ci LIKE '%" + Identificador + "%'";
+
+        List<Buf_Cita> Lista_cita = new ArrayList<>();
+
+        try {
+
+            con = DB_Connect.Connect();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                Buf_Cita C = new Buf_Cita();
+                C.setId_cita(rs.getInt("id_cita"));
+                C.setCedula(rs.getString("ci"));
+                C.setId_caso(rs.getInt("id_caso"));
+                C.setNom_caso(rs.getString("nom_caso"));
+                C.setNum_celular(rs.getString("num_celular"));
+                C.setDescripcion(rs.getString("descripcion"));
+                C.setHora(rs.getString("hora"));
+                Lista_cita.add(C);
+            }
+            st.close();
+            con.close();
+            rs.close();
+            return Lista_cita;
+
+        } catch (SQLException e) {
+
+            Logger.getLogger(Buf_CitaDB.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+    }
 
 }
