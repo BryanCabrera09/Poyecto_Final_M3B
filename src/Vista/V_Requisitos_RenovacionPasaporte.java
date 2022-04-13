@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -159,6 +160,30 @@ public class V_Requisitos_RenovacionPasaporte extends javax.swing.JInternalFrame
         this.txa_observ = txa_observ;
     }
 
+    public JButton getBtn_cargar() {
+        return btn_cargar;
+    }
+
+    public void setBtn_cargar(JButton btn_cargar) {
+        this.btn_cargar = btn_cargar;
+    }
+
+    public JTextField getTxt_cedula() {
+        return txt_cedula;
+    }
+
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
+    }
+
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,6 +210,9 @@ public class V_Requisitos_RenovacionPasaporte extends javax.swing.JInternalFrame
         btn_guardar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
         btn_pago = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
+        btn_cargar = new javax.swing.JButton();
+        txt_cedula = new javax.swing.JTextField();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -213,7 +241,7 @@ public class V_Requisitos_RenovacionPasaporte extends javax.swing.JInternalFrame
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("REQUISITOS RENOVACION PASAPORTE ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 19, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
         req_1.setText("PASAPORTE AMERICANO CADUCADO");
         jPanel1.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 250, -1));
@@ -233,11 +261,11 @@ public class V_Requisitos_RenovacionPasaporte extends javax.swing.JInternalFrame
         req_6.setText("DIRECCION EN LOS EEUU");
         jPanel1.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 170, -1));
 
-        jPanel1.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 120, -1));
+        jPanel1.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 120, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("NUMERO DE PERSONAS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 130, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 130, 30));
 
         txa_observ.setColumns(20);
         txa_observ.setLineWrap(true);
@@ -265,12 +293,17 @@ public class V_Requisitos_RenovacionPasaporte extends javax.swing.JInternalFrame
         btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
         jPanel1.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 70, 40));
+        jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 90, 30));
+
+        btn_cargar.setText("CARGAR");
+        jPanel1.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, -1, -1));
+        jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,6 +319,7 @@ public class V_Requisitos_RenovacionPasaporte extends javax.swing.JInternalFrame
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cargar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_pago;
@@ -303,5 +337,7 @@ public class V_Requisitos_RenovacionPasaporte extends javax.swing.JInternalFrame
     private javax.swing.JCheckBox req_5;
     private javax.swing.JCheckBox req_6;
     private javax.swing.JTextArea txa_observ;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 }

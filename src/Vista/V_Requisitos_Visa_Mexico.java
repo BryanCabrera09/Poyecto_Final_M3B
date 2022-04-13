@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -152,6 +153,30 @@ public class V_Requisitos_Visa_Mexico extends javax.swing.JInternalFrame {
         this.txa_observ = txa_observ;
     }
 
+    public JButton getBtn_cargar() {
+        return btn_cargar;
+    }
+
+    public void setBtn_cargar(JButton btn_cargar) {
+        this.btn_cargar = btn_cargar;
+    }
+
+    public JTextField getTxt_cedula() {
+        return txt_cedula;
+    }
+
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
+    }
+
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -177,6 +202,9 @@ public class V_Requisitos_Visa_Mexico extends javax.swing.JInternalFrame {
         btn_guardar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
         btn_pago = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
+        btn_cargar = new javax.swing.JButton();
+        txt_cedula = new javax.swing.JTextField();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -205,55 +233,60 @@ public class V_Requisitos_Visa_Mexico extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("REQUISITOS VISA MEXICO ");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 20, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
         req_1.setText("PASAPORTE");
-        jPanel2.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 100, -1));
+        jPanel2.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, -1));
 
         req_4.setText("CERTIFICADO DE TRABAJO");
-        jPanel2.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 180, -1));
+        jPanel2.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 180, -1));
 
         req_5.setText("CERTIFICADO DE ESTUDIOS");
-        jPanel2.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 190, -1));
+        jPanel2.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 190, -1));
 
         req_3.setText("PREDIOS");
-        jPanel2.add(req_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 90, -1));
+        jPanel2.add(req_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 90, -1));
 
         req_2.setText("FOTO 3x3.5");
-        jPanel2.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 110, -1));
+        jPanel2.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 110, -1));
 
-        jPanel2.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 118, -1));
+        jPanel2.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 118, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("NUMERO DE PERSONAS");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 130, 20));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 130, 20));
 
         txa_observ.setColumns(20);
         txa_observ.setLineWrap(true);
         txa_observ.setRows(5);
         jScrollPane1.setViewportView(txa_observ);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 300, 107));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 300, 107));
 
         jLabel3.setText("OBSERVACIONES:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 110, 20));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 110, 20));
 
         honorarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         honorarios.setForeground(new java.awt.Color(51, 0, 0));
         honorarios.setText("HONORARIOS: 70 POR PERSONA");
-        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 180, 20));
+        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 180, 20));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 90, 40));
+        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 90, 40));
 
         btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
-        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 100, 40));
+        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 100, 40));
 
         btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
-        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 70, 40));
+        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 70, 40));
+        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 100, 30));
+
+        btn_cargar.setText("CARGAR");
+        jPanel2.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
+        jPanel2.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -278,6 +311,7 @@ public class V_Requisitos_Visa_Mexico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cargar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_pago;
@@ -294,5 +328,7 @@ public class V_Requisitos_Visa_Mexico extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox req_4;
     private javax.swing.JCheckBox req_5;
     private javax.swing.JTextArea txa_observ;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 }

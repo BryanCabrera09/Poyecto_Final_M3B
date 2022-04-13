@@ -10,6 +10,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -142,6 +143,30 @@ public class V_Requisitos_PensionesAlimenticias extends javax.swing.JInternalFra
         this.txa_observ = txa_observ;
     }
 
+    public JButton getBtn_cargar() {
+        return btn_cargar;
+    }
+
+    public void setBtn_cargar(JButton btn_cargar) {
+        this.btn_cargar = btn_cargar;
+    }
+
+    public JTextField getTxt_cedula() {
+        return txt_cedula;
+    }
+
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
+    }
+
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -166,6 +191,9 @@ public class V_Requisitos_PensionesAlimenticias extends javax.swing.JInternalFra
         btn_guardar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
         btn_pago = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
+        btn_cargar = new javax.swing.JButton();
+        txt_cedula = new javax.swing.JTextField();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -194,60 +222,65 @@ public class V_Requisitos_PensionesAlimenticias extends javax.swing.JInternalFra
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("REQUISITOS PENSIONES ALIMENTICIAS ");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
         req_1.setText("COPIA DE CEDULA");
-        jPanel2.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 140, -1));
+        jPanel2.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 140, -1));
 
         req_4.setText("DIRECCION DEL TRABAJO Y CASA DEL DEMANDADO");
-        jPanel2.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 330, -1));
+        jPanel2.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 330, -1));
 
         req_5.setText("RECIBOS Y FACTURAS DE GASTOS");
-        jPanel2.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 230, -1));
+        jPanel2.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 230, -1));
 
         req_3.setText("PARTIDAS DE NACIMIENTO DEL NIÑO");
-        jPanel2.add(req_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 240, -1));
+        jPanel2.add(req_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 240, -1));
 
         req_2.setText("COPIA DE PAPEL DE VOTACION");
-        jPanel2.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 210, -1));
+        jPanel2.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 210, -1));
 
         req_6.setText("CERTIFICADO DE CONADIS SI TIENE DISCAPACIDAD");
-        jPanel2.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 320, -1));
+        jPanel2.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 320, -1));
 
         txa_observ.setColumns(20);
         txa_observ.setLineWrap(true);
         txa_observ.setRows(5);
         jScrollPane1.setViewportView(txa_observ);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 330, 143));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 330, 143));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("OBSERVACIONES:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 100, 20));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 100, 20));
 
         honorarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         honorarios.setForeground(new java.awt.Color(51, 0, 0));
         honorarios.setText("HONORARIOS:  200  ");
-        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 120, 20));
+        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 120, 120, 20));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 90, 40));
+        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, 90, 40));
 
         btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
-        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 100, 40));
+        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 100, 40));
 
         btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
-        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 70, 40));
+        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 70, 40));
+        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 90, 30));
+
+        btn_cargar.setText("CARGAR");
+        jPanel2.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, -1, -1));
+        jPanel2.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 828, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 843, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -265,6 +298,7 @@ public class V_Requisitos_PensionesAlimenticias extends javax.swing.JInternalFra
     }//GEN-LAST:event_formInternalFrameClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cargar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_pago;
@@ -280,5 +314,7 @@ public class V_Requisitos_PensionesAlimenticias extends javax.swing.JInternalFra
     private javax.swing.JCheckBox req_5;
     private javax.swing.JCheckBox req_6;
     private javax.swing.JTextArea txa_observ;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 }

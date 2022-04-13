@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -175,6 +176,30 @@ public class V_Requisitos_ReporteConsular extends javax.swing.JInternalFrame {
         this.txa_observ = txa_observ;
     }
 
+    public JButton getBtn_cargar() {
+        return btn_cargar;
+    }
+
+    public void setBtn_cargar(JButton btn_cargar) {
+        this.btn_cargar = btn_cargar;
+    }
+
+    public JTextField getTxt_cedula() {
+        return txt_cedula;
+    }
+
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
+    }
+
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -203,6 +228,9 @@ public class V_Requisitos_ReporteConsular extends javax.swing.JInternalFrame {
         btn_modificar = new javax.swing.JButton();
         btn_guardar = new javax.swing.JButton();
         btn_pago = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
+        btn_cargar = new javax.swing.JButton();
+        txt_cedula = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -229,65 +257,70 @@ public class V_Requisitos_ReporteConsular extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("REQUISITOS REPORTE CONSULAR  DE NACIMIENTO ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        jLabel1.setText("<html>REQUISITOS REPORTE<br>CONSULAR  DE NACIMIENTO</html>");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         req_1.setText("DS-2029");
-        jPanel1.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 90, -1));
+        jPanel1.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 90, -1));
 
         req_4.setText("CERTIFICADO NATURALIZACION");
-        jPanel1.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 220, -1));
+        jPanel1.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 220, -1));
 
         req_8.setText("INSCRIPCION DE NACIMIENTO");
-        jPanel1.add(req_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 200, -1));
+        jPanel1.add(req_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 200, -1));
 
         req_3.setText("PRUEBA DE CIUDADANIA");
-        jPanel1.add(req_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 170, -1));
+        jPanel1.add(req_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 170, -1));
 
         req_2.setText("DS- 11");
-        jPanel1.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 70, -1));
+        jPanel1.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 70, -1));
 
         req_7.setText("DIRECCION EN LOS EEUU");
-        jPanel1.add(req_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 170, -1));
+        jPanel1.add(req_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 170, -1));
 
-        jPanel1.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 120, -1));
+        jPanel1.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 120, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("NUMERO DE PERSONAS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 130, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 130, 30));
 
         txa_observ.setColumns(20);
         txa_observ.setLineWrap(true);
         txa_observ.setRows(5);
         jScrollPane1.setViewportView(txa_observ);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 570, 110));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 570, 110));
 
         jLabel3.setText("OBSERVACIONES:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 110, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 110, 20));
 
         honorarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         honorarios.setForeground(new java.awt.Color(51, 0, 0));
         honorarios.setText("HONORARIOS: 250 POR PERSONA");
-        jPanel1.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 190, 20));
+        jPanel1.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 190, 20));
 
         req_6.setText("REGISTRO DE VACUNAS");
-        jPanel1.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
+        jPanel1.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
 
         req_5.setText("RECORD MEDICOS");
-        jPanel1.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, -1));
+        jPanel1.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, -1));
 
         btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
-        jPanel1.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 100, 40));
+        jPanel1.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 540, 100, 40));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 90, 40));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, 90, 40));
 
         btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
-        jPanel1.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 510, 70, 40));
+        jPanel1.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 540, 70, 40));
+        jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 100, 30));
+
+        btn_cargar.setText("CARGAR");
+        jPanel1.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, -1, -1));
+        jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -299,7 +332,7 @@ public class V_Requisitos_ReporteConsular extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
         );
 
         pack();
@@ -311,6 +344,7 @@ public class V_Requisitos_ReporteConsular extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cargar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_pago;
@@ -330,5 +364,7 @@ public class V_Requisitos_ReporteConsular extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox req_7;
     private javax.swing.JCheckBox req_8;
     private javax.swing.JTextArea txa_observ;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 }

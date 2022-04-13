@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -160,6 +161,30 @@ public class V_Requisitos_Perdon extends javax.swing.JInternalFrame {
         this.txa_oberv = txa_oberv;
     }
 
+    public JButton getBtn_cargar() {
+        return btn_cargar;
+    }
+
+    public void setBtn_cargar(JButton btn_cargar) {
+        this.btn_cargar = btn_cargar;
+    }
+
+    public JTextField getTxt_cedula() {
+        return txt_cedula;
+    }
+
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
+    }
+
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -186,6 +211,9 @@ public class V_Requisitos_Perdon extends javax.swing.JInternalFrame {
         btn_guardar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
         btn_pago = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
+        btn_cargar = new javax.swing.JButton();
+        txt_cedula = new javax.swing.JTextField();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -231,11 +259,11 @@ public class V_Requisitos_Perdon extends javax.swing.JInternalFrame {
         req_2.setText("INSCIPCION DE MATRIMONIO");
         jPanel1.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 200, -1));
 
-        jPanel1.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 120, -1));
+        jPanel1.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 120, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("NUMERO DE PERSONAS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 130, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 130, 30));
 
         txa_oberv.setColumns(20);
         txa_oberv.setLineWrap(true);
@@ -266,6 +294,11 @@ public class V_Requisitos_Perdon extends javax.swing.JInternalFrame {
         btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
         jPanel1.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 70, 40));
+        jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 90, 30));
+
+        btn_cargar.setText("CARGAR");
+        jPanel1.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, -1, -1));
+        jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -289,6 +322,7 @@ public class V_Requisitos_Perdon extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cargar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_pago;
@@ -306,5 +340,7 @@ public class V_Requisitos_Perdon extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox req_5;
     private javax.swing.JCheckBox req_6;
     private javax.swing.JTextArea txa_oberv;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 }

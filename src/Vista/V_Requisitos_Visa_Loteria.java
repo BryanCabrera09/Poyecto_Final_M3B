@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /*
  * @author BRYAN_CABRERA
@@ -179,7 +180,31 @@ public class V_Requisitos_Visa_Loteria extends javax.swing.JInternalFrame {
     public void setTxa_observ(JTextArea txa_observ) {
         this.txa_observ = txa_observ;
     }
-    
+
+    public JButton getBtn_cargar() {
+        return btn_cargar;
+    }
+
+    public void setBtn_cargar(JButton btn_cargar) {
+        this.btn_cargar = btn_cargar;
+    }
+
+    public JTextField getTxt_cedula() {
+        return txt_cedula;
+    }
+
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
+    }
+
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -209,6 +234,9 @@ public class V_Requisitos_Visa_Loteria extends javax.swing.JInternalFrame {
         btn_pago = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
         btn_guardar = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
+        btn_cargar = new javax.swing.JButton();
+        txt_cedula = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -250,16 +278,16 @@ public class V_Requisitos_Visa_Loteria extends javax.swing.JInternalFrame {
         jPanel1.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 140, 30));
 
         req_8.setText("FOTO DIGITAL 5x5");
-        jPanel1.add(req_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 140, 30));
+        jPanel1.add(req_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 140, 30));
 
         req_7.setText("DIRECCION DE LOS EEUU");
-        jPanel1.add(req_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 180, 30));
+        jPanel1.add(req_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 180, 30));
 
         req_9.setText("DATOS DE TRABAJO");
-        jPanel1.add(req_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 150, 30));
+        jPanel1.add(req_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 150, 30));
 
         req_6.setText("DATOS DE HERMANOS");
-        jPanel1.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 160, 30));
+        jPanel1.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 160, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("REQUISITOS VISA DE LOTERIA");
@@ -267,9 +295,9 @@ public class V_Requisitos_Visa_Loteria extends javax.swing.JInternalFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("NUMERO DE PERSONAS");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, 30));
 
-        jPanel1.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 100, -1));
+        jPanel1.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("OBSERVACIONES");
@@ -298,12 +326,17 @@ public class V_Requisitos_Visa_Loteria extends javax.swing.JInternalFrame {
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
         jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 530, 90, 40));
+        jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 90, 30));
+
+        btn_cargar.setText("CARGAR");
+        jPanel1.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, -1));
+        jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,6 +352,7 @@ public class V_Requisitos_Visa_Loteria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cargar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_pago;
@@ -339,5 +373,7 @@ public class V_Requisitos_Visa_Loteria extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox req_8;
     private javax.swing.JCheckBox req_9;
     private javax.swing.JTextArea txa_observ;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 }

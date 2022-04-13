@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -159,6 +160,30 @@ public class V_Requisitos_RetornanteInmigrante extends javax.swing.JInternalFram
         this.txa_observ = txa_observ;
     }
 
+    public JButton getBtn_cargar() {
+        return btn_cargar;
+    }
+
+    public void setBtn_cargar(JButton btn_cargar) {
+        this.btn_cargar = btn_cargar;
+    }
+
+    public JTextField getTxt_cedula() {
+        return txt_cedula;
+    }
+
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
+    }
+
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,6 +210,9 @@ public class V_Requisitos_RetornanteInmigrante extends javax.swing.JInternalFram
         btn_pago = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
         btn_guardar = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
+        btn_cargar = new javax.swing.JButton();
+        txt_cedula = new javax.swing.JTextField();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -216,55 +244,60 @@ public class V_Requisitos_RetornanteInmigrante extends javax.swing.JInternalFram
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
         req_1.setText("DS - 117");
-        jPanel2.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 80, -1));
+        jPanel2.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 80, -1));
 
         req_4.setText("TAXES ");
-        jPanel2.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 80, -1));
+        jPanel2.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 80, -1));
 
         req_5.setText("<html>PRUEBAS QUE DEMUESTREN POR QUE ESTUVO FUERA<p>DE LOS ESTADOS UNIDOS<html>");
-        jPanel2.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 110, -1));
+        jPanel2.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 110, -1));
 
         req_3.setText("SOCIAL SECURITY");
-        jPanel2.add(req_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 140, -1));
+        jPanel2.add(req_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 140, -1));
 
         req_2.setText("ACTA DE NATURALIZACION");
-        jPanel2.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 190, -1));
+        jPanel2.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 190, -1));
 
         req_6.setText("EVIDENCIA DE VINCULO CON LOS EEUU");
-        jPanel2.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 250, -1));
+        jPanel2.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 250, -1));
 
-        jPanel2.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 93, -1));
+        jPanel2.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 93, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("NUMERO DE PERSONAS");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, -1, 30));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, 30));
 
         jLabel3.setText("OBSERVACIONES:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 110, 20));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 110, 20));
 
         honorarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         honorarios.setForeground(new java.awt.Color(51, 0, 0));
         honorarios.setText("HONORARIOS: 500 POR PERSONA");
-        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 190, 20));
+        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 190, 20));
 
         txa_observ.setColumns(20);
         txa_observ.setLineWrap(true);
         txa_observ.setRows(5);
         jScrollPane1.setViewportView(txa_observ);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 367, 110));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 367, 110));
 
         btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
-        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 70, 40));
+        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 70, 40));
 
         btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
-        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 100, 40));
+        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 100, 40));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 90, 40));
+        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 90, 40));
+        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 90, 30));
+
+        btn_cargar.setText("CARGAR");
+        jPanel2.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
+        jPanel2.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,7 +309,9 @@ public class V_Requisitos_RetornanteInmigrante extends javax.swing.JInternalFram
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -287,6 +322,7 @@ public class V_Requisitos_RetornanteInmigrante extends javax.swing.JInternalFram
     }//GEN-LAST:event_formInternalFrameClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cargar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_pago;
@@ -304,5 +340,7 @@ public class V_Requisitos_RetornanteInmigrante extends javax.swing.JInternalFram
     private javax.swing.JCheckBox req_5;
     private javax.swing.JCheckBox req_6;
     private javax.swing.JTextArea txa_observ;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 }

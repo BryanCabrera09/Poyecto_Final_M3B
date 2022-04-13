@@ -168,6 +168,14 @@ public class V_Requisitos_Divorcio extends javax.swing.JInternalFrame {
         this.txt_id = txt_id;
     }
 
+    public JButton getBtn_cargar() {
+        return btn_cargar;
+    }
+
+    public void setBtn_cargar(JButton btn_cargar) {
+        this.btn_cargar = btn_cargar;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -195,6 +203,7 @@ public class V_Requisitos_Divorcio extends javax.swing.JInternalFrame {
         btn_pago = new javax.swing.JButton();
         txt_cedula = new javax.swing.JTextField();
         txt_id = new javax.swing.JTextField();
+        btn_cargar = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -276,7 +285,10 @@ public class V_Requisitos_Divorcio extends javax.swing.JInternalFrame {
         btn_pago.setText("PAGO");
         jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 70, 40));
         jPanel2.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 140, 30));
-        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 90, 30));
+        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 90, 30));
+
+        btn_cargar.setText("CARGAR");
+        jPanel2.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -299,6 +311,7 @@ public class V_Requisitos_Divorcio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cargar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_pago;

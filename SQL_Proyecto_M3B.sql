@@ -460,12 +460,12 @@ CREATE TABLE Buf_Pagos (
     Id_Pago    NUMBER(7) NOT NULL,
     Id_Caso    NUMBER(5) NOT NULL,
     Cedula     VARCHAR2(10) NOT NULL,
-    Fecha_Pago VARCHAR2(20)NOT NULL,
-    Abono      DECIMAL NOT NULL,
-    Saldo      DECIMAL NOT NULL,
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    Fecha_Pago VARCHAR2(20) NOT NULL,
+    Abono      DECIMAL ,
+    Saldo      DECIMAL ,
+    CONSTRAINT Fk_Pago_Cliente FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_pago_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso ),
     PRIMARY KEY ( Id_Pago )
 );
