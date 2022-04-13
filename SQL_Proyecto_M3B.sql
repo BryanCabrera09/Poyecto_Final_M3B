@@ -205,9 +205,9 @@ CREATE TABLE Buf_Caso_Pension_Aliment (
     Req_6       BLOB,
     Honorarios  DECIMAL,
     Observacion VARCHAR2(50),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Pension_Cliente FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_Alimenticia_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso )
 );
 
@@ -232,9 +232,9 @@ CREATE TABLE Buf_Caso_Peticion_Familiar (
     Honorarios        DECIMAL,
     Num_Beneficiarios NUMBER(10),
     Observacion       VARCHAR2(50),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Peticion_Cliente FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_Familiar_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso )
 );
 
@@ -256,9 +256,9 @@ CREATE TABLE Buf_Caso_Perdon (
     Honorarios        DECIMAL,
     Num_Beneficiarios NUMBER(10),
     Observacion       VARCHAR2(50),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Perdon_Cliente FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_Perdon_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso )
 );
 
@@ -285,9 +285,9 @@ CREATE TABLE Buf_Caso_Visa_Eeuu (
     Honorarios        DECIMAL,
     Num_Beneficiarios NUMBER(10),
     Observacion       VARCHAR2(50),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Vis_Cliente FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_Eeuu_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso )
 );
 
@@ -320,9 +320,9 @@ CREATE TABLE Buf_Caso_Visa_Europa (
     Honorarios        DECIMAL,
     Num_Beneficiarios NUMBER(10),
     Observacion       VARCHAR2(50),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Visa_Client FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_Europa_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso )
 );
 
@@ -347,9 +347,9 @@ CREATE TABLE Buf_Caso_Visa_Loteria (
     Honorarios        DECIMAL,
     Num_Beneficiarios NUMBER(10),
     Observacion       VARCHAR2(50),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Visa_Clientes FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_Loteria_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso )
 );
 
@@ -370,9 +370,9 @@ CREATE TABLE Buf_Caso_Visa_Mexico (
     Honorarios        DECIMAL,
     Num_Beneficiarios NUMBER(10),
     Observacion       VARCHAR2(50),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Visa_Cliente FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_Mexico_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso )
 );
 
@@ -394,9 +394,9 @@ CREATE TABLE Buf_Caso_Renovacion_Pasaporte (
     Honorarios        DECIMAL,
     Num_Beneficiarios NUMBER(10),
     Observacion       VARCHAR2(50),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Renovacion_Cliente FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_Pasaporte_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso )
 );
 
@@ -418,9 +418,9 @@ CREATE TABLE Buf_Caso_Retornante_Inmigrante (
     Honorarios        DECIMAL,
     Num_Beneficiarios NUMBER(10),
     Observacion       VARCHAR2(50),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Retornante_Cliente FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_Inmigrante_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso )
 );
 
@@ -444,9 +444,9 @@ CREATE TABLE Buf_Caso_Reporte_Consular (
     Honorarios        DECIMAL,
     Num_Beneficiarios NUMBER(10),
     Observacion       VARCHAR2(50),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Reporte_Cliente FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_Consular_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso )
 );
 
@@ -461,11 +461,11 @@ CREATE TABLE Buf_Pagos (
     Id_Caso    NUMBER(5) NOT NULL,
     Cedula     VARCHAR2(10) NOT NULL,
     Fecha_Pago VARCHAR2(20) NOT NULL,
-    Abono      DECIMAL ,
-    Saldo      DECIMAL ,
+    Abono      DECIMAL,
+    Saldo      DECIMAL,
     CONSTRAINT Fk_Pago_Cliente FOREIGN KEY ( Cedula )
         REFERENCES Buf_Clientes ( Ci ),
-    CONSTRAINT Fk_pago_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Pago_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso ),
     PRIMARY KEY ( Id_Pago )
 );
