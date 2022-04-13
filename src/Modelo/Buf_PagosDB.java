@@ -7,7 +7,6 @@ package Modelo;
 
 import InterfaceDAO.Buf_PagosDAO;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,7 +41,7 @@ public class Buf_PagosDB implements Buf_PagosDAO {
             pst.setInt(1, pagos.getId_pago());
             pst.setInt(2, pagos.getId_caso());
             pst.setString(3, pagos.getCedula());
-            pst.setDate(4, (Date) pagos.getFecha_Pago());
+            pst.setString(4, pagos.getFecha_Pago());
             pst.setDouble(5, pagos.getAbono());
             pst.setDouble(6, pagos.getSaldo());
 
@@ -90,7 +89,7 @@ public class Buf_PagosDB implements Buf_PagosDAO {
                 A.setId_pago(rs.getInt("id_pago"));
                 A.setId_caso(rs.getInt("id_caso"));
                 A.setCedula(rs.getString("cedula"));
-                A.setFecha_Pago(rs.getDate("fecha_pago"));
+                A.setFecha_Pago(rs.getString("fecha_pago"));
                 A.setAbono(rs.getDouble("abono"));
                 A.setSaldo(rs.getDouble("saldo"));
 
@@ -127,7 +126,7 @@ public class Buf_PagosDB implements Buf_PagosDAO {
             String sql = "UPDATE Buf_Pagos SET fecha_pago=?,abono=?,saldo=? WHERE id_pago=?";
             pst = con.prepareStatement(sql);
 
-            pst.setDate(1, (Date) pagos.getFecha_Pago());
+            pst.setString(1, pagos.getFecha_Pago());
             pst.setDouble(2, pagos.getAbono());
             pst.setDouble(3, pagos.getSaldo());
             pst.setInt(4, pagos.getId_pago());

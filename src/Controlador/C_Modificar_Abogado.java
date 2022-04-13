@@ -479,6 +479,17 @@ public class C_Modificar_Abogado {
         }
     }
 
+    public String upperCaseFirst(String val) {
+
+        System.out.println(val);
+        StringBuffer strbf = new StringBuffer();
+        Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(val);
+        while (match.find()) {
+            match.appendReplacement(strbf, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+        }
+        return match.appendTail(strbf).toString();
+    }
+
     public void Subir_Datos() {
 
         String horario = "";
@@ -501,8 +512,8 @@ public class C_Modificar_Abogado {
 
         String estado = (String) modificar.getCb_estado().getSelectedItem();
 
-        P.setNombre(modificar.getTxt_nombre().getText());
-        P.setApellido(modificar.getTxt_apellido().getText());
+        P.setNombre(upperCaseFirst(modificar.getTxt_nombre().getText()));
+        P.setApellido(upperCaseFirst(modificar.getTxt_apellido().getText()));
         P.setCorreo(modificar.getTxt_correo().getText());
         P.setDireccion(modificar.getTxt_direccion().getText());
         P.setNum_celular(modificar.getTxt_celular().getText());
@@ -563,84 +574,87 @@ public class C_Modificar_Abogado {
         modificar.getCb_estado().setSelectedItem(List_per.get(select).getEstado_civil());
         modificar.getNacimeinto().setText(List_per.get(select).getFecha_Nacimiento());
 
-        modificar.getTxt_id().setText(String.valueOf(List_abg.get(select).getId_abg()));
-        modificar.getTxt_matricula().setText(String.valueOf(List_abg.get(select).getNum_matricula()));
-        modificar.getTxt_cuenta().setText(String.valueOf(List_abg.get(select).getNum_cuenta()));
+        for (int i = 0; i < List_abg.size(); i++) {
+            if (List_abg.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                modificar.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
+                modificar.getTxt_matricula().setText(String.valueOf(List_abg.get(i).getNum_matricula()));
+                modificar.getTxt_cuenta().setText(String.valueOf(List_abg.get(i).getNum_cuenta()));
 
-        if (List_abg.get(select).getHorario().equals(" | 9:00-13:00 | ")) {
-            modificar.getCb_1().setSelected(true);
-        }
-        if (List_abg.get(select).getHorario().equals(" | 13:00-15:00 | ")) {
-            modificar.getCb_2().setSelected(true);
-        }
-        if (List_abg.get(select).getHorario().equals(" | 15:00-16:30 | ")) {
-            modificar.getCb_3().setSelected(true);
-        }
-        if (List_abg.get(select).getHorario().equals(" | 16:30-18:30 | ")) {
-            modificar.getCb_4().setSelected(true);
-        }
+                if (List_abg.get(i).getHorario().equals(" | 9:00-13:00 | ")) {
+                    modificar.getCb_1().setSelected(true);
+                }
+                if (List_abg.get(i).getHorario().equals(" | 13:00-15:00 | ")) {
+                    modificar.getCb_2().setSelected(true);
+                }
+                if (List_abg.get(i).getHorario().equals(" | 15:00-16:30 | ")) {
+                    modificar.getCb_3().setSelected(true);
+                }
+                if (List_abg.get(i).getHorario().equals(" | 16:30-18:30 | ")) {
+                    modificar.getCb_4().setSelected(true);
+                }
 
-        //MAS DE DOS OPCIONES
-        if (List_abg.get(select).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 | ")) {
-            modificar.getCb_1().setSelected(true);
-            modificar.getCb_2().setSelected(true);
-        }
-        if (List_abg.get(select).getHorario().equals(" | 9:00-13:00 |  | 15:00-16:30 | ")) {
-            modificar.getCb_1().setSelected(true);
-            modificar.getCb_3().setSelected(true);
-        }
-        if (List_abg.get(select).getHorario().equals(" | 9:00-13:00 |  | 16:30-18:30 | ")) {
-            modificar.getCb_1().setSelected(true);
-            modificar.getCb_4().setSelected(true);
-        }
+                //MAS DE DOS OPCIONES
+                if (List_abg.get(i).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 | ")) {
+                    modificar.getCb_1().setSelected(true);
+                    modificar.getCb_2().setSelected(true);
+                }
+                if (List_abg.get(i).getHorario().equals(" | 9:00-13:00 |  | 15:00-16:30 | ")) {
+                    modificar.getCb_1().setSelected(true);
+                    modificar.getCb_3().setSelected(true);
+                }
+                if (List_abg.get(i).getHorario().equals(" | 9:00-13:00 |  | 16:30-18:30 | ")) {
+                    modificar.getCb_1().setSelected(true);
+                    modificar.getCb_4().setSelected(true);
+                }
 
-        if (List_abg.get(select).getHorario().equals(" | 13:00-15:00 |  | 15:00-16:30 | ")) {
-            modificar.getCb_2().setSelected(true);
-            modificar.getCb_3().setSelected(true);
-        }
-        if (List_abg.get(select).getHorario().equals(" | 15:00-16:30 |  | 16:30-18:30 | ")) {
-            modificar.getCb_3().setSelected(true);
-            modificar.getCb_4().setSelected(true);
-        }
-        if (List_abg.get(select).getHorario().equals(" | 13:00-15:00 |  | 16:30-18:30 | ")) {
-            modificar.getCb_2().setSelected(true);
-            modificar.getCb_4().setSelected(true);
-        }
+                if (List_abg.get(i).getHorario().equals(" | 13:00-15:00 |  | 15:00-16:30 | ")) {
+                    modificar.getCb_2().setSelected(true);
+                    modificar.getCb_3().setSelected(true);
+                }
+                if (List_abg.get(i).getHorario().equals(" | 15:00-16:30 |  | 16:30-18:30 | ")) {
+                    modificar.getCb_3().setSelected(true);
+                    modificar.getCb_4().setSelected(true);
+                }
+                if (List_abg.get(i).getHorario().equals(" | 13:00-15:00 |  | 16:30-18:30 | ")) {
+                    modificar.getCb_2().setSelected(true);
+                    modificar.getCb_4().setSelected(true);
+                }
 
-        if (List_abg.get(select).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 |  | 15:00-16:30 | ")) {
-            modificar.getCb_1().setSelected(true);
-            modificar.getCb_2().setSelected(true);
-            modificar.getCb_3().setSelected(true);
-        }
-        if (List_abg.get(select).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 |  | 16:30-18:30 | ")) {
-            modificar.getCb_1().setSelected(true);
-            modificar.getCb_2().setSelected(true);
-            modificar.getCb_4().setSelected(true);
-        }
-        if (List_abg.get(select).getHorario().equals(" | 13:00-15:00 |  | 15:00-16:30 |  | 16:30-18:30 | ")) {
-            modificar.getCb_2().setSelected(true);
-            modificar.getCb_3().setSelected(true);
-            modificar.getCb_4().setSelected(true);
-        }
-        if (List_abg.get(select).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 |  | 15:00-16:30 |  | 16:30-18:30 | ")) {
-            modificar.getCb_1().setSelected(true);
-            modificar.getCb_2().setSelected(true);
-            modificar.getCb_3().setSelected(true);
-            modificar.getCb_4().setSelected(true);
-        }
+                if (List_abg.get(i).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 |  | 15:00-16:30 | ")) {
+                    modificar.getCb_1().setSelected(true);
+                    modificar.getCb_2().setSelected(true);
+                    modificar.getCb_3().setSelected(true);
+                }
+                if (List_abg.get(i).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 |  | 16:30-18:30 | ")) {
+                    modificar.getCb_1().setSelected(true);
+                    modificar.getCb_2().setSelected(true);
+                    modificar.getCb_4().setSelected(true);
+                }
+                if (List_abg.get(i).getHorario().equals(" | 13:00-15:00 |  | 15:00-16:30 |  | 16:30-18:30 | ")) {
+                    modificar.getCb_2().setSelected(true);
+                    modificar.getCb_3().setSelected(true);
+                    modificar.getCb_4().setSelected(true);
+                }
+                if (List_abg.get(i).getHorario().equals(" | 9:00-13:00 |  | 13:00-15:00 |  | 15:00-16:30 |  | 16:30-18:30 | ")) {
+                    modificar.getCb_1().setSelected(true);
+                    modificar.getCb_2().setSelected(true);
+                    modificar.getCb_3().setSelected(true);
+                    modificar.getCb_4().setSelected(true);
+                }
 
-        try {
-            byte[] bi = List_abg.get(select).getFoto();
-            BufferedImage image = null;
-            InputStream in = new ByteArrayInputStream(bi);
-            image = ImageIO.read(in);
-            ImageIcon imgi = new ImageIcon(image.getScaledInstance(modificar.getLa_foto().getWidth(), modificar.getLa_foto().getHeight(), img.SCALE_DEFAULT));
-            modificar.getLa_foto().setIcon(imgi);
+                try {
+                    byte[] bi = List_abg.get(i).getFoto();
+                    BufferedImage image = null;
+                    InputStream in = new ByteArrayInputStream(bi);
+                    image = ImageIO.read(in);
+                    ImageIcon imgi = new ImageIcon(image.getScaledInstance(modificar.getLa_foto().getWidth(), modificar.getLa_foto().getHeight(), img.SCALE_DEFAULT));
+                    modificar.getLa_foto().setIcon(imgi);
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
         }
-
         modificar.getBtn_elimina().setEnabled(true);
         modificar.getBtn_modificar().setEnabled(true);
         modificar.getBtn_imagen().setEnabled(false);
@@ -672,7 +686,7 @@ public class C_Modificar_Abogado {
         List<Buf_Persona> List_pers = P_DB.Getter();
 
         for (int i = 0; i < List_pers.size(); i++) {
-            if (List_pers.get(i).getCorreo().equalsIgnoreCase(modificar.getTxt_correo().getText())) {
+            if (List_pers.get(i).getCorreo().equalsIgnoreCase(modificar.getTxt_correo().getText()) && !List_pers.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
                 return false;
             }
         }

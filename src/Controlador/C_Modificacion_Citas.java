@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import Modelo.Buf_Caso;
+import Modelo.Buf_CasoDB;
 import Modelo.Buf_Cita;
 import Modelo.Buf_CitaDB;
 import Modelo.Buf_Consulta;
@@ -29,6 +31,8 @@ public class C_Modificacion_Citas {
     Buf_CitaDB C_DB = new Buf_CitaDB();
     Buf_ConsultaDB Co_DB = new Buf_ConsultaDB();
     Buf_Cita C = new Buf_Cita();
+    Buf_Caso Ca = new Buf_Caso();
+    Buf_CasoDB Ca_DB = new Buf_CasoDB();
 
     public C_Modificacion_Citas(V_Modificacion_Citas modificacion) {
 
@@ -170,9 +174,12 @@ public class C_Modificacion_Citas {
 
     }
 
+    String id_caso;
+
     public void Cancelar_Cita() {
 
         List<Buf_Cita> List_cita = C_DB.Getter();
+        List<Buf_Caso> List_caso = Ca_DB.Getter();
 
         for (int i = 0; i < List_cita.size(); i++) {
             if (List_cita.get(i).getCedula().equals(modificacion.getTxt_cedula().getText())) {
@@ -182,9 +189,17 @@ public class C_Modificacion_Citas {
                         C.setId_cita(Integer.parseInt(modificacion.getTxt_id().getText()));
 
                         if (C_DB.Delete(C)) {
-
+                            i = List_cita.size();
                             JOptionPane.showMessageDialog(null, "Cita Cancelada");
+                            for (int k = 0; k < List_caso.size(); k++) {
+                                if (List_caso.get(k).getId_caso() == Integer.parseInt(id_caso)) {
 
+                                    Ca.setId_caso(Integer.parseInt(id_caso));
+                                    if (Ca_DB.Delete(Ca)) {
+                                        k = List_caso.size();
+                                    }
+                                }
+                            }
                             Regresar();
                         } else {
 
@@ -209,7 +224,7 @@ public class C_Modificacion_Citas {
 
         if (List_consult.isEmpty()) {
             for (int i = 0; i < List_cita.size(); i++) {
-                if (List_cita.get(i).getHora().equalsIgnoreCase(hora)) {
+                if (List_cita.get(i).getHora().equalsIgnoreCase(hora) && List_consult.get(i).getId_consulta() != Integer.parseInt(modificacion.getTxt_id().getText())) {
                     return false;
                 }
             }
@@ -218,7 +233,7 @@ public class C_Modificacion_Citas {
 
         for (int i = 0; i < List_consult.size(); i++) {
             for (int j = 0; j < List_cita.size(); j++) {
-                if (List_consult.get(i).getHora().equalsIgnoreCase(hora) || List_cita.get(j).getHora().equalsIgnoreCase(hora)) {
+                if ((List_consult.get(i).getHora().equalsIgnoreCase(hora) || List_cita.get(j).getHora().equalsIgnoreCase(hora)) && List_consult.get(i).getId_consulta() != Integer.parseInt(modificacion.getTxt_id().getText())) {
                     return false;
                 }
             }

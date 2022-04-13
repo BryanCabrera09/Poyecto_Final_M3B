@@ -372,23 +372,13 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_visualizacion">
-          <Properties>
-            <Property name="toolTipText" type="java.lang.String" value="Consulta"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="280" y="0" width="80" height="60"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JButton" name="btn_VisualizarCaso">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Ver Caso"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="370" y="0" width="80" height="60"/>
+              <AbsoluteConstraints x="280" y="0" width="80" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -398,7 +388,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="460" y="0" width="80" height="60"/>
+              <AbsoluteConstraints x="370" y="0" width="80" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -417,7 +407,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="550" y="0" width="90" height="60"/>
+              <AbsoluteConstraints x="460" y="0" width="90" height="60"/>
             </Constraint>
           </Constraints>
         </Component>

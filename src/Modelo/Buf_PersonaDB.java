@@ -208,7 +208,7 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT P.Ci, P.Nombre, P.Apellido, P.Correo, P.Direccion, P.Num_Celular, P.Estado, P.Fecha_Nacimiento FROM Buf_Persona P JOIN Buf_Abogados A ON P.Ci = A.Ci_Abg WHERE ci LIKE '%" + Identificador + "%'";
+        String sql = "SELECT P.Ci, P.Nombre, P.Apellido, P.Correo, P.Direccion, P.Num_Celular, P.Estado, P.Fecha_Nacimiento FROM Buf_Persona P JOIN Buf_Abogados A ON P.Ci = A.Ci_Abg WHERE ci LIKE '" + Identificador + "%'";
 
         List<Buf_Persona> Lista_Per = new ArrayList<>();
 
@@ -251,7 +251,7 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT P.Ci, P.Nombre, P.Apellido, P.Correo, P.Direccion, P.Num_Celular, P.Estado, P.Fecha_Nacimiento FROM Buf_Persona P JOIN Buf_Secretarias S ON P.Ci = S.Ci_Secre WHERE ci LIKE '%" + Identificador + "%'";
+        String sql = "SELECT P.Ci, P.Nombre, P.Apellido, P.Correo, P.Direccion, P.Num_Celular, P.Estado, P.Fecha_Nacimiento FROM Buf_Persona P JOIN Buf_Secretarias S ON P.Ci = S.Ci_Secre WHERE ci LIKE '" + Identificador + "%'";
 
         List<Buf_Persona> Lista_Per = new ArrayList<>();
 
@@ -423,7 +423,7 @@ public class Buf_PersonaDB implements Buf_PersonaDAO {
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT P.Ci, P.Nombre, P.Apellido, P.Correo, P.Direccion, P.Num_Celular, P.Estado, P.Fecha_Nacimiento FROM Buf_Persona P JOIN Buf_Clientes C ON P.Ci = C.ci WHERE P.ci LIKE '%" + Identificador + "%'";
+        String sql = "SELECT P.Ci, P.Nombre, P.Apellido, P.Correo, P.Direccion, P.Num_Celular, P.Estado, P.Fecha_Nacimiento FROM Buf_Persona P JOIN Buf_Clientes C ON P.Ci = C.ci WHERE P.ci LIKE '" + Identificador + "%'";
 
         List<Buf_Persona> Lista_Per = new ArrayList<>();
 

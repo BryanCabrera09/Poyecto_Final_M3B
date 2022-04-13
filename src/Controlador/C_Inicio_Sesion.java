@@ -128,7 +128,7 @@ public class C_Inicio_Sesion {
                 Campos();
                 V_Menu_Inicio inicio = new V_Menu_Inicio();
                 C_Menu_Inicio iniciar = new C_Menu_Inicio(inicio);
-                iniciar.Iniciar();
+                iniciar.Iniciar_Control();
                 inicio.setVisible(true);
                 sesion.setVisible(false);
 

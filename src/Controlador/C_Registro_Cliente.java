@@ -219,6 +219,17 @@ public class C_Registro_Cliente {
         }
     }
 
+    public String upperCaseFirst(String val) {
+
+        System.out.println(val);
+        StringBuffer strbf = new StringBuffer();
+        Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(val);
+        while (match.find()) {
+            match.appendReplacement(strbf, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+        }
+        return match.appendTail(strbf).toString();
+    }
+
     public void Subir_Datos() {
 
         String estado = (String) registro.getCb_estado().getSelectedItem();
@@ -231,8 +242,8 @@ public class C_Registro_Cliente {
         }
 
         P.setCedula(registro.getTxt_cedula().getText());
-        P.setNombre(registro.getTxt_nombre().getText());
-        P.setApellido(registro.getTxt_apellido().getText());
+        P.setNombre(upperCaseFirst(registro.getTxt_nombre().getText()));
+        P.setApellido(upperCaseFirst(registro.getTxt_apellido().getText()));
         P.setCorreo(registro.getTxt_correo().getText());
         P.setDireccion(registro.getTxt_direccion().getText());
         P.setNum_celular(registro.getTxt_celular().getText());
@@ -242,7 +253,7 @@ public class C_Registro_Cliente {
         C.setId_cliente(Id_Generator());
         C.setCedula(registro.getTxt_cedula().getText());
         C.setId_abg(Integer.parseInt(registro.getTxt_id_abg().getText()));
-        C.setOcupacion(registro.getTxt_ocupacion().getText());
+        C.setOcupacion(upperCaseFirst(registro.getTxt_ocupacion().getText()));
 
         if (P_DB.Register(P)) {
 

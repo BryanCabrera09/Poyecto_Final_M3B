@@ -5,193 +5,200 @@
  */
 package controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Modelo.Buf_Caso;
+import Modelo.Buf_CasoDB;
+import Modelo.Buf_CitaDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.List;
 import javax.swing.JOptionPane;
 import vista.V_Caso;
 import vista.V_Menu_Inicio;
-import vista.RequisitoDivorcio;
-import vista.RequisitosEstadosUnidos;
-import vista.RequisitosEuropa;
-import vista.RequisitosLoteria;
-import vista.RequisitosPensionesAlimenticias;
-import vista.RequisitosPerdon;
-import vista.RequisitosPeticion;
-import vista.RequisitosRenovacionPasaporte;
-import vista.RequisitosReporteConsular;
-import vista.RequisitosRetornanteInmigrante;
-import vista.RequisitosVisaMexico;
+import vista.V_Requisitos_Divorcio;
+import vista.V_Requisitos_PensionesAlimenticias;
+import vista.V_Requisitos_Perdon;
+import vista.V_Requisitos_Peticion;
+import vista.V_Requisitos_RenovacionPasaporte;
+import vista.V_Requisitos_ReporteConsular;
+import vista.V_Requisitos_RetornanteInmigrante;
+import vista.V_Requisitos_Visa_EEUU;
+import vista.V_Requisitos_Visa_Europa;
+import vista.V_Requisitos_Visa_Loteria;
+import vista.V_Requisitos_Visa_Mexico;
 
 /*
  * @author BRYAN_CABRERA
  */
-public class C_Caso implements ActionListener, KeyListener {
+public class C_Caso {
 
     V_Caso caso;
+    V_Menu_Inicio inicio;
+    Buf_CasoDB Ca_DB = new Buf_CasoDB();
+    Buf_CitaDB C_DB = new Buf_CitaDB();
 
-    public C_Caso(Caso caso) {
+    public C_Caso(V_Caso caso) {
+
         this.caso = caso;
-        this.caso.btn_buscar.addActionListener(this);
-        this.caso.comboCaso.addActionListener(this);
-        this.caso.txtCedula.addKeyListener(this);
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        if (evt.getSource() == caso.btn_buscar) {
-            System.out.println(caso.comboCaso.getItemCount() + "dddd");
-            caso.comboCaso.removeAllItems();
-//        for (int i = 0; i < comboCaso.getItemCount(); i++) {
-//            comboCaso.removeItemAt(i);
-//        }
-//        for (int i = comboCaso.getItemCount() - 1; i >= 0; i--) {
-//            comboCaso.removeItemAt(i);
-//        }
-//        if (comboCaso.getItemCount() > 0) {
-//            comboCaso.removeAllItems();
-//            comboCaso.removeActionListener(comboCaso);
-//            
-//        }
-            int a = 0;
-            int p = 0;
-            int b = 0;
-            for (int i = 0; i < Lista_ClienteCaso.size(); i++) {
-                if (Lista_ClienteCaso.get(i).getCedula().equals(caso.txtCedula.getText())) {
-                    caso.comboCaso.addItem(Lista_ClienteCaso.get(i).getCaso());
-                    p = 1;
-                    b = 1;
-                } else {
-                    a = 1;
-                }
-            }
-            if (a == 1 && p == 0) {
-                JOptionPane.showMessageDialog(null, "ESTA CEDULA NO EXISTE EN EL REGISTRO", "", 3);
-            }
+    public void Iniciar_Control() {
 
-//        if (b == 1) {
-//            combo();
-//        }
-        }
-        if (evt.getSource() == caso.comboCaso) {
-            caso.btn_buscar.setEnabled(false);
-            System.out.println(caso.comboCaso.getSelectedItem().toString());
-            caso.comboCaso.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if (caso.comboCaso.getSelectedItem().toString().equals("Divorcio")) {
-                        RequisitoDivorcio rq = new RequisitoDivorcio(caso.txtCedula.getText(), caso.comboCaso.getSelectedItem().toString());
-                        C_Requisitos_Divorcio divorcio = new C_Requisitos_Divorcio(rq);
-                        MenuInicio.escritorio.add(rq);
-                        rq.toFront();
-                        rq.setVisible(true);
-                        Cerrar();
-                    } else if (caso.comboCaso.getSelectedItem().toString().equals("Pensiones Alimenticias")) {
-                        RequisitosPensionesAlimenticias ra = new RequisitosPensionesAlimenticias(caso.txtCedula.getText(), caso.comboCaso.getSelectedItem().toString());
-                        C_Requisitos_PensionesAlimenticias alimenticias = new C_Requisitos_PensionesAlimenticias(ra);
-                        MenuInicio.escritorio.add(ra);
-                        ra.toFront();
-                        ra.setVisible(true);
-                        Cerrar();
-                    } else if (caso.comboCaso.getSelectedItem().toString().equals("Peticion Familiar")) {
-                        RequisitosPeticion rp = new RequisitosPeticion(caso.txtCedula.getText(), caso.comboCaso.getSelectedItem().toString());
-                        C_Requistos_Peticion peticion = new C_Requistos_Peticion(rp);
-                        MenuInicio.escritorio.add(rp);
-                        rp.toFront();
-                        rp.setVisible(true);
-                        Cerrar();
-                    } else if (caso.comboCaso.getSelectedItem().toString().equals("Perdon-EEUU")) {
-                        RequisitosPerdon rp1 = new RequisitosPerdon(caso.txtCedula.getText(), caso.comboCaso.getSelectedItem().toString());
-                        C_Requisitos_Perdon perdon = new C_Requisitos_Perdon(rp1);
-                        MenuInicio.escritorio.add(rp1);
-                        rp1.toFront();
-                        rp1.setVisible(true);
-                        Cerrar();
-                    } else if (caso.comboCaso.getSelectedItem().toString().equals("Visa EEUU")) {
-                        RequisitosEstadosUnidos re = new RequisitosEstadosUnidos(caso.txtCedula.getText(), caso.comboCaso.getSelectedItem().toString());
-                        C_Requisitos_Visa_EEUU reu = new C_Requisitos_Visa_EEUU(re);
-                        MenuInicio.escritorio.add(re);
-                        re.toFront();
-                        re.setVisible(true);
-                        Cerrar();
-                    } else if (caso.comboCaso.getSelectedItem().toString().equals("Visa Europa")) {
-                        RequisitosEuropa re1 = new RequisitosEuropa(caso.txtCedula.getText(), caso.comboCaso.getSelectedItem().toString());
-                        C_Requisitos_Visa_Europa re = new C_Requisitos_Visa_Europa(re1);
-                        MenuInicio.escritorio.add(re1);
-                        re1.toFront();
-                        re1.setVisible(true);
-                        Cerrar();
-                    } else if (caso.comboCaso.getSelectedItem().toString().equals("Loteria EEUU")) {
-                        RequisitosLoteria rl = new RequisitosLoteria(caso.txtCedula.getText(), caso.comboCaso.getSelectedItem().toString());
-                        C_Requisitos_Visa_Loteria loteria = new C_Requisitos_Visa_Loteria(rl);
-                        MenuInicio.escritorio.add(rl);
-                        rl.toFront();
-                        rl.setVisible(true);
-                        Cerrar();
-                    } else if (caso.comboCaso.getSelectedItem().toString().equals("Visa Mexico")) {
-                        //RequisitosVisaMexico rm = new RequisitosVisaMexico();
-                        RequisitosVisaMexico rm = new RequisitosVisaMexico(caso.txtCedula.getText(), caso.comboCaso.getSelectedItem().toString());
-                        C_Requisitos_Visa_Mexico mexico =new C_Requisitos_Visa_Mexico(rm);
-                        MenuInicio.escritorio.add(rm);
-                        rm.toFront();
-                        rm.setVisible(true);
-                        Cerrar();
-                    } else if (caso.comboCaso.getSelectedItem().toString().equals("Renovacion Pasaporte Americano")) {
-                        RequisitosRenovacionPasaporte rrp = new RequisitosRenovacionPasaporte(caso.txtCedula.getText(), caso.comboCaso.getSelectedItem().toString());
-                        C_Requisitos_RenovacionPasaporte renovacion = new C_Requisitos_RenovacionPasaporte(rrp);
-                        MenuInicio.escritorio.add(rrp);
-                        rrp.toFront();
-                        rrp.setVisible(true);
-                        Cerrar();
-                    } else if (caso.comboCaso.getSelectedItem().toString().equals("Retornante Inmigrante")) {
-                        RequisitosRetornanteInmigrante rri = new RequisitosRetornanteInmigrante(caso.txtCedula.getText(), caso.comboCaso.getSelectedItem().toString());
-                        C_Requisitos_RetornanteInmigrante inmigrante = new C_Requisitos_RetornanteInmigrante(rri);
-                        MenuInicio.escritorio.add(rri);
-                        rri.toFront();
-                        rri.setVisible(true);
-                        Cerrar();
-                    } else if (caso.comboCaso.getSelectedItem().toString().equals("Reporte Consular")) {
-                        RequisitosReporteConsular rrc = new RequisitosReporteConsular(caso.txtCedula.getText(), caso.comboCaso.getSelectedItem().toString());
-                        C_Requisitos_ReporteConsular consular = new C_Requisitos_ReporteConsular(rrc);
-                        MenuInicio.escritorio.add(rrc);
-                        rrc.toFront();
-                        rrc.setVisible(true);
-                        Cerrar();
+        //EVENTS KEYS
+        KeyListener K = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent evt) {
+                if (evt.getSource() == caso.getTxt_cedula()) {
+                    char c = evt.getKeyChar();
+
+                    if (c >= '0' && c <= '9' && caso.getTxt_cedula().getText().length() <= 9) {
+
+                    } else {
+                        evt.consume();
                     }
                 }
 
-            });
-        }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent evt) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent evt) {
+
+            }
+        };
+        caso.getTxt_cedula().addKeyListener(K);
+
+        //ACTION BUTTON
+        caso.getBtn_buscar().addActionListener(l -> {
+            Buscar();
+        });
+        caso.getCb_caso().addActionListener(l -> {
+            Campo();
+            Caso_Requisitos();
+        });
     }
 
-    @Override
-    public void keyTyped(KeyEvent evt) {
-        if (evt.getSource() == caso.txtCedula) {
-            char c = evt.getKeyChar();
+    public boolean Buscar_Caso() {
 
-            if (c >= '0' && c <= '9' && caso.txtCedula.getText().length() <= 9) {
+        List<Buf_Caso> List_caso = Ca_DB.Getter();
 
-            } else {
-                evt.consume();
+        for (int i = 0; i < List_caso.size(); i++) {
+            if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                return true;
             }
         }
-
+        return false;
     }
 
-    @Override
-    public void keyPressed(KeyEvent evt) {
+    public void Campo() {
 
+        if (caso.getTxt_cedula().getText().isEmpty()) {
+
+            caso.getBtn_buscar().setEnabled(false);
+        }
+        if (!caso.getTxt_cedula().getText().isEmpty()) {
+
+            caso.getBtn_buscar().setEnabled(false);
+        }
     }
 
-    @Override
-    public void keyReleased(KeyEvent evt) {
+    public void Buscar() {
 
+        List<Buf_Caso> List_caso = Ca_DB.Getter();
+
+        caso.getCb_caso().removeAllItems();
+
+        if (Buscar_Caso() == true) {
+
+            caso.getCb_caso().addItem("Seleccionar");
+            for (int i = 0; i < List_caso.size(); i++) {
+                caso.getCb_caso().addItem(List_caso.get(i).getCaso());
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(null, "No Registra Casos", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
     }
 
-    public void Cerrar() {
-        caso.dispose();
-    }
+    public void Caso_Requisitos() {
 
-    
+        if (caso.getCb_caso().getSelectedItem().toString().equals("Divorcio")) {
+            V_Requisitos_Divorcio rq = new V_Requisitos_Divorcio();
+            C_Requisitos_Divorcio divorcio = new C_Requisitos_Divorcio(rq);
+            inicio.escritorio.add(rq);
+            rq.show();
+            List<Buf_Caso> List_caso = Ca_DB.Getter();
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                    rq.getTxt_cedula().setText(caso.getTxt_cedula().getText());
+                    rq.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                }
+            }
+            divorcio.Iniciar_Control();
+        } else if (caso.getCb_caso().getSelectedItem().toString().equals("Pensiones Alimenticias")) {
+            V_Requisitos_PensionesAlimenticias ra = new V_Requisitos_PensionesAlimenticias(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            C_Requisitos_PensionesAlimenticias alimenticias = new C_Requisitos_PensionesAlimenticias(ra);
+            inicio.escritorio.add(ra);
+            ra.show();
+            alimenticias.Iniciar_Control();
+        } else if (caso.getCb_caso().getSelectedItem().toString().equals("Peticion Familiar")) {
+            V_Requisitos_Peticion rp = new V_Requisitos_Peticion(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            C_Requistos_Peticion peticion = new C_Requistos_Peticion(rp);
+            inicio.escritorio.add(rp);
+            rp.show();
+            peticion.Iniciar_Control();
+        } else if (caso.getCb_caso().getSelectedItem().toString().equals("Perdon-EEUU")) {
+            V_Requisitos_Perdon rp1 = new V_Requisitos_Perdon(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            C_Requisitos_Perdon perdon = new C_Requisitos_Perdon(rp1);
+            inicio.escritorio.add(rp1);
+            rp1.show();
+            perdon.Iniciar_Control();
+        } else if (caso.getCb_caso().getSelectedItem().toString().equals("Visa EEUU")) {
+            V_Requisitos_Visa_EEUU re = new V_Requisitos_Visa_EEUU(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            C_Requisitos_Visa_EEUU reu = new C_Requisitos_Visa_EEUU(re);
+            inicio.escritorio.add(re);
+            re.show();
+            reu.Iniciar_Control();
+        } else if (caso.getCb_caso().getSelectedItem().toString().equals("Visa Europa")) {
+            V_Requisitos_Visa_Europa re1 = new V_Requisitos_Visa_Europa(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            C_Requisitos_Visa_Europa re = new C_Requisitos_Visa_Europa(re1);
+            inicio.escritorio.add(re1);
+            re1.show();
+            re.Iniciar_Control();
+        } else if (caso.getCb_caso().getSelectedItem().toString().equals("Loteria EEUU")) {
+            V_Requisitos_Visa_Loteria rl = new V_Requisitos_Visa_Loteria(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            C_Requisitos_Visa_Loteria loteria = new C_Requisitos_Visa_Loteria(rl);
+            inicio.escritorio.add(rl);
+            rl.show();
+            loteria.Iniciar_Control();
+        } else if (caso.getCb_caso().getSelectedItem().toString().equals("Visa Mexico")) {
+            V_Requisitos_Visa_Mexico rm = new V_Requisitos_Visa_Mexico(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            C_Requisitos_Visa_Mexico mexico = new C_Requisitos_Visa_Mexico(rm);
+            inicio.escritorio.add(rm);
+            rm.show();
+            mexico.Iniciar_Control();
+        } else if (caso.getCb_caso().getSelectedItem().toString().equals("Renovacion Pasaporte Americano")) {
+            V_Requisitos_RenovacionPasaporte rrp = new V_Requisitos_RenovacionPasaporte(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            C_Requisitos_RenovacionPasaporte renovacion = new C_Requisitos_RenovacionPasaporte(rrp);
+            inicio.escritorio.add(rrp);
+            rrp.show();
+            renovacion.Iniciar_Control();
+        } else if (caso.getCb_caso().getSelectedItem().toString().equals("Retornante Inmigrante")) {
+            V_Requisitos_RetornanteInmigrante rri = new V_Requisitos_RetornanteInmigrante(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            C_Requisitos_RetornanteInmigrante inmigrante = new C_Requisitos_RetornanteInmigrante(rri);
+            inicio.escritorio.add(rri);
+            rri.show();
+            inmigrante.Iniciar_Control();
+        } else if (caso.getCb_caso().getSelectedItem().toString().equals("Reporte Consular")) {
+            V_Requisitos_ReporteConsular rrc = new V_Requisitos_ReporteConsular(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            C_Requisitos_ReporteConsular consular = new C_Requisitos_ReporteConsular(rrc);
+            inicio.escritorio.add(rrc);
+            rrc.show();
+            consular.Iniciar_Control();
+        }
+    }
 }

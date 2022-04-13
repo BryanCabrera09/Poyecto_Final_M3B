@@ -163,14 +163,6 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         this.btn_horario = btn_horario;
     }
 
-    public JButton getBtn_visualizacion() {
-        return btn_visualizacion;
-    }
-
-    public void setBtn_visualizacion(JButton btn_visualizacion) {
-        this.btn_visualizacion = btn_visualizacion;
-    }
-
     public JMenu getCasosJudiciales() {
         return casosJudiciales;
     }
@@ -351,7 +343,6 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btn_horario = new javax.swing.JButton();
         btn_citas = new javax.swing.JButton();
-        btn_visualizacion = new javax.swing.JButton();
         btn_VisualizarCaso = new javax.swing.JButton();
         btn_RegistroClienteCaso = new javax.swing.JButton();
         btn_Inicio = new javax.swing.JButton();
@@ -399,20 +390,17 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
         btn_citas.setToolTipText("Cita");
         jPanel1.add(btn_citas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 80, 60));
 
-        btn_visualizacion.setToolTipText("Consulta");
-        jPanel1.add(btn_visualizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 80, 60));
-
         btn_VisualizarCaso.setToolTipText("Ver Caso");
-        jPanel1.add(btn_VisualizarCaso, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 80, 60));
+        jPanel1.add(btn_VisualizarCaso, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 80, 60));
 
         btn_RegistroClienteCaso.setToolTipText("Registro Cliente-Caso");
-        jPanel1.add(btn_RegistroClienteCaso, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 80, 60));
+        jPanel1.add(btn_RegistroClienteCaso, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 80, 60));
 
         btn_Inicio.setText("INICIO");
         btn_Inicio.setMaximumSize(new java.awt.Dimension(30, 16));
         btn_Inicio.setMinimumSize(new java.awt.Dimension(30, 16));
         btn_Inicio.setPreferredSize(new java.awt.Dimension(60, 16));
-        jPanel1.add(btn_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 90, 60));
+        jPanel1.add(btn_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 90, 60));
 
         btn_consultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Consulta.png"))); // NOI18N
         btn_consultas.setToolTipText("Cita");
@@ -623,7 +611,6 @@ public class V_Menu_Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btn_citas;
     private javax.swing.JButton btn_consultas;
     private javax.swing.JButton btn_horario;
-    private javax.swing.JButton btn_visualizacion;
     private javax.swing.JMenu casosJudiciales;
     private javax.swing.JMenu citasConsultas;
     public static javax.swing.JDesktopPane escritorio;

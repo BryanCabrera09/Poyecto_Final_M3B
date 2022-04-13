@@ -105,7 +105,7 @@ public class V_Caso extends javax.swing.JInternalFrame {
 
         jPanel1.add(cb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 193, -1));
 
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Buscar.png"))); // NOI18N
         btn_buscar.setText("BUSCAR");
         jPanel1.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
 

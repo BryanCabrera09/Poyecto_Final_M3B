@@ -201,7 +201,7 @@ public class Buf_CitaDB implements Buf_CitaDAO {
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM Buf_Citas WHERE ci LIKE '%" + Identificador + "%'";
+        String sql = "SELECT * FROM Buf_Citas WHERE ci LIKE '" + Identificador + "%'";
 
         List<Buf_Cita> Lista_cita = new ArrayList<>();
 

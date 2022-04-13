@@ -1,4 +1,3 @@
-
 package Modelo;
 
 import java.sql.Connection;
@@ -9,7 +8,7 @@ import javax.swing.JOptionPane;
  * @author BRYAN_CABRERA
  */
 public class DB_Connect {
-    
+
     public static Connection Connect() {
 
         Connection con = null;
@@ -20,8 +19,6 @@ public class DB_Connect {
             con = (Connection) DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "BRYAN", "0150269900");
 
             if (con != null) {
-
-                System.out.println("CONEXION CREADA");
             }
         } catch (Exception e) {
 
@@ -30,5 +27,5 @@ public class DB_Connect {
         }
         return con;
     }
-    
+
 }

@@ -200,7 +200,7 @@ public class Buf_AbogadoDB implements Buf_AbogadoDAO {
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM Buf_Abogados WHERE ci_abg LIKE '%" + Identificador + "%'";
+        String sql = "SELECT * FROM Buf_Abogados WHERE ci_abg LIKE '" + Identificador + "%'";
 
         List<Buf_Abogado> Lista_Abg = new ArrayList<>();
 

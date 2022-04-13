@@ -107,7 +107,7 @@ public class Buf_Caso_DivorcioDB implements Buf_Caso_DivorcioDAO {
 
         } catch (SQLException e) {
 
-            Logger.getLogger(Buf_CitaDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Buf_Caso_DivorcioDB.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }

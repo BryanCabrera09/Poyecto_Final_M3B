@@ -648,6 +648,17 @@ public class C_Registro_Secretaria {
         }
     }
 
+    public String upperCaseFirst(String val) {
+
+        System.out.println(val);
+        StringBuffer strbf = new StringBuffer();
+        Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(val);
+        while (match.find()) {
+            match.appendReplacement(strbf, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+        }
+        return match.appendTail(strbf).toString();
+    }
+
     public void Subir_Datos() {
 
         String horario = "";
@@ -678,8 +689,8 @@ public class C_Registro_Secretaria {
         }
 
         P.setCedula(registro.getTxt_cedula().getText());
-        P.setNombre(registro.getTxt_nombre().getText());
-        P.setApellido(registro.getTxt_apellido().getText());
+        P.setNombre(upperCaseFirst(registro.getTxt_nombre().getText()));
+        P.setApellido(upperCaseFirst(registro.getTxt_apellido().getText()));
         P.setCorreo(registro.getTxt_correo().getText());
         P.setDireccion(registro.getTxt_direccion().getText());
         P.setNum_celular(registro.getTxt_celular().getText());

@@ -5,29 +5,60 @@
  */
 package controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
+import Modelo.Buf_AbogadoDB;
+import Modelo.Buf_Persona;
+import Modelo.Buf_Abogado;
+import Modelo.Buf_PersonaDB;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import modelo.Abogado;
-import vista.Horario;
-import static vista.RegistroAbogado.Lista_abogado;
+import vista.V_Horario;
 
 /*
  * @author BRYAN_CABRERA
  */
-public class C_Horario implements ActionListener {
+public class C_Horario {
 
-    Horario horario;
+    V_Horario horario;
     DefaultTableModel modelo;
 
-    public C_Horario(Horario horario) {
+    Buf_PersonaDB P_DB = new Buf_PersonaDB();
+    Buf_AbogadoDB A_DB = new Buf_AbogadoDB();
+
+    public C_Horario(V_Horario horario) {
+
         this.horario = horario;
-        this.horario.btnbuscar.addActionListener(this);
-        cargarDatos();
+
+        Cargar_Datos();
     }
 
-    public void cargarDatos() {
+    public void Iniciar_Control() {
+
+        KeyListener K = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getSource() == horario.getTxt_buscar()) {
+                    Buscar();
+                }
+            }
+        };
+        horario.getTxt_buscar().addKeyListener(K);
+    }
+
+    public void Cargar_Datos() {
+
+        horario.getTableabogados().getTableHeader().setResizingAllowed(false);
+        horario.getTableabogados().getTableHeader().setReorderingAllowed(false);
+
         modelo = new DefaultTableModel() {
             public boolean isceleditable(int fila, int columnas) {
                 if (columnas == 4) {
@@ -41,28 +72,62 @@ public class C_Horario implements ActionListener {
         modelo.addColumn("NOMBRE");
         modelo.addColumn("APELLIDO");
         modelo.addColumn("HORARIO");
-        for (Abogado horarioabo : Lista_abogado) {
-            Object[] fila = new Object[4];
-            fila[0] = horarioabo.getCedula();
-            fila[1] = horarioabo.getNombre();
-            fila[2] = horarioabo.getApellidos();
-            fila[3] = horarioabo.getRegistro_horario();
-            modelo.addRow(fila);
-        }
-        horario.tablaabogados.setModel(modelo);
-    }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==horario.btnbuscar) {
-            System.out.println("Entroa buscar la cedula");
-            for (int i = 0; i < Lista_abogado.size(); i++) {
-            if (horario.txtbuscar.getText().equals(Lista_abogado.get(i).getCedula())) {
-                horario.tablaabogados.setModel(modelo);
-            } else {
-                JOptionPane.showMessageDialog(null, "CEDULA NO EXISTE");
+        List<Buf_Persona> List_per = P_DB.Getter_Abg();
+        List<Buf_Abogado> List_abg = A_DB.Getter();
+
+        for (Buf_Abogado abogado : List_abg) {
+            for (Buf_Persona persona : List_per) {
+                Object[] fila = new Object[4];
+                fila[0] = persona.getCedula();
+                fila[1] = persona.getNombre();
+                fila[2] = persona.getApellido();
+                fila[3] = abogado.getHorario();
+                modelo.addRow(fila);
             }
         }
+        horario.getTableabogados().setModel(modelo);
+    }
+
+    public void Actualizar_Tabla() {
+
+        List<Buf_Persona> List_per = P_DB.Getter_Abg();
+        List<Buf_Abogado> List_abg = A_DB.Getter();
+
+        for (Buf_Abogado abogado : List_abg) {
+            for (Buf_Persona persona : List_per) {
+                Object[] fila = new Object[4];
+                fila[0] = persona.getCedula();
+                fila[1] = persona.getNombre();
+                fila[2] = persona.getApellido();
+                fila[3] = abogado.getHorario();
+                modelo.addRow(fila);
+            }
         }
+        horario.getTableabogados().setModel(modelo);
+    }
+
+    public void Buscar() {
+
+        if (horario.getTxt_buscar().getText().isEmpty()) {
+
+            Actualizar_Tabla();
+        }
+
+        modelo.setRowCount(0);
+        List<Buf_Persona> List_per = P_DB.Search_Abg(horario.getTxt_buscar().getText());
+        List<Buf_Abogado> List_abg = A_DB.Search(horario.getTxt_buscar().getText());
+
+        for (Buf_Abogado abogado : List_abg) {
+            for (Buf_Persona persona : List_per) {
+                Object[] fila = new Object[4];
+                fila[0] = persona.getCedula();
+                fila[1] = persona.getNombre();
+                fila[2] = persona.getApellido();
+                fila[3] = abogado.getHorario();
+                modelo.addRow(fila);
+            }
+        }
+        horario.getTableabogados().setModel(modelo);
     }
 }

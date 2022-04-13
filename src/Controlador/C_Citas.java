@@ -14,6 +14,7 @@ import Modelo.Buf_ConsultaDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
 import vista.V_Citas;
@@ -98,8 +99,8 @@ public class C_Citas {
         });
     }
 
-    public void Registrar(){
-    
+    public void Registrar() {
+
         citas.getBtn_guardar().setEnabled(true);
         citas.getBtn_cancelar().setEnabled(true);
         citas.getJs_hora().setEnabled(true);
@@ -107,23 +108,56 @@ public class C_Citas {
         citas.getCb_caso().setEnabled(true);
         citas.getTxa_descripcion().setEditable(true);
     }
-    
+
     public void Buscar() {
 
         List<Buf_Caso> List_caso = Ca_DB.Getter();
+        List<Buf_Cita> List_cita = C_DB.Getter();
 
         citas.getCb_caso().removeAllItems();
 
         if (Buscar_Caso() == true) {
+            if (Buscar_Cita() == true) {
+                citas.getCb_caso().addItem("Seleccionar");
 
-            citas.getCb_caso().addItem("Seleccionar");
-            for (int i = 0; i < List_caso.size(); i++) {
-                citas.getCb_caso().addItem(List_caso.get(i).getCaso());
+                for (int i = 0; i < List_caso.size(); i++) {
+                    if (!List_cita.isEmpty()) {
+                        for (int j = 0; j < List_cita.size(); j++) {
+                            if (List_cita.get(j).getNom_caso().equals(List_caso.get(i).getCaso())) {
+                            } else {
+                                citas.getCb_caso().addItem(List_caso.get(i).getCaso());
+                            }
+                        }
+                    } else {
+                        citas.getCb_caso().addItem(List_caso.get(i).getCaso());
+                    }
+                }
+                Buscar_Datos();
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Ya registra una cita pendiente", "Aviso", JOptionPane.ERROR_MESSAGE);
             }
-            Buscar_Datos();
         } else {
 
             JOptionPane.showMessageDialog(null, "No Registra Casos", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    public boolean Buscar_Cita() {
+
+        List<Buf_Cita> List_cita = C_DB.Getter();
+
+        String caso = (String) citas.getCb_caso().getSelectedItem();
+
+        if (!List_cita.isEmpty()) {
+            for (int i = 0; i < List_cita.size(); i++) {
+                if (List_cita.get(i).getCedula().equals(citas.getTxt_cedula().getText()) && !List_cita.get(i).getNom_caso().equalsIgnoreCase(caso) && !citas.getTxt_id().getText().isEmpty()) {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -189,6 +223,15 @@ public class C_Citas {
         if (List_consult.isEmpty()) {
             for (int i = 0; i < List_cita.size(); i++) {
                 if (List_cita.get(i).getHora().equalsIgnoreCase(hora)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        if (List_cita.isEmpty()) {
+            for (int i = 0; i < List_consult.size(); i++) {
+                if (List_consult.get(i).getHora().equalsIgnoreCase(hora)) {
                     return false;
                 }
             }
@@ -368,13 +411,34 @@ public class C_Citas {
     public void Cargar_Id() {
 
         List<Buf_Caso> List_caso = Ca_DB.Getter();
+        List<Buf_Cita> List_cita = C_DB.Getter();
 
-        for (int i = 0; i < List_caso.size(); i++) {
-            if (List_caso.get(i).getCedula().equals(citas.getTxt_cedula().getText())) {
-                citas.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
-                i = List_caso.size();
-            } else {
-                citas.getTxt_id().setText("");
+        if (List_cita.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(citas.getTxt_cedula().getText())) {
+                    citas.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                    i = List_caso.size();
+                } else {
+                    citas.getTxt_id().setText("");
+                }
+            }
+        } else {
+
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(citas.getTxt_cedula().getText())) {
+                    citas.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                    for (int j = 0; j < List_cita.size(); j++) {
+                        if (!citas.getTxt_id().getText().isEmpty()) {
+                            if (List_cita.get(j).getId_caso() == Integer.parseInt(citas.getTxt_id().getText())) {
+                                citas.getTxt_id().setText("");
+                            } else {
+                                citas.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                            }
+                        }
+                    }
+                } else {
+                    citas.getTxt_id().setText("");
+                }
             }
         }
     }
@@ -407,7 +471,7 @@ public class C_Citas {
 
     public void Buscar_Datos() {
 
-        citas.getBtn_buscar().setVisible(false);
+        citas.getBtn_buscar().setEnabled(false);
         citas.getBtn_nuevo().setEnabled(true);
         citas.getBtn_cancelar().setEnabled(false);
         citas.getTxt_cedula().setEditable(true);

@@ -7,7 +7,6 @@ package controlador;
 
 import Modelo.Buf_Cita;
 import Modelo.Buf_CitaDB;
-import Modelo.Buf_ClienteDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -118,11 +117,16 @@ public class C_Consulta_Citas {
             Date fecha = formato.parse(hora);
 
             CI.getTxt_cedula().setText(List_cita.get(datos).getCedula());
-            CI.getTxt_celular().setText(String.valueOf(List_cita.get(datos).getNum_celular()));
             CI.getCb_caso().addItem(List_cita.get(datos).getNom_caso());
             CI.getJs_hora().setValue(fecha);
-            CI.getTxt_id().setText(String.valueOf(List_cita.get(datos).getId_cita()));
-            CI.getTxa_descripcion().setText(List_cita.get(datos).getDescripcion());
+            for (int i = 0; i < List_cita.size(); i++) {
+                if (List_cita.get(i).getCedula().equals(CI.getTxt_cedula().getText())) {
+                    CI.getTxt_celular().setText(String.valueOf(List_cita.get(i).getNum_celular()));
+                    CI.getTxt_id().setText(String.valueOf(List_cita.get(i).getId_cita()));
+                    CI.getTxa_descripcion().setText(List_cita.get(i).getDescripcion());
+                    modificacion.id_caso = String.valueOf(List_cita.get(i).getId_caso());
+                }
+            }
             CI.getLb_celular().setVisible(false);
             modificacion.Iniciar_Control();
         } catch (Exception e) {

@@ -199,7 +199,7 @@ public class Buf_SecretariaDB implements Buf_SecretariaDAO {
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM Buf_Secretarias WHERE ci_secre LIKE '%" + Identificador + "%'";
+        String sql = "SELECT * FROM Buf_Secretarias WHERE ci_secre LIKE '" + Identificador + "%'";
 
         List<Buf_Secretaria> Lista_secre = new ArrayList<>();
 

@@ -13,6 +13,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import vista.V_Consultas;
 
@@ -145,6 +147,17 @@ public class C_Consultas {
         }
     }
 
+    public String upperCaseFirst(String val) {
+
+        System.out.println(val);
+        StringBuffer strbf = new StringBuffer();
+        Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(val);
+        while (match.find()) {
+            match.appendReplacement(strbf, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+        }
+        return match.appendTail(strbf).toString();
+    }
+
     public int Id_Generator() {
 
         List<Buf_Consulta> List_consult = C_DB.Getter();
@@ -190,6 +203,15 @@ public class C_Consultas {
             }
             return true;
         }
+        
+        if (List_consult.isEmpty()) {
+            for (int i = 0; i < List_cita.size(); i++) {
+                if (List_cita.get(i).getHora().equalsIgnoreCase(hora)) {
+                    return false;
+                }
+            }
+            return true;
+        }
 
         for (int i = 0; i < List_cita.size(); i++) {
             for (int j = 0; j < List_consult.size(); j++) {
@@ -220,8 +242,8 @@ public class C_Consultas {
         String hora = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(consultas.getJs_hora().getValue());
 
         C.setId_consulta(Id_Generator());
-        C.setNombre(consultas.getTxt_nombres().getText());
-        C.setApellido(consultas.getTxt_apellidos().getText());
+        C.setNombre(upperCaseFirst(consultas.getTxt_nombres().getText()));
+        C.setApellido(upperCaseFirst(consultas.getTxt_apellidos().getText()));
         C.setNum_celular(consultas.getTxt_celular().getText());
         C.setDescripcion(consultas.getTxa_descripcion().getText());
         C.setCaso(caso);

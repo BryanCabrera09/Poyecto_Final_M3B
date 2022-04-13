@@ -1,8 +1,6 @@
 
 package Modelo;
 
-import java.util.Date;
-
 /*
  * @author BRYAN_CABRERA
  */
@@ -11,11 +9,11 @@ public class Buf_Pagos {
     private int id_pago;
     private int id_caso;
     private String cedula;
-    private Date Fecha_Pago;
+    private String Fecha_Pago;
     private double abono;
     private double saldo;
 
-    public Buf_Pagos(int id_pago, int id_caso, String cedula, Date Fecha_Pago, double abono, double saldo) {
+    public Buf_Pagos(int id_pago, int id_caso, String cedula, String Fecha_Pago, double abono, double saldo) {
         this.id_pago = id_pago;
         this.id_caso = id_caso;
         this.cedula = cedula;
@@ -51,11 +49,11 @@ public class Buf_Pagos {
         this.cedula = cedula;
     }
 
-    public Date getFecha_Pago() {
+    public String getFecha_Pago() {
         return Fecha_Pago;
     }
 
-    public void setFecha_Pago(Date Fecha_Pago) {
+    public void setFecha_Pago(String Fecha_Pago) {
         this.Fecha_Pago = Fecha_Pago;
     }
 

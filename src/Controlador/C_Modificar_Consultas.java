@@ -13,8 +13,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
-import vista.V_Consulta_Citas;
 import vista.V_Consulta_Consultas;
 import vista.V_Menu_Inicio;
 import vista.V_Modificar_Consulta;
@@ -184,12 +185,22 @@ public class C_Modificar_Consultas {
         }
     }
 
+    public String upperCaseFirst(String val) {
+
+        StringBuffer strbf = new StringBuffer();
+        Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(val);
+        while (match.find()) {
+            match.appendReplacement(strbf, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+        }
+        return match.appendTail(strbf).toString();
+    }
+
     public void Cargar_Datos() {
 
         String hora = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(modificar.getJs_hora().getValue());
 
-        C.setNombre(modificar.getTxt_nombres().getText());
-        C.setApellido(modificar.getTxt_apellidos().getText());
+        C.setNombre(upperCaseFirst(modificar.getTxt_nombres().getText()));
+        C.setApellido(upperCaseFirst(modificar.getTxt_apellidos().getText()));
         C.setNum_celular(modificar.getTxt_celular().getText());
         C.setDescripcion(modificar.getTxa_descripcion().getText());
         C.setHora(hora);
@@ -217,7 +228,7 @@ public class C_Modificar_Consultas {
 
         if (List_cita.isEmpty()) {
             for (int i = 0; i < List_consult.size(); i++) {
-                if (List_consult.get(i).getHora().equalsIgnoreCase(hora)) {
+                if (List_consult.get(i).getHora().equalsIgnoreCase(hora) && List_consult.get(i).getId_consulta() != Integer.parseInt(modificar.getTxt_id().getText())) {
                     return false;
                 }
             }
@@ -226,7 +237,7 @@ public class C_Modificar_Consultas {
 
         for (int i = 0; i < List_cita.size(); i++) {
             for (int j = 0; j < List_consult.size(); j++) {
-                if (List_cita.get(i).getHora().equalsIgnoreCase(hora) || List_consult.get(j).getHora().equalsIgnoreCase(hora)) {
+                if ((List_cita.get(i).getHora().equalsIgnoreCase(hora) || List_consult.get(j).getHora().equalsIgnoreCase(hora)) && List_consult.get(i).getId_consulta() != Integer.parseInt(modificar.getTxt_id().getText())) {
                     return false;
                 }
             }

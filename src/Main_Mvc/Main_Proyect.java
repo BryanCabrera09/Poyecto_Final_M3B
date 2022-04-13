@@ -9,6 +9,7 @@ import Modelo.Buf_Usuarios;
 import Modelo.Buf_UsuariosDB;
 import controlador.C_Inicio_Sesion;
 import controlador.C_Menu_Inicio;
+import java.util.List;
 import vista.V_Inicio_Sesion;
 import vista.V_Menu_Inicio;
 
@@ -23,14 +24,16 @@ public class Main_Proyect {
         Buf_UsuariosDB userDB = new Buf_UsuariosDB();
         Buf_Usuarios U = new Buf_Usuarios();
 
-        C_Inicio_Sesion ctrlI = new C_Inicio_Sesion(inicio_Sesion, userDB, U);
+        List<Buf_Usuarios> List_user = userDB.Getter();
 
-        ctrlI.Iniciar_Control();
+        if (List_user.isEmpty()) {
+            V_Menu_Inicio inicio = new V_Menu_Inicio();
+            C_Menu_Inicio ctrlInicio = new C_Menu_Inicio(inicio);
+            ctrlInicio.Iniciar_Control();
+        } else {
+            C_Inicio_Sesion ctrlI = new C_Inicio_Sesion(inicio_Sesion, userDB, U);
 
-
-//        V_Menu_Inicio inicio = new V_Menu_Inicio();
-//        C_Menu_Inicio ctrlInicio = new C_Menu_Inicio(inicio);
-//        ctrlInicio.Iniciar();
-
+            ctrlI.Iniciar_Control();
+        }
     }
 }

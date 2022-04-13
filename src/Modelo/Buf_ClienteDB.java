@@ -196,7 +196,7 @@ public class Buf_ClienteDB implements Buf_ClienteDAO {
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM Buf_Clientes WHERE ci LIKE '%" + Identificador + "%'";
+        String sql = "SELECT * FROM Buf_Clientes WHERE ci LIKE '" + Identificador + "%'";
 
         List<Buf_Cliente> Lista_cli = new ArrayList<>();
 

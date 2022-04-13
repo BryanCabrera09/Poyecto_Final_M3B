@@ -207,7 +207,7 @@ public class Buf_ConsultaDB implements Buf_ConsultaDAO {
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM Buf_Consultas WHERE apellido LIKE '%" + Identificador + "%'";
+        String sql = "SELECT * FROM Buf_Consultas WHERE apellido LIKE Initcap('%" + Identificador + "%')";
 
         List<Buf_Consulta> Lista_consulta = new ArrayList<>();
 

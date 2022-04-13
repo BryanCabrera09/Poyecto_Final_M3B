@@ -5,6 +5,10 @@
  */
 package controlador;
 
+import Modelo.Buf_Caso;
+import Modelo.Buf_CasoDB;
+import Modelo.Buf_Cita;
+import Modelo.Buf_CitaDB;
 import Modelo.Buf_Cliente;
 import Modelo.Buf_ClienteDB;
 import Modelo.Buf_Persona;
@@ -30,7 +34,13 @@ public class C_Modificar_Cliente {
     Buf_Cliente C = new Buf_Cliente();
     Buf_ClienteDB C_DB = new Buf_ClienteDB();
     Buf_Persona P = new Buf_Persona();
+    Buf_Cita Ci = new Buf_Cita();
     Buf_PersonaDB P_DB = new Buf_PersonaDB();
+    Buf_CitaDB Ci_DB = new Buf_CitaDB();
+    Buf_Caso Ca = new Buf_Caso();
+    Buf_CasoDB Ca_DB = new Buf_CasoDB();
+
+    String id_caso;
 
     private DefaultTableModel modelo;
 
@@ -209,22 +219,66 @@ public class C_Modificar_Cliente {
     public void Eliminar() {
 
         List<Buf_Cliente> List_cliente = C_DB.Getter();
+        List<Buf_Cita> list_cita = Ci_DB.Getter();
+        List<Buf_Persona> list_per = P_DB.Getter();
+        List<Buf_Caso> List_caso = Ca_DB.Getter();
 
         for (int i = 0; i < List_cliente.size(); i++) {
             if (List_cliente.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
                 int elimina = JOptionPane.showConfirmDialog(null, "ELIMINAR REGISTRO", "AVISO", JOptionPane.YES_NO_OPTION);
                 switch (elimina) {
                     case 0:
+
+                        if (!list_cita.isEmpty()) {
+                            for (int j = 0; j < list_cita.size(); j++) {
+                                if (list_cita.get(j).getCedula().equals(modificar.getTxt_cedula().getText())) {
+
+                                    Ci.setId_cita(Integer.parseInt(id_cita));
+
+                                    if (Ci_DB.Delete(Ci)) {
+
+                                        if (!List_caso.isEmpty()) {
+                                            for (int k = 0; k < List_caso.size(); k++) {
+                                                Ca.setId_caso(Integer.parseInt(id_caso));
+                                                if (List_caso.get(k).getId_caso() == Integer.parseInt(id_caso)) {
+                                                    if (Ca_DB.Delete(Ca)) {
+
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    } else {
+
+                                        JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
+                                    }
+                                }
+                            }
+                        }
+
                         C.setId_cliente(Integer.parseInt(modificar.getTxt_id().getText()));
 
                         if (C_DB.Delete(C)) {
 
-                            Nuevo();
-                            modificar.getTxt_buscar().setEditable(true);
-                            modificar.getBtn_modificar().setEnabled(false);
-                            modificar.getBtn_eliminar().setEnabled(false);
-                            Limpiar_Tabla();
-                            Actualizar_Tabla();
+                            for (int p = 0; p < list_per.size(); p++) {
+                                if (list_per.get(p).getCedula().equalsIgnoreCase(modificar.getTxt_cedula().getText())) {
+
+                                    P.setCedula(modificar.getTxt_cedula().getText());
+
+                                    Nuevo();
+                                    modificar.getTxt_buscar().setEditable(true);
+                                    modificar.getBtn_modificar().setEnabled(false);
+                                    modificar.getBtn_eliminar().setEnabled(false);
+                                    Limpiar_Tabla();
+                                    Actualizar_Tabla();
+
+                                    if (P_DB.Delete(P)) {
+
+                                    } else {
+
+                                        JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
+                                    }
+                                }
+                            }
 
                             JOptionPane.showMessageDialog(null, "Eliminacion Completada");
                         } else {
@@ -271,19 +325,29 @@ public class C_Modificar_Cliente {
         }
     }
 
+    public String upperCaseFirst(String val) {
+
+        StringBuffer strbf = new StringBuffer();
+        Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(val);
+        while (match.find()) {
+            match.appendReplacement(strbf, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+        }
+        return match.appendTail(strbf).toString();
+    }
+
     public void Subir_Datos() {
 
         String estado = (String) modificar.getCb_estado().getSelectedItem();
 
-        P.setNombre(modificar.getTxt_nombre().getText());
-        P.setApellido(modificar.getTxt_apellido().getText());
+        P.setNombre(upperCaseFirst(modificar.getTxt_nombre().getText()));
+        P.setApellido(upperCaseFirst(modificar.getTxt_apellido().getText()));
         P.setCorreo(modificar.getTxt_correo().getText());
         P.setDireccion(modificar.getTxt_direccion().getText());
         P.setNum_celular(modificar.getTxt_celular().getText());
         P.setEstado_civil(estado);
         P.setCedula(modificar.getTxt_cedula().getText());
 
-        C.setOcupacion(modificar.getTxt_ocupacion().getText());
+        C.setOcupacion(upperCaseFirst(modificar.getTxt_ocupacion().getText()));
         C.setId_cliente(Integer.parseInt(modificar.getTxt_id().getText()));
 
         if (P_DB.Update(P)) {
@@ -373,17 +437,19 @@ public class C_Modificar_Cliente {
         modificar.getTablepersona().setModel(modelo);
     }
 
+    String id_cita;
+
     public void Cargar_Table() {
 
         List<Buf_Cliente> List_cliente = C_DB.Getter();
         List<Buf_Persona> List_per = P_DB.Getter_Cliente();
+        List<Buf_Cita> list_cita = Ci_DB.Getter();
 
         int select = modificar.getTablepersona().getSelectedRow();
 
         if (select != -1) {
 
             modificar.getTxt_buscar().setEditable(true);
-
             modificar.getTxt_cedula().setText(List_per.get(select).getCedula());
             modificar.getTxt_nombre().setText(List_per.get(select).getNombre());
             modificar.getTxt_apellido().setText(List_per.get(select).getApellido());
@@ -392,9 +458,24 @@ public class C_Modificar_Cliente {
             modificar.getTxt_celular().setText(List_per.get(select).getNum_celular());
             modificar.getCb_estado().setSelectedItem(List_per.get(select).getEstado_civil());
             modificar.getNacimeinto().setText(List_per.get(select).getFecha_Nacimiento());
-
-            modificar.getTxt_ocupacion().setText(List_cliente.get(select).getOcupacion());
-            modificar.getTxt_id().setText(String.valueOf(List_cliente.get(select).getId_cliente()));
+            if (list_cita.isEmpty()) {
+                for (int i = 0; i < List_cliente.size(); i++) {
+                    if (List_cliente.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                        modificar.getTxt_ocupacion().setText(List_cliente.get(i).getOcupacion());
+                        modificar.getTxt_id().setText(String.valueOf(List_cliente.get(i).getId_cliente()));
+                    }
+                }
+            }
+            for (int j = 0; j < list_cita.size(); j++) {
+                for (int i = 0; i < List_cliente.size(); i++) {
+                    if (List_cliente.get(i).getCedula().equals(modificar.getTxt_cedula().getText()) && list_cita.get(j).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                        modificar.getTxt_ocupacion().setText(List_cliente.get(i).getOcupacion());
+                        modificar.getTxt_id().setText(String.valueOf(List_cliente.get(i).getId_cliente()));
+                        id_cita = String.valueOf(list_cita.get(j).getId_cita());
+                        id_caso = String.valueOf(list_cita.get(j).getId_caso());
+                    }
+                }
+            }
         }
         modificar.getBtn_modificar().setEnabled(true);
         modificar.getBtn_eliminar().setEnabled(true);
@@ -612,7 +693,7 @@ public class C_Modificar_Cliente {
         List<Buf_Persona> List_pers = P_DB.Getter();
 
         for (int i = 0; i < List_pers.size(); i++) {
-            if (List_pers.get(i).getCorreo().equalsIgnoreCase(modificar.getTxt_correo().getText())) {
+            if (List_pers.get(i).getCorreo().equalsIgnoreCase(modificar.getTxt_correo().getText()) && !List_pers.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
                 return false;
             }
         }

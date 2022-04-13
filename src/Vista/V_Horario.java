@@ -24,22 +24,11 @@ public class V_Horario extends javax.swing.JInternalFrame {
     public V_Horario() {
 
         initComponents();
-
-        tableabogados.getTableHeader().setResizingAllowed(false);
-        tableabogados.getTableHeader().setReorderingAllowed(false);
         x = "x";
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
         setLocation(a / 2, b / 5);
 
-    }
-
-    public JButton getBtn_buscar() {
-        return btn_buscar;
-    }
-
-    public void setBtn_buscar(JButton btn_buscar) {
-        this.btn_buscar = btn_buscar;
     }
 
     public JLabel getjLabel2() {
@@ -97,7 +86,6 @@ public class V_Horario extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableabogados = new javax.swing.JTable();
         txt_buscar = new javax.swing.JTextField();
-        btn_buscar = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("HORARIO");
@@ -122,7 +110,7 @@ public class V_Horario extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("CEDULA:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 60, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 60, 30));
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel3.setText("HORARIOS");
@@ -142,11 +130,7 @@ public class V_Horario extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tableabogados);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, 205));
-        jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 171, 30));
-
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
-        btn_buscar.setText("BUSCAR");
-        jPanel1.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, -1));
+        jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 220, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,7 +152,6 @@ public class V_Horario extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_buscar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

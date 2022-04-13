@@ -10,6 +10,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -151,6 +152,22 @@ public class V_Requisitos_Divorcio extends javax.swing.JInternalFrame {
         this.txa_observ = txa_observ;
     }
 
+    public JTextField getTxt_cedula() {
+        return txt_cedula;
+    }
+
+    public void setTxt_cedula(JTextField txt_cedula) {
+        this.txt_cedula = txt_cedula;
+    }
+
+    public JTextField getTxt_id() {
+        return txt_id;
+    }
+
+    public void setTxt_id(JTextField txt_id) {
+        this.txt_id = txt_id;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -176,6 +193,8 @@ public class V_Requisitos_Divorcio extends javax.swing.JInternalFrame {
         btn_guardar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
         btn_pago = new javax.swing.JButton();
+        txt_cedula = new javax.swing.JTextField();
+        txt_id = new javax.swing.JTextField();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -245,17 +264,19 @@ public class V_Requisitos_Divorcio extends javax.swing.JInternalFrame {
         honorarios.setText("HONORARIOS: CONSENSUAL - 250  ");
         jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 200, 20));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
         jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, 90, 40));
 
-        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
         jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 100, 40));
 
-        btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
+        btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
         jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 70, 40));
+        jPanel2.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 140, 30));
+        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -294,5 +315,7 @@ public class V_Requisitos_Divorcio extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox req_5;
     private javax.swing.JCheckBox req_6;
     private javax.swing.JTextArea txa_observ;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 }

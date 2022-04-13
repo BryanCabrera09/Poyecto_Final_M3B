@@ -11,17 +11,10 @@ CREATE TABLE Buf_Admin_User (
 );
 
 SELECT
-    P.Ci,
-    P.Nombre,
-    P.Apellido,
-    P.Correo,
-    P.Direccion,
-    P.Num_Celular,
-    P.Estado,
-    P.Fecha_Nacimiento
+    A.Horario
 FROM
-         Buf_Persona P
-    JOIN Buf_Clientes C ON P.Ci = C.Ci;
+         Buf_Abogados A
+    JOIN Buf_Persona P ON P.Ci = A.Ci_Abg;
 /*
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 TABLA PERSONAS
@@ -189,9 +182,9 @@ CREATE TABLE Buf_Caso_Divorcio (
     Req_6       BLOB,
     Honorarios  DECIMAL,
     Observacion VARCHAR2(50),
-    CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )
-        REFERENCES Buf_Cliente ( Ci ),
-    CONSTRAINT Fk_Cita_Caso FOREIGN KEY ( Id_Caso )
+    CONSTRAINT Fk_Req_Cliente FOREIGN KEY ( Cedula )
+        REFERENCES Buf_Clientes ( Ci ),
+    CONSTRAINT Fk_Req_Caso FOREIGN KEY ( Id_Caso )
         REFERENCES Buf_Caso ( Id_Caso )
 );
 
@@ -467,7 +460,7 @@ CREATE TABLE Buf_Pagos (
     Id_Pago    NUMBER(7) NOT NULL,
     Id_Caso    NUMBER(5) NOT NULL,
     Cedula     VARCHAR2(10) NOT NULL,
-    Fecha_Pago DATE NOT NULL,
+    Fecha_Pago VARCHAR2(20)NOT NULL,
     Abono      DECIMAL NOT NULL,
     Saldo      DECIMAL NOT NULL,
     CONSTRAINT Fk_Cita_Cliente FOREIGN KEY ( Cedula )

@@ -86,7 +86,7 @@
         <Component class="javax.swing.JButton" name="btn_buscar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Buscar.png"/>
+              <Image iconType="3" name="/Iconos/Buscar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="BUSCAR"/>
           </Properties>
