@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="BUF_CONSULTAS" directorySegmentName="seg_0" id="90B596C2-D5FF-6736-F34F-F23830300504">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:12 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<schemaObject>2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>7142AC2C-C5B6-8DF7-B4D4-972F590682B8</segment>
+<tableSpace>0FA289B9-C11B-FAE7-18D2-DC82DB36A077</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CELULAR" id="441C273F-5537-6691-B18B-AF6FCA56E935">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="APELLIDO" id="6C37C7DD-1161-F8D3-BA12-860722117D64">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_CONSULTA" id="85CCA183-F6A8-D2F3-D726-2A1FF4D83AD1">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DESCRIPCION" id="9A42CC70-363B-9793-C305-48B5021555A3">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CASO" id="B3D6E0FA-4AF1-0306-03E6-B464024D5C52">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HORA" id="C9D4BF99-EEF2-05A1-DEDE-408221DA0E26">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOMBRE" id="D4AA4137-4F13-09ED-C4A6-67F1757C4FAF">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="BUF_CONSULTAS_PK" id="EA5BE9F7-78CC-F3D2-F388-DC151A7DB27A">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:19 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<schemaObject>2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A</schemaObject>
+<segment>0A79BB6B-6FF0-19DA-8C2C-E1A795318ABA</segment>
+<tableSpace>0FA289B9-C11B-FAE7-18D2-DC82DB36A077</tableSpace>
+<indexSegment>0A79BB6B-6FF0-19DA-8C2C-E1A795318ABA</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

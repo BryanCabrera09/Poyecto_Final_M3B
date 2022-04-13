@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DDE4D57F-ABE6-2F78-C886-3D228745DC2D" containerWithKeyObject="65C696B7-EA89-5D2E-3108-F4EA28DE5303" localFKIndex="0053DC8B-FC6A-8064-D003-82B65BDC2D07" name="FK_VISA_CLIENT">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BRYAN</sourceObjSchema>
+<sourceObjName>FK_VISA_CLIENT</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<referredTableLongName>BRYAN.BUF_CLIENTES</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2B5E1F90-0C19-DAD6-E9F4-10849BE12429</referredTableID>
+<keyObject>228D6654-109D-9FAA-CC3D-218E0B8FEE43</keyObject>
+<referredKeyID>228D6654-109D-9FAA-CC3D-218E0B8FEE43</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>CI</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

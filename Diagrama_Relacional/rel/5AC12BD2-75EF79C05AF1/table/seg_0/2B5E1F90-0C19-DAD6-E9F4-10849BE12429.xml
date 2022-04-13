@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2B5E1F90-0C19-DAD6-E9F4-10849BE12429" schemaObject="2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A" name="BUF_CLIENTES">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BRYAN</sourceObjSchema>
+<sourceObjName>BUF_CLIENTES</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:12 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CLIENTE" id="A5AD7FEC-8B97-15E2-6F93-649B083A4272">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CLIENTES</sourceObjSchema>
+<sourceObjName>ID_CLIENTE</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CI" id="3370FFBD-C394-4FD8-E181-9FD6EF594958">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CLIENTES</sourceObjSchema>
+<sourceObjName>CI</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8B801FD1-5002-81A2-6C72-C4C1D3F04824" referredColumn="0BBB0F4A-B72C-B57A-DBDC-17FA1C3FB356"/>
+</associations>
+</Column>
+<Column name="ID_ABG" id="B5AD7221-37AD-E1EF-45C8-7D30158E1003">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CLIENTES</sourceObjSchema>
+<sourceObjName>ID_ABG</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="51A098A7-0BFA-D9FF-D317-C8ABD73C91C9" referredColumn="0ED7BDE1-6ABE-4CF2-3024-103D0998D038"/>
+</associations>
+</Column>
+<Column name="OCUPACION" id="95D3A58D-79A0-DA77-F906-CFF03BA7F3BB">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CLIENTES</sourceObjSchema>
+<sourceObjName>OCUPACION</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="228D6654-109D-9FAA-CC3D-218E0B8FEE43" schemaObject="2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A" name="BUF_CLIENTES_PK">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BRYAN</sourceObjSchema>
+<sourceObjName>SYS_C009014</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:18 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3370FFBD-C394-4FD8-E181-9FD6EF594958"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B51A7764-AAD9-F007-E091-53B5A273DB1A" name="FK_ABG_CLIENTES">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B5AD7221-37AD-E1EF-45C8-7D30158E1003"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0813DCE7-6028-2901-D32E-A418DF5F5591" name="FK_PERS_CLIENTES">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3370FFBD-C394-4FD8-E181-9FD6EF594958"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4EC675BC-C928-8E8F-B6C0-B62696642BAA" schemaObject="2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A" name="BUF_CASO">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BRYAN</sourceObjSchema>
+<sourceObjName>BUF_CASO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:12 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CASO" id="D9E8A69E-CBCF-E20D-30B4-E6A15C125991">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO</sourceObjSchema>
+<sourceObjName>ID_CASO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CEDULA" id="B40B331A-BFDF-E3A0-FCFF-86297599EEAA">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO</sourceObjSchema>
+<sourceObjName>CEDULA</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B5A77D87-A00D-7370-8A3F-1DE90264D0E2" referredColumn="3370FFBD-C394-4FD8-E181-9FD6EF594958"/>
+</associations>
+</Column>
+<Column name="CASO" id="F10C0EAE-4EE3-B1F7-71EA-B8D733F05D7B">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO</sourceObjSchema>
+<sourceObjName>CASO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CAD1D273-7CEF-C5E8-39C3-806941D2AA51" schemaObject="2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A" name="BUF_CASO_PK">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BRYAN</sourceObjSchema>
+<sourceObjName>SYS_C009017</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:18 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D9E8A69E-CBCF-E20D-30B4-E6A15C125991"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C8DFA3A1-3747-9A12-D933-0FD975DF5649" name="FK_CASO_CLIENTE">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B40B331A-BFDF-E3A0-FCFF-86297599EEAA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

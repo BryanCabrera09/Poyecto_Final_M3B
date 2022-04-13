@@ -1,0 +1,159 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="BUF_CASO_DIVORCIO" directorySegmentName="seg_0" id="D9DFF101-2CC9-E01B-86D6-60BE8DCD0D7A">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:12 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<schemaObject>2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>7142AC2C-C5B6-8DF7-B4D4-972F590682B8</segment>
+<tableSpace>0FA289B9-C11B-FAE7-18D2-DC82DB36A077</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="REQ_6" id="3335FCD7-6D4E-BA29-C7DE-6EE2D3569380">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REQ_3" id="809CCEED-D64E-A39D-7ADF-2AACC6EDDAE0">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HONORARIOS" id="937C87C1-77B1-9246-4459-2250B33B5B7A">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="OBSERVACION" id="AEDA048A-B973-143E-60DB-8C1541DA0C59">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REQ_1" id="B9641567-1C34-A4B1-1BD4-5FE5CB37331F">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REQ_2" id="C3E47C68-8164-5040-A01E-F692779B5966">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CEDULA" id="D527C9BB-98E9-F9ED-5BA4-6A0AB1C75865">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REQ_5" id="D9298987-083C-6370-F281-6C3D83DC1C5A">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REQ_4" id="DF0849C1-A02E-4767-D0CC-FBB4E44D641C">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_CASO" id="F77DA679-001D-D33E-FDEE-87C993B21E30">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_REQ_CASO" id="44630449-0C83-DD1E-DEB8-09D02DAC1289">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_REQ_CLIENTE" id="EB669E1A-5546-19D9-EA2E-DFCAF974564A">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<lobStorages>
+<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="SYS_LOB0000081369C00003$$" id="B550AFC5-0276-B1CD-BE0C-C644A67ABB44">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:22 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<cache>NOCACHE</cache>
+<chunk>8192</chunk>
+<column>REQ_1</column>
+<compression>NO</compression>
+<duplication>KEEP_DUPLICATES</duplication>
+<logging>YES</logging>
+<tableSpace>0FA289B9-C11B-FAE7-18D2-DC82DB36A077</tableSpace>
+<lobStorageType>SECUREFILE</lobStorageType>
+</LobStorage>
+<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="SYS_LOB0000081369C00004$$" id="D0083F93-D081-D891-72AF-BFEEBCC95EBB">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:22 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<cache>NOCACHE</cache>
+<chunk>8192</chunk>
+<column>REQ_2</column>
+<compression>NO</compression>
+<duplication>KEEP_DUPLICATES</duplication>
+<logging>YES</logging>
+<tableSpace>0FA289B9-C11B-FAE7-18D2-DC82DB36A077</tableSpace>
+<lobStorageType>SECUREFILE</lobStorageType>
+</LobStorage>
+<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="SYS_LOB0000081369C00005$$" id="99DCF848-2AE4-2277-1B08-094AE5906057">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:22 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<cache>NOCACHE</cache>
+<chunk>8192</chunk>
+<column>REQ_3</column>
+<compression>NO</compression>
+<duplication>KEEP_DUPLICATES</duplication>
+<logging>YES</logging>
+<tableSpace>0FA289B9-C11B-FAE7-18D2-DC82DB36A077</tableSpace>
+<lobStorageType>SECUREFILE</lobStorageType>
+</LobStorage>
+<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="SYS_LOB0000081369C00006$$" id="450ABC09-FFA0-B601-CB09-A46441F5C859">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:22 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<cache>NOCACHE</cache>
+<chunk>8192</chunk>
+<column>REQ_4</column>
+<compression>NO</compression>
+<duplication>KEEP_DUPLICATES</duplication>
+<logging>YES</logging>
+<tableSpace>0FA289B9-C11B-FAE7-18D2-DC82DB36A077</tableSpace>
+<lobStorageType>SECUREFILE</lobStorageType>
+</LobStorage>
+<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="SYS_LOB0000081369C00007$$" id="663C3A53-E4D6-DCDE-E5C4-781463BE75B1">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:22 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<cache>NOCACHE</cache>
+<chunk>8192</chunk>
+<column>REQ_5</column>
+<compression>NO</compression>
+<duplication>KEEP_DUPLICATES</duplication>
+<logging>YES</logging>
+<tableSpace>0FA289B9-C11B-FAE7-18D2-DC82DB36A077</tableSpace>
+<lobStorageType>SECUREFILE</lobStorageType>
+</LobStorage>
+<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="SYS_LOB0000081369C00008$$" id="D0F1DD71-29D0-734A-465F-EBACD2CC48A1">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:22 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<cache>NOCACHE</cache>
+<chunk>8192</chunk>
+<column>REQ_6</column>
+<compression>NO</compression>
+<duplication>KEEP_DUPLICATES</duplication>
+<logging>YES</logging>
+<tableSpace>0FA289B9-C11B-FAE7-18D2-DC82DB36A077</tableSpace>
+<lobStorageType>SECUREFILE</lobStorageType>
+</LobStorage>
+</lobStorages>
+</TableProxyOraclev20c>

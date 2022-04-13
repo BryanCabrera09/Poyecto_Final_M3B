@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="61C69ABA-5963-849A-859A-7830673FA55F" containerWithKeyObject="42D8E582-A39A-DFB4-7C02-57B2FD600C8E" localFKIndex="DA2C9F62-BF47-3A19-CB70-FB363DF073A8" name="FK_INMIGRANTE_CASO">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BRYAN</sourceObjSchema>
+<sourceObjName>FK_INMIGRANTE_CASO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<referredTableLongName>BRYAN.BUF_CASO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>4EC675BC-C928-8E8F-B6C0-B62696642BAA</referredTableID>
+<keyObject>CAD1D273-7CEF-C5E8-39C3-806941D2AA51</keyObject>
+<referredKeyID>CAD1D273-7CEF-C5E8-39C3-806941D2AA51</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ID_CASO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

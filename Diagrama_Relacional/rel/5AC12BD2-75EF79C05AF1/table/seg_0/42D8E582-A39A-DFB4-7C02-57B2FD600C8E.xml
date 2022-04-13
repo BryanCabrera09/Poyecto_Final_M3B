@@ -1,0 +1,210 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="42D8E582-A39A-DFB4-7C02-57B2FD600C8E" schemaObject="2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A" name="BUF_CASO_RETORNANTE_INMIGRANTE">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BRYAN</sourceObjSchema>
+<sourceObjName>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:12 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CASO" id="A8C21F78-FC0D-3B3F-DA16-2ACBFDA80549">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjSchema>
+<sourceObjName>ID_CASO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="61C69ABA-5963-849A-859A-7830673FA55F" referredColumn="D9E8A69E-CBCF-E20D-30B4-E6A15C125991"/>
+</associations>
+</Column>
+<Column name="CEDULA" id="6EEF6596-F87B-2494-80B9-AC054C9A3683">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjSchema>
+<sourceObjName>CEDULA</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="834DBFAF-4706-FDAE-41BA-460D15EF27F7" referredColumn="3370FFBD-C394-4FD8-E181-9FD6EF594958"/>
+</associations>
+</Column>
+<Column name="REQ_1" id="DAC83CCB-E50C-696C-6354-294F5DBC35D6">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjSchema>
+<sourceObjName>REQ_1</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REQ_2" id="EA296AC7-7358-6624-B8AC-9613DFB154C7">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjSchema>
+<sourceObjName>REQ_2</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REQ_3" id="6595C551-23EF-36F2-0FD5-5200FD0E5E08">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjSchema>
+<sourceObjName>REQ_3</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REQ_4" id="6A016D25-8931-6C3F-17E4-D6647F91DA0F">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjSchema>
+<sourceObjName>REQ_4</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REQ_5" id="EB3A37A6-D8A8-3E0A-E34A-A48C91E30061">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjSchema>
+<sourceObjName>REQ_5</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REQ_6" id="D24C7A1B-A174-52A9-9400-A38B075F235C">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjSchema>
+<sourceObjName>REQ_6</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HONORARIOS" id="4A701F4E-FEFE-382A-D714-A5F65DC96D09">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjSchema>
+<sourceObjName>HONORARIOS</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NUM_BENEFICIARIOS" id="F3485360-8E91-B0E1-DB53-A9BDBB895350">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjSchema>
+<sourceObjName>NUM_BENEFICIARIOS</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OBSERVACION" id="AFE9393B-FE33-7F1D-0069-8655EA329F0D">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_CASO_RETORNANTE_INMIGRANTE</sourceObjSchema>
+<sourceObjName>OBSERVACION</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DA2C9F62-BF47-3A19-CB70-FB363DF073A8" name="FK_INMIGRANTE_CASO">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A8C21F78-FC0D-3B3F-DA16-2ACBFDA80549"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="89FF8AE3-09D4-E39E-60B6-C8EDC84B90F5" name="FK_RETORNANTE_CLIENTE">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6EEF6596-F87B-2494-80B9-AC054C9A3683"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

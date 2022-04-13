@@ -1,0 +1,146 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="ADD7C6CA-4A25-684D-C108-FC4F8CF897F6" schemaObject="2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A" name="BUF_PAGOS">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BRYAN</sourceObjSchema>
+<sourceObjName>BUF_PAGOS</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:12 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PAGO" id="59AAE631-F02F-0048-C14D-690B836613F5">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_PAGOS</sourceObjSchema>
+<sourceObjName>ID_PAGO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,7,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_CASO" id="AE370486-0DD3-4410-165A-5F6AFA82BA14">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_PAGOS</sourceObjSchema>
+<sourceObjName>ID_CASO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="50F60935-83C4-9684-FB81-1BC19B178018" referredColumn="D9E8A69E-CBCF-E20D-30B4-E6A15C125991"/>
+</associations>
+</Column>
+<Column name="CEDULA" id="B76BC129-3648-B7F1-BE82-5C72F22D6074">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_PAGOS</sourceObjSchema>
+<sourceObjName>CEDULA</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C765CE4C-6551-0A07-A330-20E13D5F7E59" referredColumn="3370FFBD-C394-4FD8-E181-9FD6EF594958"/>
+</associations>
+</Column>
+<Column name="FECHA_PAGO" id="DCAA4985-2622-CB12-0FB5-D057E0FC2D77">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_PAGOS</sourceObjSchema>
+<sourceObjName>FECHA_PAGO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ABONO" id="196B8B0C-99B0-6982-DCE0-E5812873A22A">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_PAGOS</sourceObjSchema>
+<sourceObjName>ABONO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SALDO" id="B37458A6-0E0E-EE4D-E7F9-029DC703BCB9">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_PAGOS</sourceObjSchema>
+<sourceObjName>SALDO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FD953623-5B88-AD22-93F1-5507B9F7880C" schemaObject="2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A" name="BUF_PAGOS_PK">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BRYAN</sourceObjSchema>
+<sourceObjName>SYS_C009053</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:18 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="59AAE631-F02F-0048-C14D-690B836613F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C6A69CDB-C814-C48D-B0F1-AA91B21A1158" name="FK_PAGO_CASO">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE370486-0DD3-4410-165A-5F6AFA82BA14"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="32FD6F20-7524-CD18-FE89-4013317FE5C4" name="FK_PAGO_CLIENTE">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B76BC129-3648-B7F1-BE82-5C72F22D6074"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,135 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CEF98A67-ABB4-AB83-19E5-5371E47273BA" schemaObject="2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A" name="BUF_ABOGADOS">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BRYAN</sourceObjSchema>
+<sourceObjName>BUF_ABOGADOS</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:12 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_ABOGADO" id="0ED7BDE1-6ABE-4CF2-3024-103D0998D038">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_ABOGADOS</sourceObjSchema>
+<sourceObjName>ID_ABOGADO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NUM_MATRICULA" id="F25082A0-7106-3FAF-DD78-91FBDB6A8965">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_ABOGADOS</sourceObjSchema>
+<sourceObjName>NUM_MATRICULA</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CI_ABG" id="2B2995DF-3BA4-F4EE-06F4-406DD38B772F">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_ABOGADOS</sourceObjSchema>
+<sourceObjName>CI_ABG</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="02F56F28-7522-438B-8016-8990C2039E60" referredColumn="0BBB0F4A-B72C-B57A-DBDC-17FA1C3FB356"/>
+</associations>
+</Column>
+<Column name="NUM_CUENTA" id="3CB6A4BA-0975-C235-FF00-0E862C67967B">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_ABOGADOS</sourceObjSchema>
+<sourceObjName>NUM_CUENTA</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HORARIO" id="F96E0B43-2668-16A6-43BE-84B437BF6425">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_ABOGADOS</sourceObjSchema>
+<sourceObjName>HORARIO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>70 BYTE</dataTypeSize>
+<ownDataTypeParameters>70 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FOTO" id="52F883B5-B43C-4D75-A07E-92C33678BB7D">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BUF_ABOGADOS</sourceObjSchema>
+<sourceObjName>FOTO</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:15 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A107B530-C775-BDCC-FE5E-2B7F3A2B7695" schemaObject="2FE87DF0-A1BA-F413-F7B3-B5CE8145B90A" name="BUF_ABOGADOS_PK">
+<sourceConnName>DB_Proyecto_Final</sourceConnName>
+<sourceObjSchema>BRYAN</sourceObjSchema>
+<sourceObjName>SYS_C008989</sourceObjName>
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:18 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0ED7BDE1-6ABE-4CF2-3024-103D0998D038"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7008211F-5ECA-64A3-9508-52B38D07AF88" name="FK_PERS_ABG">
+<createdBy>BRYAN_CABRERA</createdBy>
+<createdTime>2022-04-13 23:44:21 UTC</createdTime>
+<ownerDesignName>Diagrama_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2B2995DF-3BA4-F4EE-06F4-406DD38B772F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
