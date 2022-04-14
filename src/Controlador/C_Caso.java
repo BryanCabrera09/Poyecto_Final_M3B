@@ -140,10 +140,17 @@ public class C_Caso {
             }
             divorcio.Iniciar_Control();
         } else if (caso.getCb_caso().getSelectedItem().toString().equals("Pensiones Alimenticias")) {
-            V_Requisitos_PensionesAlimenticias ra = new V_Requisitos_PensionesAlimenticias(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            V_Requisitos_PensionesAlimenticias ra = new V_Requisitos_PensionesAlimenticias();
             C_Requisitos_PensionesAlimenticias alimenticias = new C_Requisitos_PensionesAlimenticias(ra);
             inicio.escritorio.add(ra);
             ra.show();
+            List<Buf_Caso> List_caso = Ca_DB.Getter();
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                    ra.getTxt_cedula().setText(caso.getTxt_cedula().getText());
+                    ra.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                }
+            }
             alimenticias.Iniciar_Control();
         } else if (caso.getCb_caso().getSelectedItem().toString().equals("Peticion Familiar")) {
             V_Requisitos_Peticion rp = new V_Requisitos_Peticion(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());

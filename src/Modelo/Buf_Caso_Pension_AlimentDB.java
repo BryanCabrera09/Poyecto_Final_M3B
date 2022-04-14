@@ -108,7 +108,7 @@ public class Buf_Caso_Pension_AlimentDB implements Buf_Caso_Pension_AlimentDAO{
 
         } catch (SQLException e) {
 
-            Logger.getLogger(Buf_CitaDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Buf_Caso_Pension_AlimentDB.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }

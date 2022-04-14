@@ -677,8 +677,8 @@ public class C_Requisitos_Divorcio {
             if (List_caso.get(i).getCedula().equals(divorcio.getTxt_cedula().getText())) {
                 pa.getTxt_cedula().setText(divorcio.getTxt_cedula().getText());
                 pa.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
-                for (int j = 0; j < List_caso.size(); j++) {
-                    if (List_caso.get(j).getId_caso() != Integer.parseInt(divorcio.getTxt_id().getText())) {
+                for (int j = 0; j < List_pago.size(); j++) {
+                    if (List_pago.get(j).getId_caso() != Integer.parseInt(divorcio.getTxt_id().getText())) {
                         pa.getTxt_a_pagar().setText(String.valueOf(List_caso.get(i).getHonorarios()));
                     }
                 }

@@ -8,9 +8,7 @@ package controlador;
 import Modelo.Buf_Caso_Pension_Aliment;
 import Modelo.Buf_Caso_Pension_AlimentDB;
 import Modelo.Buf_Pagos;
-import Modelo.Buf_PagosDB;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Modelo.Buf_PagosDB;  
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -25,7 +23,7 @@ import vista.V_Requisitos_PensionesAlimenticias;
 /*
  * @author BRYAN_CABRERA
  */
-public class C_Requisitos_PensionesAlimenticias implements ActionListener {
+public class C_Requisitos_PensionesAlimenticias {
 
     V_Requisitos_PensionesAlimenticias rpa;
 
@@ -679,8 +677,8 @@ public class C_Requisitos_PensionesAlimenticias implements ActionListener {
             if (List_caso.get(i).getCedula().equals(rpa.getTxt_cedula().getText())) {
                 pa.getTxt_cedula().setText(rpa.getTxt_cedula().getText());
                 pa.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
-                for (int j = 0; j < List_caso.size(); j++) {
-                    if (List_caso.get(j).getId_caso() != Integer.parseInt(rpa.getTxt_id().getText())) {
+                for (int j = 0; j < List_pago.size(); j++) {
+                    if (List_pago.get(j).getId_caso() != Integer.parseInt(rpa.getTxt_id().getText())) {
                         pa.getTxt_a_pagar().setText(String.valueOf(List_caso.get(i).getHonorarios()));
                     }
                 }
@@ -689,125 +687,4 @@ public class C_Requisitos_PensionesAlimenticias implements ActionListener {
         p.Iniciar_Control();
         rpa.setVisible(false);
     }
-    
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        if (evt.getSource() == rpa.getBtn_guardar()) {
-            JOptionPane.showMessageDialog(null, "Requisitos Guardados");
-            agregar();
-            cargarcheck();
-        }
-        if (evt.getSource() == rpa.getBtn_modificar()) {
-            modificarreq();
-            cargarcheck();
-        }
-        if (evt.getSource() == rpa.getBtn_pago()) {
-            Pago pa = new Pago(ced, ca);
-            C_Pago pago = new C_Pago(pa);
-            MenuInicio.escritorio.add(pa);
-            pa.toFront();
-            pa.setVisible(true);
-            rpa.setVisible(false);
-        }
-        if (evt.getSource() == rpa.getReq_1()) {
-
-        }
-        if (evt.getSource() == rpa.getReq_2()) {
-
-        }
-        if (evt.getSource() == rpa.getReq_3()) {
-
-        }
-        if (evt.getSource() == rpa.getReq_4()) {
-
-        }
-        if (evt.getSource() == rpa.getReq_5()) {
-
-        }
-        if (evt.getSource() == rpa.getReq_6()) {
-
-        }
-    }
-
-    public void cargarcheck() {
-        for (int i = 0; i < listapensiones.size(); i++) {
-            if (listapensiones.get(i).getCedula().equals(ced)) {
-                if (listapensiones.get(i).getRq1() == null) {
-                } else {
-                    if (listapensiones.get(i).getRq1().equals("COPIA DE CEDULA")) {
-                        rpa.getReq_1().setSelected(true);
-                    }
-                }
-                if (listapensiones.get(i).getRq2() == null) {
-                } else {
-                    if (listapensiones.get(i).getRq2().equals("COPIA DE PAPEL DE VOTACION")) {
-                        rpa.getReq_2().setSelected(true);
-                    }
-                }
-                if (listapensiones.get(i).getRq3() == null) {
-                } else {
-                    if (listapensiones.get(i).getRq3().equals("PARTIDAS DE NACIMIENTO DEL NIÑO")) {
-                        rpa.getReq_3().setSelected(true);
-                    }
-                }
-                if (listapensiones.get(i).getRq4() == null) {
-                } else {
-                    if (listapensiones.get(i).getRq4().equals("DIRECCION DEL TRABAJO Y CASA DEL DEMANDADO")) {
-                        rpa.getReq_4().setSelected(true);
-                    }
-                }
-                if (listapensiones.get(i).getRq5() == null) {
-                } else {
-                    if (listapensiones.get(i).getRq5().equals("RECIBOS Y FACTURAS DE GASTOS")) {
-                        rpa.getReq_5().setSelected(true);
-                    }
-                }
-                if (listapensiones.get(i).getRq6() == null) {
-                } else {
-                    if (listapensiones.get(i).getRq6().equals("CERTIFICADO DE CONADIS SI TIENE DISCAPACIDAD")) {
-                        rpa.getReq_6().setSelected(true);
-                    }
-                }
-                obser = listapensiones.get(i).getObservaciones();
-                rpa.observaciones.setText(obser);
-            }
-        }
-
-    }
-
-    public void modificarreq() {
-        rpa.observaciones.setEditable(true);
-        if (rpa.getReq_1().isSelected() == true) {
-            r1 = rpa.getReq_1().getText();
-        }
-        if (rpa.getReq_2().isSelected() == true) {
-            r2 = rpa.getReq_2().getText();
-        }
-        if (rpa.getReq_3().isSelected() == true) {
-            r3 = rpa.getReq_3().getText();
-        }
-        if (rpa.getReq_4().isSelected() == true) {
-            r4 = rpa.getReq_4().getText();
-        }
-        if (rpa.getReq_5().isSelected() == true) {
-            r5 = rpa.getReq_5().getText();
-        }
-        if (rpa.getReq_6().isSelected() == true) {
-            r6 = rpa.getReq_6().getText();
-        }
-
-        for (int i = 0; i < listapensiones.size(); i++) {
-            if (listapensiones.get(i).getCedula().equals(ced)) {
-                listapensiones.get(i).setRq1(r1);
-                listapensiones.get(i).setRq2(r2);
-                listapensiones.get(i).setRq3(r3);
-                listapensiones.get(i).setRq4(r4);
-                listapensiones.get(i).setRq5(r5);
-                listapensiones.get(i).setRq6(r6);
-                listapensiones.get(i).setObservaciones(rpa.observaciones.getText());
-            }
-        }
-
-    }
-
 }
