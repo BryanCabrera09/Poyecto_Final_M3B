@@ -116,7 +116,7 @@ public class Buf_Caso_Visa_LoteriaDB implements Buf_Caso_Visa_LoteriaDAO{
 
         } catch (SQLException e) {
 
-            Logger.getLogger(Buf_CitaDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Buf_Caso_Visa_LoteriaDB.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }
@@ -135,7 +135,7 @@ public class Buf_Caso_Visa_LoteriaDB implements Buf_Caso_Visa_LoteriaDAO{
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Caso_Visa_Loteria SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,req_7=?,req_8=?,req_9=?,honorarios=?,observacion=? WHERE id_caso=?";
+            String sql = "UPDATE Buf_Caso_Visa_Loteria SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,req_7=?,req_8=?,req_9=?,observacion=? WHERE id_caso=?";
             pst = con.prepareStatement(sql);
 
             pst.setBytes(1, casvislote.getReq_1());
@@ -147,9 +147,8 @@ public class Buf_Caso_Visa_LoteriaDB implements Buf_Caso_Visa_LoteriaDAO{
             pst.setBytes(7, casvislote.getReq_7());
             pst.setBytes(8, casvislote.getReq_8());
             pst.setBytes(9, casvislote.getReq_9());
-            pst.setDouble(10, casvislote.getHonorarios());
-            pst.setString(11, casvislote.getObservacion());
-            pst.setInt(12, casvislote.getId_caso());
+            pst.setString(10, casvislote.getObservacion());
+            pst.setInt(11, casvislote.getId_caso());
 
             int act_2 = pst.executeUpdate();
             Update = true;

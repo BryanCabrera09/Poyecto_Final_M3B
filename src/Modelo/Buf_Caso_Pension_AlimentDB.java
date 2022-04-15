@@ -127,7 +127,7 @@ public class Buf_Caso_Pension_AlimentDB implements Buf_Caso_Pension_AlimentDAO{
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Caso_Pension_Aliment SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,honorarios=?,observacion=? WHERE id_caso=?";
+            String sql = "UPDATE Buf_Caso_Pension_Aliment SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,observacion=? WHERE id_caso=?";
             pst = con.prepareStatement(sql);
 
             pst.setBytes(1, caspenali.getReq_1());
@@ -136,9 +136,8 @@ public class Buf_Caso_Pension_AlimentDB implements Buf_Caso_Pension_AlimentDAO{
             pst.setBytes(4, caspenali.getReq_4());
             pst.setBytes(5, caspenali.getReq_5());
             pst.setBytes(6, caspenali.getReq_6());
-            pst.setDouble(7, caspenali.getHonorarios());
-            pst.setString(8, caspenali.getObservacion());
-            pst.setInt(9, caspenali.getId_caso());
+            pst.setString(7, caspenali.getObservacion());
+            pst.setInt(8, caspenali.getId_caso());
 
             int act_2 = pst.executeUpdate();
             Update = true;

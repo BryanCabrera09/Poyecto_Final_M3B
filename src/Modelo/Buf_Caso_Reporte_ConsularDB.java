@@ -113,7 +113,7 @@ public class Buf_Caso_Reporte_ConsularDB implements Buf_Caso_Reporte_ConsularDAO
 
         } catch (SQLException e) {
 
-            Logger.getLogger(Buf_CitaDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Buf_Caso_Reporte_ConsularDB.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }
@@ -132,7 +132,7 @@ public class Buf_Caso_Reporte_ConsularDB implements Buf_Caso_Reporte_ConsularDAO
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Caso_Reporte_Consular SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,req_7=?,req_8=?,honorarios=?,observacion=? WHERE id_caso=?";
+            String sql = "UPDATE Buf_Caso_Reporte_Consular SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,req_7=?,req_8=?,observacion=? WHERE id_caso=?";
             pst = con.prepareStatement(sql);
 
             pst.setBytes(1, casrepcons.getReq_1());
@@ -143,9 +143,8 @@ public class Buf_Caso_Reporte_ConsularDB implements Buf_Caso_Reporte_ConsularDAO
             pst.setBytes(6, casrepcons.getReq_6());
             pst.setBytes(7, casrepcons.getReq_7());
             pst.setBytes(8, casrepcons.getReq_8());
-            pst.setDouble(9, casrepcons.getHonorarios());
-            pst.setString(10, casrepcons.getObservacion());
-            pst.setInt(11, casrepcons.getId_caso());
+            pst.setString(9, casrepcons.getObservacion());
+            pst.setInt(10, casrepcons.getId_caso());
 
             int act_2 = pst.executeUpdate();
             Update = true;

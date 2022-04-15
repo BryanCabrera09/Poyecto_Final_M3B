@@ -128,7 +128,7 @@ public class Buf_Caso_Retornante_InmigranteDB implements Buf_Caso_Retornante_Inm
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Caso_Retornante_Inmigrante SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,honorarios=?,observacion=? WHERE id_caso=?";
+            String sql = "UPDATE Buf_Caso_Retornante_Inmigrante SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,observacion=? WHERE id_caso=?";
             pst = con.prepareStatement(sql);
 
             pst.setBytes(1, casretinmi.getReq_1());
@@ -137,9 +137,8 @@ public class Buf_Caso_Retornante_InmigranteDB implements Buf_Caso_Retornante_Inm
             pst.setBytes(4, casretinmi.getReq_4());
             pst.setBytes(5, casretinmi.getReq_5());
             pst.setBytes(6, casretinmi.getReq_6());
-            pst.setDouble(7, casretinmi.getHonorarios());
-            pst.setString(8, casretinmi.getObservacion());
-            pst.setInt(9, casretinmi.getId_caso());
+            pst.setString(7, casretinmi.getObservacion());
+            pst.setInt(8, casretinmi.getId_caso());
 
             int act_2 = pst.executeUpdate();
             Update = true;

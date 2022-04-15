@@ -650,10 +650,7 @@ public class C_Requisitos_Divorcio {
                 }
             }
         }
-
-        int honorarios = 200;
-
-        D.setHonorarios(honorarios);
+        
         D.setObservacion(divorcio.getTxa_observ().getText());
         D.setId_caso(Integer.parseInt(divorcio.getTxt_id().getText()));
         if (D_DB.Update(D)) {

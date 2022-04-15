@@ -14,7 +14,6 @@ import Modelo.Buf_ConsultaDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
 import vista.V_Citas;

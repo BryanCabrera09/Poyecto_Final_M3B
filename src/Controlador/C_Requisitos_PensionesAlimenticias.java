@@ -650,10 +650,7 @@ public class C_Requisitos_PensionesAlimenticias {
                 }
             }
         }
-
-        int honorarios = 200;
-
-        PA.setHonorarios(honorarios);
+        
         PA.setObservacion(rpa.getTxa_observ().getText());
         PA.setId_caso(Integer.parseInt(rpa.getTxt_id().getText()));
         if (PA_DB.Update(PA)) {

@@ -283,15 +283,15 @@ public class V_Requisitos_Perdon extends javax.swing.JInternalFrame {
         req_6.setText("RECORD POLICIAL");
         jPanel1.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 140, -1));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
         jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 90, 40));
 
-        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
         jPanel1.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 100, 40));
 
-        btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
+        btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
         jPanel1.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 70, 40));
         jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 90, 30));

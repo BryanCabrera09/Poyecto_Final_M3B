@@ -115,7 +115,7 @@ public class Buf_Caso_Peticion_FamiliarDB implements Buf_Caso_Peticion_FamiliarD
 
         } catch (SQLException e) {
 
-            Logger.getLogger(Buf_CitaDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Buf_Caso_Peticion_FamiliarDB.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }
@@ -134,7 +134,7 @@ public class Buf_Caso_Peticion_FamiliarDB implements Buf_Caso_Peticion_FamiliarD
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Caso_Peticion_Familiar SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,req_7=?,req_8=?,req_9=?,honorarios=?,observacion=? WHERE id_caso=?";
+            String sql = "UPDATE Buf_Caso_Peticion_Familiar SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,req_7=?,req_8=?,req_9=?,observacion=? WHERE id_caso=?";
             pst = con.prepareStatement(sql);
 
             pst.setBytes(1, caspetfami.getReq_1());
@@ -146,9 +146,8 @@ public class Buf_Caso_Peticion_FamiliarDB implements Buf_Caso_Peticion_FamiliarD
             pst.setBytes(7, caspetfami.getReq_7());
             pst.setBytes(8, caspetfami.getReq_8());
             pst.setBytes(9, caspetfami.getReq_9());
-            pst.setDouble(10, caspetfami.getHonorarios());
-            pst.setString(11, caspetfami.getObservacion());
-            pst.setInt(12, caspetfami.getId_caso());
+            pst.setString(10, caspetfami.getObservacion());
+            pst.setInt(11, caspetfami.getId_caso());
 
             int act_2 = pst.executeUpdate();
             Update = true;

@@ -5,197 +5,710 @@
  */
 package controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Modelo.Buf_Caso_Retornante_Inmigrante;
+import Modelo.Buf_Caso_Retornante_InmigranteDB;
 import javax.swing.JOptionPane;
-import modelo.RetornanteInmigrante;
-import vista.MenuInicio;
-import vista.Pago;
-import vista.RequisitosRetornanteInmigrante;
-import static vista.RequisitosRetornanteInmigrante.listaretornante;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.List;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import Modelo.Buf_Pagos;
+import Modelo.Buf_PagosDB;
+import vista.V_Pago;
+import vista.V_Menu_Inicio;
+import vista.V_Requisitos_RetornanteInmigrante;
 
 /*
  * @author BRYAN_CABRERA
  */
-public class C_Requisitos_RetornanteInmigrante implements ActionListener {
+public class C_Requisitos_RetornanteInmigrante {
 
-    RequisitosRetornanteInmigrante inmigrante;
-    public static String ced;
-    public static String ca;
-    String r1, r2, r3, r4, r5, r6, obser;
+    V_Requisitos_RetornanteInmigrante inmigrante;
 
-    public C_Requisitos_RetornanteInmigrante(RequisitosRetornanteInmigrante inmigrante) {
+    Buf_Caso_Retornante_InmigranteDB D_DB = new Buf_Caso_Retornante_InmigranteDB();
+    Buf_Caso_Retornante_Inmigrante D = new Buf_Caso_Retornante_Inmigrante();
+    Buf_PagosDB P_DB = new Buf_PagosDB();
+
+    public File ruta;
+    public File ruta_2;
+    public File ruta_3;
+    public File ruta_4;
+    public File ruta_5;
+    public File ruta_6;
+
+    public String rutas;
+    public String rutas_2;
+    public String rutas_3;
+    public String rutas_4;
+    public String rutas_5;
+    public String rutas_6;
+
+    public C_Requisitos_RetornanteInmigrante(V_Requisitos_RetornanteInmigrante inmigrante) {
+
         this.inmigrante = inmigrante;
-        this.inmigrante.btnGuardar.addActionListener(this);
-        this.inmigrante.btnModificar.addActionListener(this);
-        this.inmigrante.btn_pago.addActionListener(this);
-        this.inmigrante.rq1.addActionListener(this);
-        this.inmigrante.rq2.addActionListener(this);
-        this.inmigrante.rq3.addActionListener(this);
-        this.inmigrante.rq4.addActionListener(this);
-        this.inmigrante.rq5.addActionListener(this);
-        this.inmigrante.rq6.addActionListener(this);
 
-        numBeneficiario();
-        cargarcheck();
+        Num_Beneficiario();
+        Campos();
+    }
+    
+     public void Iniciar_Control() {
 
+        inmigrante.getBtn_guardar().addActionListener(l -> {
+            Subir_Documento();
+        });
+        inmigrante.getBtn_modificar().addActionListener(l -> {
+            Modificar_Requisitos();
+        });
+        inmigrante.getBtn_pago().addActionListener(l -> {
+            Abrir_Pago();
+        });
+        inmigrante.getBtn_cargar().addActionListener(l -> {
+            Campo_Bloqueado();
+            Validar_Guardar_Modificar();
+            Cargar_Check();
+        });
+        inmigrante.getReq_1().addActionListener(l -> {
+            Cargar_Imagen();
+        });
+        inmigrante.getReq_2().addActionListener(l -> {
+            Cargar_Imagen_2();
+        });
+        inmigrante.getReq_3().addActionListener(l -> {
+            Cargar_Imagen_3();
+        });
+        inmigrante.getReq_4().addActionListener(l -> {
+            Cargar_Imagen_4();
+        });
+        inmigrante.getReq_5().addActionListener(l -> {
+            Cargar_Imagen_5();
+        });
+        inmigrante.getReq_6().addActionListener(l -> {
+            Cargar_Imagen_6();
+        });
     }
 
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        if (evt.getSource() == inmigrante.btnGuardar) {
-            JOptionPane.showMessageDialog(null, "Requisitos Guardados");
-            agregar();
-            cargarcheck();
-        }
-        if (evt.getSource() == inmigrante.btnModificar) {
-            modificarreq();
-            cargarcheck();
-        }
-        if (evt.getSource() == inmigrante.btn_pago) {
-            Pago pa = new Pago(ced, ca);
-            C_Pago p = new C_Pago(pa);
-            MenuInicio.escritorio.add(pa);
-            pa.toFront();
-            pa.setVisible(true);
-            inmigrante.setVisible(false);
-        }
-        if (evt.getSource() == inmigrante.rq1) {
+    public void Cargar_Imagen() {
 
-        }
-        if (evt.getSource() == inmigrante.rq2) {
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        j.setFileFilter(fil);
 
-        }
-        if (evt.getSource() == inmigrante.rq3) {
+        File ruta_carpeta = new File("");
+        j.setCurrentDirectory(ruta_carpeta);
 
-        }
-        if (evt.getSource() == inmigrante.rq4) {
+        int s = j.showOpenDialog(j);
 
+        if (!ruta_carpeta.exists()) {
+            inmigrante.getReq_1().setSelected(false);
         }
-        if (evt.getSource() == inmigrante.rq5) {
 
-        }
-        if (evt.getSource() == inmigrante.rq6) {
-
+        if (s == JFileChooser.APPROVE_OPTION) {
+            ruta = j.getSelectedFile();
+            rutas = String.valueOf(ruta);
+            inmigrante.getReq_1().setSelected(true);
         }
     }
 
-    public void numBeneficiario() {
-        inmigrante.comboNum.addItem("Seleccionar...");
-        inmigrante.comboNum.addItem("1");
-        inmigrante.comboNum.addItem("2");
-        inmigrante.comboNum.addItem("3");
-        inmigrante.comboNum.addItem("4");
+    public void Cargar_Imagen_2() {
+
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        j.setFileFilter(fil);
+
+        File ruta_carpeta = new File("");
+        j.setCurrentDirectory(ruta_carpeta);
+
+        int s = j.showOpenDialog(j);
+
+        if (!ruta_carpeta.exists()) {
+            inmigrante.getReq_2().setSelected(false);
+        }
+
+        if (s == JFileChooser.APPROVE_OPTION) {
+            ruta_2 = j.getSelectedFile();
+            rutas_2 = String.valueOf(ruta_2);
+            inmigrante.getReq_2().setSelected(true);
+        }
     }
 
-    public void agregar() {
+    public void Cargar_Imagen_3() {
 
-        if (inmigrante.rq1.isSelected() == true) {
-            r1 = inmigrante.rq1.getText();
-        }
-        if (inmigrante.rq2.isSelected() == true) {
-            r2 = inmigrante.rq2.getText();
-        }
-        if (inmigrante.rq3.isSelected() == true) {
-            r3 = inmigrante.rq3.getText();
-        }
-        if (inmigrante.rq4.isSelected() == true) {
-            r4 = inmigrante.rq4.getText();
-        }
-        if (inmigrante.rq5.isSelected() == true) {
-            r5 = inmigrante.rq5.getText();
-        }
-        if (inmigrante.rq6.isSelected() == true) {
-            r6 = inmigrante.rq6.getText();
-        }
-        String cantidad = (String) inmigrante.comboNum.getSelectedItem();
-        obser = inmigrante.observaciones.getText();
-        RetornanteInmigrante m = new RetornanteInmigrante(ced, r1, r2, r3, r4, r5, r6, cantidad, "", obser);
-        listaretornante.add(m);
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        j.setFileFilter(fil);
 
+        File ruta_carpeta = new File("");
+        j.setCurrentDirectory(ruta_carpeta);
+
+        int s = j.showOpenDialog(j);
+
+        if (!ruta_carpeta.exists()) {
+            inmigrante.getReq_3().setSelected(false);
+        }
+
+        if (s == JFileChooser.APPROVE_OPTION) {
+            ruta_3 = j.getSelectedFile();
+            rutas_3 = String.valueOf(ruta_3);
+            inmigrante.getReq_3().setSelected(true);
+        }
     }
 
-    public void cargarcheck() {
-        for (int i = 0; i < listaretornante.size(); i++) {
-            if (listaretornante.get(i).getCedula().equals(ced)) {
-                if (listaretornante.get(i).getRq1() == null) {
-                } else {
-                    if (listaretornante.get(i).getRq1().equals("DS - 117")) {
-                        inmigrante.rq1.setSelected(true);
-                    }
-                }
-                if (listaretornante.get(i).getRq2() == null) {
-                } else {
-                    if (listaretornante.get(i).getRq2().equals("ACTA DE NATURALIZACION")) {
-                        inmigrante.rq2.setSelected(true);
-                    }
-                }
-                if (listaretornante.get(i).getRq3() == null) {
-                } else {
-                    if (listaretornante.get(i).getRq3().equals("SOCIAL SECURITY")) {
-                        inmigrante.rq3.setSelected(true);
-                    }
-                }
-                if (listaretornante.get(i).getRq4() == null) {
-                } else {
-                    if (listaretornante.get(i).getRq4().equals("TAXES ")) {
-                        inmigrante.rq4.setSelected(true);
-                    }
-                }
-                if (listaretornante.get(i).getRq5() == null) {
-                } else {
-                    if (listaretornante.get(i).getRq5().equals("PRUEBAS QUE DEMUESTREN POR QUE ESTUVO FUERA DE LOS ESTADOS UNIDOS ")) {
-                        inmigrante.rq5.setSelected(true);
-                    }
-                }
-                if (listaretornante.get(i).getRq6() == null) {
-                } else {
-                    if (listaretornante.get(i).getRq6().equals("EVIDENCIA DE VINCULO CON LOS EEUU")) {
-                        inmigrante.rq6.setSelected(true);
-                    }
-                }
-                inmigrante.comboNum.removeAllItems();
-                inmigrante.comboNum.addItem(listaretornante.get(i).getNumpersona());
+    public void Cargar_Imagen_4() {
 
-                obser = listaretornante.get(i).getObservaciones();
-                inmigrante.observaciones.setText(obser);
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        j.setFileFilter(fil);
+
+        File ruta_carpeta = new File("");
+        j.setCurrentDirectory(ruta_carpeta);
+
+        int s = j.showOpenDialog(j);
+
+        if (!ruta_carpeta.exists()) {
+            inmigrante.getReq_4().setSelected(false);
+        }
+
+        if (s == JFileChooser.APPROVE_OPTION) {
+            ruta_4 = j.getSelectedFile();
+            rutas_4 = String.valueOf(ruta_4);
+            inmigrante.getReq_4().setSelected(true);
+        }
+    }
+
+    public void Cargar_Imagen_5() {
+
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        j.setFileFilter(fil);
+
+        File ruta_carpeta = new File("");
+        j.setCurrentDirectory(ruta_carpeta);
+
+        int s = j.showOpenDialog(j);
+
+        if (!ruta_carpeta.exists()) {
+            inmigrante.getReq_5().setSelected(false);
+        }
+
+        if (s == JFileChooser.APPROVE_OPTION) {
+            ruta_5 = j.getSelectedFile();
+            rutas_5 = String.valueOf(ruta_5);
+            inmigrante.getReq_5().setSelected(true);
+        }
+    }
+
+    public void Cargar_Imagen_6() {
+
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        j.setFileFilter(fil);
+
+        File ruta_carpeta = new File("");
+        j.setCurrentDirectory(ruta_carpeta);
+
+        int s = j.showOpenDialog(j);
+
+        if (!ruta_carpeta.exists()) {
+            inmigrante.getReq_6().setSelected(false);
+        }
+
+        if (s == JFileChooser.APPROVE_OPTION) {
+            ruta_6 = j.getSelectedFile();
+            rutas_6 = String.valueOf(ruta_6);
+            inmigrante.getReq_6().setSelected(true);
+        }
+    }
+
+    public void Num_Beneficiario() {
+
+        inmigrante.getCb_numper().addItem("Seleccionar");
+        inmigrante.getCb_numper().addItem("1");
+        inmigrante.getCb_numper().addItem("2");
+        inmigrante.getCb_numper().addItem("3");
+        inmigrante.getCb_numper().addItem("4");
+    }
+
+    public void Campo_Bloqueado() {
+
+        inmigrante.getTxt_id().setEditable(false);
+        inmigrante.getTxt_cedula().setEditable(false);
+        inmigrante.getBtn_guardar().setEnabled(true);
+        inmigrante.getBtn_modificar().setEnabled(true);
+        inmigrante.getBtn_pago().setEnabled(true);
+        inmigrante.getBtn_cargar().setEnabled(false);
+        inmigrante.getReq_1().setEnabled(true);
+        inmigrante.getReq_2().setEnabled(true);
+        inmigrante.getReq_3().setEnabled(true);
+        inmigrante.getReq_4().setEnabled(true);
+        inmigrante.getReq_5().setEnabled(true);
+        inmigrante.getReq_6().setEnabled(true);
+        inmigrante.getCb_numper().setEnabled(true);
+        inmigrante.getTxa_observ().setEnabled(true);
+    }
+
+    public void Campos() {
+
+        inmigrante.getTxt_id().setEditable(false);
+        inmigrante.getTxt_cedula().setEditable(false);
+        inmigrante.getBtn_guardar().setEnabled(false);
+        inmigrante.getBtn_modificar().setEnabled(false);
+        inmigrante.getBtn_pago().setEnabled(false);
+        inmigrante.getBtn_cargar().setEnabled(true);
+        inmigrante.getReq_1().setEnabled(false);
+        inmigrante.getReq_2().setEnabled(false);
+        inmigrante.getReq_3().setEnabled(false);
+        inmigrante.getReq_4().setEnabled(false);
+        inmigrante.getReq_5().setEnabled(false);
+        inmigrante.getReq_6().setEnabled(false);
+        inmigrante.getCb_numper().setEnabled(false);
+        inmigrante.getTxa_observ().setEnabled(false);
+    }
+
+    public void Subir_Documento() {
+
+        String num_beneficiarios = (String) inmigrante.getCb_numper().getSelectedItem();
+
+        if (!num_beneficiarios.equals("Seleccionar")) {
+            D.setId_caso(Integer.parseInt(inmigrante.getTxt_id().getText()));
+            D.setCedula(inmigrante.getTxt_cedula().getText());
+
+            //REQUISITO #1
+            if (ruta != null) {
+                File ruta = new File(rutas);
+
+                try {
+                    byte[] icono = new byte[(int) ruta.length()];
+                    InputStream input = new FileInputStream(ruta);
+                    input.read(icono);
+                    D.setReq_1(icono);
+                } catch (Exception ex) {
+                    D.setReq_1(null);
+                }
+            }
+
+            //REQUISITO #2
+            if (ruta_2 != null) {
+                File ruta_2 = new File(rutas_2);
+
+                try {
+                    byte[] icono = new byte[(int) ruta_2.length()];
+                    InputStream input = new FileInputStream(ruta_2);
+                    input.read(icono);
+                    D.setReq_2(icono);
+                } catch (Exception ex) {
+                    D.setReq_2(null);
+                }
+            }
+
+            //REQUISITO #3
+            if (ruta_3 != null) {
+                File ruta_3 = new File(rutas_3);
+
+                try {
+                    byte[] icono = new byte[(int) ruta_3.length()];
+                    InputStream input = new FileInputStream(ruta_3);
+                    input.read(icono);
+                    D.setReq_3(icono);
+                } catch (Exception ex) {
+                    D.setReq_3(null);
+                }
+            }
+
+            //REQUISITO #4
+            if (ruta_4 != null) {
+                File ruta_4 = new File(rutas_4);
+
+                try {
+                    byte[] icono = new byte[(int) ruta_4.length()];
+                    InputStream input = new FileInputStream(ruta_4);
+                    input.read(icono);
+                    D.setReq_4(icono);
+                } catch (Exception ex) {
+                    D.setReq_4(null);
+                }
+            }
+
+            //REQUISITO #5
+            if (ruta_5 != null) {
+                File ruta_5 = new File(rutas_5);
+
+                try {
+                    byte[] icono = new byte[(int) ruta_5.length()];
+                    InputStream input = new FileInputStream(ruta_5);
+                    input.read(icono);
+                    D.setReq_5(icono);
+                } catch (Exception ex) {
+                    D.setReq_5(null);
+                }
+            }
+
+            //REQUISITO #6
+            if (ruta_6 != null) {
+                File ruta_6 = new File(rutas_6);
+
+                try {
+                    byte[] icono = new byte[(int) ruta_6.length()];
+                    InputStream input = new FileInputStream(ruta_6);
+                    input.read(icono);
+                    D.setReq_6(icono);
+                } catch (Exception ex) {
+                    D.setReq_6(null);
+                }
+            }
+
+            int honorarios = 250 * Integer.parseInt(num_beneficiarios);
+            D.setHonorarios(honorarios);
+
+            D.setNum_beneficiarios(Integer.parseInt(num_beneficiarios));
+
+            D.setObservacion(inmigrante.getTxa_observ().getText());
+            if (D_DB.Register(D)) {
+
+                JOptionPane.showMessageDialog(null, "Registro Guardado");
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Elija en Numero de Beneficiarios", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    public void Cargar_Check() {
+
+        List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+        for (int i = 0; i < List_caso.size(); i++) {
+            if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                try {
+                    byte[] bi = List_caso.get(i).getReq_1();
+                    if (bi != null) {
+                        inmigrante.getReq_1().setSelected(true);
+                        D.setReq_1(bi);
+                    } else if (bi == null) {
+                        inmigrante.getReq_1().setSelected(false);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    byte[] bi = List_caso.get(i).getReq_2();
+                    if (bi != null) {
+                        inmigrante.getReq_2().setSelected(true);
+                        D.setReq_2(bi);
+                    } else if (bi == null) {
+                        inmigrante.getReq_2().setSelected(false);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    byte[] bi = List_caso.get(i).getReq_3();
+                    if (bi != null) {
+                        inmigrante.getReq_3().setSelected(true);
+                        D.setReq_3(bi);
+                    } else if (bi == null) {
+                        inmigrante.getReq_3().setSelected(false);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    byte[] bi = List_caso.get(i).getReq_4();
+                    if (bi != null) {
+                        inmigrante.getReq_4().setSelected(true);
+                        D.setReq_4(bi);
+                    } else if (bi == null) {
+                        inmigrante.getReq_4().setSelected(false);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    byte[] bi = List_caso.get(i).getReq_5();
+                    if (bi != null) {
+                        inmigrante.getReq_5().setSelected(true);
+                        D.setReq_5(bi);
+                    } else if (bi == null) {
+                        inmigrante.getReq_5().setSelected(false);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    byte[] bi = List_caso.get(i).getReq_6();
+                    if (bi != null) {
+                        inmigrante.getReq_6().setSelected(true);
+                        D.setReq_6(bi);
+                    } else if (bi == null) {
+                        inmigrante.getReq_6().setSelected(false);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                inmigrante.getCb_numper().setSelectedItem(String.valueOf(List_caso.get(i).getNum_beneficiarios()));
+                inmigrante.getTxa_observ().setText(List_caso.get(i).getObservacion());
+            }
+        }
+    }
+
+    public void Validar_Guardar_Modificar() {
+
+        List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+        for (int i = 0; i < List_caso.size(); i++) {
+            if (!List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                inmigrante.getBtn_guardar().setEnabled(true);
+                inmigrante.getBtn_modificar().setEnabled(false);
+            } else if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                inmigrante.getBtn_guardar().setEnabled(false);
+                inmigrante.getBtn_modificar().setEnabled(true);
+                inmigrante.getCb_numper().setEnabled(false);
             }
         }
 
+        if (List_caso.isEmpty()) {
+            inmigrante.getBtn_guardar().setEnabled(true);
+            inmigrante.getBtn_modificar().setEnabled(false);
+        }
     }
 
-    public void modificarreq() {
-        String cantidad = (String) inmigrante.comboNum.getSelectedItem();
-        inmigrante.observaciones.setEditable(true);
-        if (inmigrante.rq1.isSelected() == true) {
-            r1 = inmigrante.rq1.getText();
-        }
-        if (inmigrante.rq2.isSelected() == true) {
-            r2 = inmigrante.rq2.getText();
-        }
-        if (inmigrante.rq3.isSelected() == true) {
-            r3 = inmigrante.rq3.getText();
-        }
-        if (inmigrante.rq4.isSelected() == true) {
-            r4 = inmigrante.rq4.getText();
-        }
-        if (inmigrante.rq5.isSelected() == true) {
-            r5 = inmigrante.rq5.getText();
-        }
-        if (inmigrante.rq6.isSelected() == true) {
-            r6 = inmigrante.rq6.getText();
-        }
-        for (int i = 0; i < listaretornante.size(); i++) {
-            if (listaretornante.get(i).getCedula().equals(ced)) {
-                listaretornante.get(i).setRq1(r1);
-                listaretornante.get(i).setRq2(r2);
-                listaretornante.get(i).setRq3(r3);
-                listaretornante.get(i).setRq4(r4);
-                listaretornante.get(i).setRq5(r5);
-                listaretornante.get(i).setRq6(r6);
-                listaretornante.get(i).setObservaciones(inmigrante.observaciones.getText());
+    public void Modificar_Requisitos() {
+
+        //REQUISITO #1
+        if (ruta != null) {
+            File ruta = new File(rutas);
+            try {
+                byte[] icono = new byte[(int) ruta.length()];
+                InputStream input = new FileInputStream(ruta);
+                input.read(icono);
+                D.setReq_1(icono);
+            } catch (Exception ex) {
+                D.setReq_1(null);
+            }
+        } else {
+
+            List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_1();
+                        if (bi != null) {
+                            inmigrante.getReq_1().setSelected(true);
+                            D.setReq_1(bi);
+                        } else if (bi == null) {
+                            inmigrante.getReq_1().setSelected(false);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
             }
         }
 
+        //REQUISITO #2
+        if (ruta_2 != null) {
+            File ruta_2 = new File(rutas_2);
+
+            try {
+                byte[] icono = new byte[(int) ruta_2.length()];
+                InputStream input = new FileInputStream(ruta_2);
+                input.read(icono);
+                D.setReq_2(icono);
+            } catch (Exception ex) {
+                D.setReq_2(null);
+            }
+        } else {
+
+            List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_2();
+                        if (bi != null) {
+                            inmigrante.getReq_2().setSelected(true);
+                            D.setReq_2(bi);
+                        } else if (bi == null) {
+                            inmigrante.getReq_2().setSelected(false);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        //REQUISITO #3
+        if (ruta_3 != null) {
+            File ruta_3 = new File(rutas_3);
+
+            try {
+                byte[] icono = new byte[(int) ruta_3.length()];
+                InputStream input = new FileInputStream(ruta_3);
+                input.read(icono);
+                D.setReq_3(icono);
+            } catch (Exception ex) {
+                D.setReq_3(null);
+            }
+        } else {
+
+            List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_3();
+                        if (bi != null) {
+                            inmigrante.getReq_3().setSelected(true);
+                            D.setReq_3(bi);
+                        } else if (bi == null) {
+                            inmigrante.getReq_3().setSelected(false);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        //REQUISITO #4
+        if (ruta_4 != null) {
+            File ruta_4 = new File(rutas_4);
+
+            try {
+                byte[] icono = new byte[(int) ruta_4.length()];
+                InputStream input = new FileInputStream(ruta_4);
+                input.read(icono);
+                D.setReq_4(icono);
+            } catch (Exception ex) {
+                D.setReq_4(null);
+            }
+        } else {
+
+            List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_4();
+                        if (bi != null) {
+                            inmigrante.getReq_4().setSelected(true);
+                            D.setReq_4(bi);
+                        } else if (bi == null) {
+                            inmigrante.getReq_4().setSelected(false);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        //REQUISITO #5
+        if (ruta_5 != null) {
+            File ruta_5 = new File(rutas_5);
+
+            try {
+                byte[] icono = new byte[(int) ruta_5.length()];
+                InputStream input = new FileInputStream(ruta_5);
+                input.read(icono);
+                D.setReq_5(icono);
+            } catch (Exception ex) {
+                D.setReq_5(null);
+            }
+        } else {
+
+            List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_5();
+                        if (bi != null) {
+                            inmigrante.getReq_5().setSelected(true);
+                            D.setReq_5(bi);
+                        } else if (bi == null) {
+                            inmigrante.getReq_5().setSelected(false);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        //REQUISITO #6
+        if (ruta_6 != null) {
+            File ruta_6 = new File(rutas_6);
+
+            try {
+                byte[] icono = new byte[(int) ruta_6.length()];
+                InputStream input = new FileInputStream(ruta_6);
+                input.read(icono);
+                D.setReq_6(icono);
+            } catch (Exception ex) {
+                D.setReq_6(null);
+            }
+        } else {
+
+            List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_6();
+                        if (bi != null) {
+                            inmigrante.getReq_6().setSelected(true);
+                            D.setReq_6(bi);
+                        } else if (bi == null) {
+                            inmigrante.getReq_6().setSelected(false);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        D.setObservacion(inmigrante.getTxa_observ().getText());
+        D.setId_caso(Integer.parseInt(inmigrante.getTxt_id().getText()));
+        if (D_DB.Update(D)) {
+
+            JOptionPane.showMessageDialog(null, "Registro Actualizado");
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void Abrir_Pago() {
+
+        V_Pago pa = new V_Pago();
+        C_Pago p = new C_Pago(pa);
+        V_Menu_Inicio.escritorio.add(pa);
+        pa.show();
+        List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+        List<Buf_Pagos> List_pago = P_DB.Getter();
+        for (int i = 0; i < List_caso.size(); i++) {
+            if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                pa.getTxt_cedula().setText(inmigrante.getTxt_cedula().getText());
+                pa.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                if (!List_pago.isEmpty()) {
+                    for (int j = 0; j < List_pago.size(); j++) {
+                        if (List_pago.get(j).getId_caso() != Integer.parseInt(inmigrante.getTxt_id().getText())) {
+                            pa.getTxt_a_pagar().setText(String.valueOf(List_caso.get(i).getHonorarios()));
+                        }
+                    }
+                } else {
+                    pa.getTxt_a_pagar().setText(String.valueOf(List_caso.get(i).getHonorarios()));
+                }
+            }
+        }
+        p.Iniciar_Control();
+        inmigrante.setVisible(false);
     }
 }

@@ -153,58 +153,121 @@ public class C_Caso {
             }
             alimenticias.Iniciar_Control();
         } else if (caso.getCb_caso().getSelectedItem().toString().equals("Peticion Familiar")) {
-            V_Requisitos_Peticion rp = new V_Requisitos_Peticion(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            V_Requisitos_Peticion rp = new V_Requisitos_Peticion();
             C_Requistos_Peticion peticion = new C_Requistos_Peticion(rp);
             inicio.escritorio.add(rp);
             rp.show();
+            List<Buf_Caso> List_caso = Ca_DB.Getter();
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                    rp.getTxt_cedula().setText(caso.getTxt_cedula().getText());
+                    rp.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                }
+            }
             peticion.Iniciar_Control();
         } else if (caso.getCb_caso().getSelectedItem().toString().equals("Perdon-EEUU")) {
-            V_Requisitos_Perdon rp1 = new V_Requisitos_Perdon(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            V_Requisitos_Perdon rp1 = new V_Requisitos_Perdon();
             C_Requisitos_Perdon perdon = new C_Requisitos_Perdon(rp1);
             inicio.escritorio.add(rp1);
             rp1.show();
+            List<Buf_Caso> List_caso = Ca_DB.Getter();
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                    rp1.getTxt_cedula().setText(caso.getTxt_cedula().getText());
+                    rp1.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                }
+            }
             perdon.Iniciar_Control();
         } else if (caso.getCb_caso().getSelectedItem().toString().equals("Visa EEUU")) {
-            V_Requisitos_Visa_EEUU re = new V_Requisitos_Visa_EEUU(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            V_Requisitos_Visa_EEUU re = new V_Requisitos_Visa_EEUU();
             C_Requisitos_Visa_EEUU reu = new C_Requisitos_Visa_EEUU(re);
             inicio.escritorio.add(re);
             re.show();
+            List<Buf_Caso> List_caso = Ca_DB.Getter();
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                    re.getTxt_cedula().setText(caso.getTxt_cedula().getText());
+                    re.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                }
+            }
             reu.Iniciar_Control();
         } else if (caso.getCb_caso().getSelectedItem().toString().equals("Visa Europa")) {
-            V_Requisitos_Visa_Europa re1 = new V_Requisitos_Visa_Europa(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            V_Requisitos_Visa_Europa re1 = new V_Requisitos_Visa_Europa();
             C_Requisitos_Visa_Europa re = new C_Requisitos_Visa_Europa(re1);
             inicio.escritorio.add(re1);
             re1.show();
+            List<Buf_Caso> List_caso = Ca_DB.Getter();
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                    re1.getTxt_cedula().setText(caso.getTxt_cedula().getText());
+                    re1.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                }
+            }
             re.Iniciar_Control();
         } else if (caso.getCb_caso().getSelectedItem().toString().equals("Loteria EEUU")) {
-            V_Requisitos_Visa_Loteria rl = new V_Requisitos_Visa_Loteria(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            V_Requisitos_Visa_Loteria rl = new V_Requisitos_Visa_Loteria();
             C_Requisitos_Visa_Loteria loteria = new C_Requisitos_Visa_Loteria(rl);
             inicio.escritorio.add(rl);
             rl.show();
+            List<Buf_Caso> List_caso = Ca_DB.Getter();
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                    rl.getTxt_cedula().setText(caso.getTxt_cedula().getText());
+                    rl.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                }
+            }
             loteria.Iniciar_Control();
         } else if (caso.getCb_caso().getSelectedItem().toString().equals("Visa Mexico")) {
-            V_Requisitos_Visa_Mexico rm = new V_Requisitos_Visa_Mexico(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            V_Requisitos_Visa_Mexico rm = new V_Requisitos_Visa_Mexico();
             C_Requisitos_Visa_Mexico mexico = new C_Requisitos_Visa_Mexico(rm);
             inicio.escritorio.add(rm);
             rm.show();
+            List<Buf_Caso> List_caso = Ca_DB.Getter();
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                    rm.getTxt_cedula().setText(caso.getTxt_cedula().getText());
+                    rm.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                }
+            }
             mexico.Iniciar_Control();
         } else if (caso.getCb_caso().getSelectedItem().toString().equals("Renovacion Pasaporte Americano")) {
-            V_Requisitos_RenovacionPasaporte rrp = new V_Requisitos_RenovacionPasaporte(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            V_Requisitos_RenovacionPasaporte rrp = new V_Requisitos_RenovacionPasaporte();
             C_Requisitos_RenovacionPasaporte renovacion = new C_Requisitos_RenovacionPasaporte(rrp);
             inicio.escritorio.add(rrp);
             rrp.show();
+            List<Buf_Caso> List_caso = Ca_DB.Getter();
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                    rrp.getTxt_cedula().setText(caso.getTxt_cedula().getText());
+                    rrp.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                }
+            }
             renovacion.Iniciar_Control();
         } else if (caso.getCb_caso().getSelectedItem().toString().equals("Retornante Inmigrante")) {
-            V_Requisitos_RetornanteInmigrante rri = new V_Requisitos_RetornanteInmigrante(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            V_Requisitos_RetornanteInmigrante rri = new V_Requisitos_RetornanteInmigrante();
             C_Requisitos_RetornanteInmigrante inmigrante = new C_Requisitos_RetornanteInmigrante(rri);
             inicio.escritorio.add(rri);
             rri.show();
+            List<Buf_Caso> List_caso = Ca_DB.Getter();
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                    rri.getTxt_cedula().setText(caso.getTxt_cedula().getText());
+                    rri.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                }
+            }
             inmigrante.Iniciar_Control();
         } else if (caso.getCb_caso().getSelectedItem().toString().equals("Reporte Consular")) {
-            V_Requisitos_ReporteConsular rrc = new V_Requisitos_ReporteConsular(caso.getTxt_cedula().getText(), caso.getCb_caso().getSelectedItem().toString());
+            V_Requisitos_ReporteConsular rrc = new V_Requisitos_ReporteConsular();
             C_Requisitos_ReporteConsular consular = new C_Requisitos_ReporteConsular(rrc);
             inicio.escritorio.add(rrc);
             rrc.show();
+            List<Buf_Caso> List_caso = Ca_DB.Getter();
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(caso.getTxt_cedula().getText())) {
+                    rrc.getTxt_cedula().setText(caso.getTxt_cedula().getText());
+                    rrc.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
+                }
+            }
             consular.Iniciar_Control();
         }
     }

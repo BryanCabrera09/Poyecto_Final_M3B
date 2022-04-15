@@ -108,7 +108,7 @@ public class Buf_Caso_Visa_MexicoDB implements Buf_Caso_Visa_MexicoDAO{
 
         } catch (SQLException e) {
 
-            Logger.getLogger(Buf_CitaDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Buf_Caso_Visa_MexicoDB.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }
@@ -127,7 +127,7 @@ public class Buf_Caso_Visa_MexicoDB implements Buf_Caso_Visa_MexicoDAO{
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Caso_Visa_Mexico SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,honorarios=?,observacion=? WHERE id_caso=?";
+            String sql = "UPDATE Buf_Caso_Visa_Mexico SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,observacion=? WHERE id_caso=?";
             pst = con.prepareStatement(sql);
 
             pst.setBytes(1, casvisamex.getReq_1());
@@ -135,9 +135,8 @@ public class Buf_Caso_Visa_MexicoDB implements Buf_Caso_Visa_MexicoDAO{
             pst.setBytes(3, casvisamex.getReq_3());
             pst.setBytes(4, casvisamex.getReq_4());
             pst.setBytes(5, casvisamex.getReq_5());
-            pst.setDouble(6, casvisamex.getHonorarios());
-            pst.setString(7, casvisamex.getObservacion());
-            pst.setInt(8, casvisamex.getId_caso());
+            pst.setString(6, casvisamex.getObservacion());
+            pst.setInt(7, casvisamex.getId_caso());
 
             int act_2 = pst.executeUpdate();
             Update = true;

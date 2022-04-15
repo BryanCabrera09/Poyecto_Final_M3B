@@ -119,7 +119,7 @@ public class Buf_Caso_Visa_EEUUDB implements Buf_Caso_Visa_EEUUDAO {
 
         } catch (SQLException e) {
 
-            Logger.getLogger(Buf_CitaDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Buf_Caso_Visa_EEUUDB.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }
@@ -138,7 +138,7 @@ public class Buf_Caso_Visa_EEUUDB implements Buf_Caso_Visa_EEUUDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Caso_Visa_Eeuu SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,req_7=?,req_8=?,req_9=?,req_10=?,req_11=?,honorarios=?,observacion=? WHERE id_caso=?";
+            String sql = "UPDATE Buf_Caso_Visa_Eeuu SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,req_7=?,req_8=?,req_9=?,req_10=?,req_11=?,observacion=? WHERE id_caso=?";
             pst = con.prepareStatement(sql);
 
             pst.setBytes(1, casviseeuu.getReq_1());
@@ -152,9 +152,8 @@ public class Buf_Caso_Visa_EEUUDB implements Buf_Caso_Visa_EEUUDAO {
             pst.setBytes(9, casviseeuu.getReq_9());
             pst.setBytes(10, casviseeuu.getReq_10());
             pst.setBytes(11, casviseeuu.getReq_11());
-            pst.setDouble(12, casviseeuu.getHonorarios());
-            pst.setString(13, casviseeuu.getObservacion());
-            pst.setInt(14, casviseeuu.getId_caso());
+            pst.setString(12, casviseeuu.getObservacion());
+            pst.setInt(13, casviseeuu.getId_caso());
 
             int act_2 = pst.executeUpdate();
             Update = true;

@@ -315,15 +315,15 @@ public class V_Requisitos_Visa_Loteria extends javax.swing.JInternalFrame {
         honorarios.setText("HONORARIOS: 40 POR PERSONA");
         jPanel1.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 180, 20));
 
-        btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
+        btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
         jPanel1.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 70, 40));
 
-        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
         jPanel1.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 100, 40));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
         jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 530, 90, 40));
         jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 90, 30));

@@ -131,7 +131,7 @@ public class Buf_Caso_Visa_EuropaDB implements Buf_Caso_Visa_EuropaDAO {
 
         } catch (SQLException e) {
 
-            Logger.getLogger(Buf_CitaDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Buf_Caso_Visa_EuropaDB.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }
@@ -150,7 +150,7 @@ public class Buf_Caso_Visa_EuropaDB implements Buf_Caso_Visa_EuropaDAO {
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Caso_Visa_Europa SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,req_7=?,req_8=?,req_9=?,req_10=?,req_11=?,req_12=?,req_13=?,req_14=?,req_15=?,req_16=?,req_17=?,honorarios=?,observacion=? WHERE id_caso=?";
+            String sql = "UPDATE Buf_Caso_Visa_Europa SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,req_7=?,req_8=?,req_9=?,req_10=?,req_11=?,req_12=?,req_13=?,req_14=?,req_15=?,req_16=?,req_17=?,observacion=? WHERE id_caso=?";
             pst = con.prepareStatement(sql);
 
             pst.setBytes(1, casviseuro.getReq_1());
@@ -170,9 +170,8 @@ public class Buf_Caso_Visa_EuropaDB implements Buf_Caso_Visa_EuropaDAO {
             pst.setBytes(15, casviseuro.getReq_15());
             pst.setBytes(16, casviseuro.getReq_16());
             pst.setBytes(17, casviseuro.getReq_17());
-            pst.setDouble(18, casviseuro.getHonorarios());
-            pst.setString(19, casviseuro.getObservacion());
-            pst.setInt(20, casviseuro.getId_caso());
+            pst.setString(18, casviseuro.getObservacion());
+            pst.setInt(19, casviseuro.getId_caso());
 
             int act_2 = pst.executeUpdate();
             Update = true;

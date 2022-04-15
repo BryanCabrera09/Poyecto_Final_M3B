@@ -312,7 +312,7 @@
         <Component class="javax.swing.JButton" name="btn_guardar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Guardar.png"/>
+              <Image iconType="3" name="/Iconos/Guardar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="GUARDAR"/>
           </Properties>
@@ -325,7 +325,7 @@
         <Component class="javax.swing.JButton" name="btn_modificar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Modificar.png"/>
+              <Image iconType="3" name="/Iconos/Modificar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="MODIFICAR"/>
           </Properties>
@@ -338,7 +338,7 @@
         <Component class="javax.swing.JButton" name="btn_pago">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Pagar.png"/>
+              <Image iconType="3" name="/Iconos/Pagar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="PAGO"/>
           </Properties>

@@ -110,7 +110,7 @@ public class Buf_Caso_Renovacion_PasaporteDB implements Buf_Caso_Renovacion_Pasa
 
         } catch (SQLException e) {
 
-            Logger.getLogger(Buf_CitaDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Buf_Caso_Renovacion_PasaporteDB.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }
@@ -129,7 +129,7 @@ public class Buf_Caso_Renovacion_PasaporteDB implements Buf_Caso_Renovacion_Pasa
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Caso_Renovacion_Pasaporte SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,honorarios=?,observacion=? WHERE id_caso=?";
+            String sql = "UPDATE Buf_Caso_Renovacion_Pasaporte SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,observacion=? WHERE id_caso=?";
             pst = con.prepareStatement(sql);
 
             pst.setBytes(1, casrenopass.getReq_1());
@@ -138,9 +138,8 @@ public class Buf_Caso_Renovacion_PasaporteDB implements Buf_Caso_Renovacion_Pasa
             pst.setBytes(4, casrenopass.getReq_4());
             pst.setBytes(5, casrenopass.getReq_5());
             pst.setBytes(6, casrenopass.getReq_6());
-            pst.setDouble(7, casrenopass.getHonorarios());
-            pst.setString(8, casrenopass.getObservacion());
-            pst.setInt(9, casrenopass.getId_caso());
+            pst.setString(7, casrenopass.getObservacion());
+            pst.setInt(8, casrenopass.getId_caso());
 
             int act_2 = pst.executeUpdate();
             Update = true;

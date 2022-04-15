@@ -129,7 +129,7 @@ public class Buf_Caso_PerdonDB implements  Buf_Caso_PerdonDAO{
 
             con.setAutoCommit(false);
 
-            String sql = "UPDATE Buf_Caso_Perdon SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,honorarios=?,observacion=? WHERE id_caso=?";
+            String sql = "UPDATE Buf_Caso_Perdon SET req_1=?,req_2=?,req_3=?,req_4=?,req_5=?,req_6=?,observacion=? WHERE id_caso=?";
             pst = con.prepareStatement(sql);
 
             pst.setBytes(1, casper.getReq_1());
@@ -138,9 +138,8 @@ public class Buf_Caso_PerdonDB implements  Buf_Caso_PerdonDAO{
             pst.setBytes(4, casper.getReq_4());
             pst.setBytes(5, casper.getReq_5());
             pst.setBytes(6, casper.getReq_6());
-            pst.setDouble(7, casper.getHonorarios());
-            pst.setString(8, casper.getObservacion());
-            pst.setInt(9, casper.getId_caso());
+            pst.setString(7, casper.getObservacion());
+            pst.setInt(8, casper.getId_caso());
 
             int act_2 = pst.executeUpdate();
             Update = true;
