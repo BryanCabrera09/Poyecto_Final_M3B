@@ -69,7 +69,14 @@ public class C_Pago {
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
+                    if (pago.getBtn_guardar().isEnabled()) {
+                        pago.getBtn_guardar().doClick();
+                    } else if (!pago.getBtn_guardar().isEnabled()) {
+                        pago.getBtn_abono().doClick();
+                    }
+                }
             }
 
             @Override
@@ -136,11 +143,11 @@ public class C_Pago {
             pago.getTable_pago().setModel(modelo);
         }
     }
-    
-    public void Actualizar_Pagar(){
-        
+
+    public void Actualizar_Pagar() {
+
         List<Buf_Pagos> List_pago = P_DB.Getter();
-        
+
         for (int i = 0; i < List_pago.size(); i++) {
             if (List_pago.get(i).getCedula().equals(pago.getTxt_cedula().getText()) && List_pago.get(i).getId_caso() == Integer.parseInt(pago.getTxt_id().getText())) {
                 pago.getTxt_a_pagar().setText(String.valueOf(List_pago.get(i).getSaldo()));

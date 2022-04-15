@@ -116,7 +116,15 @@ public class C_Registro_Abogado {
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
+                    if (registro.getBtn_guardar().isEnabled()) {
+                        registro.getBtn_guardar().doClick();
+                    }
+                    if (!registro.getBtn_guardar().isEnabled() && registro.getBtn_nuevo().isEnabled()) {
+                        registro.getBtn_nuevo().doClick();
+                    }
+                }
             }
 
             @Override
@@ -191,6 +199,7 @@ public class C_Registro_Abogado {
         registro.getTxt_direccion().addKeyListener(K);
         registro.getTxt_cuenta().addKeyListener(K);
         registro.getCalendar().addKeyListener(K);
+        registro.getBtn_nuevo().addKeyListener(K);
 
         //DARLES FUNCION A LOS BOTONES
         registro.getBtn_cancelar().addActionListener(l -> {
@@ -283,7 +292,7 @@ public class C_Registro_Abogado {
         }
         return match.appendTail(strbf).toString();
     }
-    
+
     public void Subir_Datos() {
 
         String horario = "";
@@ -594,8 +603,10 @@ public class C_Registro_Abogado {
         List<Buf_Abogado> List_abg = A_DB.Getter();
 
         for (int i = 0; i < List_abg.size(); i++) {
-            if (List_abg.get(i).getNum_matricula() == Integer.parseInt(registro.getTxt_matricula().getText())) {
-                return false;
+            if (!registro.getTxt_matricula().getText().equals("")) {
+                if (List_abg.get(i).getNum_matricula() == Integer.parseInt(registro.getTxt_matricula().getText())) {
+                    return false;
+                }
             }
         }
         return true;

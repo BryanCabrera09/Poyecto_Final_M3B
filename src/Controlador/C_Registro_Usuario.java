@@ -66,11 +66,23 @@ public class C_Registro_Usuario {
                         evt.consume();
                     }
                 }
+                if (evt.getSource() == crearuser.getPsw_contraseña()) {
+
+                    char presionar = evt.getKeyChar();
+
+                    if (presionar == KeyEvent.VK_ENTER) {
+
+                        crearuser.getBtn_registar().doClick();
+                    }
+                }
             }
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
+                    crearuser.getBtn_registar().doClick();
+                }
             }
 
             @Override

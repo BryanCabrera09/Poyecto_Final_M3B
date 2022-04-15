@@ -122,7 +122,15 @@ public class C_Modificar_Abogado {
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
+                    if (modificar.getBtn_guardar().isEnabled()) {
+                        modificar.getBtn_guardar().doClick();
+                    }
+                    if (!modificar.getBtn_guardar().isEnabled() && modificar.getBtn_modificar().isEnabled()) {
+                        modificar.getBtn_modificar().doClick();
+                    }
+                }
             }
 
             @Override
@@ -183,6 +191,8 @@ public class C_Modificar_Abogado {
         modificar.getTxt_correo().addKeyListener(K);
         modificar.getTxt_direccion().addKeyListener(K);
         modificar.getTxt_nombre().addKeyListener(K);
+        modificar.getBtn_modificar().addKeyListener(K);
+        modificar.getBtn_guardar().addKeyListener(K);
 
         //ACCIONAR MOUSELISTNER
         MouseListener M = new MouseListener() {
@@ -480,8 +490,7 @@ public class C_Modificar_Abogado {
     }
 
     public String upperCaseFirst(String val) {
-
-        System.out.println(val);
+        
         StringBuffer strbf = new StringBuffer();
         Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(val);
         while (match.find()) {
@@ -522,15 +531,34 @@ public class C_Modificar_Abogado {
 
         A.setNum_cuenta(Integer.parseInt(modificar.getTxt_cuenta().getText()));
         A.setHorario(horario);
-        File ruta = new File(modificar.rutas);
 
-        try {
-            byte[] icono = new byte[(int) ruta.length()];
-            InputStream input = new FileInputStream(ruta);
-            input.read(icono);
-            A.setFoto(icono);
-        } catch (Exception ex) {
-            A.setFoto(null);
+        if (modificar.ruta != null) {
+
+            File ruta = new File(modificar.rutas);
+            
+            try {
+                byte[] icono = new byte[(int) ruta.length()];
+                InputStream input = new FileInputStream(ruta);
+                input.read(icono);
+                A.setFoto(icono);
+            } catch (Exception ex) {
+                A.setFoto(null);
+            }
+        } else {
+            List<Buf_Abogado> List_abg = A_DB.Getter();
+            
+            for (int i = 0; i < List_abg.size(); i++) {
+                if (List_abg.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_abg.get(i).getFoto();
+                        if (bi != null) {
+                            A.setFoto(bi);
+                        } 
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
         }
         A.setId_abg(Integer.parseInt(modificar.getTxt_id().getText()));
 

@@ -103,7 +103,15 @@ public class C_Modificar_Cliente {
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
+                    if (modificar.getBtn_guardar().isEnabled()) {
+                        modificar.getBtn_guardar().doClick();
+                    }
+                    if (!modificar.getBtn_guardar().isEnabled() && modificar.getBtn_modificar().isEnabled()) {
+                        modificar.getBtn_modificar().doClick();
+                    }
+                }
             }
 
             @Override
@@ -165,6 +173,8 @@ public class C_Modificar_Cliente {
         modificar.getTxt_direccion().addKeyListener(K);
         modificar.getTxt_buscar().addKeyListener(K);
         modificar.getTxt_apellido().addKeyListener(K);
+        modificar.getBtn_modificar().addKeyListener(K);
+        modificar.getBtn_guardar().addKeyListener(K);
 
         //EVENTO MOUSE
         MouseListener M = new MouseListener() {

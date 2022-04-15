@@ -57,12 +57,14 @@ public class C_Caso {
                         evt.consume();
                     }
                 }
-
             }
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
+                    caso.getBtn_buscar().doClick();
+                }
             }
 
             @Override

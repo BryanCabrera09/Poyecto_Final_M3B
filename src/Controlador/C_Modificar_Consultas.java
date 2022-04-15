@@ -86,7 +86,15 @@ public class C_Modificar_Consultas {
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
+                    if (modificar.getBtn_guardar().isEnabled()) {
+                        modificar.getBtn_guardar().doClick();
+                    }
+                    if (!modificar.getBtn_guardar().isEnabled() && modificar.getBtn_modificar().isEnabled()) {
+                        modificar.getBtn_modificar().doClick();
+                    }
+                }
             }
 
             @Override
@@ -105,6 +113,8 @@ public class C_Modificar_Consultas {
         modificar.getTxt_nombres().addKeyListener(K);
         modificar.getTxt_celular().addKeyListener(K);
         modificar.getTxt_apellidos().addKeyListener(K);
+        modificar.getBtn_guardar().addKeyListener(K);
+        modificar.getBtn_modificar().addKeyListener(K);
 
         //ACTION BUTTON
         modificar.getBtn_guardar().addActionListener(l -> {
@@ -263,6 +273,7 @@ public class C_Modificar_Consultas {
         modificar.getTxt_celular().setEditable(true);
         modificar.getJs_hora().setEnabled(true);
         modificar.getBtn_modificar().setEnabled(false);
+        modificar.getBtn_cancelar().setEnabled(false);
     }
 
     public void Campo_Vacio() {
@@ -311,6 +322,7 @@ public class C_Modificar_Consultas {
     public void Campos() {
 
         modificar.getBtn_guardar().setEnabled(false);
+        modificar.getBtn_cancelar().setEnabled(true);
         modificar.getLb_nombre().setVisible(false);
         modificar.getLb_apellido().setVisible(false);
         modificar.getCelular().setVisible(false);

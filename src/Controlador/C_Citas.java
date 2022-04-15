@@ -64,6 +64,15 @@ public class C_Citas {
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+                    if (citas.getBtn_guardar().isEnabled()) {
+                        citas.getBtn_guardar().doClick();
+                    }
+                    if (!citas.getBtn_guardar().isEnabled() && citas.getBtn_buscar().isEnabled()) {
+                        citas.getBtn_buscar().doClick();
+                    }
+                }
             }
 
             @Override

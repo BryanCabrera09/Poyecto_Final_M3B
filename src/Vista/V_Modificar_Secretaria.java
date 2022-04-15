@@ -28,7 +28,7 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
      */
     public static String x;
 
-    protected static File ruta;
+    public File ruta;
     protected static Image img;
 
     public String rutas;

@@ -80,6 +80,15 @@ public class C_Consultas {
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+                    if (consultas.getBtn_guardar().isEnabled()) {
+                        consultas.getBtn_guardar().doClick();
+                    }
+                    if (!consultas.getBtn_guardar().isEnabled() && consultas.getBtn_nuevo().isEnabled()) {
+                        consultas.getBtn_nuevo().doClick();
+                    }
+                }
             }
 
             @Override
@@ -203,7 +212,7 @@ public class C_Consultas {
             }
             return true;
         }
-        
+
         if (List_consult.isEmpty()) {
             for (int i = 0; i < List_cita.size(); i++) {
                 if (List_cita.get(i).getHora().equalsIgnoreCase(hora)) {

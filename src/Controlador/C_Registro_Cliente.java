@@ -129,11 +129,14 @@ public class C_Registro_Cliente {
 
             @Override
             public void keyPressed(KeyEvent evt) {
-                if (evt.getSource() == registro.getTxt_apellido()) {
-                    Campo_Vacio();
-                }
-                if (evt.getSource() == registro.getCalendar()) {
-                    Campo_Vacio();
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+                    if (registro.getBtn_guardar().isEnabled()) {
+                        registro.getBtn_guardar().doClick();
+                    }
+                    if (!registro.getBtn_guardar().isEnabled() && registro.getBtn_nuevo().isEnabled()) {
+                        registro.getBtn_nuevo().doClick();
+                    }
                 }
             }
 
@@ -163,6 +166,12 @@ public class C_Registro_Cliente {
                 if (evt.getSource() == registro.getTxt_apellido()) {
                     Campo_Vacio();
                 }
+                if (evt.getSource() == registro.getTxt_apellido()) {
+                    Campo_Vacio();
+                }
+                if (evt.getSource() == registro.getCalendar()) {
+                    Campo_Vacio();
+                }
             }
         };
         registro.getTxt_nombre().addKeyListener(K);
@@ -173,6 +182,7 @@ public class C_Registro_Cliente {
         registro.getTxt_ocupacion().addKeyListener(K);
         registro.getCalendar().addKeyListener(K);
         registro.getTxt_direccion().addKeyListener(K);
+        registro.getBtn_nuevo().addKeyListener(K);
 
         //ACCION A LOS BOTONES
         registro.getBtn_cancelar().addActionListener(l -> {

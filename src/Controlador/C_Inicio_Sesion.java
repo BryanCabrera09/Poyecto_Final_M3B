@@ -9,6 +9,8 @@ import Modelo.Buf_Usuarios;
 import Modelo.Buf_UsuariosDB;
 import Vista.V_RecuperarContraseña;
 import Controlador.C_Recuperar_Contraseña;
+import Modelo.Buf_Admin_User;
+import Modelo.Buf_Admin_UserDB;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -26,6 +28,7 @@ public class C_Inicio_Sesion {
 
     private V_Inicio_Sesion sesion;
     Buf_UsuariosDB userDB;
+    Buf_Admin_UserDB AdminDB;
     Buf_Usuarios U;
 
     public C_Inicio_Sesion(V_Inicio_Sesion sesion, Buf_UsuariosDB userDB, Buf_Usuarios U) {
@@ -45,20 +48,14 @@ public class C_Inicio_Sesion {
         KeyListener K = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-
-                if (e.getSource() == sesion.getPsw_contraseña()) {
-
-                    char presionar = e.getKeyChar();
-
-                    if (presionar == KeyEvent.VK_ENTER) {
-
-                        sesion.getBtn_ingresar().doClick();
-                    }
-                }
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+
+                    sesion.getBtn_ingresar().doClick();
+                }
             }
 
             @Override
@@ -66,6 +63,7 @@ public class C_Inicio_Sesion {
             }
         };
         sesion.getPsw_contraseña().addKeyListener(K);
+        sesion.getTxt_usuario().addKeyListener(K);
 
         //ACTIVAR BOTONES
         sesion.getBtn_cancelar().addActionListener(l -> {
@@ -109,7 +107,7 @@ public class C_Inicio_Sesion {
 
             @Override
             public void mouseExited(MouseEvent e) {
-                
+
                 if (e.getSource() == sesion.getLb_olvidar()) {
 
                     sesion.getLb_olvidar().setForeground(Color.darkGray);
@@ -156,24 +154,48 @@ public class C_Inicio_Sesion {
 
     public boolean Validar_Usuario() {
 
+        List<Buf_Admin_User> List_Adm = AdminDB.Getter();
         List<Buf_Usuarios> List_usr = userDB.Getter();
 
-        for (int i = 0; i < List_usr.size(); i++) {
-            if (List_usr.get(i).getUsuario().equals(sesion.getTxt_usuario().getText())) {
-                return true;
+        if (List_usr.isEmpty()) {
+            for (int i = 0; i < List_Adm.size(); i++) {
+                if (List_Adm.get(i).getUsuario().equals(sesion.getTxt_usuario().getText())) {
+                    return true;
+                }
             }
+            return false;
+        }
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < List_usr.size(); i++) {
+                if (List_usr.get(i).getUsuario().equals(sesion.getTxt_usuario().getText())) {
+                    return true;
+                }
+            }
+            return false;
         }
         return false;
     }
 
     public boolean Validar_Contraseña() {
 
+        List<Buf_Admin_User> List_Adm = AdminDB.Getter();
         List<Buf_Usuarios> List_usr = userDB.Getter();
 
-        for (int i = 0; i < List_usr.size(); i++) {
-            if (List_usr.get(i).getContrasenia().equals(sesion.getPsw_contraseña().getText())) {
-                return true;
+        if (List_usr.isEmpty()) {
+            for (int i = 0; i < List_Adm.size(); i++) {
+                if (List_Adm.get(i).getContrasenia().equals(sesion.getPsw_contraseña().getText())) {
+                    return true;
+                }
             }
+            return false;
+        }
+        for (int j = 0; j < List_Adm.size(); j++) {
+            for (int i = 0; i < List_usr.size(); i++) {
+                if (List_usr.get(i).getContrasenia().equals(sesion.getPsw_contraseña().getText()) || List_Adm.get(j).getContrasenia().equals(sesion.getPsw_contraseña().getText())) {
+                    return true;
+                }
+            }
+            return false;
         }
         return false;
     }

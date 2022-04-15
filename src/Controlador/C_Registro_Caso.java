@@ -68,6 +68,10 @@ public class C_Registro_Caso {
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                 if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+                    registro.getBtn_guardar().doClick();
+                }
             }
 
             @Override
@@ -87,7 +91,6 @@ public class C_Registro_Caso {
         String caso = (String) registro.getCb_caso().getSelectedItem();
 
         if (!registro.getTxt_cedula().getText().equals("") && !caso.equals("Seleccionar")) {
-
             return true;
         } else {
             return false;
@@ -127,7 +130,7 @@ public class C_Registro_Caso {
                 JOptionPane.showMessageDialog(null, "Cliente No Registrado", "ERROR!!", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingresar Todos Los Datos", "ERROR!!", JOptionPane.WARNING_MESSAGE);
         }
     }
 

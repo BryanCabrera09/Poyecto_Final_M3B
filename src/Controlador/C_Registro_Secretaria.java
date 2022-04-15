@@ -108,6 +108,15 @@ public class C_Registro_Secretaria {
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+                    if (registro.getBtn_guardar().isEnabled()) {
+                        registro.getBtn_guardar().doClick();
+                    }
+                    if (!registro.getBtn_guardar().isEnabled() && registro.getBtn_nuevo().isEnabled()) {
+                        registro.getBtn_nuevo().doClick();
+                    }
+                }
             }
 
             @Override
@@ -171,6 +180,7 @@ public class C_Registro_Secretaria {
         registro.getTxt_correo().addKeyListener(K);
         registro.getjDateChooser1().addKeyListener(K);
         registro.getTxt_direccion().addKeyListener(K);
+        registro.getBtn_nuevo().addKeyListener(K);
 
         //DAR FUNCION A LOS BOTONES
         registro.getBtn_cancelar().addActionListener(l -> {

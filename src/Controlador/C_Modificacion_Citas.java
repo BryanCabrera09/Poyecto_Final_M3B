@@ -67,6 +67,15 @@ public class C_Modificacion_Citas {
 
             @Override
             public void keyPressed(KeyEvent evt) {
+                 if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+                    if (modificacion.getBtn_guardar().isEnabled()) {
+                        modificacion.getBtn_guardar().doClick();
+                    }
+                    if (!modificacion.getBtn_guardar().isEnabled() && modificacion.getBtn_modificar().isEnabled()) {
+                        modificacion.getBtn_modificar().doClick();
+                    }
+                }
             }
 
             @Override
@@ -78,6 +87,8 @@ public class C_Modificacion_Citas {
         };
         modificacion.getTxt_celular().addKeyListener(K);
         modificacion.getTxt_cedula().addKeyListener(K);
+        modificacion.getBtn_guardar().addKeyListener(K);
+        modificacion.getBtn_modificar().addKeyListener(K);
 
         //ACTION BUTTON
         modificacion.getBtn_guardar().addActionListener(l -> {
@@ -124,6 +135,7 @@ public class C_Modificacion_Citas {
         modificacion.getTxt_celular().setEditable(false);
         modificacion.getTxa_descripcion().setEditable(false);
         modificacion.getJs_hora().setEnabled(false);
+        modificacion.getBtn_cancelar().setEnabled(true);
         modificacion.getBtn_guardar().setEnabled(false);
 
     }
@@ -257,6 +269,7 @@ public class C_Modificacion_Citas {
         modificacion.getJs_hora().setEnabled(true);
         modificacion.getBtn_modificar().setEnabled(false);
         modificacion.getBtn_guardar().setEnabled(true);
+        modificacion.getBtn_cancelar().setEnabled(false);
         modificacion.getTxa_descripcion().setEditable(true);
     }
 }
