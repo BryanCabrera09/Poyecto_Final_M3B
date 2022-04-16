@@ -7,6 +7,8 @@ package controlador;
 
 import Modelo.Buf_Abogado;
 import Modelo.Buf_AbogadoDB;
+import Modelo.Buf_Admin_User;
+import Modelo.Buf_Admin_UserDB;
 import Modelo.Buf_Secretaria;
 import Modelo.Buf_SecretariaDB;
 import Modelo.Buf_Usuarios;
@@ -15,6 +17,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.List;
 import javax.swing.JOptionPane;
+import vista.V_Menu_Inicio;
 import vista.V_Registro_Usuario;
 
 /*
@@ -23,6 +26,10 @@ import vista.V_Registro_Usuario;
 public class C_Registro_Usuario {
 
     V_Registro_Usuario crearuser;
+    V_Menu_Inicio inicio = new V_Menu_Inicio();
+
+    Buf_Admin_User Admin = new Buf_Admin_User();
+    Buf_Admin_UserDB AdminDB = new Buf_Admin_UserDB();
     Buf_Usuarios U = new Buf_Usuarios();
     Buf_SecretariaDB S_DB = new Buf_SecretariaDB();
     Buf_UsuariosDB U_DB = new Buf_UsuariosDB();
@@ -120,8 +127,11 @@ public class C_Registro_Usuario {
 
     public void Registrar() {
 
+        char[] arrayC = crearuser.getPsw_contraseña().getPassword();
+        String password = new String(arrayC);
+
         if (Validar_Datos() == true) {
-            if (crearuser.getPsw_contraseña().getText().length() > 5) {
+            if (password.length() > 5) {
                 if (Validar_Registro() == true) {
                     if (Usuario_Creado() == true) {
                         if (Validar_Usuario() == true) {
@@ -155,7 +165,10 @@ public class C_Registro_Usuario {
 
     public void Cancelar_Registro() {
 
-        if (!crearuser.getTxt_cedula().getText().equals("") || !crearuser.getTxt_usuario().getText().equals("") || !crearuser.getPsw_contraseña().getText().equals("")) {
+        char[] arrayC = crearuser.getPsw_contraseña().getPassword();
+        String password = new String(arrayC);
+
+        if (!crearuser.getTxt_cedula().getText().equals("") || !crearuser.getTxt_usuario().getText().isEmpty() || !password.isEmpty()) {
             int salir = JOptionPane.showConfirmDialog(null, "DESCARTAR DATOS INGRESADOS", "SALIR", JOptionPane.YES_NO_OPTION);
             switch (salir) {
                 case 0:
@@ -180,9 +193,12 @@ public class C_Registro_Usuario {
 
     public void Subir_Datos() {
 
+        char[] arrayC = crearuser.getPsw_contraseña().getPassword();
+        String password = new String(arrayC);
+
         U.setCedula(crearuser.getTxt_cedula().getText());
         U.setUsuario(crearuser.getTxt_usuario().getText());
-        U.setContrasenia(crearuser.getPsw_contraseña().getText());
+        U.setContrasenia(password);
         U.setId_User(Integer.parseInt(crearuser.getTxt_id().getText()));
 
         if (U_DB.Register(U)) {
@@ -227,6 +243,9 @@ public class C_Registro_Usuario {
 
     public void Campo_Vacio() {
 
+        char[] arrayC = crearuser.getPsw_contraseña().getPassword();
+        String password = new String(arrayC);
+
         if (crearuser.getTxt_cedula().getText().isEmpty()) {
             crearuser.getLb_cedula().setVisible(true);
             crearuser.getBtn_cancelar().setEnabled(false);
@@ -237,7 +256,7 @@ public class C_Registro_Usuario {
             crearuser.getBtn_cancelar().setEnabled(false);
         }
 
-        if (crearuser.getPsw_contraseña().getText().isEmpty()) {
+        if (password.isEmpty()) {
             crearuser.getLb_contraseña().setVisible(true);
             crearuser.getBtn_cancelar().setEnabled(false);
         }
@@ -264,11 +283,11 @@ public class C_Registro_Usuario {
             }
         }
 
-        if (!crearuser.getPsw_contraseña().getText().isEmpty()) {
+        if (!password.isEmpty()) {
             crearuser.getLb_contraseña().setVisible(false);
             crearuser.getBtn_cancelar().setEnabled(true);
 
-            if (crearuser.getPsw_contraseña().getText().length() < 6) {
+            if (password.length() < 6) {
 
                 crearuser.getLb_contracorta().setVisible(true);
                 crearuser.getBtn_cancelar().setEnabled(true);
@@ -278,7 +297,7 @@ public class C_Registro_Usuario {
             }
         }
 
-        if (!crearuser.getTxt_cedula().getText().equals("") && !crearuser.getTxt_usuario().getText().equals("") && !crearuser.getPsw_contraseña().getText().equals("")) {
+        if (!crearuser.getTxt_cedula().getText().isEmpty() && !crearuser.getTxt_usuario().getText().isEmpty() && !password.isEmpty()) {
             crearuser.getBtn_registar().setEnabled(true);
         } else {
             crearuser.getBtn_registar().setEnabled(false);
@@ -291,57 +310,68 @@ public class C_Registro_Usuario {
         List<Buf_Abogado> List_abg = A_DB.Getter();
         List<Buf_Secretaria> List_secre = S_DB.Getter();
 
-        if (List_user.isEmpty()) {
-            for (int i = 0; i < List_abg.size(); i++) {
-                if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                    crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
-                    i = List_abg.size();
-                } else {
-                    crearuser.getTxt_id().setText("");
+        if (inicio.getReg_abogado().isEnabled() || inicio.getReg_secretaria().isEnabled()) {
+            if (List_user.isEmpty()) {
+                if (inicio.getReg_abogado().isEnabled()) {
+                    for (int i = 0; i < List_abg.size(); i++) {
+                        if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                            crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
+                            i = List_abg.size();
+                        } else {
+                            crearuser.getTxt_id().setText("");
+                        }
+                    }
                 }
             }
-        }
-        if (List_secre.isEmpty()) {
+            if (List_secre.isEmpty()) {
 
-            for (int i = 0; i < List_user.size(); i++) {
-                for (int p = 0; p < List_abg.size(); p++) {
-                    if (List_abg.get(p).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                        crearuser.getTxt_id().setText(String.valueOf(List_abg.get(p).getId_abg()));
-                        i = List_user.size();
-                        p = List_abg.size();
-                    } else {
-                        crearuser.getTxt_id().setText("");
-                    }
-                    if (List_user.get(i).getCedula().equals(crearuser.getTxt_cedula().getText()) && List_abg.get(p).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                        crearuser.getLb_registro().setVisible(true);
-                    } else if (!List_user.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                        crearuser.getLb_registro().setVisible(false);
+                if (inicio.getReg_abogado().isEnabled()) {
+                    for (int i = 0; i < List_user.size(); i++) {
+                        for (int p = 0; p < List_abg.size(); p++) {
+                            if (List_abg.get(p).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                                crearuser.getTxt_id().setText(String.valueOf(List_abg.get(p).getId_abg()));
+                                i = List_user.size();
+                                p = List_abg.size();
+                            } else {
+                                crearuser.getTxt_id().setText("");
+                            }
+                            if (List_user.get(i).getCedula().equals(crearuser.getTxt_cedula().getText()) && List_abg.get(p).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                                crearuser.getLb_registro().setVisible(true);
+                            } else if (!List_user.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                                crearuser.getLb_registro().setVisible(false);
+                            }
+                        }
                     }
                 }
             }
-        }
-        for (int j = 0; j < List_secre.size(); j++) {
-            for (int u = 0; u < List_user.size(); u++) {
-                for (int i = 0; i < List_abg.size(); i++) {
-                    if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                        crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
-                        j = List_secre.size();
-                        u = List_user.size();
-                        i = List_abg.size();
-                    } else if (List_secre.get(j).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                        crearuser.getTxt_id().setText(String.valueOf(List_secre.get(j).getId_secretaria()));
-                        j = List_secre.size();
-                        u = List_user.size();
-                        i = List_abg.size();
-                    } else {
-                        crearuser.getTxt_id().setText("");
-                    }
-                    if (List_user.get(u).getCedula().equals(crearuser.getTxt_cedula().getText()) && List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                        crearuser.getLb_registro().setVisible(true);
-                    } else if ((List_user.get(u).getCedula().equals(crearuser.getTxt_cedula().getText()) && List_secre.get(j).getCedula().equals(crearuser.getTxt_cedula().getText()))) {
-                        crearuser.getLb_registro().setVisible(true);
-                    } else if (!List_user.get(u).getCedula().equals(crearuser.getTxt_cedula().getText())) {
-                        crearuser.getLb_registro().setVisible(false);
+            for (int j = 0; j < List_secre.size(); j++) {
+                for (int u = 0; u < List_user.size(); u++) {
+                    for (int i = 0; i < List_abg.size(); i++) {
+                        if (inicio.getReg_abogado().isEnabled()) {
+                            if (List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                                crearuser.getTxt_id().setText(String.valueOf(List_abg.get(i).getId_abg()));
+                                j = List_secre.size();
+                                u = List_user.size();
+                                i = List_abg.size();
+                            } else {
+                                crearuser.getTxt_id().setText("");
+                            }
+                        }
+                        if (List_secre.get(j).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                            crearuser.getTxt_id().setText(String.valueOf(List_secre.get(j).getId_secretaria()));
+                            j = List_secre.size();
+                            u = List_user.size();
+                            i = List_abg.size();
+                        } else {
+                            crearuser.getTxt_id().setText("");
+                        }
+                        if (List_user.get(u).getCedula().equals(crearuser.getTxt_cedula().getText()) && List_abg.get(i).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                            crearuser.getLb_registro().setVisible(true);
+                        } else if ((List_user.get(u).getCedula().equals(crearuser.getTxt_cedula().getText()) && List_secre.get(j).getCedula().equals(crearuser.getTxt_cedula().getText()))) {
+                            crearuser.getLb_registro().setVisible(true);
+                        } else if (!List_user.get(u).getCedula().equals(crearuser.getTxt_cedula().getText())) {
+                            crearuser.getLb_registro().setVisible(false);
+                        }
                     }
                 }
             }
@@ -388,18 +418,26 @@ public class C_Registro_Usuario {
     public boolean Validar_Usuario() {
 
         List<Buf_Usuarios> List_user = U_DB.Getter();
+        List<Buf_Admin_User> List_Adm = AdminDB.Getter();
 
         for (int i = 0; i < List_user.size(); i++) {
-            if (List_user.get(i).getCedula().equalsIgnoreCase(crearuser.getTxt_cedula().getText()) || List_user.get(i).getUsuario().equalsIgnoreCase(crearuser.getTxt_usuario().getText())) {
-                return false;
+            for (int j = 0; j < List_Adm.size(); j++) {
+
+                if (List_user.get(i).getCedula().equalsIgnoreCase(crearuser.getTxt_cedula().getText()) || List_user.get(i).getUsuario().equalsIgnoreCase(crearuser.getTxt_usuario().getText()) || List_Adm.get(j).getUsuario().equalsIgnoreCase(crearuser.getTxt_usuario().getText())) {
+                    return false;
+                }
             }
+            return true;
         }
         return true;
     }
 
     public boolean Validar_Datos() {
 
-        if (!crearuser.getTxt_cedula().getText().equals("") && !crearuser.getTxt_usuario().getText().equals("") && !crearuser.getTxt_id().getText().equals("") && !crearuser.getPsw_contraseña().getText().equals("")) {
+        char[] arrayC = crearuser.getPsw_contraseña().getPassword();
+        String password = new String(arrayC);
+
+        if (!crearuser.getTxt_cedula().getText().equals("") && !crearuser.getTxt_usuario().getText().equals("") && !crearuser.getTxt_id().getText().equals("") && !password.isEmpty()) {
 
             return true;
         } else {

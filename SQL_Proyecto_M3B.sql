@@ -10,6 +10,8 @@ CREATE TABLE Buf_Admin_User (
     PRIMARY KEY ( Cedula )
 );
 
+SELECT * FROM Buf_Admin_User;
+
 SELECT
     A.Horario
 FROM

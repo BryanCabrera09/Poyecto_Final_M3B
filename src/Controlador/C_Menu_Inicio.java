@@ -185,11 +185,7 @@ public class C_Menu_Inicio {
     public void Button_Inicio() {
 
         V_Inicio_Sesion inicio_Sesion = new V_Inicio_Sesion();
-        Buf_UsuariosDB userDB = new Buf_UsuariosDB();
-        Buf_Usuarios U = new Buf_Usuarios();
-
-        C_Inicio_Sesion ctrlI = new C_Inicio_Sesion(inicio_Sesion, userDB, U);
-
+        C_Inicio_Sesion ctrlI = new C_Inicio_Sesion(inicio_Sesion);
         ctrlI.Iniciar_Control();
         Inicio.dispose();
     }

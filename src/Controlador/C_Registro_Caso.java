@@ -168,12 +168,10 @@ public class C_Registro_Caso {
 
     public boolean Cedula_Repetida() {
 
-        String caso = (String) registro.getCb_caso().getSelectedItem();
-
         List<Buf_Caso> List_caso = Ca_DB.Getter();
 
         for (int j = 0; j < List_caso.size(); j++) {
-            if (List_caso.get(j).getCaso().equals(caso)) {
+            if (List_caso.get(j).getCedula().equals(registro.getTxt_cedula().getText())) {
                 return false;
             }
         }

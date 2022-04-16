@@ -12,7 +12,6 @@ import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
@@ -81,14 +80,9 @@ public class C_Recuperar_Contraseña {
         recuperar.getBtn_cancelar().addActionListener(l -> {
 
             V_Inicio_Sesion inicio_Sesion = new V_Inicio_Sesion();
-            Buf_UsuariosDB userDB = new Buf_UsuariosDB();
-            Buf_Usuarios U = new Buf_Usuarios();
-
-            controlador.C_Inicio_Sesion ctrlI = new controlador.C_Inicio_Sesion(inicio_Sesion, userDB, U);
-
+            controlador.C_Inicio_Sesion ctrlI = new controlador.C_Inicio_Sesion(inicio_Sesion);
             ctrlI.Iniciar_Control();
-            
-            recuperar.setVisible(false);
+            recuperar.dispose();
         });
         recuperar.getBtn_enviar().addActionListener(l -> {
             Subir_Datos();

@@ -154,19 +154,33 @@ public class C_Citas {
     public boolean Buscar_Cita() {
 
         List<Buf_Cita> List_cita = C_DB.Getter();
+         List<Buf_Caso> List_caso = Ca_DB.Getter();
 
         String caso = (String) citas.getCb_caso().getSelectedItem();
 
         if (!List_cita.isEmpty()) {
-            for (int i = 0; i < List_cita.size(); i++) {
-                if (List_cita.get(i).getCedula().equals(citas.getTxt_cedula().getText()) && !List_cita.get(i).getNom_caso().equalsIgnoreCase(caso) && !citas.getTxt_id().getText().isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(citas.getTxt_cedula().getText()) && List_caso.get(i).getId_caso() == Integer.parseInt(citas.getTxt_id().getText())) {
                     return true;
                 }
             }
             return false;
-        } else {
-            return true;
         }
+
+        for (int i = 0; i < List_cita.size(); i++) {
+            if (List_cita.get(i).getCedula().equals(citas.getTxt_cedula().getText()) && !List_cita.get(i).getNom_caso().equalsIgnoreCase(caso) && !citas.getTxt_id().getText().isEmpty()) {
+                return true;
+            } else {
+
+                for (int j = 0; j < List_caso.size(); j++) {
+                    if (List_caso.get(i).getCedula().equals(citas.getTxt_cedula().getText())) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return false;
     }
 
     public boolean Buscar_Caso() {
@@ -439,13 +453,11 @@ public class C_Citas {
                         if (!citas.getTxt_id().getText().isEmpty()) {
                             if (List_cita.get(j).getId_caso() == Integer.parseInt(citas.getTxt_id().getText())) {
                                 citas.getTxt_id().setText("");
-                            } else {
+                            } else if (List_caso.get(i).equals(List_caso.get(i).getId_caso())) {
                                 citas.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
                             }
                         }
                     }
-                } else {
-                    citas.getTxt_id().setText("");
                 }
             }
         }
