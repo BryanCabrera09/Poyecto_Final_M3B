@@ -143,7 +143,7 @@ public class C_Consultas {
                 if (Validar_Hora() == true) {
                     Subir_Datos();
                 } else {
-                    JOptionPane.showMessageDialog(null, "CITA YA AGENDADA CON LA FECHA SELECCIONADA", "CITA", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "CONSULTA YA AGENDADA CON LA FECHA SELECCIONADA", "CITA", JOptionPane.INFORMATION_MESSAGE);
 
                 }
             } else {
@@ -263,7 +263,7 @@ public class C_Consultas {
             JOptionPane.showMessageDialog(null, "Registro Guardado");
             Nuevo();
             Campos();
-            JOptionPane.showMessageDialog(null, "Consulta Agendada Para El Caso " + caso.toUpperCase() + ", Para El " + hora);
+            JOptionPane.showMessageDialog(null, "<html><b>CONSULTA AGENDADA</b><br><br>Caso " + caso.toUpperCase() + ", Para El " + hora+"</html>");
             consultas.getBtn_nuevo().setEnabled(true);
             consultas.getBtn_cancelar().setEnabled(false);
         } else {

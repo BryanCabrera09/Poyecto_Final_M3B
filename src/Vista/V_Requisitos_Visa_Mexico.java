@@ -209,7 +209,6 @@ public class V_Requisitos_Visa_Mexico extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("VISA MEXICO");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -229,9 +228,11 @@ public class V_Requisitos_Visa_Mexico extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(176, 131, 87));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("REQUISITOS VISA MEXICO ");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
@@ -241,6 +242,7 @@ public class V_Requisitos_Visa_Mexico extends javax.swing.JInternalFrame {
         req_4.setText("CERTIFICADO DE TRABAJO");
         jPanel2.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 180, -1));
 
+        req_5.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         req_5.setText("CERTIFICADO DE ESTUDIOS");
         jPanel2.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 190, -1));
 
@@ -250,55 +252,62 @@ public class V_Requisitos_Visa_Mexico extends javax.swing.JInternalFrame {
         req_2.setText("FOTO 3x3.5");
         jPanel2.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 110, -1));
 
-        jPanel2.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 118, -1));
+        jPanel2.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 118, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NUMERO DE PERSONAS");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 130, 20));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 160, 20));
 
         txa_observ.setColumns(20);
+        txa_observ.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         txa_observ.setLineWrap(true);
         txa_observ.setRows(5);
         jScrollPane1.setViewportView(txa_observ);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 300, 107));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 380, 107));
 
+        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("OBSERVACIONES:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 110, 20));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 140, 20));
 
-        honorarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        honorarios.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
         honorarios.setForeground(new java.awt.Color(51, 0, 0));
         honorarios.setText("HONORARIOS: 70 POR PERSONA");
-        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 180, 20));
+        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 220, 20));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 90, 40));
+        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 120, 40));
 
         btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
-        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 100, 40));
+        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 140, 40));
 
         btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
-        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 70, 40));
-        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 100, 30));
+        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 100, 40));
 
+        txt_id.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
+        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 100, 30));
+
+        btn_cargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/-file-upload_90320.png"))); // NOI18N
         btn_cargar.setText("CARGAR");
-        jPanel2.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
+        jPanel2.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 120, 30));
+
+        txt_cedula.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );

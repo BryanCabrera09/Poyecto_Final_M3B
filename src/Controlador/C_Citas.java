@@ -154,7 +154,7 @@ public class C_Citas {
     public boolean Buscar_Cita() {
 
         List<Buf_Cita> List_cita = C_DB.Getter();
-         List<Buf_Caso> List_caso = Ca_DB.Getter();
+        List<Buf_Caso> List_caso = Ca_DB.Getter();
 
         String caso = (String) citas.getCb_caso().getSelectedItem();
 
@@ -354,7 +354,7 @@ public class C_Citas {
             JOptionPane.showMessageDialog(null, "Registro Guardado");
             Campos();
             Nuevo();
-            JOptionPane.showMessageDialog(null, "Cita Agendada Para El Caso " + caso.toUpperCase() + ", Para El " + hora);
+            JOptionPane.showMessageDialog(null, "<html><b>CITA AGENDADA</b><br><br>Caso " + caso.toUpperCase() + ", Para El " + hora + "</html>");
         } else {
 
             JOptionPane.showMessageDialog(null, "Error al Guardar Los Datos", "ERROR!!", JOptionPane.ERROR_MESSAGE);

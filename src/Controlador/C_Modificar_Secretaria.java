@@ -14,6 +14,7 @@ import Modelo.Buf_Secretaria;
 import Modelo.Buf_SecretariaDB;
 import Modelo.Buf_Usuarios;
 import Modelo.Buf_UsuariosDB;
+import Modelo.DB_Connect;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -24,13 +25,23 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.sql.Connection;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.V_Modificar_Secretaria;
 
 /*
@@ -81,16 +92,34 @@ public class C_Modificar_Secretaria {
                     }
                 }
                 if (evt.getSource() == modificar.getTxt_nombre()) {
-                    char c = evt.getKeyChar();
+                    int key = evt.getKeyChar();
 
-                    if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
+                    if (modificar.getTxt_nombre().getText().length() <= 20) {
+                        boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
+
+                        if (!letra) {
+
+                            evt.consume();
+                        }
+
+                    } else {
+
                         evt.consume();
                     }
                 }
                 if (evt.getSource() == modificar.getTxt_apellido()) {
-                    char c = evt.getKeyChar();
+                    int key = evt.getKeyChar();
 
-                    if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
+                    if (modificar.getTxt_apellido().getText().length() <= 20) {
+                        boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
+
+                        if (!letra) {
+
+                            evt.consume();
+                        }
+
+                    } else {
+
                         evt.consume();
                     }
                 }
@@ -218,6 +247,9 @@ public class C_Modificar_Secretaria {
             modificar.Cargar_Imagen();
             Campo_Vacio();
         });
+        modificar.getBtn_imprimir().addActionListener(l -> {
+            Imprimir();
+        });
         modificar.getBtn_modificar().addActionListener(l -> {
             Modificar();
         });
@@ -246,6 +278,24 @@ public class C_Modificar_Secretaria {
                 Campo_Vacio();
             }
         });
+    }
+
+    public void Imprimir() {
+
+        DB_Connect con = new DB_Connect();
+        Connection conn = con.Connect();
+
+        try {
+            JasperReport jas = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Report_Secretarias.jasper"));
+            JasperPrint jp = (JasperPrint) JasperFillManager.fillReport(jas, null, conn);
+            JasperViewer jv = new JasperViewer(jp, false);
+            JOptionPane.showMessageDialog(null, "Cargando Reporte...");
+            jv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            jv.setVisible(true);
+        } catch (JRException e) {
+            System.out.println("no se pudo encontrar registros" + e.getMessage());
+            Logger.getLogger(C_Modificar_Abogado.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
 
     public void Datos_Table() {
@@ -436,7 +486,7 @@ public class C_Modificar_Secretaria {
     }
 
     public String upperCaseFirst(String val) {
-        
+
         StringBuffer strbf = new StringBuffer();
         Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(val);
         while (match.find()) {
@@ -478,9 +528,9 @@ public class C_Modificar_Secretaria {
         S.setHorario(horario);
 
         if (modificar.ruta != null) {
-            
+
             File ruta = new File(modificar.rutas);
-            
+
             try {
                 byte[] icono = new byte[(int) ruta.length()];
                 InputStream input = new FileInputStream(ruta);
@@ -491,14 +541,14 @@ public class C_Modificar_Secretaria {
             }
         } else {
             List<Buf_Secretaria> List_secre = S_DB.Getter();
-            
+
             for (int i = 0; i < List_secre.size(); i++) {
                 if (List_secre.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
                     try {
                         byte[] bi = List_secre.get(i).getFoto();
                         if (bi != null) {
                             S.setFoto(bi);
-                        } 
+                        }
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }

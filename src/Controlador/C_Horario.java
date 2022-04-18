@@ -9,10 +9,22 @@ import Modelo.Buf_AbogadoDB;
 import Modelo.Buf_Persona;
 import Modelo.Buf_Abogado;
 import Modelo.Buf_PersonaDB;
+import Modelo.DB_Connect;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.Connection;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.V_Horario;
 
 /*
@@ -52,12 +64,36 @@ public class C_Horario {
             }
         };
         horario.getTxt_buscar().addKeyListener(K);
+
+        horario.getBtn_imprimir().addActionListener(l -> {
+            Imprimir();
+        });
+    }
+
+    public void Imprimir() {
+
+        DB_Connect con = new DB_Connect();
+        Connection conn = con.Connect();
+
+        try {
+            JasperReport jas = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Report_Horarios.jasper"));
+            JasperPrint jp = (JasperPrint) JasperFillManager.fillReport(jas, null, conn);
+            JasperViewer jv = new JasperViewer(jp, false);
+            JOptionPane.showMessageDialog(null, "Cargando Reporte...");
+            jv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            jv.setVisible(true);
+        } catch (JRException e) {
+            System.out.println("no se pudo encontrar registros" + e.getMessage());
+            Logger.getLogger(C_Modificar_Abogado.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
 
     public void Cargar_Datos() {
 
         horario.getTableabogados().getTableHeader().setResizingAllowed(false);
         horario.getTableabogados().getTableHeader().setReorderingAllowed(false);
+
+        horario.getTableabogados().setDefaultEditor(Object.class, null);
 
         modelo = new DefaultTableModel() {
             public boolean isceleditable(int fila, int columnas) {
@@ -69,23 +105,19 @@ public class C_Horario {
             }
         };
         modelo.addColumn("CEDULA");
-        modelo.addColumn("NOMBRE");
-        modelo.addColumn("APELLIDO");
+        modelo.addColumn("MATRICULA");
         modelo.addColumn("HORARIO");
 
-        List<Buf_Persona> List_per = P_DB.Getter_Abg();
         List<Buf_Abogado> List_abg = A_DB.Getter();
 
         for (Buf_Abogado abogado : List_abg) {
-            for (Buf_Persona persona : List_per) {
-                Object[] fila = new Object[4];
-                fila[0] = persona.getCedula();
-                fila[1] = persona.getNombre();
-                fila[2] = persona.getApellido();
-                fila[3] = abogado.getHorario();
-                modelo.addRow(fila);
-            }
+            Object[] fila = new Object[4];
+            fila[0] = abogado.getCedula();
+            fila[1] = abogado.getNum_matricula();
+            fila[2] = abogado.getHorario();
+            modelo.addRow(fila);
         }
+
         horario.getTableabogados().setModel(modelo);
     }
 

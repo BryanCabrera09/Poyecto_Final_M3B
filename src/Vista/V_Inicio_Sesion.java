@@ -21,7 +21,6 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
     public V_Inicio_Sesion() {
 
         initComponents();
-        setTitle("KarYaN");
     }
 
     public JButton getBtn_cancelar() {
@@ -119,10 +118,11 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(157, 115, 73));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_bienvenido.setFont(new java.awt.Font("Bodoni MT Black", 1, 24)); // NOI18N
-        lbl_bienvenido.setForeground(new java.awt.Color(0, 0, 0));
+        lbl_bienvenido.setForeground(new java.awt.Color(255, 255, 255));
         lbl_bienvenido.setText("BIENVENIDO");
         jPanel1.add(lbl_bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 200, 40));
 
@@ -135,18 +135,24 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
         lbl_contraseña.setForeground(new java.awt.Color(0, 0, 0));
         lbl_contraseña.setText("CONTRASEÑA");
         jPanel1.add(lbl_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 110, 30));
+
+        txt_usuario.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 180, 31));
+
+        psw_contraseña.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(psw_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 180, 31));
 
         btn_ingresar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/gui_approve_icon_157246.png"))); // NOI18N
         btn_ingresar.setText("INGRESAR");
-        jPanel1.add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 110, 50));
+        jPanel1.add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 160, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/fsdfdsfsfs.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 130, 130));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/logo proyecto_ccexpress (1).png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-110, 80, 280, 180));
 
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/vcsconflicting_93497.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 100, 50));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 150, 50));
 
         lb_olvidar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_olvidar.setText("¿Olvidaste tu Contraseña?");

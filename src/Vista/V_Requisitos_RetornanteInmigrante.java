@@ -217,7 +217,6 @@ public class V_Requisitos_RetornanteInmigrante extends javax.swing.JInternalFram
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("RETORNANTE INMIGRANTE");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -237,66 +236,84 @@ public class V_Requisitos_RetornanteInmigrante extends javax.swing.JInternalFram
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(176, 131, 87));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("REQUISITOS RETORNANTE INMIGRANTE ");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
+        req_1.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         req_1.setText("DS - 117");
-        jPanel2.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 80, -1));
+        jPanel2.add(req_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 100, -1));
 
+        req_4.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         req_4.setText("TAXES ");
         jPanel2.add(req_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 80, -1));
 
+        req_5.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         req_5.setText("<html>PRUEBAS QUE DEMUESTREN POR QUE ESTUVO FUERA<p>DE LOS ESTADOS UNIDOS<html>");
         jPanel2.add(req_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 110, -1));
 
+        req_3.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         req_3.setText("SOCIAL SECURITY");
         jPanel2.add(req_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 140, -1));
 
+        req_2.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         req_2.setText("ACTA DE NATURALIZACION");
         jPanel2.add(req_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 190, -1));
 
+        req_6.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         req_6.setText("EVIDENCIA DE VINCULO CON LOS EEUU");
-        jPanel2.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 250, -1));
+        jPanel2.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 270, -1));
 
-        jPanel2.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 93, -1));
+        cb_numper.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
+        jPanel2.add(cb_numper, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 110, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NUMERO DE PERSONAS");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, 30));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 160, 30));
 
+        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("OBSERVACIONES:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 110, 20));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 140, 20));
 
-        honorarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        honorarios.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
         honorarios.setForeground(new java.awt.Color(51, 0, 0));
         honorarios.setText("HONORARIOS: 500 POR PERSONA");
-        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 190, 20));
+        jPanel2.add(honorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 220, 20));
 
         txa_observ.setColumns(20);
+        txa_observ.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         txa_observ.setLineWrap(true);
         txa_observ.setRows(5);
         jScrollPane1.setViewportView(txa_observ);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 367, 110));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 390, 110));
 
-        btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Pagar.png"))); // NOI18N
+        btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
-        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 70, 40));
+        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 100, 40));
 
-        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar.png"))); // NOI18N
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
-        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 100, 40));
+        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 130, 40));
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 90, 40));
-        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 90, 30));
+        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 350, 120, 40));
 
+        txt_id.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
+        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 120, 30));
+
+        btn_cargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/businessapplication_database_database_accepteitheracceptthedatabase_connect_connectdatabase_negocios_aplicacion_basededato_2310.png"))); // NOI18N
         btn_cargar.setText("CARGAR");
         jPanel2.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
+
+        txt_cedula.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

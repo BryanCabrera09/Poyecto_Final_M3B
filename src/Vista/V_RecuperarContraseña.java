@@ -117,19 +117,25 @@ public class V_RecuperarContraseña extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(176, 131, 87));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_registro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_registro.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        lbl_registro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_registro.setText("RECUPERAR CONTRASEÑA");
-        jPanel1.add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 200, 30));
+        jPanel1.add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 240, 30));
 
-        lbl_cedula.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_cedula.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        lbl_cedula.setForeground(new java.awt.Color(255, 255, 255));
         lbl_cedula.setText("USUARIO:");
-        jPanel1.add(lbl_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 60, 20));
+        jPanel1.add(lbl_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 100, 20));
 
-        lbl_usuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_usuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        lbl_usuario.setForeground(new java.awt.Color(255, 255, 255));
         lbl_usuario.setText("CORREO ELECTRONICO:");
-        jPanel1.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 140, 20));
+        jPanel1.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 180, 20));
+
+        txt_correo.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 180, 30));
 
         btn_enviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
@@ -146,9 +152,11 @@ public class V_RecuperarContraseña extends javax.swing.JFrame {
         lb_correo.setText("*Campo Obligatorio");
         jPanel1.add(lb_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, -1));
 
-        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/vcsconflicting_93497.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
         jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 130, 50));
+
+        txt_usuario.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         jPanel1.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 180, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -496,7 +496,6 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("REGISTRO ABOGADO");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -516,51 +515,91 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(176, 131, 87));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         laregistro.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        laregistro.setForeground(new java.awt.Color(255, 255, 255));
         laregistro.setText("Registro de Abogado");
         jPanel1.add(laregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, 40));
 
+        lacedula.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lacedula.setForeground(new java.awt.Color(255, 255, 255));
         lacedula.setText("Cedula:");
         jPanel1.add(lacedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, 20));
+
+        txt_correo.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 160, -1));
+
+        txt_nombre.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 150, -1));
 
+        lacelular.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lacelular.setForeground(new java.awt.Color(255, 255, 255));
         lacelular.setText("Celular:");
         jPanel1.add(lacelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, 20));
 
+        lanombre.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lanombre.setForeground(new java.awt.Color(255, 255, 255));
         lanombre.setText("Nombre:");
         jPanel1.add(lanombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, 20));
 
+        lacorreo.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lacorreo.setForeground(new java.awt.Color(255, 255, 255));
         lacorreo.setText("Correo Electronico:");
-        jPanel1.add(lacorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, -1, 20));
+        jPanel1.add(lacorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, 20));
 
+        laapellido.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        laapellido.setForeground(new java.awt.Color(255, 255, 255));
         laapellido.setText("Apellido:");
         jPanel1.add(laapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, 20));
 
+        ladireccion.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        ladireccion.setForeground(new java.awt.Color(255, 255, 255));
         ladireccion.setText("Direccion:");
-        jPanel1.add(ladireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 60, 20));
+        jPanel1.add(ladireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 90, 20));
 
+        lafecha_nac.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lafecha_nac.setForeground(new java.awt.Color(255, 255, 255));
         lafecha_nac.setText("Fecha de Nacimiento:");
-        jPanel1.add(lafecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, 20));
+        jPanel1.add(lafecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, 20));
 
+        laestado.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        laestado.setForeground(new java.awt.Color(255, 255, 255));
         laestado.setText("Estado civil:");
         jPanel1.add(laestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, 20));
+
+        txt_apellido.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 150, -1));
 
+        lanum_matri.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lanum_matri.setForeground(new java.awt.Color(255, 255, 255));
         lanum_matri.setText("Numero de Matricula:");
-        jPanel1.add(lanum_matri, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, -1, 25));
+        jPanel1.add(lanum_matri, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, 25));
 
+        lanum_cuenta.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lanum_cuenta.setForeground(new java.awt.Color(255, 255, 255));
         lanum_cuenta.setText("Numero de Cuenta:");
-        jPanel1.add(lanum_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, 20));
+        jPanel1.add(lanum_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, -1, 20));
 
+        lahorario.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lahorario.setForeground(new java.awt.Color(255, 255, 255));
         lahorario.setText("Registro de horario:");
         jPanel1.add(lahorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, -1, 20));
+
+        txt_celular.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 150, -1));
+
+        txt_direccion.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 150, -1));
+
+        txt_matricula.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 160, -1));
+
+        txt_cedula.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 150, -1));
+
+        txt_cuenta.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 160, -1));
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
@@ -572,19 +611,24 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
         jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 120, 50));
         jPanel1.add(calendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 160, -1));
 
+        cb_estado.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(cb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 160, -1));
 
+        cb_1.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         cb_1.setText("9:00-13:00");
-        jPanel1.add(cb_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 90, -1));
+        jPanel1.add(cb_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 100, -1));
 
+        cb_2.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         cb_2.setText("13:00-15:00");
-        jPanel1.add(cb_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 160, -1, -1));
+        jPanel1.add(cb_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 160, -1, -1));
 
+        cb_3.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         cb_3.setText("15:00-16:30");
         jPanel1.add(cb_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, -1, -1));
 
+        cb_4.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         cb_4.setText("16:30-18:30");
-        jPanel1.add(cb_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 200, -1, -1));
+        jPanel1.add(cb_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 200, -1, -1));
 
         btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N
         btn_nuevo.setText("NUEVO");

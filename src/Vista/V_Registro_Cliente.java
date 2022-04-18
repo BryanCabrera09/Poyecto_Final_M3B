@@ -379,7 +379,6 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("REGISTRO CLIENTE");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -399,9 +398,11 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(176, 131, 87));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Registro de Cliente");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 180, 52));
 
@@ -410,57 +411,83 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
         lb_nombre.setText("*Campo Obligatorio");
         jPanel1.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
+        lanombre.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lanombre.setForeground(new java.awt.Color(255, 255, 255));
         lanombre.setText("Nombre:");
-        jPanel1.add(lanombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, 20));
+        jPanel1.add(lanombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 80, 20));
+
+        txt_nombre.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 160, -1));
 
+        laapellido2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        laapellido2.setForeground(new java.awt.Color(255, 255, 255));
         laapellido2.setText("Apellido:");
-        jPanel1.add(laapellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, 20));
+        jPanel1.add(laapellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 80, 20));
 
         lb_apellido.setBackground(new java.awt.Color(255, 255, 255));
         lb_apellido.setForeground(new java.awt.Color(255, 0, 0));
         lb_apellido.setText("*Campo Obligatorio");
         jPanel1.add(lb_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+
+        txt_apellido.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, -1));
 
+        lacedula.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lacedula.setForeground(new java.awt.Color(255, 255, 255));
         lacedula.setText("Cedula:");
-        jPanel1.add(lacedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, 20));
+        jPanel1.add(lacedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 70, 20));
 
         lb_cedula.setBackground(new java.awt.Color(255, 255, 255));
         lb_cedula.setForeground(new java.awt.Color(255, 0, 0));
         lb_cedula.setText("*Campo Obligatorio");
         jPanel1.add(lb_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+
+        txt_cedula.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 160, -1));
 
+        lacelular2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lacelular2.setForeground(new java.awt.Color(255, 255, 255));
         lacelular2.setText("Celular:");
-        jPanel1.add(lacelular2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, 20));
+        jPanel1.add(lacelular2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 70, 20));
 
         lb_celular.setBackground(new java.awt.Color(255, 255, 255));
         lb_celular.setForeground(new java.awt.Color(255, 0, 0));
         lb_celular.setText("*Campo Obligatorio");
         jPanel1.add(lb_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
+
+        txt_celular.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 160, -1));
 
+        ladireccion.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        ladireccion.setForeground(new java.awt.Color(255, 255, 255));
         ladireccion.setText("Direccion:");
-        jPanel1.add(ladireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, 20));
+        jPanel1.add(ladireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 90, 20));
 
         lb_direccion.setBackground(new java.awt.Color(255, 255, 255));
         lb_direccion.setForeground(new java.awt.Color(255, 0, 0));
         lb_direccion.setText("*Campo Obligatorio");
         jPanel1.add(lb_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
+
+        txt_direccion.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 160, -1));
 
+        lacorreo.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lacorreo.setForeground(new java.awt.Color(255, 255, 255));
         lacorreo.setText("Correo Electronico:");
-        jPanel1.add(lacorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, 20));
+        jPanel1.add(lacorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 150, 20));
 
         correo.setBackground(new java.awt.Color(255, 255, 255));
         correo.setForeground(new java.awt.Color(255, 0, 0));
         correo.setText("*Correo Erroneo");
         jPanel1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 110, -1));
+
+        txt_correo.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 160, -1));
 
+        lafecha_nac.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lafecha_nac.setForeground(new java.awt.Color(255, 255, 255));
         lafecha_nac.setText("Fecha de Nacimiento:");
-        jPanel1.add(lafecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, 20));
+        jPanel1.add(lafecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 160, 20));
         jPanel1.add(calendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 160, -1));
 
         lb_fecha.setBackground(new java.awt.Color(255, 255, 255));
@@ -468,18 +495,23 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
         lb_fecha.setText("*Campo Obligatorio");
         jPanel1.add(lb_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
 
+        laestado.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        laestado.setForeground(new java.awt.Color(255, 255, 255));
         laestado.setText("Estado civil:");
-        jPanel1.add(laestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, 20));
+        jPanel1.add(laestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 100, 20));
 
         lb_estado.setBackground(new java.awt.Color(255, 255, 255));
         lb_estado.setForeground(new java.awt.Color(255, 0, 0));
         lb_estado.setText("*Campo Obligatorio");
         jPanel1.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, -1, -1));
 
+        cb_estado.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(cb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 160, -1));
 
+        lahorario.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        lahorario.setForeground(new java.awt.Color(255, 255, 255));
         lahorario.setText("Ocupacion:");
-        jPanel1.add(lahorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, -1, 20));
+        jPanel1.add(lahorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 90, 20));
 
         lb_ocupacion.setBackground(new java.awt.Color(255, 255, 255));
         lb_ocupacion.setForeground(new java.awt.Color(255, 0, 0));
@@ -498,6 +530,8 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
         btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N
         btn_nuevo.setText("NUEVO");
         jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 110, 50));
+
+        txt_ocupacion.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_ocupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 160, -1));
 
         lb_correo.setBackground(new java.awt.Color(255, 255, 255));
@@ -520,7 +554,11 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
         datocorreo.setForeground(new java.awt.Color(255, 0, 0));
         datocorreo.setText("*Dato Existente");
         jPanel1.add(datocorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
+
+        txt_abogado.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_abogado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 130, -1));
+
+        txt_id_abg.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_id_abg, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 80, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

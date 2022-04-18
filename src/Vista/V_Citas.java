@@ -233,10 +233,10 @@ public class V_Citas extends javax.swing.JInternalFrame {
         btn_cancelar = new javax.swing.JButton();
         txt_id = new javax.swing.JTextField();
         btn_nuevo = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("CITAS");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -257,25 +257,39 @@ public class V_Citas extends javax.swing.JInternalFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(176, 131, 87));
+        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_celular.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 239, -1));
 
-        jLabel1.setText("Cedula:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 50, 20));
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("CITAS");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 70, 20));
 
+        ceiu.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        ceiu.setForeground(new java.awt.Color(255, 255, 255));
         ceiu.setText("Celular:");
-        jPanel2.add(ceiu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 50, 20));
+        jPanel2.add(ceiu, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 60, 20));
 
+        caso.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        caso.setForeground(new java.awt.Color(255, 255, 255));
         caso.setText("Caso:");
         jPanel2.add(caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 40, 20));
 
+        cb_caso.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         cb_caso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
         jPanel2.add(cb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 239, -1));
 
+        descripcion.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        descripcion.setForeground(new java.awt.Color(255, 255, 255));
         descripcion.setText("Descripcion:");
         jPanel2.add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
 
         txa_descripcion.setColumns(20);
+        txa_descripcion.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         txa_descripcion.setLineWrap(true);
         txa_descripcion.setRows(5);
         jScrollPane1.setViewportView(txa_descripcion);
@@ -284,11 +298,14 @@ public class V_Citas extends javax.swing.JInternalFrame {
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 120, 60));
+        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 120, 50));
 
+        hora.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        hora.setForeground(new java.awt.Color(255, 255, 255));
         hora.setText("Hora:");
         jPanel2.add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 40, 20));
 
+        js_hora.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         js_hora.setModel(new javax.swing.SpinnerDateModel());
         js_hora.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         js_hora.setEditor(new javax.swing.JSpinner.DateEditor(js_hora, "dd/MM/yyyy HH:mm"));
@@ -308,11 +325,13 @@ public class V_Citas extends javax.swing.JInternalFrame {
         lb_caso.setForeground(new java.awt.Color(255, 0, 0));
         lb_caso.setText("*Campo Obligatorio");
         jPanel2.add(lb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
+
+        txt_cedula.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 240, -1));
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Buscar.png"))); // NOI18N
         btn_buscar.setText("BUSCAR");
-        jPanel2.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 120, 50));
+        jPanel2.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 120, 50));
 
         cedula.setForeground(new java.awt.Color(255, 0, 0));
         cedula.setText("*Cedula Erronea");
@@ -324,12 +343,19 @@ public class V_Citas extends javax.swing.JInternalFrame {
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
-        jPanel2.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 100, 50));
-        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 140, -1));
+        jPanel2.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 130, 50));
+
+        txt_id.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
+        jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 140, -1));
 
         btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N
         btn_nuevo.setText("NUEVO");
-        jPanel2.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 50));
+        jPanel2.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 120, 50));
+
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Cedula:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 70, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 390));
 
@@ -354,6 +380,7 @@ public class V_Citas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel descripcion;
     private javax.swing.JLabel hora;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner js_hora;

@@ -127,9 +127,18 @@ public class C_Modificar_Cliente {
                     }
                 }
                 if (evt.getSource() == modificar.getTxt_nombre()) {
-                    char c = evt.getKeyChar();
+                    int key = evt.getKeyChar();
 
-                    if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
+                    if (modificar.getTxt_nombre().getText().length() <= 20) {
+                        boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
+
+                        if (!letra) {
+
+                            evt.consume();
+                        }
+
+                    } else {
+
                         evt.consume();
                     }
                 }
@@ -150,9 +159,18 @@ public class C_Modificar_Cliente {
                     }
                 }
                 if (evt.getSource() == modificar.getTxt_apellido()) {
-                    char c = evt.getKeyChar();
+                    int key = evt.getKeyChar();
 
-                    if ((c < 'a' && c < 'z') && (c < 'A' && c < 'Z')) {
+                    if (modificar.getTxt_apellido().getText().length() <= 20) {
+                        boolean letra = key >= 97 && key <= 122 || key == 8 || key >= 65 && key <= 90 || key == 32;
+
+                        if (!letra) {
+
+                            evt.consume();
+                        }
+
+                    } else {
+
                         evt.consume();
                     }
                 }

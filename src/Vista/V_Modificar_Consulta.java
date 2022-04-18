@@ -236,7 +236,6 @@ public class V_Modificar_Consulta extends javax.swing.JInternalFrame {
         txt_id = new javax.swing.JTextField();
 
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("MODIFICAR CONSULTAS");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -256,25 +255,38 @@ public class V_Modificar_Consulta extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(176, 131, 87));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_apellidos.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 239, -1));
 
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombres:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 60, 20));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 100, 20));
 
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Apellidos:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 60, 20));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 100, 20));
 
+        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Caso:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 40, 20));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 80, 20));
 
+        cb_caso.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         cb_caso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Casos Judiciales", "Petición Familiar", "Trámites de Visa", "Waiver", "Procesos Migratorios" }));
         jPanel2.add(cb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 239, -1));
 
+        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Descripcion:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
 
         txa_descripcion.setColumns(20);
+        txa_descripcion.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         txa_descripcion.setLineWrap(true);
         txa_descripcion.setRows(5);
         jScrollPane1.setViewportView(txa_descripcion);
@@ -289,13 +301,18 @@ public class V_Modificar_Consulta extends javax.swing.JInternalFrame {
         btn_guardar.setText("GUARDAR");
         jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 130, 60));
 
+        jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Hora:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 30, 20));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 70, 20));
 
+        js_hora.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         js_hora.setModel(new javax.swing.SpinnerDateModel());
         js_hora.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         js_hora.setEditor(new javax.swing.JSpinner.DateEditor(js_hora, "dd/MM/yyyy HH:mm"));
         jPanel2.add(js_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
+
+        txt_nombres.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 240, -1));
 
         lb_nombre.setBackground(new java.awt.Color(255, 255, 255));
@@ -303,27 +320,35 @@ public class V_Modificar_Consulta extends javax.swing.JInternalFrame {
         lb_nombre.setText("*Campo Obligatorio");
         jPanel2.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, 17));
 
+        btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/3643764-back-backward-left-reply-turn_113415.png"))); // NOI18N
         btn_regresar.setText("REGRESAR");
-        jPanel2.add(btn_regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 110, 60));
+        jPanel2.add(btn_regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 140, 60));
 
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR CONSULTA");
-        jPanel2.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 170, 60));
+        jPanel2.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 190, 60));
 
         lb_celular.setForeground(new java.awt.Color(255, 0, 0));
         lb_celular.setText("*Campo Obligatorio");
         jPanel2.add(lb_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 130, -1));
+
+        txt_celular.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 240, -1));
 
         celular.setForeground(new java.awt.Color(255, 0, 0));
         celular.setText("*Telefono Erroneo");
         jPanel2.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 120, -1));
 
+        jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Celular:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 50, 20));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 90, 20));
 
         lb_apellido.setForeground(new java.awt.Color(255, 0, 0));
         lb_apellido.setText("*Campo Obligatorio");
         jPanel2.add(lb_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 130, -1));
+
+        txt_id.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

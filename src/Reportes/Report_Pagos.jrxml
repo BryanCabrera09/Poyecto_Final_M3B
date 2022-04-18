@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="675" pageHeight="842" columnWidth="635" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5531702a-e324-4509-8664-f1afc0ab49a5">
+	<property name="ireport.zoom" value="1.0000000000000024"/>
+	<property name="ireport.x" value="1"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM BUF_PAGOS]]>
+	</queryString>
+	<field name="ID_PAGO" class="java.math.BigDecimal"/>
+	<field name="ID_CASO" class="java.math.BigDecimal"/>
+	<field name="CEDULA" class="java.lang.String"/>
+	<field name="FECHA_PAGO" class="java.lang.String"/>
+	<field name="ABONO" class="java.math.BigDecimal"/>
+	<field name="SALDO" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="249" splitType="Stretch">
+			<rectangle>
+				<reportElement x="580" y="149" width="16" height="15" uuid="8f85b773-7746-4250-a31c-3d81c9a2e23b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="445" y="149" width="16" height="15" uuid="7d46eceb-aa7a-4e3f-b708-501d72c99110"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="12" y="59" width="100" height="20" uuid="a6b12880-9815-4721-bfe4-e29e893e153a"/>
+				<text><![CDATA[Número de Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="109" width="55" height="20" uuid="f9676d67-cd7d-4cc9-9003-b482edaceab3"/>
+				<text><![CDATA[LAWYERS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="547" y="19" width="71" height="50" uuid="8af9e253-33fc-4bb1-a2f7-5ba41a953e93"/>
+				<imageExpression><![CDATA["C:\\JAVANETB\\Proyecto_Final_M3B\\src\\Reportes\\Icono_Reports.jpeg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="138" y="59" width="176" height="20" uuid="7c06f5ea-dcd2-4e5b-b3e1-18542347cc18"/>
+				<text><![CDATA[Fecha de Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="109" width="47" height="20" uuid="d6fb8b7d-b345-4446-9135-3211015aeda7"/>
+				<text><![CDATA[Factura a ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="129" width="189" height="20" uuid="7d65f2df-64f2-4330-89ee-525b7e84f624"/>
+				<text><![CDATA[El despacho, 00142, Cuenca, Ecuador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="19" width="100" height="20" uuid="1d9e46e8-638d-4b78-a4d9-eb1046c13ee5"/>
+				<text><![CDATA[El reporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="39" width="133" height="20" uuid="f8045fe2-1171-4f18-acca-c8aa5eda9b89"/>
+				<text><![CDATA[Fecha de Inicio: 01-01-2022]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="189" width="163" height="20" uuid="5c2c1e6b-43e0-44b3-a900-ef2a412420b5"/>
+				<text><![CDATA[Lawyerscorp.gob.ec]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="169" width="163" height="20" uuid="cf91b522-191e-47f6-a3b5-b53fac8a2544"/>
+				<text><![CDATA[bcsebastian99@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="149" width="133" height="20" uuid="39a56a0b-962f-4bd4-b1ce-bc8844886a6b"/>
+				<text><![CDATA[0980723065]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="19" width="70" height="20" uuid="c0fde26b-253d-495e-bf11-199c42a7fcd5"/>
+				<text><![CDATA[FACTURA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="363" y="109" width="131" height="20" uuid="ed09fc58-eaae-4178-a8f2-51f8a748c28f"/>
+				<text><![CDATA[CONDICIONES DE VENTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="363" y="149" width="61" height="20" uuid="40cb2eb4-b988-4104-9af8-78a89b21a59a"/>
+				<text><![CDATA[CONTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="507" y="149" width="61" height="20" uuid="4692a4d1-c678-4453-9453-40f23bad7460"/>
+				<text><![CDATA[CREDITO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="206" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="1" width="635" height="203" uuid="78163594-488a-4841-809e-52648240fdad"/>
+			</rectangle>
+			<line>
+				<reportElement x="32" y="42" width="564" height="1" uuid="33ef2ca3-e568-4619-91a8-3957b8eed317"/>
+			</line>
+			<staticText>
+				<reportElement x="32" y="23" width="100" height="20" uuid="f0999b85-e407-401f-a8cd-3b11e8a6d350"/>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="22" width="100" height="20" uuid="c790f9a9-537c-415f-848a-4a2c993b2e7f"/>
+				<text><![CDATA[Precio ud.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="518" y="22" width="78" height="20" uuid="6af29ba5-1a9f-4363-9624-cf33d5d31e80"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="57" width="123" height="20" uuid="af5f7161-3681-4fd5-9b02-4f73b2f10eb3"/>
+				<text><![CDATA[Numero de Beneficiarios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="88" width="100" height="20" uuid="dfdd88c3-44f1-4554-a8fd-a7e728c6e0a3"/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="124" width="100" height="20" uuid="1e04886e-e417-4764-887d-240529c3de49"/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="159" width="100" height="20" uuid="be47cba1-cff5-4cc4-bea5-bf02244109d6"/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="57" width="100" height="20" uuid="601c8539-00bd-4ea1-807a-b2aab27d9d96"/>
+				<text><![CDATA[Honorarios unitario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="88" width="100" height="20" uuid="17967bf5-cd68-4f7c-b322-6b1ef06c76f8"/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="124" width="100" height="20" uuid="45fc6324-d21a-42b4-9da0-7ad957e73aa4"/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="159" width="100" height="20" uuid="f2025567-72fa-49eb-8c73-8ded5d4359da"/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="539" y="57" width="29" height="20" uuid="e57ba6e3-c196-4ca1-bcd9-e6e7bc12b471"/>
+				<text><![CDATA[1]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="378" y="14" width="100" height="20" uuid="07b661a3-b8b5-4aab-82a2-987793a8ab4f"/>
+				<text><![CDATA[Total A Pagar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="14" width="132" height="20" uuid="269e79d1-f435-4d27-9e50-ff470b50fdc7"/>
+				<text><![CDATA[Terminos y Condiciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="52" width="223" height="60" uuid="0734ac43-b809-4b1f-ba1c-b234cdad0f60"/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

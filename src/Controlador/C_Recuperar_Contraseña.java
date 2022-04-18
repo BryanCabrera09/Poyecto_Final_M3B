@@ -26,9 +26,8 @@ public class C_Recuperar_Contraseña {
 
     private V_RecuperarContraseña recuperar;
 
-    String Mensage = "";
-    String To = "";
-    String Subject = "";
+    Buf_Usuarios User = new Buf_Usuarios();
+    Buf_UsuariosDB UserDB = new Buf_UsuariosDB();
 
     public C_Recuperar_Contraseña(V_RecuperarContraseña recuperar) {
 
@@ -93,13 +92,10 @@ public class C_Recuperar_Contraseña {
 
         if (Validar_Campos() == true) {
 
-            if ((Validar_Usuario() == true) && (Validar_Contraseña() == true)) {
+            if ((Validar_Usuario() == true) && (Validar_Correo() == true)) {
 
+                SendMail();
                 Campos();
-                Mensage = "";
-                To = recuperar.getTxt_correo().getText();
-                Subject = "RECUPERACION DE CONTRASEÑA";
-//                SendMail();
 
             } else {
 
@@ -111,31 +107,55 @@ public class C_Recuperar_Contraseña {
         }
     }
 
-    public void SendMail() throws AddressException, MessagingException {
+    public void SendMail() {
 
-        String correo = "bcsebastian99@gmail.com";
-        String contra = "uxaxdfqicjqxvrdi";
-        String correodest = "pordones000@gmail.com";
+        String correo_Envia = "bcsebastian99@gmail.com";
+        String contra = "pcqucofvpsgbocxg";
+        String correodest = recuperar.getTxt_correo().getText();
 
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.setProperty("mail.smtp.host", "smtp.gmail.com");
         props.setProperty("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.ssl.trust", "smtp,gmail.com");
-        props.setProperty("mail.smtp.port", "8090");
-        props.setProperty("mail.smtp.user", correo);
+        props.setProperty("mail.smtp.port", "587");
         props.setProperty("mail.smtp.auth", "true");
 
         Session s = Session.getDefaultInstance(props);
-        MimeMessage mensaje = new MimeMessage(s);
-        mensaje.setFrom(new InternetAddress(correo));
-        mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(correodest));
-        mensaje.setSubject("fsdfs");
-        mensaje.setText("fasdgdgsdgsdgsdgfsd");
 
-        Transport t = s.getTransport("smtp");
-        t.connect(correo, contra);
-        t.sendMessage(mensaje, mensaje.getAllRecipients());
-        t.close();
+        String asunto = "RECUPERACION DE CONTRASEÑA";
+        String mensaje = "";
+
+        List<Buf_Usuarios> List_Usuarios = UserDB.Getter();
+
+        for (int i = 0; i < List_Usuarios.size(); i++) {
+            if (List_Usuarios.get(i).getUsuario().equals(recuperar.getTxt_usuario().getText())) {
+                mensaje = "ESTIMADO USUARIO LA CONTRASEÑA DE SU CUENTA ES " + List_Usuarios.get(i).getContrasenia() + "POR FAVOR NO OLVIDE SUS DATOS DE USUARIO";
+            }
+        }
+
+        MimeMessage mail = new MimeMessage(s);
+
+        try {
+            mail.setFrom(new InternetAddress(correo_Envia));
+            mail.addRecipient(Message.RecipientType.TO, new InternetAddress(correodest));
+            mail.setSubject(asunto);
+            mail.setText(mensaje);
+
+            Transport t = s.getTransport("smtp");
+            t.connect(correo_Envia, contra);
+            t.sendMessage(mail, mail.getAllRecipients());
+            t.close();
+
+            JOptionPane.showMessageDialog(null, "Correo Enviado Exitosamente");
+            V_Inicio_Sesion inicio_Sesion = new V_Inicio_Sesion();
+            controlador.C_Inicio_Sesion ctrlI = new controlador.C_Inicio_Sesion(inicio_Sesion);
+            ctrlI.Iniciar_Control();
+            recuperar.dispose();
+
+        } catch (AddressException e) {
+        } catch (MessagingException e) {
+
+            e.printStackTrace();
+        }
     }
 
     public void Campos() {
@@ -187,7 +207,7 @@ public class C_Recuperar_Contraseña {
         return false;
     }
 
-    public boolean Validar_Contraseña() {
+    public boolean Validar_Correo() {
 
         Buf_PersonaDB A_DB = new Buf_PersonaDB();
 

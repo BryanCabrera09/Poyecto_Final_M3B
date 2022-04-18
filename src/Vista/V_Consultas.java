@@ -225,10 +225,10 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         txt_celular = new javax.swing.JTextField();
         lb_celular = new javax.swing.JLabel();
         celular = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("CONSULTAS");
         setToolTipText("");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
@@ -249,22 +249,29 @@ public class V_Consultas extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(176, 131, 87));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 100, 50));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 120, 50));
 
+        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Caso:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 40, 20));
 
+        cb_caso.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         cb_caso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Casos Judiciales", "Petición Familiar", "Trámites de Visa", "Waiver", "Procesos Migratorios" }));
         jPanel1.add(cb_caso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 210, -1));
 
+        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Descripcion:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 90, 20));
 
         txa_descripcion.setColumns(20);
+        txa_descripcion.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         txa_descripcion.setLineWrap(true);
         txa_descripcion.setRows(5);
         jScrollPane1.setViewportView(txa_descripcion);
@@ -273,15 +280,18 @@ public class V_Consultas extends javax.swing.JInternalFrame {
 
         btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N
         btn_nuevo.setText("NUEVO");
-        jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 90, 50));
+        jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 120, 50));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 90, 50));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 120, 50));
 
+        jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Hora:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 40, 20));
 
+        js_hora.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         js_hora.setModel(new javax.swing.SpinnerDateModel());
         js_hora.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         js_hora.setEditor(new javax.swing.JSpinner.DateEditor(js_hora, "dd/MM/yyyy HH:mm"));
@@ -291,12 +301,20 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         lb_nombre.setText("*Campo Obligatorio");
         jPanel1.add(lb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 130, -1));
 
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombres:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 60, 20));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 70, 20));
 
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Apellidos:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 60, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 70, 20));
+
+        txt_apellidos.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 210, -1));
+
+        txt_nombres.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 210, -1));
 
         lb_caso.setForeground(new java.awt.Color(255, 0, 0));
@@ -307,8 +325,12 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         lb_apellido.setText("*Campo Obligatorio");
         jPanel1.add(lb_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 130, -1));
 
+        jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Celular:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 50, 20));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 60, 20));
+
+        txt_celular.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 210, -1));
 
         lb_celular.setForeground(new java.awt.Color(255, 0, 0));
@@ -318,6 +340,11 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         celular.setForeground(new java.awt.Color(255, 0, 0));
         celular.setText("*Telefono Erroneo");
         jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 120, -1));
+
+        jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("CONSULTAS");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 220, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -352,6 +379,7 @@ public class V_Consultas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     public static javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner js_hora;

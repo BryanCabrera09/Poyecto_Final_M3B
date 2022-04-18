@@ -198,7 +198,6 @@ public class V_Requisitos_PensionesAlimenticias extends javax.swing.JInternalFra
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("PENSIONES ALIMENTICIAS");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -218,9 +217,11 @@ public class V_Requisitos_PensionesAlimenticias extends javax.swing.JInternalFra
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(176, 131, 87));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("REQUISITOS PENSIONES ALIMENTICIAS ");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
@@ -243,15 +244,17 @@ public class V_Requisitos_PensionesAlimenticias extends javax.swing.JInternalFra
         jPanel2.add(req_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 320, -1));
 
         txa_observ.setColumns(20);
+        txa_observ.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         txa_observ.setLineWrap(true);
         txa_observ.setRows(5);
         jScrollPane1.setViewportView(txa_observ);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 330, 143));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 380, 143));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("OBSERVACIONES:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 100, 20));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 130, 20));
 
         honorarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         honorarios.setForeground(new java.awt.Color(51, 0, 0));
@@ -260,19 +263,24 @@ public class V_Requisitos_PensionesAlimenticias extends javax.swing.JInternalFra
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, 90, 40));
+        jPanel2.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, 120, 40));
 
         btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Modificar.png"))); // NOI18N
         btn_modificar.setText("MODIFICAR");
-        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 100, 40));
+        jPanel2.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 130, 40));
 
         btn_pago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Pagar.png"))); // NOI18N
         btn_pago.setText("PAGO");
-        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 70, 40));
+        jPanel2.add(btn_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 100, 40));
+
+        txt_id.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 90, 30));
 
+        btn_cargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/businessapplication_database_database_accepteitheracceptthedatabase_connect_connectdatabase_negocios_aplicacion_basededato_2310.png"))); // NOI18N
         btn_cargar.setText("CARGAR");
-        jPanel2.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, -1, -1));
+        jPanel2.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, -1, 40));
+
+        txt_cedula.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

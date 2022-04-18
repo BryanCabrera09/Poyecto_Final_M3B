@@ -184,7 +184,6 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("REGISTRO USUARIO");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -204,25 +203,33 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(176, 131, 87));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_registro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_registro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_registro.setText("REGISTRO USUARIO");
         jPanel1.add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 150, 30));
 
-        lbl_cedula.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_cedula.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        lbl_cedula.setForeground(new java.awt.Color(255, 255, 255));
         lbl_cedula.setText("CEDULA:");
         jPanel1.add(lbl_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 60, 20));
 
-        lbl_usuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_usuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        lbl_usuario.setForeground(new java.awt.Color(255, 255, 255));
         lbl_usuario.setText("USUARIO:");
-        jPanel1.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 60, 20));
+        jPanel1.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 70, 20));
 
-        lbl_contraseña.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_contraseña.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        lbl_contraseña.setForeground(new java.awt.Color(255, 255, 255));
         lbl_contraseña.setText("CONTRASEÑA:");
-        jPanel1.add(lbl_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 90, 20));
+        jPanel1.add(lbl_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 100, 20));
+
+        txt_usuario.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         jPanel1.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 180, 30));
 
+        psw_contraseña.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         psw_contraseña.setEchoChar('\u25cf');
         jPanel1.add(psw_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 180, 30));
 
@@ -252,6 +259,8 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
         jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 130, 50));
+
+        txt_cedula.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 180, 30));
 
         lb_existente.setBackground(new java.awt.Color(255, 255, 255));
@@ -263,6 +272,8 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         lb_contracorta.setForeground(new java.awt.Color(255, 0, 0));
         lb_contracorta.setText("*Minimo 6 Caractéres");
         jPanel1.add(lb_contracorta, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
+
+        txt_id.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 110, -1));
 
         lb_registro.setForeground(new java.awt.Color(255, 0, 0));
