@@ -7,6 +7,28 @@ package controlador;
 
 import Modelo.Buf_Caso;
 import Modelo.Buf_CasoDB;
+import Modelo.Buf_Caso_Divorcio;
+import Modelo.Buf_Caso_DivorcioDB;
+import Modelo.Buf_Caso_Pension_Aliment;
+import Modelo.Buf_Caso_Pension_AlimentDB;
+import Modelo.Buf_Caso_Perdon;
+import Modelo.Buf_Caso_PerdonDB;
+import Modelo.Buf_Caso_Peticion_Familiar;
+import Modelo.Buf_Caso_Peticion_FamiliarDB;
+import Modelo.Buf_Caso_Renovacion_Pasaporte;
+import Modelo.Buf_Caso_Renovacion_PasaporteDB;
+import Modelo.Buf_Caso_Reporte_Consular;
+import Modelo.Buf_Caso_Reporte_ConsularDB;
+import Modelo.Buf_Caso_Retornante_Inmigrante;
+import Modelo.Buf_Caso_Retornante_InmigranteDB;
+import Modelo.Buf_Caso_Visa_EEUU;
+import Modelo.Buf_Caso_Visa_EEUUDB;
+import Modelo.Buf_Caso_Visa_Europa;
+import Modelo.Buf_Caso_Visa_EuropaDB;
+import Modelo.Buf_Caso_Visa_Loteria;
+import Modelo.Buf_Caso_Visa_LoteriaDB;
+import Modelo.Buf_Caso_Visa_Mexico;
+import Modelo.Buf_Caso_Visa_MexicoDB;
 import Modelo.Buf_Cita;
 import Modelo.Buf_CitaDB;
 import Modelo.Buf_Cliente;
@@ -39,6 +61,41 @@ public class C_Modificar_Cliente {
     Buf_CitaDB Ci_DB = new Buf_CitaDB();
     Buf_Caso Ca = new Buf_Caso();
     Buf_CasoDB Ca_DB = new Buf_CasoDB();
+
+    //REQUISITOS
+    Buf_Caso_DivorcioDB D_DB = new Buf_Caso_DivorcioDB();
+    Buf_Caso_Divorcio D = new Buf_Caso_Divorcio();
+
+    Buf_Caso_Pension_AlimentDB PA_DB = new Buf_Caso_Pension_AlimentDB();
+    Buf_Caso_Pension_Aliment PA = new Buf_Caso_Pension_Aliment();
+
+    Buf_Caso_PerdonDB Perdon_DB = new Buf_Caso_PerdonDB();
+    Buf_Caso_Perdon Perdon = new Buf_Caso_Perdon();
+
+    Buf_Caso_Renovacion_PasaporteDB Passport_DB = new Buf_Caso_Renovacion_PasaporteDB();
+    Buf_Caso_Renovacion_Pasaporte Passport = new Buf_Caso_Renovacion_Pasaporte();
+
+    Buf_Caso_Reporte_ConsularDB Reporte_DB = new Buf_Caso_Reporte_ConsularDB();
+    Buf_Caso_Reporte_Consular Reporte = new Buf_Caso_Reporte_Consular();
+
+    Buf_Caso_Retornante_InmigranteDB Retornante_DB = new Buf_Caso_Retornante_InmigranteDB();
+    Buf_Caso_Retornante_Inmigrante Retornante = new Buf_Caso_Retornante_Inmigrante();
+
+    Buf_Caso_Visa_EEUUDB Veeuu_DB = new Buf_Caso_Visa_EEUUDB();
+    Buf_Caso_Visa_EEUU Veeuu = new Buf_Caso_Visa_EEUU();
+
+    Buf_Caso_Visa_EuropaDB Veuropa_DB = new Buf_Caso_Visa_EuropaDB();
+    Buf_Caso_Visa_Europa Veuropa = new Buf_Caso_Visa_Europa();
+
+    Buf_Caso_Visa_LoteriaDB Loteria_DB = new Buf_Caso_Visa_LoteriaDB();
+    Buf_Caso_Visa_Loteria Loteria = new Buf_Caso_Visa_Loteria();
+
+    Buf_Caso_Visa_MexicoDB Vmexico_DB = new Buf_Caso_Visa_MexicoDB();
+    Buf_Caso_Visa_Mexico Vmexico = new Buf_Caso_Visa_Mexico();
+
+    Buf_Caso_Peticion_FamiliarDB Peticion_DB = new Buf_Caso_Peticion_FamiliarDB();
+    Buf_Caso_Peticion_Familiar Peticion = new Buf_Caso_Peticion_Familiar();
+    //REQUISITOS
 
     String id_caso;
 
@@ -226,6 +283,99 @@ public class C_Modificar_Cliente {
         });
     }
 
+    public boolean Requisitos() {
+
+        List<Buf_Caso_Divorcio> List_caso_div = D_DB.Getter();
+
+        for (int i = 0; i < List_caso_div.size(); i++) {
+            if (List_caso_div.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                return false;
+            }
+        }
+
+        List<Buf_Caso_Pension_Aliment> List_caso_Pension = PA_DB.Getter();
+
+        for (int i = 0; i < List_caso_Pension.size(); i++) {
+            if (List_caso_Pension.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                return false;
+            }
+        }
+
+        List<Buf_Caso_Perdon> List_caso_perdon = Perdon_DB.Getter();
+
+        for (int i = 0; i < List_caso_perdon.size(); i++) {
+            if (List_caso_perdon.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                return false;
+            }
+        }
+
+        List<Buf_Caso_Renovacion_Pasaporte> List_caso_passport = Passport_DB.Getter();
+
+        for (int i = 0; i < List_caso_passport.size(); i++) {
+            if (List_caso_passport.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                return false;
+            }
+        }
+
+        List<Buf_Caso_Reporte_Consular> List_caso_reporte = Reporte_DB.Getter();
+
+        for (int i = 0; i < List_caso_reporte.size(); i++) {
+            if (List_caso_reporte.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                return false;
+            }
+        }
+
+        List<Buf_Caso_Retornante_Inmigrante> List_caso_retornante = Retornante_DB.Getter();
+
+        for (int i = 0; i < List_caso_retornante.size(); i++) {
+            if (List_caso_retornante.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                return false;
+            }
+        }
+
+        List<Buf_Caso_Visa_EEUU> List_caso_veeuu = Veeuu_DB.Getter();
+
+        for (int i = 0; i < List_caso_veeuu.size(); i++) {
+            if (List_caso_veeuu.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                return false;
+            }
+        }
+
+        List<Buf_Caso_Visa_Europa> List_caso_veuropa = Veuropa_DB.Getter();
+
+        for (int i = 0; i < List_caso_veuropa.size(); i++) {
+            if (!List_caso_veuropa.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                return false;
+            }
+        }
+
+        List<Buf_Caso_Visa_Loteria> List_caso_loteria = Loteria_DB.Getter();
+
+        for (int i = 0; i < List_caso_loteria.size(); i++) {
+            if (List_caso_loteria.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                return false;
+            }
+        }
+
+        List<Buf_Caso_Visa_Mexico> List_caso_vmexico = Vmexico_DB.Getter();
+
+        for (int i = 0; i < List_caso_vmexico.size(); i++) {
+            if (!List_caso_vmexico.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                return false;
+            }
+        }
+
+        List<Buf_Caso_Peticion_Familiar> List_caso_peticion = Peticion_DB.Getter();
+
+        for (int i = 0; i < List_caso_peticion.size(); i++) {
+            if (List_caso_peticion.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public void Eliminar() {
 
         List<Buf_Cliente> List_cliente = C_DB.Getter();
@@ -235,71 +385,75 @@ public class C_Modificar_Cliente {
 
         for (int i = 0; i < List_cliente.size(); i++) {
             if (List_cliente.get(i).getCedula().equals(modificar.getTxt_cedula().getText())) {
-                int elimina = JOptionPane.showConfirmDialog(null, "ELIMINAR REGISTRO", "AVISO", JOptionPane.YES_NO_OPTION);
-                switch (elimina) {
-                    case 0:
+                if (Requisitos() == true) {
+                    int elimina = JOptionPane.showConfirmDialog(null, "ELIMINAR REGISTRO", "AVISO", JOptionPane.YES_NO_OPTION);
+                    switch (elimina) {
+                        case 0:
 
-                        if (!list_cita.isEmpty()) {
-                            for (int j = 0; j < list_cita.size(); j++) {
-                                if (list_cita.get(j).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                            if (!list_cita.isEmpty()) {
+                                for (int j = 0; j < list_cita.size(); j++) {
+                                    if (list_cita.get(j).getCedula().equals(modificar.getTxt_cedula().getText())) {
 
-                                    Ci.setId_cita(Integer.parseInt(id_cita));
+                                        Ci.setId_cita(Integer.parseInt(id_cita));
 
-                                    if (Ci_DB.Delete(Ci)) {
+                                        if (Ci_DB.Delete(Ci)) {
 
-                                        if (!List_caso.isEmpty()) {
-                                            for (int k = 0; k < List_caso.size(); k++) {
-                                                Ca.setId_caso(Integer.parseInt(id_caso));
-                                                if (List_caso.get(k).getId_caso() == Integer.parseInt(id_caso)) {
-                                                    if (Ca_DB.Delete(Ca)) {
+                                            if (!List_caso.isEmpty()) {
+                                                for (int k = 0; k < List_caso.size(); k++) {
+                                                    Ca.setId_caso(Integer.parseInt(id_caso));
+                                                    if (List_caso.get(k).getId_caso() == Integer.parseInt(id_caso)) {
+                                                        if (Ca_DB.Delete(Ca)) {
 
+                                                        }
                                                     }
                                                 }
                                             }
+                                        } else {
+
+                                            JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
                                         }
-                                    } else {
-
-                                        JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
-                                    }
-                                }
-                            }
-                        }
-
-                        C.setId_cliente(Integer.parseInt(modificar.getTxt_id().getText()));
-
-                        if (C_DB.Delete(C)) {
-
-                            for (int p = 0; p < list_per.size(); p++) {
-                                if (list_per.get(p).getCedula().equalsIgnoreCase(modificar.getTxt_cedula().getText())) {
-
-                                    P.setCedula(modificar.getTxt_cedula().getText());
-
-                                    Nuevo();
-                                    modificar.getTxt_buscar().setEditable(true);
-                                    modificar.getBtn_modificar().setEnabled(false);
-                                    modificar.getBtn_eliminar().setEnabled(false);
-                                    Limpiar_Tabla();
-                                    Actualizar_Tabla();
-
-                                    if (P_DB.Delete(P)) {
-
-                                    } else {
-
-                                        JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
                                     }
                                 }
                             }
 
-                            JOptionPane.showMessageDialog(null, "Eliminacion Completada");
-                        } else {
+                            C.setId_cliente(Integer.parseInt(modificar.getTxt_id().getText()));
 
-                            JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
-                        }
-                        break;
+                            if (C_DB.Delete(C)) {
 
-                    case 1:
-                        JOptionPane.showMessageDialog(null, "ELIMINACION CANCELADA");
-                        break;
+                                for (int p = 0; p < list_per.size(); p++) {
+                                    if (list_per.get(p).getCedula().equalsIgnoreCase(modificar.getTxt_cedula().getText())) {
+
+                                        P.setCedula(modificar.getTxt_cedula().getText());
+
+                                        Nuevo();
+                                        modificar.getTxt_buscar().setEditable(true);
+                                        modificar.getBtn_modificar().setEnabled(false);
+                                        modificar.getBtn_eliminar().setEnabled(false);
+                                        Limpiar_Tabla();
+                                        Actualizar_Tabla();
+
+                                        if (P_DB.Delete(P)) {
+
+                                        } else {
+
+                                            JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
+                                        }
+                                    }
+                                }
+
+                                JOptionPane.showMessageDialog(null, "Eliminacion Completada");
+                            } else {
+
+                                JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                            break;
+
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "ELIMINACION CANCELADA");
+                            break;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No Puede Eliminar Un Caso En Curso", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }

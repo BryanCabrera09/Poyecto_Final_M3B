@@ -12,11 +12,16 @@ CREATE TABLE Buf_Admin_User (
 
 SELECT * FROM Buf_Admin_User;
 
+SELECT P.Ci, P.Nombre, P.Apellido, A.horario FROM Buf_Persona P JOIN Buf_Abogados A ON P.Ci = A.ci_Abg;
+
 SELECT
-    A.Horario
-FROM
-         Buf_Abogados A
-    JOIN Buf_Persona P ON P.Ci = A.Ci_Abg;
+    * FROM Buf_Citas;
+    
+    
+SELECT
+    * FROM Buf_Consultas;
+
+SELECT P.Ci, P.Nombre, P.Apellido, P.Correo, P.Num_Celular, P.direccion, S.id_Abg, P.Fecha_Nacimiento, S.foto FROM Buf_Persona P JOIN Buf_Secretarias S ON P.Ci = S.ci_Secre;
 /*
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 TABLA PERSONAS
