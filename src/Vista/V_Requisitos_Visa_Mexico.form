@@ -262,13 +262,13 @@
         <Component class="javax.swing.JButton" name="btn_cargar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Iconos/-file-upload_90320.png"/>
+              <Image iconType="3" name="/Iconos/businessapplication_database_database_accepteitheracceptthedatabase_connect_connectdatabase_negocios_aplicacion_basededato_2310.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CARGAR"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="540" y="10" width="120" height="30"/>
+              <AbsoluteConstraints x="540" y="10" width="120" height="40"/>
             </Constraint>
           </Constraints>
         </Component>

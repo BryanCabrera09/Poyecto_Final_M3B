@@ -602,11 +602,11 @@ public class V_Registro_Secretaria extends javax.swing.JInternalFrame {
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 130, 50));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 140, 50));
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 120, 50));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 140, 50));
 
         btn_nuevo.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N

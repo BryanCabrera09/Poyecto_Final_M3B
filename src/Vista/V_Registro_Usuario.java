@@ -205,10 +205,10 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(176, 131, 87));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_registro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_registro.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
         lbl_registro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_registro.setText("REGISTRO USUARIO");
-        jPanel1.add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 150, 30));
+        jPanel1.add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 170, 30));
 
         lbl_cedula.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
         lbl_cedula.setForeground(new java.awt.Color(255, 255, 255));
@@ -267,12 +267,15 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         lb_registro.setText("*Ya Posee Un Registro");
         jPanel1.add(lb_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
+        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N
         btn_nuevo.setText("NUEVO");
-        jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 40));
+        jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 110, 40));
 
+        btn_registar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_registar.setText("REGISTRAR");
-        jPanel1.add(btn_registar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, 40));
+        jPanel1.add(btn_registar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 140, 40));
 
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/vcsconflicting_93497.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
         jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, 40));
 

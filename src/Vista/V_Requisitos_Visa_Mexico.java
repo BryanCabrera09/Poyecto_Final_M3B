@@ -292,9 +292,9 @@ public class V_Requisitos_Visa_Mexico extends javax.swing.JInternalFrame {
         txt_id.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 100, 30));
 
-        btn_cargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/-file-upload_90320.png"))); // NOI18N
+        btn_cargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/businessapplication_database_database_accepteitheracceptthedatabase_connect_connectdatabase_negocios_aplicacion_basededato_2310.png"))); // NOI18N
         btn_cargar.setText("CARGAR");
-        jPanel2.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 120, 30));
+        jPanel2.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 120, 40));
 
         txt_cedula.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 140, 30));

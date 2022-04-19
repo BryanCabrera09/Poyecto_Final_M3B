@@ -344,7 +344,7 @@ public class V_Requisitos_Visa_Loteria extends javax.swing.JInternalFrame {
         txt_id.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 90, 30));
 
-        btn_cargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/-file-upload_90320.png"))); // NOI18N
+        btn_cargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/businessapplication_database_database_accepteitheracceptthedatabase_connect_connectdatabase_negocios_aplicacion_basededato_2310.png"))); // NOI18N
         btn_cargar.setText("CARGAR");
         jPanel1.add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 120, 40));
 

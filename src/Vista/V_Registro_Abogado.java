@@ -701,7 +701,7 @@ public class V_Registro_Abogado extends javax.swing.JInternalFrame {
         cedula.setForeground(new java.awt.Color(255, 0, 0));
         cedula.setText("*Cedula Erronea");
         jPanel1.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 100, -1));
-        jPanel1.add(lb_foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 160, 170));
+        jPanel1.add(lb_foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 270, 160, 170));
 
         btn_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Foto.png"))); // NOI18N
         btn_imagen.setText("FOTO");

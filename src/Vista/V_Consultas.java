@@ -254,7 +254,7 @@ public class V_Consultas extends javax.swing.JInternalFrame {
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 120, 50));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 130, 50));
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -284,7 +284,7 @@ public class V_Consultas extends javax.swing.JInternalFrame {
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 120, 50));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 130, 50));
 
         jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -295,7 +295,7 @@ public class V_Consultas extends javax.swing.JInternalFrame {
         js_hora.setModel(new javax.swing.SpinnerDateModel());
         js_hora.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         js_hora.setEditor(new javax.swing.JSpinner.DateEditor(js_hora, "dd/MM/yyyy HH:mm"));
-        jPanel1.add(js_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 140, -1));
+        jPanel1.add(js_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 150, -1));
 
         lb_nombre.setForeground(new java.awt.Color(255, 0, 0));
         lb_nombre.setText("*Campo Obligatorio");

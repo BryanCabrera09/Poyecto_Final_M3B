@@ -150,8 +150,9 @@ public class V_Horario extends javax.swing.JInternalFrame {
         txt_buscar.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 180, 30));
 
+        btn_imprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Print_icon-icons.com_73705.png"))); // NOI18N
         btn_imprimir.setText("IMPRIMIR");
-        jPanel1.add(btn_imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 90, 40));
+        jPanel1.add(btn_imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

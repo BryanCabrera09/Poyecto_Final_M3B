@@ -524,7 +524,7 @@ public class V_Registro_Cliente extends javax.swing.JInternalFrame {
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_guardar.setText("GUARDAR");
-        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, 120, 50));
+        jPanel1.add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, 130, 50));
 
         btn_nuevo.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N

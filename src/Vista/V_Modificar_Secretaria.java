@@ -620,7 +620,7 @@ public class V_Modificar_Secretaria extends javax.swing.JInternalFrame {
         btn_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Foto.png"))); // NOI18N
         btn_imagen.setText("FOTO");
         jPanel1.add(btn_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 370, -1, 40));
-        jPanel1.add(lb_foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 130, 140));
+        jPanel1.add(lb_foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, 130, 140));
 
         txt_buscar.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 230, -1));

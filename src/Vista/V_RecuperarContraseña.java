@@ -140,7 +140,7 @@ public class V_RecuperarContraseña extends javax.swing.JFrame {
 
         btn_enviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
         btn_enviar.setText("ENVIAR");
-        jPanel1.add(btn_enviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 120, 50));
+        jPanel1.add(btn_enviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 130, 50));
 
         lb_usuario.setBackground(new java.awt.Color(255, 255, 255));
         lb_usuario.setForeground(new java.awt.Color(255, 0, 0));

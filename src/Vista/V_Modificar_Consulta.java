@@ -310,7 +310,7 @@ public class V_Modificar_Consulta extends javax.swing.JInternalFrame {
         js_hora.setModel(new javax.swing.SpinnerDateModel());
         js_hora.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         js_hora.setEditor(new javax.swing.JSpinner.DateEditor(js_hora, "dd/MM/yyyy HH:mm"));
-        jPanel2.add(js_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
+        jPanel2.add(js_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 150, -1));
 
         txt_nombres.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel2.add(txt_nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 240, -1));

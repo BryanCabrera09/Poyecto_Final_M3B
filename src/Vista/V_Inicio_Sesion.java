@@ -148,7 +148,7 @@ public class V_Inicio_Sesion extends javax.swing.JFrame {
         jPanel1.add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 160, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/logo proyecto_ccexpress (1).png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 140, 160));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 110, 160));
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/vcsconflicting_93497.png"))); // NOI18N
         btn_cancelar.setText("CANCELAR");
