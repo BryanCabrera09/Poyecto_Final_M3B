@@ -16,7 +16,7 @@ public class DB_Connect {
         try {
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            con = (Connection) DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "BRYAN", "0150269900");
+            con = (Connection) DriverManager.getConnection("jdbc:oracle:thin:@bryancabrera.ddns.net:1521:XE", "BRYAN", "0150269900");
 
             if (con != null) {
             }
