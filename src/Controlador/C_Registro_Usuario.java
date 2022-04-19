@@ -26,7 +26,7 @@ import vista.V_Registro_Usuario;
 public class C_Registro_Usuario {
 
     V_Registro_Usuario crearuser;
-    V_Menu_Inicio inicio = new V_Menu_Inicio();
+    V_Menu_Inicio inicio;
 
     Buf_Admin_User Admin = new Buf_Admin_User();
     Buf_Admin_UserDB AdminDB = new Buf_Admin_UserDB();

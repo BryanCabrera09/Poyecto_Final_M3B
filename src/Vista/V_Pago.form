@@ -283,7 +283,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btn_imprimir">
           <Properties>
             <Property name="text" type="java.lang.String" value="IMPRIMIR"/>
           </Properties>

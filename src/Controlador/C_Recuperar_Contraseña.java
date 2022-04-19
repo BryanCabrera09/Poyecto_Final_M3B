@@ -128,7 +128,7 @@ public class C_Recuperar_Contraseña {
 
         for (int i = 0; i < List_Usuarios.size(); i++) {
             if (List_Usuarios.get(i).getUsuario().equals(recuperar.getTxt_usuario().getText())) {
-                mensaje = "ESTIMADO USUARIO LA CONTRASEÑA DE SU CUENTA ES " + List_Usuarios.get(i).getContrasenia() + "POR FAVOR NO OLVIDE SUS DATOS DE USUARIO";
+                mensaje = "ESTIMADO USUARIO LA CONTRASEÑA DE SU CUENTA ES " + List_Usuarios.get(i).getContrasenia() + " POR FAVOR NO OLVIDE SUS DATOS DE USUARIO";
             }
         }
 

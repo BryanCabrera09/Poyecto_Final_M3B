@@ -26,7 +26,7 @@ import vista.V_Menu_Inicio;
 public class C_Requisitos_ReporteConsular {
 
     V_Requisitos_ReporteConsular consular;
-    
+
     Buf_Caso_Reporte_ConsularDB D_DB = new Buf_Caso_Reporte_ConsularDB();
     Buf_Caso_Reporte_Consular D = new Buf_Caso_Reporte_Consular();
     Buf_PagosDB P_DB = new Buf_PagosDB();
@@ -50,13 +50,13 @@ public class C_Requisitos_ReporteConsular {
     public String rutas_8;
 
     public C_Requisitos_ReporteConsular(V_Requisitos_ReporteConsular consular) {
-        
+
         this.consular = consular;
-        
+
         Num_Beneficiario();
         Campos();
     }
-    
+
     public void Iniciar_Control() {
 
         consular.getBtn_guardar().addActionListener(l -> {
@@ -102,7 +102,7 @@ public class C_Requisitos_ReporteConsular {
     public void Cargar_Imagen() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -124,7 +124,7 @@ public class C_Requisitos_ReporteConsular {
     public void Cargar_Imagen_2() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -146,7 +146,7 @@ public class C_Requisitos_ReporteConsular {
     public void Cargar_Imagen_3() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -168,7 +168,7 @@ public class C_Requisitos_ReporteConsular {
     public void Cargar_Imagen_4() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -190,7 +190,7 @@ public class C_Requisitos_ReporteConsular {
     public void Cargar_Imagen_5() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -212,7 +212,7 @@ public class C_Requisitos_ReporteConsular {
     public void Cargar_Imagen_6() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -234,7 +234,7 @@ public class C_Requisitos_ReporteConsular {
     public void Cargar_Imagen_7() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -256,7 +256,7 @@ public class C_Requisitos_ReporteConsular {
     public void Cargar_Imagen_8() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -274,7 +274,7 @@ public class C_Requisitos_ReporteConsular {
             consular.getReq_8().setSelected(true);
         }
     }
-    
+
     public void Num_Beneficiario() {
 
         consular.getCb_numper().addItem("Seleccionar");
@@ -847,7 +847,7 @@ public class C_Requisitos_ReporteConsular {
                 }
             }
         }
-        
+
         D.setObservacion(consular.getTxa_observ().getText());
         D.setId_caso(Integer.parseInt(consular.getTxt_id().getText()));
         if (D_DB.Update(D)) {

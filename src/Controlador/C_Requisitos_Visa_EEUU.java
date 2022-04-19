@@ -17,6 +17,13 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import vista.V_Requisitos_Visa_EEUU;
 import Modelo.Buf_Pagos;
 import Modelo.Buf_PagosDB;
+import Modelo.DB_Connect;
+import java.awt.Desktop;
+import java.io.ByteArrayInputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import vista.V_Pago;
 import vista.V_Menu_Inicio;
 
@@ -26,7 +33,7 @@ import vista.V_Menu_Inicio;
 public class C_Requisitos_Visa_EEUU {
 
     V_Requisitos_Visa_EEUU reu;
-    
+
     Buf_Caso_Visa_EEUUDB D_DB = new Buf_Caso_Visa_EEUUDB();
     Buf_Caso_Visa_EEUU D = new Buf_Caso_Visa_EEUU();
     Buf_PagosDB P_DB = new Buf_PagosDB();
@@ -54,11 +61,11 @@ public class C_Requisitos_Visa_EEUU {
     public String rutas_9;
     public String rutas_10;
     public String rutas_11;
-    
+
     public C_Requisitos_Visa_EEUU(V_Requisitos_Visa_EEUU reu) {
-        
+
         this.reu = reu;
-        
+
         Num_Beneficiario();
         Campos();
     }
@@ -80,6 +87,7 @@ public class C_Requisitos_Visa_EEUU {
             Cargar_Check();
         });
         reu.getReq_1().addActionListener(l -> {
+            PDF_Req_1();
             Cargar_Imagen();
         });
         reu.getReq_2().addActionListener(l -> {
@@ -114,10 +122,43 @@ public class C_Requisitos_Visa_EEUU {
         });
     }
 
+    public void PDF_Req_1() {
+
+        List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
+
+        for (int i = 0; i < List_caso.size(); i++) {
+            if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                try {
+                    byte[] bi = List_caso.get(i).getReq_1();
+                    if (bi != null) {
+                        InputStream bos = new ByteArrayInputStream(bi);
+
+                        int tamanoInput = bos.available();
+                        byte[] datosPDF = new byte[tamanoInput];
+                        bos.read(datosPDF, 0, tamanoInput);
+
+                        OutputStream out = new FileOutputStream("REQUISITO #1.pdf");
+                        out.write(datosPDF);
+                        out.close();
+
+                        try {
+                            Desktop.getDesktop().open(new File("REQUISITO #1.pdf"));
+                        } catch (Exception ex) {
+                        }
+                    } else if (bi == null) {
+                        JOptionPane.showMessageDialog(null, "No Hay Ningun Requisito");
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
     public void Cargar_Imagen() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -139,7 +180,7 @@ public class C_Requisitos_Visa_EEUU {
     public void Cargar_Imagen_2() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -161,7 +202,7 @@ public class C_Requisitos_Visa_EEUU {
     public void Cargar_Imagen_3() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -183,7 +224,7 @@ public class C_Requisitos_Visa_EEUU {
     public void Cargar_Imagen_4() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -205,7 +246,7 @@ public class C_Requisitos_Visa_EEUU {
     public void Cargar_Imagen_5() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -227,7 +268,7 @@ public class C_Requisitos_Visa_EEUU {
     public void Cargar_Imagen_6() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -249,7 +290,7 @@ public class C_Requisitos_Visa_EEUU {
     public void Cargar_Imagen_7() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -271,7 +312,7 @@ public class C_Requisitos_Visa_EEUU {
     public void Cargar_Imagen_8() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -293,7 +334,7 @@ public class C_Requisitos_Visa_EEUU {
     public void Cargar_Imagen_9() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -311,11 +352,11 @@ public class C_Requisitos_Visa_EEUU {
             reu.getReq_9().setSelected(true);
         }
     }
-    
+
     public void Cargar_Imagen_10() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -333,11 +374,11 @@ public class C_Requisitos_Visa_EEUU {
             reu.getReq_10().setSelected(true);
         }
     }
-    
+
     public void Cargar_Imagen_11() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -544,7 +585,7 @@ public class C_Requisitos_Visa_EEUU {
                     D.setReq_9(null);
                 }
             }
-            
+
             //REQUISITO #10
             if (ruta_10 != null) {
                 File ruta_10 = new File(rutas_10);
@@ -558,7 +599,7 @@ public class C_Requisitos_Visa_EEUU {
                     D.setReq_10(null);
                 }
             }
-            
+
             //REQUISITO #11
             if (ruta_11 != null) {
                 File ruta_11 = new File(rutas_11);
@@ -1042,7 +1083,7 @@ public class C_Requisitos_Visa_EEUU {
                 }
             }
         }
-        
+
         //REQUISITO #10
         if (ruta_10 != null) {
             File ruta_10 = new File(rutas_10);
@@ -1075,7 +1116,7 @@ public class C_Requisitos_Visa_EEUU {
                 }
             }
         }
-        
+
         //REQUISITO #11
         if (ruta_11 != null) {
             File ruta_11 = new File(rutas_11);
@@ -1108,7 +1149,7 @@ public class C_Requisitos_Visa_EEUU {
                 }
             }
         }
-        
+
         D.setObservacion(reu.getTxa_observ().getText());
         D.setId_caso(Integer.parseInt(reu.getTxt_id().getText()));
         if (D_DB.Update(D)) {

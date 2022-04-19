@@ -58,7 +58,7 @@ public class C_Requisitos_Visa_Loteria {
         Num_Beneficiario();
         Campos();
     }
-    
+
     public void Iniciar_Control() {
 
         loteria.getBtn_guardar().addActionListener(l -> {
@@ -107,7 +107,7 @@ public class C_Requisitos_Visa_Loteria {
     public void Cargar_Imagen() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -129,7 +129,7 @@ public class C_Requisitos_Visa_Loteria {
     public void Cargar_Imagen_2() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -151,7 +151,7 @@ public class C_Requisitos_Visa_Loteria {
     public void Cargar_Imagen_3() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -173,7 +173,7 @@ public class C_Requisitos_Visa_Loteria {
     public void Cargar_Imagen_4() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -195,7 +195,7 @@ public class C_Requisitos_Visa_Loteria {
     public void Cargar_Imagen_5() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -217,7 +217,7 @@ public class C_Requisitos_Visa_Loteria {
     public void Cargar_Imagen_6() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -239,7 +239,7 @@ public class C_Requisitos_Visa_Loteria {
     public void Cargar_Imagen_7() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -261,7 +261,7 @@ public class C_Requisitos_Visa_Loteria {
     public void Cargar_Imagen_8() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -283,7 +283,7 @@ public class C_Requisitos_Visa_Loteria {
     public void Cargar_Imagen_9() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -301,7 +301,7 @@ public class C_Requisitos_Visa_Loteria {
             loteria.getReq_9().setSelected(true);
         }
     }
-    
+
     public void Num_Beneficiario() {
 
         loteria.getCb_numper().addItem("Seleccionar");
@@ -934,7 +934,7 @@ public class C_Requisitos_Visa_Loteria {
                 }
             }
         }
-        
+
         D.setObservacion(loteria.getTxa_observ().getText());
         D.setId_caso(Integer.parseInt(loteria.getTxt_id().getText()));
         if (D_DB.Update(D)) {

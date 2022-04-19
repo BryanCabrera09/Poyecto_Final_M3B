@@ -52,8 +52,8 @@ public class C_Requisitos_RetornanteInmigrante {
         Num_Beneficiario();
         Campos();
     }
-    
-     public void Iniciar_Control() {
+
+    public void Iniciar_Control() {
 
         inmigrante.getBtn_guardar().addActionListener(l -> {
             Subir_Documento();
@@ -92,7 +92,7 @@ public class C_Requisitos_RetornanteInmigrante {
     public void Cargar_Imagen() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -114,7 +114,7 @@ public class C_Requisitos_RetornanteInmigrante {
     public void Cargar_Imagen_2() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -136,7 +136,7 @@ public class C_Requisitos_RetornanteInmigrante {
     public void Cargar_Imagen_3() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -158,7 +158,7 @@ public class C_Requisitos_RetornanteInmigrante {
     public void Cargar_Imagen_4() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -180,7 +180,7 @@ public class C_Requisitos_RetornanteInmigrante {
     public void Cargar_Imagen_5() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -202,7 +202,7 @@ public class C_Requisitos_RetornanteInmigrante {
     public void Cargar_Imagen_6() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");

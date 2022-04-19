@@ -1,7 +1,5 @@
 package controlador;
 
-import Modelo.Buf_Usuarios;
-import Modelo.Buf_UsuariosDB;
 import javax.swing.JOptionPane;
 import vista.V_Caso;
 import vista.V_Citas;

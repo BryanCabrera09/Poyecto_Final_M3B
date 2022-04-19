@@ -8,7 +8,7 @@ package controlador;
 import Modelo.Buf_Caso_Pension_Aliment;
 import Modelo.Buf_Caso_Pension_AlimentDB;
 import Modelo.Buf_Pagos;
-import Modelo.Buf_PagosDB;  
+import Modelo.Buf_PagosDB;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -90,7 +90,7 @@ public class C_Requisitos_PensionesAlimenticias {
     public void Cargar_Imagen() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -112,7 +112,7 @@ public class C_Requisitos_PensionesAlimenticias {
     public void Cargar_Imagen_2() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -134,7 +134,7 @@ public class C_Requisitos_PensionesAlimenticias {
     public void Cargar_Imagen_3() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -156,7 +156,7 @@ public class C_Requisitos_PensionesAlimenticias {
     public void Cargar_Imagen_4() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -178,7 +178,7 @@ public class C_Requisitos_PensionesAlimenticias {
     public void Cargar_Imagen_5() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -200,7 +200,7 @@ public class C_Requisitos_PensionesAlimenticias {
     public void Cargar_Imagen_6() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -650,7 +650,7 @@ public class C_Requisitos_PensionesAlimenticias {
                 }
             }
         }
-        
+
         PA.setObservacion(rpa.getTxa_observ().getText());
         PA.setId_caso(Integer.parseInt(rpa.getTxt_id().getText()));
         if (PA_DB.Update(PA)) {

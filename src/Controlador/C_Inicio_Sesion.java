@@ -127,16 +127,70 @@ public class C_Inicio_Sesion {
         sesion.getLb_olvidar().addMouseListener(M);
     }
 
+    public boolean Validar_Usuario_Cargar() {
+
+        List<Buf_Usuarios> List_usr = userDB.Getter();
+
+        List<Buf_Abogado> List_abg = A_DB.Getter_PA();
+        List<Buf_Secretaria> List_secre = S_DB.Getter_SP();
+
+        if (List_secre.isEmpty()) {
+            for (int i = 0; i < List_usr.size(); i++) {
+                for (int j = 0; j < List_abg.size(); j++) {
+                    if ((List_usr.get(i).getUsuario().equals(sesion.getTxt_usuario().getText()) && List_usr.get(i).getCedula().equals(List_abg.get(j).getCedula()))) {
+                        inicio.getLb_usuario().setText(List_abg.get(j).getNombre() + " " + List_abg.get(j).getApellido());
+                        inicio.getLb_matricula().setText(String.valueOf(List_abg.get(j).getNum_matricula()));
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
+        if (List_abg.isEmpty()) {
+            for (int i = 0; i < List_usr.size(); i++) {
+                for (int k = 0; k < List_secre.size(); k++) {
+                    if ((List_usr.get(i).getUsuario().equals(sesion.getTxt_usuario().getText()) && List_usr.get(i).getCedula().equals(List_secre.get(k).getCedula()))) {
+                        inicio.getLb_usuario().setText(List_secre.get(k).getNombre() + " " + List_secre.get(k).getApellido());
+                        inicio.getLb_matricula().setText(String.valueOf(List_secre.get(k).getId_secretaria()));
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
+        for (int i = 0; i < List_usr.size(); i++) {
+            for (int j = 0; j < List_abg.size(); j++) {
+                for (int k = 0; k < List_secre.size(); k++) {
+                    if ((List_usr.get(i).getUsuario().equals(sesion.getTxt_usuario().getText()) && List_usr.get(i).getCedula().equals(List_abg.get(j).getCedula()))) {
+                        inicio.getLb_usuario().setText(List_abg.get(j).getNombre() + " " + List_abg.get(j).getApellido());
+                        inicio.getLb_matricula().setText(String.valueOf(List_abg.get(j).getNum_matricula()));
+                        return true;
+                    } else if ((List_usr.get(i).getUsuario().equals(sesion.getTxt_usuario().getText()) && List_usr.get(i).getCedula().equals(List_secre.get(k).getCedula()))) {
+                        inicio.getLb_usuario().setText(List_secre.get(k).getNombre() + " " + List_secre.get(k).getApellido());
+                        inicio.getLb_matricula().setText(String.valueOf(List_secre.get(k).getId_secretaria()));
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return false;
+    }
+
     public void Validar_Datos() {
 
         if (Validar_Campos() == true) {
 
             if ((Validar_Usuario() == true) && (Validar_Contraseña() == true)) {
 
-                Campos();
                 C_Menu_Inicio iniciar = new C_Menu_Inicio(inicio);
                 iniciar.Iniciar_Control();
                 inicio.setVisible(true);
+                Validar_Usuario_Cargar();
+                Campos();
                 sesion.setVisible(false);
 
             } else {

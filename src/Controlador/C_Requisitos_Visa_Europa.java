@@ -147,7 +147,7 @@ public class C_Requisitos_Visa_Europa {
     public void Cargar_Imagen() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -169,7 +169,7 @@ public class C_Requisitos_Visa_Europa {
     public void Cargar_Imagen_2() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -191,7 +191,7 @@ public class C_Requisitos_Visa_Europa {
     public void Cargar_Imagen_3() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -213,7 +213,7 @@ public class C_Requisitos_Visa_Europa {
     public void Cargar_Imagen_4() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -235,7 +235,7 @@ public class C_Requisitos_Visa_Europa {
     public void Cargar_Imagen_5() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -257,7 +257,7 @@ public class C_Requisitos_Visa_Europa {
     public void Cargar_Imagen_6() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -279,7 +279,7 @@ public class C_Requisitos_Visa_Europa {
     public void Cargar_Imagen_7() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -301,7 +301,7 @@ public class C_Requisitos_Visa_Europa {
     public void Cargar_Imagen_8() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -323,7 +323,7 @@ public class C_Requisitos_Visa_Europa {
     public void Cargar_Imagen_9() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -345,7 +345,7 @@ public class C_Requisitos_Visa_Europa {
     public void Cargar_Imagen_10() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -367,7 +367,7 @@ public class C_Requisitos_Visa_Europa {
     public void Cargar_Imagen_11() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -385,11 +385,11 @@ public class C_Requisitos_Visa_Europa {
             re.getReq_11().setSelected(true);
         }
     }
-    
+
     public void Cargar_Imagen_12() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -407,11 +407,11 @@ public class C_Requisitos_Visa_Europa {
             re.getReq_12().setSelected(true);
         }
     }
-    
+
     public void Cargar_Imagen_13() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -429,11 +429,11 @@ public class C_Requisitos_Visa_Europa {
             re.getReq_13().setSelected(true);
         }
     }
-    
+
     public void Cargar_Imagen_14() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -451,11 +451,11 @@ public class C_Requisitos_Visa_Europa {
             re.getReq_14().setSelected(true);
         }
     }
-    
+
     public void Cargar_Imagen_15() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -473,11 +473,11 @@ public class C_Requisitos_Visa_Europa {
             re.getReq_15().setSelected(true);
         }
     }
-    
+
     public void Cargar_Imagen_16() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -495,11 +495,11 @@ public class C_Requisitos_Visa_Europa {
             re.getReq_16().setSelected(true);
         }
     }
-    
+
     public void Cargar_Imagen_17() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -746,7 +746,7 @@ public class C_Requisitos_Visa_Europa {
                     D.setReq_11(null);
                 }
             }
-            
+
             //REQUISITO #12
             if (ruta_12 != null) {
                 File ruta_12 = new File(rutas_12);
@@ -760,7 +760,7 @@ public class C_Requisitos_Visa_Europa {
                     D.setReq_12(null);
                 }
             }
-            
+
             //REQUISITO #13
             if (ruta_13 != null) {
                 File ruta_13 = new File(rutas_13);
@@ -774,7 +774,7 @@ public class C_Requisitos_Visa_Europa {
                     D.setReq_13(null);
                 }
             }
-            
+
             //REQUISITO #14
             if (ruta_14 != null) {
                 File ruta_14 = new File(rutas_14);
@@ -788,7 +788,7 @@ public class C_Requisitos_Visa_Europa {
                     D.setReq_14(null);
                 }
             }
-            
+
             //REQUISITO #15
             if (ruta_15 != null) {
                 File ruta_15 = new File(rutas_15);
@@ -802,7 +802,7 @@ public class C_Requisitos_Visa_Europa {
                     D.setReq_15(null);
                 }
             }
-            
+
             //REQUISITO #16
             if (ruta_16 != null) {
                 File ruta_16 = new File(rutas_16);
@@ -816,7 +816,7 @@ public class C_Requisitos_Visa_Europa {
                     D.setReq_16(null);
                 }
             }
-            
+
             //REQUISITO #17
             if (ruta_17 != null) {
                 File ruta_17 = new File(rutas_17);
@@ -1465,7 +1465,7 @@ public class C_Requisitos_Visa_Europa {
                 }
             }
         }
-        
+
         //REQUISITO #13
         if (ruta_13 != null) {
             File ruta_13 = new File(rutas_13);
@@ -1498,7 +1498,7 @@ public class C_Requisitos_Visa_Europa {
                 }
             }
         }
-        
+
         //REQUISITO #14
         if (ruta_14 != null) {
             File ruta_14 = new File(rutas_14);
@@ -1531,7 +1531,7 @@ public class C_Requisitos_Visa_Europa {
                 }
             }
         }
-        
+
         //REQUISITO #15
         if (ruta_15 != null) {
             File ruta_15 = new File(rutas_15);
@@ -1564,7 +1564,7 @@ public class C_Requisitos_Visa_Europa {
                 }
             }
         }
-        
+
         //REQUISITO #16
         if (ruta_16 != null) {
             File ruta_16 = new File(rutas_16);
@@ -1597,7 +1597,7 @@ public class C_Requisitos_Visa_Europa {
                 }
             }
         }
-        
+
         //REQUISITO #17
         if (ruta_17 != null) {
             File ruta_17 = new File(rutas_17);
@@ -1630,7 +1630,7 @@ public class C_Requisitos_Visa_Europa {
                 }
             }
         }
-        
+
         D.setObservacion(re.getTxa_observ().getText());
         D.setId_caso(Integer.parseInt(re.getTxt_id().getText()));
         if (D_DB.Update(D)) {

@@ -44,6 +44,8 @@ public class C_Requisitos_Divorcio {
     public String rutas_5;
     public String rutas_6;
 
+    int honorarios;
+
     public C_Requisitos_Divorcio(V_Requisitos_Divorcio divorcio) {
 
         this.divorcio = divorcio;
@@ -90,7 +92,7 @@ public class C_Requisitos_Divorcio {
     public void Cargar_Imagen() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -112,7 +114,7 @@ public class C_Requisitos_Divorcio {
     public void Cargar_Imagen_2() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -134,7 +136,7 @@ public class C_Requisitos_Divorcio {
     public void Cargar_Imagen_3() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -156,7 +158,7 @@ public class C_Requisitos_Divorcio {
     public void Cargar_Imagen_4() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -178,7 +180,7 @@ public class C_Requisitos_Divorcio {
     public void Cargar_Imagen_5() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -200,7 +202,7 @@ public class C_Requisitos_Divorcio {
     public void Cargar_Imagen_6() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -342,7 +344,7 @@ public class C_Requisitos_Divorcio {
             }
         }
 
-        int honorarios = 250;
+        honorarios = 250;
         D.setHonorarios(honorarios);
         D.setObservacion(divorcio.getTxa_observ().getText());
         if (D_DB.Register(D)) {
@@ -650,7 +652,7 @@ public class C_Requisitos_Divorcio {
                 }
             }
         }
-        
+
         D.setObservacion(divorcio.getTxa_observ().getText());
         D.setId_caso(Integer.parseInt(divorcio.getTxt_id().getText()));
         if (D_DB.Update(D)) {
@@ -674,10 +676,14 @@ public class C_Requisitos_Divorcio {
             if (List_caso.get(i).getCedula().equals(divorcio.getTxt_cedula().getText())) {
                 pa.getTxt_cedula().setText(divorcio.getTxt_cedula().getText());
                 pa.getTxt_id().setText(String.valueOf(List_caso.get(i).getId_caso()));
-                for (int j = 0; j < List_pago.size(); j++) {
-                    if (List_pago.get(j).getId_caso() != Integer.parseInt(divorcio.getTxt_id().getText())) {
-                        pa.getTxt_a_pagar().setText(String.valueOf(List_caso.get(i).getHonorarios()));
+                if (!List_pago.isEmpty()) {
+                    for (int j = 0; j < List_pago.size(); j++) {
+                        if (List_pago.get(j).getId_caso() != Integer.parseInt(divorcio.getTxt_id().getText())) {
+                            pa.getTxt_a_pagar().setText(String.valueOf(List_caso.get(i).getHonorarios()));
+                        }
                     }
+                } else {
+                    pa.getTxt_a_pagar().setText(String.valueOf(List_caso.get(i).getHonorarios()));
                 }
             }
         }

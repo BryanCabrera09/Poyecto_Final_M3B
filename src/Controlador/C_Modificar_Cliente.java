@@ -416,19 +416,20 @@ public class C_Modificar_Cliente {
 
                                         if (Ci_DB.Delete(Ci)) {
 
-                                            if (!List_caso.isEmpty()) {
-                                                for (int k = 0; k < List_caso.size(); k++) {
-                                                    Ca.setId_caso(Integer.parseInt(id_caso));
-                                                    if (List_caso.get(k).getId_caso() == Integer.parseInt(id_caso)) {
-                                                        if (Ca_DB.Delete(Ca)) {
-
-                                                        }
-                                                    }
-                                                }
-                                            }
                                         } else {
 
                                             JOptionPane.showMessageDialog(null, "Proceso de Eliminacion Cancelado", "Error", JOptionPane.ERROR_MESSAGE);
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (!List_caso.isEmpty()) {
+                                for (int k = 0; k < List_caso.size(); k++) {
+                                    Ca.setId_caso(Integer.parseInt(id_caso));
+                                    if (List_caso.get(k).getId_caso() == Integer.parseInt(id_caso)) {
+                                        if (Ca_DB.Delete(Ca)) {
+                                            System.out.println("se boororo");
                                         }
                                     }
                                 }
@@ -626,6 +627,7 @@ public class C_Modificar_Cliente {
         List<Buf_Cliente> List_cliente = C_DB.Getter();
         List<Buf_Persona> List_per = P_DB.Getter_Cliente();
         List<Buf_Cita> list_cita = Ci_DB.Getter();
+        List<Buf_Caso> list_caso = Ca_DB.Getter();
 
         int select = modificar.getTablepersona().getSelectedRow();
 
@@ -655,6 +657,15 @@ public class C_Modificar_Cliente {
                         modificar.getTxt_id().setText(String.valueOf(List_cliente.get(i).getId_cliente()));
                         id_cita = String.valueOf(list_cita.get(j).getId_cita());
                         id_caso = String.valueOf(list_cita.get(j).getId_caso());
+                    }
+                }
+            }
+            for (int j = 0; j < list_caso.size(); j++) {
+                for (int i = 0; i < List_cliente.size(); i++) {
+                    if (List_cliente.get(i).getCedula().equals(modificar.getTxt_cedula().getText()) && list_caso.get(j).getCedula().equals(modificar.getTxt_cedula().getText())) {
+                        modificar.getTxt_ocupacion().setText(List_cliente.get(i).getOcupacion());
+                        modificar.getTxt_id().setText(String.valueOf(List_cliente.get(i).getId_cliente()));
+                        id_caso = String.valueOf(list_caso.get(j).getId_caso());
                     }
                 }
             }

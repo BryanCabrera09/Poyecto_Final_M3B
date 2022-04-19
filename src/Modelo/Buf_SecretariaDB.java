@@ -234,7 +234,7 @@ public class Buf_SecretariaDB implements Buf_SecretariaDAO {
 
     @Override
     public boolean Delete_From_Abg(Buf_Secretaria secre) {
-        
+
         boolean Delete = false;
 
         PreparedStatement pst = null;
@@ -272,6 +272,45 @@ public class Buf_SecretariaDB implements Buf_SecretariaDAO {
             }
         }
         return Delete;
+    }
+
+    @Override
+    public List<Buf_Secretaria> Getter_SP() {
+
+        Statement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT P.ci, P.Nombre, P.Apellido, S.id_Secretaria FROM Buf_Persona P JOIN Buf_Secretarias S ON P.Ci = S.Ci_Secre";
+
+        List<Buf_Secretaria> Lista_secre = new ArrayList<>();
+
+        try {
+
+            con = DB_Connect.Connect();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                Buf_Secretaria A = new Buf_Secretaria();
+                A.setCedula(rs.getString("ci_Abg"));
+                A.setNombre(rs.getString("nombre"));
+                A.setApellido(rs.getString("apellido"));
+                A.setId_secretaria(rs.getInt("id_Secretaria"));
+
+                Lista_secre.add(A);
+            }
+            st.close();
+            con.close();
+            rs.close();
+            return Lista_secre;
+
+        } catch (SQLException e) {
+
+            Logger.getLogger(Buf_PersonaDB.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
     }
 
 }

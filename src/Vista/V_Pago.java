@@ -148,6 +148,14 @@ public class V_Pago extends javax.swing.JInternalFrame {
         this.txt_id = txt_id;
     }
 
+    public JButton getBtn_imprimir() {
+        return btn_imprimir;
+    }
+
+    public void setBtn_imprimir(JButton btn_imprimir) {
+        this.btn_imprimir = btn_imprimir;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -171,7 +179,7 @@ public class V_Pago extends javax.swing.JInternalFrame {
         txt_a_pagar = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_imprimir = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -282,8 +290,8 @@ public class V_Pago extends javax.swing.JInternalFrame {
         jLabel6.setText("Cantidad:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 80, 20));
 
-        jButton1.setText("IMPRIMIR");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, -1, -1));
+        btn_imprimir.setText("IMPRIMIR");
+        jPanel1.add(btn_imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 470));
 
@@ -300,8 +308,8 @@ public class V_Pago extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_abono;
     private javax.swing.JButton btn_cargar;
     private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_imprimir;
     private com.toedter.calendar.JDateChooser calendar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

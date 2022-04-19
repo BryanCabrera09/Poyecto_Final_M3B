@@ -11,6 +11,8 @@ public interface Buf_AbogadoDAO {
     public boolean Register(Buf_Abogado abg);
 
     public List<Buf_Abogado> Getter();
+    
+    public List<Buf_Abogado> Getter_PA();
 
     public boolean Update(Buf_Abogado abg);
 

@@ -132,6 +132,9 @@ public class C_Citas {
                     if (!List_cita.isEmpty()) {
                         for (int j = 0; j < List_cita.size(); j++) {
                             if (List_cita.get(j).getNom_caso().equals(List_caso.get(i).getCaso())) {
+                                citas.getTxt_cedula().setEditable(false);
+                                citas.getBtn_buscar().setEnabled(false);
+                                citas.getBtn_nuevo().setEnabled(false);
                             } else {
                                 citas.getCb_caso().addItem(List_caso.get(i).getCaso());
                             }
@@ -158,7 +161,7 @@ public class C_Citas {
 
         String caso = (String) citas.getCb_caso().getSelectedItem();
 
-        if (!List_cita.isEmpty()) {
+        if (List_cita.isEmpty()) {
             for (int i = 0; i < List_caso.size(); i++) {
                 if (List_caso.get(i).getCedula().equals(citas.getTxt_cedula().getText()) && List_caso.get(i).getId_caso() == Integer.parseInt(citas.getTxt_id().getText())) {
                     return true;

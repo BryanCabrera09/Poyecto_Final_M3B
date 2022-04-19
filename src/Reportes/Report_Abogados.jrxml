@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1044" pageHeight="842" columnWidth="1004" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="594298e3-f958-446f-ba7b-8c980bfbae0c">
-	<property name="ireport.zoom" value="1.771561000000006"/>
-	<property name="ireport.x" value="507"/>
-	<property name="ireport.y" value="182"/>
+	<property name="ireport.zoom" value="1.0000000000000033"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[SELECT P.Ci, P.Nombre, P.Apellido, P.Correo, P.Num_Celular, P.direccion, A.num_Matricula, P.Fecha_Nacimiento, A.Foto FROM Buf_Persona P JOIN Buf_Abogados A ON P.Ci = A.Ci_Abg]]>
 	</queryString>
@@ -63,8 +63,8 @@
 				<text><![CDATA[REPORTE Personal  ABOGADOS]]></text>
 			</staticText>
 			<image>
-				<reportElement x="0" y="0" width="155" height="104" uuid="7ad47400-a310-4fee-b802-7182e24f355b"/>
-				<imageExpression><![CDATA["C:\\JAVANETB\\Proyecto_Final_M3B\\src\\Reportes\\Icono_Reports.jpeg"]]></imageExpression>
+				<reportElement x="3" y="0" width="135" height="104" uuid="fc3d5844-55e3-4c2d-a96e-2ee220eb0200"/>
+				<imageExpression><![CDATA["C:\\Users\\ACER\\OneDrive\\Escritorio\\M3B\\PROGRAMACION VISUAL\\Poyecto_Final_M3B\\src\\Reportes\\Icono_Reports.jpeg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -239,10 +239,10 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="82" splitType="Stretch"/>
+		<band height="161" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="78" splitType="Stretch">
+		<band height="130" splitType="Stretch">
 			<textField>
 				<reportElement x="865" y="38" width="100" height="20" uuid="c85b6c21-5a57-4e58-aaf9-130b9ffb3521"/>
 				<textElement textAlignment="Center">
@@ -253,7 +253,7 @@
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="97" splitType="Stretch">
+		<band height="199" splitType="Stretch">
 			<textField>
 				<reportElement x="199" y="53" width="100" height="20" uuid="13e17bca-68ee-4943-9fad-ed62f27b2fa2"/>
 				<textElement>

@@ -16,7 +16,6 @@ import javax.swing.JTextField;
  */
 public class V_Caso extends javax.swing.JInternalFrame {
 
-    //public static String x;
     public static String x;
 
     public V_Caso() {
@@ -138,7 +137,7 @@ public class V_Caso extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

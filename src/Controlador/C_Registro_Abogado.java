@@ -28,6 +28,7 @@ import vista.V_Registro_Abogado;
 public class C_Registro_Abogado {
 
     V_Registro_Abogado registro;
+    
     Buf_Abogado A = new Buf_Abogado();
     Buf_Persona P = new Buf_Persona();
     Buf_AbogadoDB A_DB = new Buf_AbogadoDB();

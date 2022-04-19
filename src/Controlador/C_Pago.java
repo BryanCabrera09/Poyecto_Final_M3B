@@ -9,14 +9,25 @@ import Modelo.Buf_Cita;
 import Modelo.Buf_CitaDB;
 import Modelo.Buf_Pagos;
 import Modelo.Buf_PagosDB;
+import Modelo.DB_Connect;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.V_Pago;
 
 /*
@@ -94,6 +105,9 @@ public class C_Pago {
         pago.getBtn_guardar().addActionListener(l -> {
             Guardar();
         });
+        pago.getBtn_imprimir().addActionListener(l -> {
+            Imprimir();
+        });
         pago.getBtn_cargar().addActionListener(l -> {
             Actualizar_Tabla();
             Nuevo();
@@ -121,6 +135,24 @@ public class C_Pago {
 
     }
 
+    public void Imprimir() {
+
+        DB_Connect con = new DB_Connect();
+        Connection conn = con.Connect();
+
+        try {
+            JasperReport jas = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Report_Pagos.jasper"));
+            JasperPrint jp = (JasperPrint) JasperFillManager.fillReport(jas, null, conn);
+            JasperViewer jv = new JasperViewer(jp, false);
+            JOptionPane.showMessageDialog(null, "Generando Factura...");
+            jv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            jv.setVisible(true);
+        } catch (JRException e) {
+            System.out.println("no se pudo encontrar registros" + e.getMessage());
+            Logger.getLogger(C_Modificar_Abogado.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    
     public void Actualizar_Tabla() {
 
         List<Buf_Cita> List_cita = C_DB.Getter();

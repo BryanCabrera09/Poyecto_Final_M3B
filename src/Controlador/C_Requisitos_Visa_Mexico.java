@@ -26,7 +26,7 @@ import vista.V_Menu_Inicio;
 public class C_Requisitos_Visa_Mexico {
 
     V_Requisitos_Visa_Mexico mexico;
-    
+
     Buf_Caso_Visa_MexicoDB D_DB = new Buf_Caso_Visa_MexicoDB();
     Buf_Caso_Visa_Mexico D = new Buf_Caso_Visa_Mexico();
     Buf_PagosDB P_DB = new Buf_PagosDB();
@@ -36,22 +36,22 @@ public class C_Requisitos_Visa_Mexico {
     public File ruta_3;
     public File ruta_4;
     public File ruta_5;
-    
+
     public String rutas;
     public String rutas_2;
     public String rutas_3;
     public String rutas_4;
     public String rutas_5;
-  
+
     public C_Requisitos_Visa_Mexico(V_Requisitos_Visa_Mexico mexico) {
-        
+
         this.mexico = mexico;
-        
+
         Num_Beneficiario();
         Campos();
 
     }
-    
+
     public void Iniciar_Control() {
 
         mexico.getBtn_guardar().addActionListener(l -> {
@@ -88,7 +88,7 @@ public class C_Requisitos_Visa_Mexico {
     public void Cargar_Imagen() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -110,7 +110,7 @@ public class C_Requisitos_Visa_Mexico {
     public void Cargar_Imagen_2() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -132,7 +132,7 @@ public class C_Requisitos_Visa_Mexico {
     public void Cargar_Imagen_3() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -154,7 +154,7 @@ public class C_Requisitos_Visa_Mexico {
     public void Cargar_Imagen_4() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -176,7 +176,7 @@ public class C_Requisitos_Visa_Mexico {
     public void Cargar_Imagen_5() {
 
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("PDF", "pdf");
         j.setFileFilter(fil);
 
         File ruta_carpeta = new File("");
@@ -194,7 +194,7 @@ public class C_Requisitos_Visa_Mexico {
             mexico.getReq_5().setSelected(true);
         }
     }
-    
+
     public void Num_Beneficiario() {
 
         mexico.getCb_numper().addItem("Seleccionar");
@@ -587,7 +587,7 @@ public class C_Requisitos_Visa_Mexico {
                 }
             }
         }
-        
+
         D.setObservacion(mexico.getTxa_observ().getText());
         D.setId_caso(Integer.parseInt(mexico.getTxt_id().getText()));
         if (D_DB.Update(D)) {

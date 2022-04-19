@@ -15,7 +15,6 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
     public V_Registro_Usuario() {
         initComponents();
         setTitle("USUARIOS");
-
         x = "x";
         int a = V_Menu_Inicio.escritorio.getWidth() - this.getWidth();
         int b = V_Menu_Inicio.escritorio.getHeight() - this.getHeight();
@@ -169,17 +168,17 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         lbl_contraseña = new javax.swing.JLabel();
         txt_usuario = new javax.swing.JTextField();
         psw_contraseña = new javax.swing.JPasswordField();
-        btn_registar = new javax.swing.JButton();
         lb_contraseña = new javax.swing.JLabel();
         lb_cedula = new javax.swing.JLabel();
         lb_usuario = new javax.swing.JLabel();
-        btn_nuevo = new javax.swing.JButton();
-        btn_cancelar = new javax.swing.JButton();
         txt_cedula = new javax.swing.JTextField();
         lb_existente = new javax.swing.JLabel();
         lb_contracorta = new javax.swing.JLabel();
         txt_id = new javax.swing.JTextField();
         lb_registro = new javax.swing.JLabel();
+        btn_nuevo = new javax.swing.JButton();
+        btn_registar = new javax.swing.JButton();
+        btn_cancelar = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -233,10 +232,6 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         psw_contraseña.setEchoChar('\u25cf');
         jPanel1.add(psw_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 180, 30));
 
-        btn_registar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Guardar.png"))); // NOI18N
-        btn_registar.setText("GUARDAR");
-        jPanel1.add(btn_registar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 120, 50));
-
         lb_contraseña.setBackground(new java.awt.Color(255, 255, 255));
         lb_contraseña.setForeground(new java.awt.Color(255, 0, 0));
         lb_contraseña.setText("*Campo Obligatorio");
@@ -251,14 +246,6 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         lb_usuario.setForeground(new java.awt.Color(255, 0, 0));
         lb_usuario.setText("*Campo Obligatorio");
         jPanel1.add(lb_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, -1, -1));
-
-        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Nuevo.png"))); // NOI18N
-        btn_nuevo.setText("NUEVO");
-        jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 50));
-
-        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cancelar.png"))); // NOI18N
-        btn_cancelar.setText("CANCELAR");
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 130, 50));
 
         txt_cedula.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 180, 30));
@@ -280,17 +267,24 @@ public class V_Registro_Usuario extends javax.swing.JInternalFrame {
         lb_registro.setText("*Ya Posee Un Registro");
         jPanel1.add(lb_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
+        btn_nuevo.setText("NUEVO");
+        jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 40));
+
+        btn_registar.setText("REGISTRAR");
+        jPanel1.add(btn_registar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, 40));
+
+        btn_cancelar.setText("CANCELAR");
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

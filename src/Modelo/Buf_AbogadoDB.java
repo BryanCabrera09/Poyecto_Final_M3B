@@ -195,7 +195,7 @@ public class Buf_AbogadoDB implements Buf_AbogadoDAO {
 
     @Override
     public List<Buf_Abogado> Search(String Identificador) {
-       
+
         Statement st = null;
         Connection con = null;
         ResultSet rs = null;
@@ -234,4 +234,43 @@ public class Buf_AbogadoDB implements Buf_AbogadoDAO {
         }
     }
 
+    @Override
+    public List<Buf_Abogado> Getter_PA() {
+
+        Statement st = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT A.ci_Abg, P.nombre, P.apellido, A.num_Matricula FROM Buf_Persona P JOIN Buf_Abogados A ON P.Ci = A.Ci_Abg";
+
+        List<Buf_Abogado> Lista_Abg = new ArrayList<>();
+
+        try {
+
+            con = DB_Connect.Connect();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                Buf_Abogado A = new Buf_Abogado();
+
+                A.setCedula(rs.getString("ci_Abg"));
+                A.setNombre(rs.getString("nombre"));
+                A.setApellido(rs.getString("apellido"));
+                A.setNum_matricula(rs.getInt("num_matricula"));
+
+                Lista_Abg.add(A);
+            }
+            st.close();
+            con.close();
+            rs.close();
+            return Lista_Abg;
+
+        } catch (SQLException e) {
+
+            Logger.getLogger(Buf_PersonaDB.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+    }
 }
