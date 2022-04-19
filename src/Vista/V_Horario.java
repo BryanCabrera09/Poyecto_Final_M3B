@@ -145,7 +145,7 @@ public class V_Horario extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tableabogados);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 500, 205));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 510, 205));
 
         txt_buscar.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
         jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 180, 30));
