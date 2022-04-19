@@ -14,6 +14,10 @@ import java.io.InputStream;
 import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.Desktop;
+import java.io.ByteArrayInputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import Modelo.Buf_Pagos;
 import Modelo.Buf_PagosDB;
 import vista.V_Pago;
@@ -70,23 +74,335 @@ public class C_Requisitos_RetornanteInmigrante {
             Cargar_Check();
         });
         inmigrante.getReq_1().addActionListener(l -> {
-            Cargar_Imagen();
+            PDF_Req_1();
         });
         inmigrante.getReq_2().addActionListener(l -> {
-            Cargar_Imagen_2();
+            PDF_Req_2();
         });
         inmigrante.getReq_3().addActionListener(l -> {
-            Cargar_Imagen_3();
+            PDF_Req_3();
         });
         inmigrante.getReq_4().addActionListener(l -> {
-            Cargar_Imagen_4();
+            PDF_Req_4();
         });
         inmigrante.getReq_5().addActionListener(l -> {
-            Cargar_Imagen_5();
+            PDF_Req_5();
         });
         inmigrante.getReq_6().addActionListener(l -> {
-            Cargar_Imagen_6();
+            PDF_Req_6();
         });
+    }
+
+    public void PDF_Req_1() {
+
+        List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_1();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #1.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                inmigrante.getReq_1().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #1.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else {
+                            if (!inmigrante.getReq_1().isSelected()) {
+                                inmigrante.getReq_1().setSelected(true);
+                                Cargar_Imagen();
+                                inmigrante.getReq_1().setSelected(true);
+                            } else if (inmigrante.getReq_1().isSelected()) {
+                                Cargar_Imagen();
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen();
+                }
+            }
+        } else {
+            Cargar_Imagen();
+        }
+    }
+
+    public void PDF_Req_2() {
+
+        List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_2();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #2.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                inmigrante.getReq_2().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #2.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Ningun Requisito");
+                            }
+                        } else {
+                            if (!inmigrante.getReq_2().isSelected()) {
+                                inmigrante.getReq_2().setSelected(true);
+                                Cargar_Imagen_2();
+                                inmigrante.getReq_2().setSelected(true);
+                            } else if (inmigrante.getReq_2().isSelected()) {
+                                Cargar_Imagen_2();
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_2();
+                }
+            }
+        } else {
+            Cargar_Imagen_2();
+        }
+    }
+
+    public void PDF_Req_3() {
+
+        List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_3();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #3.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                inmigrante.getReq_3().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #3.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else {
+                            if (!inmigrante.getReq_3().isSelected()) {
+                                inmigrante.getReq_3().setSelected(true);
+                                Cargar_Imagen_3();
+                                inmigrante.getReq_3().setSelected(true);
+                            } else if (inmigrante.getReq_3().isSelected()) {
+                                Cargar_Imagen_3();
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_3();
+                }
+            }
+        } else {
+            Cargar_Imagen_3();
+        }
+    }
+
+    public void PDF_Req_4() {
+
+        List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_4();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #4.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                inmigrante.getReq_4().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #4.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else {
+                            if (!inmigrante.getReq_4().isSelected()) {
+                                inmigrante.getReq_4().setSelected(true);
+                                Cargar_Imagen_4();
+                                inmigrante.getReq_4().setSelected(true);
+                            } else if (inmigrante.getReq_4().isSelected()) {
+                                Cargar_Imagen_4();
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_4();
+                }
+            }
+        } else {
+            Cargar_Imagen_4();
+        }
+    }
+
+    public void PDF_Req_5() {
+
+        List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_5();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #5.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                inmigrante.getReq_5().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #5.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else {
+                            if (!inmigrante.getReq_5().isSelected()) {
+                                inmigrante.getReq_5().setSelected(true);
+                                Cargar_Imagen_5();
+                                inmigrante.getReq_5().setSelected(true);
+                            } else if (inmigrante.getReq_5().isSelected()) {
+                                Cargar_Imagen_5();
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_5();
+                }
+            }
+        } else {
+            Cargar_Imagen_5();
+        }
+    }
+
+    public void PDF_Req_6() {
+
+        List<Buf_Caso_Retornante_Inmigrante> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(inmigrante.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_6();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #6.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                inmigrante.getReq_6().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #6.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else {
+                            if (!inmigrante.getReq_6().isSelected()) {
+                                inmigrante.getReq_6().setSelected(true);
+                                Cargar_Imagen_6();
+                                inmigrante.getReq_6().setSelected(true);
+                            } else if (inmigrante.getReq_6().isSelected()) {
+                                Cargar_Imagen_6();
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_6();
+                }
+            }
+        } else {
+            Cargar_Imagen_6();
+        }
     }
 
     public void Cargar_Imagen() {

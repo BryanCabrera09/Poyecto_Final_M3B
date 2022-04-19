@@ -17,13 +17,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import vista.V_Requisitos_Visa_EEUU;
 import Modelo.Buf_Pagos;
 import Modelo.Buf_PagosDB;
-import Modelo.DB_Connect;
 import java.awt.Desktop;
 import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import vista.V_Pago;
 import vista.V_Menu_Inicio;
 
@@ -88,37 +85,36 @@ public class C_Requisitos_Visa_EEUU {
         });
         reu.getReq_1().addActionListener(l -> {
             PDF_Req_1();
-            Cargar_Imagen();
         });
         reu.getReq_2().addActionListener(l -> {
-            Cargar_Imagen_2();
+            PDF_Req_2();
         });
         reu.getReq_3().addActionListener(l -> {
-            Cargar_Imagen_3();
+            PDF_Req_3();
         });
         reu.getReq_4().addActionListener(l -> {
-            Cargar_Imagen_4();
+            PDF_Req_4();
         });
         reu.getReq_5().addActionListener(l -> {
-            Cargar_Imagen_5();
+            PDF_Req_5();
         });
         reu.getReq_6().addActionListener(l -> {
-            Cargar_Imagen_6();
+            PDF_Req_6();
         });
         reu.getReq_7().addActionListener(l -> {
-            Cargar_Imagen_7();
+            PDF_Req_7();
         });
         reu.getReq_8().addActionListener(l -> {
-            Cargar_Imagen_8();
+            PDF_Req_8();
         });
         reu.getReq_9().addActionListener(l -> {
-            Cargar_Imagen_9();
+            PDF_Req_9();
         });
         reu.getReq_10().addActionListener(l -> {
-            Cargar_Imagen_10();
+            PDF_Req_10();
         });
         reu.getReq_11().addActionListener(l -> {
-            Cargar_Imagen_11();
+            PDF_Req_11();
         });
     }
 
@@ -126,32 +122,620 @@ public class C_Requisitos_Visa_EEUU {
 
         List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
 
-        for (int i = 0; i < List_caso.size(); i++) {
-            if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
-                try {
-                    byte[] bi = List_caso.get(i).getReq_1();
-                    if (bi != null) {
-                        InputStream bos = new ByteArrayInputStream(bi);
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_1();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
 
-                        int tamanoInput = bos.available();
-                        byte[] datosPDF = new byte[tamanoInput];
-                        bos.read(datosPDF, 0, tamanoInput);
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
 
-                        OutputStream out = new FileOutputStream("REQUISITO #1.pdf");
-                        out.write(datosPDF);
-                        out.close();
+                                OutputStream out = new FileOutputStream("REQUISITO #1.pdf");
+                                out.write(datosPDF);
+                                out.close();
 
-                        try {
-                            Desktop.getDesktop().open(new File("REQUISITO #1.pdf"));
-                        } catch (Exception ex) {
+                                reu.getReq_1().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #1.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else if (opcion == 0) {
+                            if (!reu.getReq_1().isSelected()) {
+                                reu.getReq_1().setSelected(true);
+                                Cargar_Imagen();
+                                reu.getReq_1().setSelected(true);
+                            } else if (reu.getReq_1().isSelected()) {
+                                Cargar_Imagen();
+                            }
+                        } else {
+                            if (!reu.getReq_1().isSelected()) {
+                                reu.getReq_1().setSelected(true);
+                            }
                         }
-                    } else if (bi == null) {
-                        JOptionPane.showMessageDialog(null, "No Hay Ningun Requisito");
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
                     }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
+                } else {
+                    Cargar_Imagen();
                 }
             }
+        } else {
+            Cargar_Imagen();
+        }
+    }
+
+    public void PDF_Req_2() {
+
+        List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_2();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                reu.getReq_2().setSelected(true);
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #2.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                reu.getReq_2().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #2.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Ningun Requisito");
+                            }
+                        } else if (opcion == 0) {
+                            if (!reu.getReq_2().isSelected()) {
+                                reu.getReq_2().setSelected(true);
+                                Cargar_Imagen_2();
+                                reu.getReq_2().setSelected(true);
+                            } else if (reu.getReq_2().isSelected()) {
+                                Cargar_Imagen_2();
+                            }
+                        } else {
+                            if (!reu.getReq_2().isSelected()) {
+                                reu.getReq_2().setSelected(true);
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_2();
+                }
+            }
+        } else {
+            Cargar_Imagen_2();
+        }
+    }
+
+    public void PDF_Req_3() {
+
+        List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_3();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                reu.getReq_3().setSelected(true);
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #3.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                reu.getReq_3().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #3.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else if (opcion == 0) {
+                            if (!reu.getReq_3().isSelected()) {
+                                reu.getReq_3().setSelected(true);
+                                Cargar_Imagen_3();
+                                reu.getReq_3().setSelected(true);
+                            } else if (reu.getReq_3().isSelected()) {
+                                Cargar_Imagen_3();
+                            }
+                        } else {
+                            if (!reu.getReq_3().isSelected()) {
+                                reu.getReq_3().setSelected(true);
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_3();
+                }
+            }
+        } else {
+            Cargar_Imagen_3();
+        }
+    }
+
+    public void PDF_Req_4() {
+
+        List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_4();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                reu.getReq_4().setSelected(true);
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #4.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                reu.getReq_4().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #4.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else if (opcion == 0) {
+                            if (!reu.getReq_4().isSelected()) {
+                                reu.getReq_4().setSelected(true);
+                                Cargar_Imagen_4();
+                                reu.getReq_4().setSelected(true);
+                            } else if (reu.getReq_4().isSelected()) {
+                                Cargar_Imagen_4();
+                            }
+                        } else {
+                            if (!reu.getReq_4().isSelected()) {
+                                reu.getReq_4().setSelected(true);
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_4();
+                }
+            }
+        } else {
+            Cargar_Imagen_4();
+        }
+    }
+
+    public void PDF_Req_5() {
+
+        List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_5();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                reu.getReq_5().setSelected(true);
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #5.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                reu.getReq_5().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #5.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else if (opcion == 0) {
+                            if (!reu.getReq_5().isSelected()) {
+                                reu.getReq_5().setSelected(true);
+                                Cargar_Imagen_5();
+                                reu.getReq_5().setSelected(true);
+                            } else if (reu.getReq_5().isSelected()) {
+                                Cargar_Imagen_5();
+                            }
+                        } else {
+                            if (!reu.getReq_5().isSelected()) {
+                                reu.getReq_5().setSelected(true);
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_5();
+                }
+            }
+        } else {
+            Cargar_Imagen_5();
+        }
+    }
+
+    public void PDF_Req_6() {
+
+        List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_6();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                reu.getReq_6().setSelected(true);
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #6.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                reu.getReq_6().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #6.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else if (opcion == 0) {
+                            if (!reu.getReq_6().isSelected()) {
+                                reu.getReq_6().setSelected(true);
+                                Cargar_Imagen_6();
+                                reu.getReq_6().setSelected(true);
+                            } else if (reu.getReq_6().isSelected()) {
+                                Cargar_Imagen_6();
+                            }
+                        } else {
+                            if (!reu.getReq_6().isSelected()) {
+                                reu.getReq_6().setSelected(true);
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_6();
+                }
+            }
+        } else {
+            Cargar_Imagen_6();
+        }
+    }
+
+    public void PDF_Req_7() {
+
+        List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_7();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #7.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                reu.getReq_7().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #7.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else if (opcion == 0) {
+                            if (!reu.getReq_7().isSelected()) {
+                                reu.getReq_7().setSelected(true);
+                                Cargar_Imagen_7();
+                                reu.getReq_7().setSelected(true);
+                            } else if (reu.getReq_7().isSelected()) {
+                                Cargar_Imagen_7();
+                            }
+                        } else {
+                            if (!reu.getReq_7().isSelected()) {
+                                reu.getReq_7().setSelected(true);
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_7();
+                }
+            }
+        } else {
+            Cargar_Imagen_7();
+        }
+    }
+
+    public void PDF_Req_8() {
+
+        List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_8();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #8.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                reu.getReq_8().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #8.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else if (opcion == 0) {
+                            if (!reu.getReq_8().isSelected()) {
+                                reu.getReq_8().setSelected(true);
+                                Cargar_Imagen_8();
+                                reu.getReq_8().setSelected(true);
+                            } else if (reu.getReq_8().isSelected()) {
+                                Cargar_Imagen_8();
+                            }
+                        } else {
+                            if (!reu.getReq_8().isSelected()) {
+                                reu.getReq_8().setSelected(true);
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_8();
+                }
+            }
+        } else {
+            Cargar_Imagen_8();
+        }
+    }
+
+    public void PDF_Req_9() {
+
+        List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_9();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #9.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                reu.getReq_9().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #9.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else if (opcion == 0) {
+                            if (!reu.getReq_9().isSelected()) {
+                                reu.getReq_9().setSelected(true);
+                                Cargar_Imagen_9();
+                                reu.getReq_9().setSelected(true);
+                            } else if (reu.getReq_9().isSelected()) {
+                                Cargar_Imagen_9();
+                            }
+                        } else {
+                            if (!reu.getReq_9().isSelected()) {
+                                reu.getReq_9().setSelected(true);
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_9();
+                }
+            }
+        } else {
+            Cargar_Imagen_9();
+        }
+    }
+
+    public void PDF_Req_10() {
+
+        List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_10();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #10.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                reu.getReq_10().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #10.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else if (opcion == 0) {
+                            if (!reu.getReq_10().isSelected()) {
+                                reu.getReq_10().setSelected(true);
+                                Cargar_Imagen_10();
+                                reu.getReq_10().setSelected(true);
+                            } else if (reu.getReq_10().isSelected()) {
+                                Cargar_Imagen_10();
+                            }
+                        } else {
+                            if (!reu.getReq_10().isSelected()) {
+                                reu.getReq_10().setSelected(true);
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_10();
+                }
+            }
+        } else {
+            Cargar_Imagen_10();
+        }
+    }
+
+    public void PDF_Req_11() {
+
+        List<Buf_Caso_Visa_EEUU> List_caso = D_DB.Getter();
+
+        if (!List_caso.isEmpty()) {
+            for (int i = 0; i < List_caso.size(); i++) {
+                if (List_caso.get(i).getCedula().equals(reu.getTxt_cedula().getText())) {
+                    try {
+                        byte[] bi = List_caso.get(i).getReq_11();
+                        Object[] options = {"Actualizar/Registrar", "Ver Requisito"};
+                        int opcion = JOptionPane.showOptionDialog(null, "Elija Una Accion A Realzar", "Actualizar - Vizualizar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                        if (opcion == 1) {
+                            if (bi != null) {
+                                InputStream bos = new ByteArrayInputStream(bi);
+
+                                int tamanoInput = bos.available();
+                                byte[] datosPDF = new byte[tamanoInput];
+                                bos.read(datosPDF, 0, tamanoInput);
+
+                                OutputStream out = new FileOutputStream("REQUISITO #11.pdf");
+                                out.write(datosPDF);
+                                out.close();
+
+                                reu.getReq_11().setSelected(true);
+                                try {
+                                    Desktop.getDesktop().open(new File("REQUISITO #11.pdf"));
+                                } catch (Exception ex) {
+                                }
+                            } else if (bi == null) {
+                                JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
+                            }
+                        } else if (opcion == 0) {
+                            if (!reu.getReq_11().isSelected()) {
+                                reu.getReq_11().setSelected(true);
+                                Cargar_Imagen_11();
+                                reu.getReq_11().setSelected(true);
+                            } else if (reu.getReq_11().isSelected()) {
+                                Cargar_Imagen_11();
+                            }
+                        } else {
+                            if (!reu.getReq_11().isSelected()) {
+                                reu.getReq_11().setSelected(true);
+                            }
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    Cargar_Imagen_11();
+                }
+            }
+        } else {
+            Cargar_Imagen_11();
         }
     }
 

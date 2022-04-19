@@ -130,9 +130,29 @@ public class C_Inicio_Sesion {
     public boolean Validar_Usuario_Cargar() {
 
         List<Buf_Usuarios> List_usr = userDB.Getter();
+        List<Buf_Admin_User> List_Adm = AdminDB.Getter();
 
         List<Buf_Abogado> List_abg = A_DB.Getter_PA();
         List<Buf_Secretaria> List_secre = S_DB.Getter_SP();
+
+        if (List_usr.isEmpty()) {
+            for (int i = 0; i < List_Adm.size(); i++) {
+                if (List_Adm.get(i).getUsuario().equals(sesion.getTxt_usuario().getText())) {
+                    inicio.getLb_matricula().setVisible(false);
+                    inicio.getLb_usuario().setVisible(false);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        for (int j = 0; j < List_Adm.size(); j++) {
+            if (List_Adm.get(j).getUsuario().equals(sesion.getTxt_usuario().getText())) {
+                inicio.getLb_matricula().setVisible(false);
+                inicio.getLb_usuario().setVisible(false);
+                return true;
+            }
+        }
 
         if (List_secre.isEmpty()) {
             for (int i = 0; i < List_usr.size(); i++) {
