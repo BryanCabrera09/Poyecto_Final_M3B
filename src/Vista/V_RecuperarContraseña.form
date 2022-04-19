@@ -110,13 +110,13 @@
         <Component class="javax.swing.JButton" name="btn_enviar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Iconos/Guardar.png"/>
+              <Image iconType="3" name="/Iconos/1492692368-7email_83536.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ENVIAR"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="290" y="240" width="130" height="50"/>
+              <AbsoluteConstraints x="300" y="240" width="130" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
