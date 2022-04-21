@@ -123,13 +123,17 @@ public class C_Requisitos_PensionesAlimenticias {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rpa.getReq_1().isSelected()) {
                                 rpa.getReq_1().setSelected(true);
                                 Cargar_Imagen();
                                 rpa.getReq_1().setSelected(true);
                             } else if (rpa.getReq_1().isSelected()) {
                                 Cargar_Imagen();
+                            }
+                        } else {
+                            if (!rpa.getReq_1().isSelected()) {
+                                rpa.getReq_1().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -175,13 +179,17 @@ public class C_Requisitos_PensionesAlimenticias {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Ningun Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rpa.getReq_2().isSelected()) {
                                 rpa.getReq_2().setSelected(true);
                                 Cargar_Imagen_2();
                                 rpa.getReq_2().setSelected(true);
                             } else if (rpa.getReq_2().isSelected()) {
                                 Cargar_Imagen_2();
+                            }
+                        } else {
+                            if (!rpa.getReq_2().isSelected()) {
+                                rpa.getReq_2().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -227,13 +235,17 @@ public class C_Requisitos_PensionesAlimenticias {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rpa.getReq_3().isSelected()) {
                                 rpa.getReq_3().setSelected(true);
                                 Cargar_Imagen_3();
                                 rpa.getReq_3().setSelected(true);
                             } else if (rpa.getReq_3().isSelected()) {
                                 Cargar_Imagen_3();
+                            }
+                        } else {
+                            if (!rpa.getReq_3().isSelected()) {
+                                rpa.getReq_3().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -279,13 +291,17 @@ public class C_Requisitos_PensionesAlimenticias {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rpa.getReq_4().isSelected()) {
                                 rpa.getReq_4().setSelected(true);
                                 Cargar_Imagen_4();
                                 rpa.getReq_4().setSelected(true);
                             } else if (rpa.getReq_4().isSelected()) {
                                 Cargar_Imagen_4();
+                            }
+                        } else {
+                            if (!rpa.getReq_4().isSelected()) {
+                                rpa.getReq_4().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -331,13 +347,17 @@ public class C_Requisitos_PensionesAlimenticias {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rpa.getReq_5().isSelected()) {
                                 rpa.getReq_5().setSelected(true);
                                 Cargar_Imagen_5();
                                 rpa.getReq_5().setSelected(true);
                             } else if (rpa.getReq_5().isSelected()) {
                                 Cargar_Imagen_5();
+                            }
+                        } else {
+                            if (!rpa.getReq_5().isSelected()) {
+                                rpa.getReq_5().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -383,13 +403,17 @@ public class C_Requisitos_PensionesAlimenticias {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rpa.getReq_6().isSelected()) {
                                 rpa.getReq_6().setSelected(true);
                                 Cargar_Imagen_6();
                                 rpa.getReq_6().setSelected(true);
                             } else if (rpa.getReq_6().isSelected()) {
                                 Cargar_Imagen_6();
+                            }
+                        } else {
+                            if (!rpa.getReq_6().isSelected()) {
+                                rpa.getReq_6().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {

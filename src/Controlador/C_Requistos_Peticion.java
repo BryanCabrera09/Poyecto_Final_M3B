@@ -139,13 +139,17 @@ public class C_Requistos_Peticion {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!peticion.getReq_1().isSelected()) {
                                 peticion.getReq_1().setSelected(true);
                                 Cargar_Imagen();
                                 peticion.getReq_1().setSelected(true);
                             } else if (peticion.getReq_1().isSelected()) {
                                 Cargar_Imagen();
+                            }
+                        } else {
+                            if (!peticion.getReq_1().isSelected()) {
+                                peticion.getReq_1().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -191,13 +195,17 @@ public class C_Requistos_Peticion {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Ningun Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!peticion.getReq_2().isSelected()) {
                                 peticion.getReq_2().setSelected(true);
                                 Cargar_Imagen_2();
                                 peticion.getReq_2().setSelected(true);
                             } else if (peticion.getReq_2().isSelected()) {
                                 Cargar_Imagen_2();
+                            }
+                        } else {
+                            if (!peticion.getReq_2().isSelected()) {
+                                peticion.getReq_2().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -243,13 +251,17 @@ public class C_Requistos_Peticion {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!peticion.getReq_3().isSelected()) {
                                 peticion.getReq_3().setSelected(true);
                                 Cargar_Imagen_3();
                                 peticion.getReq_3().setSelected(true);
                             } else if (peticion.getReq_3().isSelected()) {
                                 Cargar_Imagen_3();
+                            }
+                        } else {
+                            if (!peticion.getReq_3().isSelected()) {
+                                peticion.getReq_3().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -295,13 +307,17 @@ public class C_Requistos_Peticion {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!peticion.getReq_4().isSelected()) {
                                 peticion.getReq_4().setSelected(true);
                                 Cargar_Imagen_4();
                                 peticion.getReq_4().setSelected(true);
                             } else if (peticion.getReq_4().isSelected()) {
                                 Cargar_Imagen_4();
+                            }
+                        } else {
+                            if (!peticion.getReq_4().isSelected()) {
+                                peticion.getReq_4().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -347,13 +363,17 @@ public class C_Requistos_Peticion {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!peticion.getReq_5().isSelected()) {
                                 peticion.getReq_5().setSelected(true);
                                 Cargar_Imagen_5();
                                 peticion.getReq_5().setSelected(true);
                             } else if (peticion.getReq_5().isSelected()) {
                                 Cargar_Imagen_5();
+                            }
+                        } else {
+                            if (!peticion.getReq_5().isSelected()) {
+                                peticion.getReq_5().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -399,13 +419,17 @@ public class C_Requistos_Peticion {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!peticion.getReq_6().isSelected()) {
                                 peticion.getReq_6().setSelected(true);
                                 Cargar_Imagen_6();
                                 peticion.getReq_6().setSelected(true);
                             } else if (peticion.getReq_6().isSelected()) {
                                 Cargar_Imagen_6();
+                            }
+                        } else {
+                            if (!peticion.getReq_6().isSelected()) {
+                                peticion.getReq_6().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -451,13 +475,17 @@ public class C_Requistos_Peticion {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!peticion.getReq_7().isSelected()) {
                                 peticion.getReq_7().setSelected(true);
                                 Cargar_Imagen_7();
                                 peticion.getReq_7().setSelected(true);
                             } else if (peticion.getReq_7().isSelected()) {
                                 Cargar_Imagen_7();
+                            }
+                        } else {
+                            if (!peticion.getReq_7().isSelected()) {
+                                peticion.getReq_7().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -503,13 +531,17 @@ public class C_Requistos_Peticion {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!peticion.getReq_8().isSelected()) {
                                 peticion.getReq_8().setSelected(true);
                                 Cargar_Imagen_8();
                                 peticion.getReq_8().setSelected(true);
                             } else if (peticion.getReq_8().isSelected()) {
                                 Cargar_Imagen_8();
+                            }
+                        } else {
+                            if (!peticion.getReq_8().isSelected()) {
+                                peticion.getReq_8().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -555,13 +587,17 @@ public class C_Requistos_Peticion {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!peticion.getReq_9().isSelected()) {
                                 peticion.getReq_9().setSelected(true);
                                 Cargar_Imagen_9();
                                 peticion.getReq_9().setSelected(true);
                             } else if (peticion.getReq_9().isSelected()) {
                                 Cargar_Imagen_9();
+                            }
+                        } else {
+                            if (!peticion.getReq_9().isSelected()) {
+                                peticion.getReq_9().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {

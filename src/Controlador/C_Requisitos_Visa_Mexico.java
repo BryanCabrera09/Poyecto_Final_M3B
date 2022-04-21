@@ -120,13 +120,17 @@ public class C_Requisitos_Visa_Mexico {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!mexico.getReq_1().isSelected()) {
                                 mexico.getReq_1().setSelected(true);
                                 Cargar_Imagen();
                                 mexico.getReq_1().setSelected(true);
                             } else if (mexico.getReq_1().isSelected()) {
                                 Cargar_Imagen();
+                            }
+                        } else {
+                            if (!mexico.getReq_1().isSelected()) {
+                                mexico.getReq_1().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -172,13 +176,17 @@ public class C_Requisitos_Visa_Mexico {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Ningun Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!mexico.getReq_2().isSelected()) {
                                 mexico.getReq_2().setSelected(true);
                                 Cargar_Imagen_2();
                                 mexico.getReq_2().setSelected(true);
                             } else if (mexico.getReq_2().isSelected()) {
                                 Cargar_Imagen_2();
+                            }
+                        } else {
+                            if (!mexico.getReq_2().isSelected()) {
+                                mexico.getReq_2().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -224,13 +232,17 @@ public class C_Requisitos_Visa_Mexico {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!mexico.getReq_3().isSelected()) {
                                 mexico.getReq_3().setSelected(true);
                                 Cargar_Imagen_3();
                                 mexico.getReq_3().setSelected(true);
                             } else if (mexico.getReq_3().isSelected()) {
                                 Cargar_Imagen_3();
+                            }
+                        } else {
+                            if (!mexico.getReq_3().isSelected()) {
+                                mexico.getReq_3().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -276,13 +288,17 @@ public class C_Requisitos_Visa_Mexico {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!mexico.getReq_4().isSelected()) {
                                 mexico.getReq_4().setSelected(true);
                                 Cargar_Imagen_4();
                                 mexico.getReq_4().setSelected(true);
                             } else if (mexico.getReq_4().isSelected()) {
                                 Cargar_Imagen_4();
+                            }
+                        } else {
+                            if (!mexico.getReq_4().isSelected()) {
+                                mexico.getReq_4().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -328,13 +344,17 @@ public class C_Requisitos_Visa_Mexico {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!mexico.getReq_5().isSelected()) {
                                 mexico.getReq_5().setSelected(true);
                                 Cargar_Imagen_5();
                                 mexico.getReq_5().setSelected(true);
                             } else if (mexico.getReq_5().isSelected()) {
                                 Cargar_Imagen_5();
+                            }
+                        } else {
+                            if (!mexico.getReq_5().isSelected()) {
+                                mexico.getReq_5().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {

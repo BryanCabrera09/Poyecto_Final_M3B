@@ -179,13 +179,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_1().isSelected()) {
                                 re.getReq_1().setSelected(true);
                                 Cargar_Imagen();
                                 re.getReq_1().setSelected(true);
                             } else if (re.getReq_1().isSelected()) {
                                 Cargar_Imagen();
+                            }
+                        } else {
+                            if (!re.getReq_1().isSelected()) {
+                                re.getReq_1().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -231,13 +235,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Ningun Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_2().isSelected()) {
                                 re.getReq_2().setSelected(true);
                                 Cargar_Imagen_2();
                                 re.getReq_2().setSelected(true);
                             } else if (re.getReq_2().isSelected()) {
                                 Cargar_Imagen_2();
+                            }
+                        } else {
+                            if (!re.getReq_2().isSelected()) {
+                                re.getReq_2().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -283,13 +291,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_3().isSelected()) {
                                 re.getReq_3().setSelected(true);
                                 Cargar_Imagen_3();
                                 re.getReq_3().setSelected(true);
                             } else if (re.getReq_3().isSelected()) {
                                 Cargar_Imagen_3();
+                            }
+                        } else {
+                            if (!re.getReq_3().isSelected()) {
+                                re.getReq_3().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -335,13 +347,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_4().isSelected()) {
                                 re.getReq_4().setSelected(true);
                                 Cargar_Imagen_4();
                                 re.getReq_4().setSelected(true);
                             } else if (re.getReq_4().isSelected()) {
                                 Cargar_Imagen_4();
+                            }
+                        } else {
+                            if (!re.getReq_4().isSelected()) {
+                                re.getReq_4().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -387,13 +403,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_5().isSelected()) {
                                 re.getReq_5().setSelected(true);
                                 Cargar_Imagen_5();
                                 re.getReq_5().setSelected(true);
                             } else if (re.getReq_5().isSelected()) {
                                 Cargar_Imagen_5();
+                            }
+                        } else {
+                            if (!re.getReq_5().isSelected()) {
+                                re.getReq_5().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -439,13 +459,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_6().isSelected()) {
                                 re.getReq_6().setSelected(true);
                                 Cargar_Imagen_6();
                                 re.getReq_6().setSelected(true);
                             } else if (re.getReq_6().isSelected()) {
                                 Cargar_Imagen_6();
+                            }
+                        } else {
+                            if (!re.getReq_6().isSelected()) {
+                                re.getReq_6().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -491,13 +515,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_7().isSelected()) {
                                 re.getReq_7().setSelected(true);
                                 Cargar_Imagen_7();
                                 re.getReq_7().setSelected(true);
                             } else if (re.getReq_7().isSelected()) {
                                 Cargar_Imagen_7();
+                            }
+                        } else {
+                            if (!re.getReq_7().isSelected()) {
+                                re.getReq_7().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -543,13 +571,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_8().isSelected()) {
                                 re.getReq_8().setSelected(true);
                                 Cargar_Imagen_8();
                                 re.getReq_8().setSelected(true);
                             } else if (re.getReq_8().isSelected()) {
                                 Cargar_Imagen_8();
+                            }
+                        } else {
+                            if (!re.getReq_8().isSelected()) {
+                                re.getReq_8().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -595,13 +627,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_9().isSelected()) {
                                 re.getReq_9().setSelected(true);
                                 Cargar_Imagen_9();
                                 re.getReq_9().setSelected(true);
                             } else if (re.getReq_9().isSelected()) {
                                 Cargar_Imagen_9();
+                            }
+                        } else {
+                            if (!re.getReq_9().isSelected()) {
+                                re.getReq_9().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -647,13 +683,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_10().isSelected()) {
                                 re.getReq_10().setSelected(true);
                                 Cargar_Imagen_10();
                                 re.getReq_10().setSelected(true);
                             } else if (re.getReq_10().isSelected()) {
                                 Cargar_Imagen_10();
+                            }
+                        } else {
+                            if (!re.getReq_10().isSelected()) {
+                                re.getReq_10().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -699,13 +739,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_11().isSelected()) {
                                 re.getReq_11().setSelected(true);
                                 Cargar_Imagen_11();
                                 re.getReq_11().setSelected(true);
                             } else if (re.getReq_11().isSelected()) {
                                 Cargar_Imagen_11();
+                            }
+                        } else {
+                            if (!re.getReq_11().isSelected()) {
+                                re.getReq_11().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -751,13 +795,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_12().isSelected()) {
                                 re.getReq_12().setSelected(true);
                                 Cargar_Imagen_12();
                                 re.getReq_12().setSelected(true);
                             } else if (re.getReq_12().isSelected()) {
                                 Cargar_Imagen_12();
+                            }
+                        } else {
+                            if (!re.getReq_12().isSelected()) {
+                                re.getReq_12().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -803,13 +851,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_13().isSelected()) {
                                 re.getReq_13().setSelected(true);
                                 Cargar_Imagen_13();
                                 re.getReq_13().setSelected(true);
                             } else if (re.getReq_13().isSelected()) {
                                 Cargar_Imagen_13();
+                            }
+                        } else {
+                            if (!re.getReq_13().isSelected()) {
+                                re.getReq_13().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -855,13 +907,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_14().isSelected()) {
                                 re.getReq_14().setSelected(true);
                                 Cargar_Imagen_14();
                                 re.getReq_14().setSelected(true);
                             } else if (re.getReq_14().isSelected()) {
                                 Cargar_Imagen_14();
+                            }
+                        } else {
+                            if (!re.getReq_14().isSelected()) {
+                                re.getReq_14().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -907,13 +963,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_15().isSelected()) {
                                 re.getReq_15().setSelected(true);
                                 Cargar_Imagen_15();
                                 re.getReq_15().setSelected(true);
                             } else if (re.getReq_15().isSelected()) {
                                 Cargar_Imagen_15();
+                            }
+                        } else {
+                            if (!re.getReq_15().isSelected()) {
+                                re.getReq_15().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -959,13 +1019,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_16().isSelected()) {
                                 re.getReq_16().setSelected(true);
                                 Cargar_Imagen_16();
                                 re.getReq_16().setSelected(true);
                             } else if (re.getReq_16().isSelected()) {
                                 Cargar_Imagen_16();
+                            }
+                        } else {
+                            if (!re.getReq_16().isSelected()) {
+                                re.getReq_16().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -1011,13 +1075,17 @@ public class C_Requisitos_Visa_Europa {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!re.getReq_17().isSelected()) {
                                 re.getReq_17().setSelected(true);
                                 Cargar_Imagen_17();
                                 re.getReq_17().setSelected(true);
                             } else if (re.getReq_17().isSelected()) {
                                 Cargar_Imagen_17();
+                            }
+                        } else {
+                            if (!re.getReq_17().isSelected()) {
+                                re.getReq_17().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {

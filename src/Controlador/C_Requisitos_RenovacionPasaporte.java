@@ -124,13 +124,17 @@ public class C_Requisitos_RenovacionPasaporte {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rrp.getReq_1().isSelected()) {
                                 rrp.getReq_1().setSelected(true);
                                 Cargar_Imagen();
                                 rrp.getReq_1().setSelected(true);
                             } else if (rrp.getReq_1().isSelected()) {
                                 Cargar_Imagen();
+                            }
+                        } else {
+                            if (!rrp.getReq_1().isSelected()) {
+                                rrp.getReq_1().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -176,13 +180,17 @@ public class C_Requisitos_RenovacionPasaporte {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Ningun Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rrp.getReq_2().isSelected()) {
                                 rrp.getReq_2().setSelected(true);
                                 Cargar_Imagen_2();
                                 rrp.getReq_2().setSelected(true);
                             } else if (rrp.getReq_2().isSelected()) {
                                 Cargar_Imagen_2();
+                            }
+                        } else {
+                            if (!rrp.getReq_2().isSelected()) {
+                                rrp.getReq_2().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -228,13 +236,17 @@ public class C_Requisitos_RenovacionPasaporte {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rrp.getReq_3().isSelected()) {
                                 rrp.getReq_3().setSelected(true);
                                 Cargar_Imagen_3();
                                 rrp.getReq_3().setSelected(true);
                             } else if (rrp.getReq_3().isSelected()) {
                                 Cargar_Imagen_3();
+                            }
+                        } else {
+                            if (!rrp.getReq_3().isSelected()) {
+                                rrp.getReq_3().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -280,13 +292,17 @@ public class C_Requisitos_RenovacionPasaporte {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rrp.getReq_4().isSelected()) {
                                 rrp.getReq_4().setSelected(true);
                                 Cargar_Imagen_4();
                                 rrp.getReq_4().setSelected(true);
                             } else if (rrp.getReq_4().isSelected()) {
                                 Cargar_Imagen_4();
+                            }
+                        } else {
+                            if (!rrp.getReq_4().isSelected()) {
+                                rrp.getReq_4().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -332,13 +348,17 @@ public class C_Requisitos_RenovacionPasaporte {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rrp.getReq_5().isSelected()) {
                                 rrp.getReq_5().setSelected(true);
                                 Cargar_Imagen_5();
                                 rrp.getReq_5().setSelected(true);
                             } else if (rrp.getReq_5().isSelected()) {
                                 Cargar_Imagen_5();
+                            }
+                        } else {
+                            if (!rrp.getReq_5().isSelected()) {
+                                rrp.getReq_5().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -384,13 +404,17 @@ public class C_Requisitos_RenovacionPasaporte {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!rrp.getReq_6().isSelected()) {
                                 rrp.getReq_6().setSelected(true);
                                 Cargar_Imagen_6();
                                 rrp.getReq_6().setSelected(true);
                             } else if (rrp.getReq_6().isSelected()) {
                                 Cargar_Imagen_6();
+                            }
+                        } else {
+                            if (!rrp.getReq_6().isSelected()) {
+                                rrp.getReq_6().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {

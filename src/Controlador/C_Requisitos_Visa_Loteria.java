@@ -139,13 +139,17 @@ public class C_Requisitos_Visa_Loteria {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!loteria.getReq_1().isSelected()) {
                                 loteria.getReq_1().setSelected(true);
                                 Cargar_Imagen();
                                 loteria.getReq_1().setSelected(true);
                             } else if (loteria.getReq_1().isSelected()) {
                                 Cargar_Imagen();
+                            }
+                        } else {
+                            if (!loteria.getReq_1().isSelected()) {
+                                loteria.getReq_1().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -191,13 +195,17 @@ public class C_Requisitos_Visa_Loteria {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Ningun Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!loteria.getReq_2().isSelected()) {
                                 loteria.getReq_2().setSelected(true);
                                 Cargar_Imagen_2();
                                 loteria.getReq_2().setSelected(true);
                             } else if (loteria.getReq_2().isSelected()) {
                                 Cargar_Imagen_2();
+                            }
+                        } else {
+                            if (!loteria.getReq_2().isSelected()) {
+                                loteria.getReq_2().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -243,13 +251,17 @@ public class C_Requisitos_Visa_Loteria {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!loteria.getReq_3().isSelected()) {
                                 loteria.getReq_3().setSelected(true);
                                 Cargar_Imagen_3();
                                 loteria.getReq_3().setSelected(true);
                             } else if (loteria.getReq_3().isSelected()) {
                                 Cargar_Imagen_3();
+                            }
+                        } else {
+                            if (!loteria.getReq_3().isSelected()) {
+                                loteria.getReq_3().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -295,13 +307,17 @@ public class C_Requisitos_Visa_Loteria {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!loteria.getReq_4().isSelected()) {
                                 loteria.getReq_4().setSelected(true);
                                 Cargar_Imagen_4();
                                 loteria.getReq_4().setSelected(true);
                             } else if (loteria.getReq_4().isSelected()) {
                                 Cargar_Imagen_4();
+                            }
+                        } else {
+                            if (!loteria.getReq_4().isSelected()) {
+                                loteria.getReq_4().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -347,13 +363,17 @@ public class C_Requisitos_Visa_Loteria {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!loteria.getReq_5().isSelected()) {
                                 loteria.getReq_5().setSelected(true);
                                 Cargar_Imagen_5();
                                 loteria.getReq_5().setSelected(true);
                             } else if (loteria.getReq_5().isSelected()) {
                                 Cargar_Imagen_5();
+                            }
+                        } else {
+                            if (!loteria.getReq_5().isSelected()) {
+                                loteria.getReq_5().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -399,13 +419,17 @@ public class C_Requisitos_Visa_Loteria {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!loteria.getReq_6().isSelected()) {
                                 loteria.getReq_6().setSelected(true);
                                 Cargar_Imagen_6();
                                 loteria.getReq_6().setSelected(true);
                             } else if (loteria.getReq_6().isSelected()) {
                                 Cargar_Imagen_6();
+                            }
+                        } else {
+                            if (!loteria.getReq_6().isSelected()) {
+                                loteria.getReq_6().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -451,13 +475,17 @@ public class C_Requisitos_Visa_Loteria {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!loteria.getReq_7().isSelected()) {
                                 loteria.getReq_7().setSelected(true);
                                 Cargar_Imagen_7();
                                 loteria.getReq_7().setSelected(true);
                             } else if (loteria.getReq_7().isSelected()) {
                                 Cargar_Imagen_7();
+                            }
+                        } else {
+                            if (!loteria.getReq_7().isSelected()) {
+                                loteria.getReq_7().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -503,13 +531,17 @@ public class C_Requisitos_Visa_Loteria {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!loteria.getReq_8().isSelected()) {
                                 loteria.getReq_8().setSelected(true);
                                 Cargar_Imagen_8();
                                 loteria.getReq_8().setSelected(true);
                             } else if (loteria.getReq_8().isSelected()) {
                                 Cargar_Imagen_8();
+                            }
+                        } else {
+                            if (!loteria.getReq_8().isSelected()) {
+                                loteria.getReq_8().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
@@ -555,13 +587,17 @@ public class C_Requisitos_Visa_Loteria {
                             } else if (bi == null) {
                                 JOptionPane.showMessageDialog(null, "No Se Ha Cargado Un Requisito");
                             }
-                        } else {
+                        } else if (opcion == 0) {
                             if (!loteria.getReq_9().isSelected()) {
                                 loteria.getReq_9().setSelected(true);
                                 Cargar_Imagen_9();
                                 loteria.getReq_9().setSelected(true);
                             } else if (loteria.getReq_9().isSelected()) {
                                 Cargar_Imagen_9();
+                            }
+                        } else {
+                            if (!loteria.getReq_9().isSelected()) {
+                                loteria.getReq_9().setSelected(true);
                             }
                         }
                     } catch (Exception ex) {
