@@ -14,6 +14,7 @@ import Modelo.Buf_ConsultaDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import vista.V_Citas;
@@ -273,6 +274,22 @@ public class C_Citas {
         return true;
     }
 
+    public boolean Validar_Fecha_Actual() {
+
+        Date fechaActual = new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String fechaSistema = formateador.format(fechaActual);
+
+        Date fecha = (Date) citas.getJs_hora().getValue();
+        SimpleDateFormat Formato = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String fechas = Formato.format(fecha);
+
+        if (fecha.before(fechaActual)) {
+            return false;
+        }
+        return true;
+    }
+
     public int Id_Generator() {
 
         List<Buf_Consulta> List_consult = Co_DB.Getter();
@@ -309,7 +326,11 @@ public class C_Citas {
             if (Validar_Registro() == true) {
                 if (citas.getTxt_cedula().getText().length() == 10 && citas.getTxt_celular().getText().length() == 10) {
                     if (Validar_Hora() == true) {
-                        Subir_Datos();
+                        if (Validar_Fecha_Actual() == true) {
+                            Subir_Datos();
+                        } else {
+                            JOptionPane.showMessageDialog(null, "No Se Puede Registar Una Fecha Pasada", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
                     } else {
                         JOptionPane.showMessageDialog(null, "Ya Registra Una Cita Para La Fecha Seleccionada", "Informacion", JOptionPane.INFORMATION_MESSAGE);
                     }

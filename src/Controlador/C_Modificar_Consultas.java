@@ -12,6 +12,7 @@ import Modelo.Buf_ConsultaDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -165,14 +166,18 @@ public class C_Modificar_Consultas {
 
         if (Validar_Datos() == true) {
             if (Validar_Hora() == true) {
-                int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                switch (resp) {
-                    case 0:
-                        Cargar_Datos();
-                        break;
-                    case 1:
-                        JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                        break;
+                if (Validar_Fecha_Actual() == true) {
+                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
+                    switch (resp) {
+                        case 0:
+                            Cargar_Datos();
+                            break;
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
+                            break;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No Se Puede Registar Una Fecha Pasada", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
 
@@ -182,6 +187,22 @@ public class C_Modificar_Consultas {
             Campo_Vacio();
             JOptionPane.showMessageDialog(null, "LOS CAMPOS DEBEN ESTAR LLENOS");
         }
+    }
+
+    public boolean Validar_Fecha_Actual() {
+
+        Date fechaActual = new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String fechaSistema = formateador.format(fechaActual);
+
+        Date fecha = (Date) modificar.getJs_hora().getValue();
+        SimpleDateFormat Formato = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String fechas = Formato.format(fecha);
+
+        if (fecha.before(fechaActual)) {
+            return false;
+        }
+        return true;
     }
 
     public boolean Validar_Datos() {

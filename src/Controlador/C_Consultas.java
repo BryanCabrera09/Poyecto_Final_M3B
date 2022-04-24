@@ -12,6 +12,7 @@ import Modelo.Buf_ConsultaDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -141,7 +142,11 @@ public class C_Consultas {
         if (Validar_Datos() == true) {
             if (Validar_Registro() == true) {
                 if (Validar_Hora() == true) {
+                    if (Validar_Fecha_Actual() == true) {
                     Subir_Datos();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No Se Puede Registar Una Fecha Pasada", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "CONSULTA YA AGENDADA CON LA FECHA SELECCIONADA", "CITA", JOptionPane.INFORMATION_MESSAGE);
 
@@ -210,7 +215,6 @@ public class C_Consultas {
                     return false;
                 }
             }
-            return true;
         }
 
         if (List_consult.isEmpty()) {
@@ -219,7 +223,6 @@ public class C_Consultas {
                     return false;
                 }
             }
-            return true;
         }
 
         for (int i = 0; i < List_cita.size(); i++) {
@@ -228,6 +231,23 @@ public class C_Consultas {
                     return false;
                 }
             }
+        }
+
+        return true;
+    }
+
+    public boolean Validar_Fecha_Actual() {
+
+        Date fechaActual = new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String fechaSistema = formateador.format(fechaActual);
+
+        Date fecha = (Date) consultas.getJs_hora().getValue();
+        SimpleDateFormat Formato = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String fechas = Formato.format(fecha);
+
+        if (fecha.before(fechaActual)) {
+            return false;
         }
         return true;
     }
@@ -263,7 +283,7 @@ public class C_Consultas {
             JOptionPane.showMessageDialog(null, "Registro Guardado");
             Nuevo();
             Campos();
-            JOptionPane.showMessageDialog(null, "<html><b>CONSULTA AGENDADA</b><br><br>Caso " + caso.toUpperCase() + ", Para El " + hora+"</html>");
+            JOptionPane.showMessageDialog(null, "<html><b>CONSULTA AGENDADA</b><br><br>Caso " + caso.toUpperCase() + ", Para El " + hora + "</html>");
             consultas.getBtn_nuevo().setEnabled(true);
             consultas.getBtn_cancelar().setEnabled(false);
         } else {

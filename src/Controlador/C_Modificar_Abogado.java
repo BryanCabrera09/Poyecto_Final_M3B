@@ -82,7 +82,7 @@ public class C_Modificar_Abogado {
                 if (evt.getSource() == modificar.getTxt_cuenta()) {
                     char c = evt.getKeyChar();
 
-                    if (c >= '0' && c <= '9' && modificar.getTxt_cuenta().getText().length() <= 9) {
+                    if (c >= '0' && c <= '9' && modificar.getTxt_cuenta().getText().length() <= 8) {
 
                     } else {
                         evt.consume();

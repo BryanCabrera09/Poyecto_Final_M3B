@@ -14,6 +14,7 @@ import Modelo.Buf_ConsultaDB;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import vista.V_Consulta_Citas;
@@ -67,7 +68,7 @@ public class C_Modificacion_Citas {
 
             @Override
             public void keyPressed(KeyEvent evt) {
-                 if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
                     if (modificacion.getBtn_guardar().isEnabled()) {
                         modificacion.getBtn_guardar().doClick();
@@ -144,15 +145,19 @@ public class C_Modificacion_Citas {
 
         if (!modificacion.getTxt_celular().getText().isEmpty()) {
             if (Validar_Hora() == true) {
-                int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
-                switch (resp) {
-                    case 0:
-                        Cargar_Datos();
-                        break;
+                if (Validar_Fecha_Actual() == true) {
+                    int resp = JOptionPane.showConfirmDialog(null, "GUARDAR CAMBIOS", "AVISO", JOptionPane.YES_NO_OPTION);
+                    switch (resp) {
+                        case 0:
+                            Cargar_Datos();
+                            break;
 
-                    case 1:
-                        JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
-                        break;
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "MODIFICACION CANCELADA");
+                            break;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No Se Puede Registar Una Fecha Pasada", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
 
@@ -162,6 +167,22 @@ public class C_Modificacion_Citas {
             Campo_Vacio();
             JOptionPane.showMessageDialog(null, "LOS CAMPOS DEBEN ESTAR LLENOS");
         }
+    }
+
+    public boolean Validar_Fecha_Actual() {
+
+        Date fechaActual = new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String fechaSistema = formateador.format(fechaActual);
+
+        Date fecha = (Date) modificacion.getJs_hora().getValue();
+        SimpleDateFormat Formato = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String fechas = Formato.format(fecha);
+
+        if (fecha.before(fechaActual)) {
+            return false;
+        }
+        return true;
     }
 
     public void Cargar_Datos() {

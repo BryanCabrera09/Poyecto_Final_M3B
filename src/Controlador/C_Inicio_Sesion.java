@@ -310,6 +310,13 @@ public class C_Inicio_Sesion {
         if (List_usr.isEmpty()) {
             for (int i = 0; i < List_Adm.size(); i++) {
                 if (List_Adm.get(i).getContrasenia().equals(password)) {
+                    inicio.getRequisit().setVisible(false);
+                    inicio.getCitasConsultas().setVisible(false);
+                    inicio.getBtn_citas().setVisible(false);
+                    inicio.getBtn_VisualizarCaso().setVisible(false);
+                    inicio.getBtn_RegistroClienteCaso().setVisible(false);
+                    inicio.getBtn_consultas().setVisible(false);
+                    inicio.getjPanel1().add(inicio.getBtn_Inicio(), new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 80, 60));
                     return true;
                 }
             }
@@ -317,6 +324,13 @@ public class C_Inicio_Sesion {
         }
         for (int i = 0; i < List_Adm.size(); i++) {
             if (List_Adm.get(i).getContrasenia().equals(password)) {
+                inicio.getRequisit().setVisible(false);
+                inicio.getCitasConsultas().setVisible(false);
+                inicio.getBtn_citas().setVisible(false);
+                inicio.getBtn_VisualizarCaso().setVisible(false);
+                inicio.getBtn_RegistroClienteCaso().setVisible(false);
+                inicio.getBtn_consultas().setVisible(false);
+                inicio.getjPanel1().add(inicio.getBtn_Inicio(), new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 80, 60));
                 return true;
             }
         }
@@ -324,11 +338,11 @@ public class C_Inicio_Sesion {
             for (int i = 0; i < List_usr.size(); i++) {
                 for (int k = 0; k < List_secre.size(); k++) {
                     if ((List_usr.get(i).getContrasenia().equals(password) && List_usr.get(i).getCedula().equals(List_secre.get(k).getCedula()))) {
-                        inicio.getReg_abogado().setEnabled(false);
-                        inicio.getMod_abogado().setEnabled(false);
-                        inicio.getReg_secretaria().setEnabled(false);
-                        inicio.getMod_secretaria().setEnabled(false);
-                        inicio.getReg_usuario().setEnabled(false);
+                        inicio.getReg_abogado().setVisible(false);
+                        inicio.getMod_abogado().setVisible(false);
+                        inicio.getReg_secretaria().setVisible(false);
+                        inicio.getMod_secretaria().setVisible(false);
+                        inicio.getReg_usuario().setVisible(false);
                         return true;
                     }
                 }
@@ -339,8 +353,8 @@ public class C_Inicio_Sesion {
             for (int i = 0; i < List_usr.size(); i++) {
                 for (int j = 0; j < List_abg.size(); j++) {
                     if ((List_usr.get(i).getContrasenia().equals(password) && List_usr.get(i).getCedula().equals(List_abg.get(j).getCedula()))) {
-                        inicio.getReg_abogado().setEnabled(false);
-                        inicio.getMod_abogado().setEnabled(false);
+                        inicio.getReg_abogado().setVisible(false);
+                        inicio.getMod_abogado().setVisible(false);
                         return true;
                     }
                 }
@@ -351,15 +365,15 @@ public class C_Inicio_Sesion {
             for (int j = 0; j < List_abg.size(); j++) {
                 for (int k = 0; k < List_secre.size(); k++) {
                     if ((List_usr.get(i).getContrasenia().equals(password) && List_usr.get(i).getCedula().equals(List_abg.get(j).getCedula()))) {
-                        inicio.getReg_abogado().setEnabled(false);
-                        inicio.getMod_abogado().setEnabled(false);
+                        inicio.getReg_abogado().setVisible(false);
+                        inicio.getMod_abogado().setVisible(false);
                         return true;
                     } else if ((List_usr.get(i).getContrasenia().equals(password) && List_usr.get(i).getCedula().equals(List_secre.get(k).getCedula()))) {
-                        inicio.getReg_abogado().setEnabled(false);
-                        inicio.getMod_abogado().setEnabled(false);
-                        inicio.getReg_secretaria().setEnabled(false);
-                        inicio.getMod_secretaria().setEnabled(false);
-                        inicio.getReg_usuario().setEnabled(false);
+                        inicio.getReg_abogado().setVisible(false);
+                        inicio.getMod_abogado().setVisible(false);
+                        inicio.getReg_secretaria().setVisible(false);
+                        inicio.getMod_secretaria().setVisible(false);
+                        inicio.getReg_usuario().setVisible(false);
                         return true;
                     }
                 }

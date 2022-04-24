@@ -73,7 +73,7 @@ public class C_Registro_Abogado {
                 if (evt.getSource() == registro.getTxt_cuenta()) {
                     char c = evt.getKeyChar();
 
-                    if (c >= '0' && c <= '9' && registro.getTxt_cuenta().getText().length() <= 9) {
+                    if (c >= '0' && c <= '9' && registro.getTxt_cuenta().getText().length() <= 8) {
 
                     } else {
                         evt.consume();
